@@ -1,0 +1,156 @@
+FINAL ENGLISH DRAFT — ARITHMETIC REVIEW
+Date: 5 November 2026
+Reviewer: audit_arithmetic_full
+
+VERDICT: PASS within the assigned arithmetic/extraction/specialization scope.
+The entire two-file draft was read. No unresolved mathematical defect was
+found in that scope, and the full-appendix reading raised no additional
+blocking objection. The dedicated container reviewer remains responsible
+for the independent primary review of that new combinatorial lemma.
+This is an internal mathematical review, not proof-assistant certification
+or external peer review. Passing finite tests is not used as proof of the
+infinite-dimensional conclusion.
+
+EXACT REVIEWED SOURCES
+outputs/lagarias-zero-dimension/paper/lagarias_zero_dimension.tex
+SHA256 05e7b7729853591197a0e00772a50117927d9226280afec649b89dc5dd864801
+outputs/lagarias-zero-dimension/paper/causal_container.tex
+SHA256 1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750
+
+RESOLVED DEFECT
+The initial draft closed the display defining Z_j (line 269) with a
+literal ] instead of \]. This was reported to the parent and corrected.
+The hashes above are for the corrected source, including the subsequent
+editorial shortening of the introduction and the pair-lemma literal
+notation v=(i,a), w=(j,c). Both changes were inspected and leave the
+mathematical argument unchanged. No article files were
+modified by this reviewer.
+
+MATHEMATICAL CHECKS ON THE EXACT DRAFT
+
+1. Definition and specialization.
+Main lines 40–64 define E_2 using infinitely many nonnegative forward
+visits, and clearly separate it from countability and the point 1.
+The chosen visit exponents n_i are nonnegative, but differences n_i-n_0
+may be negative. This causes no problem: every 2^{n_i-n_0} is a 3-adic
+unit. The multiplier is not incorrectly treated as an ordinary integer.
+
+The general affine formula of Step 16 specializes to d_i=0 exactly,
+since f_n(x)=2^n x and C=Sigma. X=2^{n_0}x, c_i=2^{n_i-n_0}, and
+c_iX=2^{n_i}x. All normalized visits are genuine visits. In particular,
+the proof does not normalize by a non-visited limiting multiplier.
+
+2. ESS and tail extraction (main lines 135–194).
+The coefficients rho^{-1},-a_t are fixed for the chosen point and
+subsequence; their possible transcendence over Q does not invalidate
+ESS. The vector group <2> x <3>^j has finite rank 1+j. The left-hand
+terms have the distinct valuations 0,e_1,...,e_j, so every nonempty
+subsum is nonzero. Applying ESS over an algebraic closure of Q_3 and
+restricting its solutions back to Q_3 is valid.
+
+The compactness argument successively extracts limits of normalized
+unit tails. Exact stops are finite at every fixed finite stage by ESS.
+Thus arbitrarily many well-separated tails are obtained, but only a
+fixed finite number r is used at once. There is no illegitimate
+simultaneous extraction for all r.
+
+For each fixed finite K, integer approximations A_t satisfy the required
+finite maximum of accuracy conditions. The further true-visit anchor
+alpha_0 satisfies its own finite accuracy maximum. The correction to
+c_i^*, and each change a_t -> A_t, has valuation at least E_i+q.
+Consequently u_i = u_i^* modulo 3^q, hence u_i remains in Z_3^*.
+The draft never assumes u_i is an ordinary integer.
+
+3. Countable covers (main lines 196–209).
+The compact K_D is defined using the exact unit multipliers c_i.
+Its cover index uses only finite integer data and visit indices.
+The possibly uncountable limit coefficients rho,a_t have disappeared
+from that index. They establish existence of one admissible finite
+system for each x, and do not generate an uncountable union.
+The normalizing factor 2^{-n_0} is an isometry of Z_3, preserving the
+relevant dimensions and compactness.
+
+4. Exact carry identity (main lines 211–239).
+T=3^{E_i}u_iP is the correct d_i=0 specialization of Step 16.
+Its ordinary residue t_v lies in [0,3^v), and D_j is integral and
+known from X_{<j}. The r lower parts are nonnegative and less than
+3^v, so the integer carry is in {0,...,r-1}. Division by 3^v and
+reduction modulo 3^q give precisely the displayed relation. Neither
+signed A_t nor nonintegral rational/3-adic unit u_i changes this
+calculation. Intermediate digits may affect e, but only the bounded
+carry e, not the claimed prefix-dependent center D_j.
+
+5. Two-target reduction and capacity (main lines 103–133, 241–257).
+After low digits are fixed, the contribution u_i times the low part
+of B_0 belongs to the fixed center. The varying high part is multiplied
+by u_i modulo 3^k, an invertible map. The interval for y_low-e has
+strictly fewer than 2*3^b units of length, so each fixed residue has at
+most two representatives. Their high translates are fixed for the
+chosen low parts and center. Thus no uncontrolled extra target is lost.
+
+For the sumset lemma, H stabilizes the sum itself. The bound 3^h<=2^{h+1}
+implies h<=1. The quotient sum is aperiodic; all its partial sums are
+aperiodic, so repeated two-summand Kneser is valid. n_i<=2^{n_i-1}
+gives the stated B_{r,k}. The lemma is applied only after obtaining a
+full Cartesian product, not merely a collection of realized tuples.
+
+6. Interface with the finite causal lemma (main lines 259–322).
+The joint alphabet size Q=3^{(r-1)q} is a valid uniform upper bound.
+All edge roles use the indicated joint-window projections. The finite
+lemma explicitly permits nonlocal maps Z_j; the only causal requirement
+is on the relations, and D_j has the required dependency. Separated
+ranges of positive distances give the claimed positional codegree and
+future-position disjointness. Conditioning on X_{<j+b} fixes the low
+parts of each auxiliary window. Unit multiplication is then an affine
+bijection on the remaining high block, so all required projection
+sizes equal |C_j|. Prefix consistency of assigned alphabets is what
+allows all those conditional supports inside their assigned palettes.
+
+7. Entropy and limits (main lines 324–387).
+I read and checked these steps as a cross-check of the arithmetic
+interface. Each template role misses min(E_i,N) positions. Summed
+incidence error is bounded by r*k*log(3)*K*R. The window chain rule and
+missing multiplicities give the displayed boundary term. Parameter
+choices force theta, epsilon_F and eta to zero at fixed k,r. Each
+finite system has fixed R before L tends to infinity. Taking countable
+compact covers uses packing, not raw upper box, dimension. Sending
+r to infinity at fixed k and then k to infinity yields both zero
+conclusions, conditional on the established finite lemma.
+
+8. Entire appendix reading.
+I additionally read causal_container.tex lines 1–451. The proof
+explicitly distinguishes palette exclusions from retirement, records
+truth only through positive queries/heavy sources, and retains full
+origin labels. The pair bound concerns full origins. The charge maps
+use same-rank disjoint packets and lifetime insertion budgets. Replay
+uses final-fingerprint membership only at actual deterministic queries;
+its heavy/light branch argument accounts for the final domain of F.
+The main draft invokes exactly the conclusion stated there. I found no
+additional mismatch or arithmetic assumption hidden in this interface.
+The dedicated reviewer’s full mathematical and algorithmic audit is
+still a separate part of the combined review.
+
+SOURCE COMPARISON AND VALIDATION
+The arithmetic is the p=3, Y=Sigma, homogeneous-family specialization
+of Step 16, with the same ordinary-carry convention. It does not import
+the older balanced-carry convention accidentally. The previous review
+work/full_audit/arithmetic/REVIEW_RU.txt gives expanded proofs and
+primary-source references for ESS and Kneser.
+The independent check_arithmetic.py tests ordinary carries and integer
+approximations over more general primes and affine offsets, so in
+particular covers finite instances of the homogeneous specialization.
+No new numerical claim is introduced by this narrowed manuscript.
+
+No outstanding blocking arithmetic correction is requested.
+Any later substantive change to either reviewed file invalidates the
+exact hashes above and should be checked in a new review addendum.
+
+FINAL FORMATTING ADDENDUM
+The only changes after the previous exact-source review were removal of
+\clearpage before \appendix and removal of manual numerical prefixes
+from appendix section titles (including their PDF-string alternatives).
+I verified this byte-for-byte by reversing those precise edits and
+recovering BOTH previous SHA256 values. No mathematical body text,
+formula or manual equation tag changed. The source hashes at the top
+of this report identify the final frozen files. The verdict is unchanged.
+Machine-readable comparison: final_format_diff_check.json.

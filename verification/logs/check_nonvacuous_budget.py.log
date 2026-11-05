@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "N": 3072,
+  "edge_count": 1048576,
+  "alphabet_size": 2,
+  "arity": 3,
+  "pair_codegree": 1,
+  "thresholds": {
+    "source": 120,
+    "rank2": 5
+  },
+  "theta": "1/2",
+  "fingerprint_bound": "1536",
+  "actual_fingerprint_size": 5,
+  "bad_edge_bound": 768000,
+  "actual_bad_edges": 0,
+  "nonvacuous": true,
+  "full_fingerprint_replay": true,
+  "counters": {
+    "first_heavy_sources": 5,
+    "active_vertex_removals": 6144,
+    "palette_deletions": 1029,
+    "insertions_2": 5120,
+    "first_heavy_witnesses": 5120,
+    "queries_2": 1024,
+    "negative_queries_2": 1024,
+    "removals_2": 5120,
+    "bad_hyperedges": 0,
+    "recorded_source_bad_hyperedges": 0,
+    "full_forbidden_origins": 5120,
+    "original_hyperedges": 1048576
+  }
+}

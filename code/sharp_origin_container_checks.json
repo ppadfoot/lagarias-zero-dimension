@@ -1,0 +1,632 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact integers and finite sets",
+  "scope": "Targeted check of the sharper full-origin constant D=C*Q**(r-3) on the unchanged stage11 fixtures. All per-origin charges, queue invariants, full-fingerprint replay and support checks remain enabled. Universal proofs are separate.",
+  "models": [
+    {
+      "name": "triple_two_templates",
+      "arity": 3,
+      "length": 11,
+      "q": 1,
+      "alphabet_size": 2,
+      "pair_codegree": 2,
+      "origin_pair_codegree_bound": 2,
+      "candidate_word_count": 2048,
+      "candidate_family": "All binary words with positions at or above candidate_bits fixed to zero.",
+      "candidate_bits": 11,
+      "query_order": "min",
+      "feasible_in_candidate_family": 140,
+      "tested_words": 64,
+      "thresholds": [
+        [
+          1,
+          {
+            "2": 2
+          }
+        ],
+        [
+          2,
+          {
+            "2": 3
+          }
+        ]
+      ],
+      "counts": {
+        "full_fingerprint_replays": 128,
+        "active_vertex_removals": 2816,
+        "first_heavy_sources": 442,
+        "palette_deletions": 547,
+        "insertions_2": 579,
+        "first_heavy_witnesses": 563,
+        "queries_2": 109,
+        "negative_queries_2": 83,
+        "removals_2": 579,
+        "retired_edges_2": 228,
+        "bad_hyperedges": 647,
+        "recorded_source_bad_hyperedges": 174,
+        "full_forbidden_origins": 605,
+        "original_hyperedges": 1792,
+        "max_positive_query_depth": 1,
+        "positive_queries_2": 26,
+        "known_endpoint_reductions": 11,
+        "known_endpoint_prunings": 11,
+        "same_prefix_fingerprint_state_comparisons": 633,
+        "actual_conditional_support_inclusions": 1408,
+        "runs": 128
+      }
+    },
+    {
+      "name": "four_two_templates",
+      "arity": 4,
+      "length": 15,
+      "q": 1,
+      "alphabet_size": 2,
+      "pair_codegree": 3,
+      "origin_pair_codegree_bound": 6,
+      "candidate_word_count": 32768,
+      "candidate_family": "All binary words with positions at or above candidate_bits fixed to zero.",
+      "candidate_bits": 15,
+      "query_order": "min",
+      "feasible_in_candidate_family": 983,
+      "tested_words": 64,
+      "thresholds": [
+        [
+          1,
+          {
+            "2": 2,
+            "3": 3
+          }
+        ],
+        [
+          2,
+          {
+            "2": 3,
+            "3": 5
+          }
+        ],
+        [
+          1,
+          {
+            "2": 8,
+            "3": 2
+          }
+        ]
+      ],
+      "counts": {
+        "full_fingerprint_replays": 192,
+        "first_heavy_sources": 1084,
+        "active_vertex_removals": 5760,
+        "palette_deletions": 1459,
+        "insertions_3": 2612,
+        "first_heavy_witnesses": 1315,
+        "removals_3": 2612,
+        "queries_3": 522,
+        "positive_queries_3": 216,
+        "insertions_2": 851,
+        "queries_2": 80,
+        "negative_queries_2": 80,
+        "removals_2": 851,
+        "negative_queries_3": 306,
+        "retired_edges_3": 751,
+        "bad_hyperedges": 996,
+        "recorded_source_bad_hyperedges": 309,
+        "full_forbidden_origins": 2841,
+        "original_hyperedges": 2880,
+        "max_positive_query_depth": 1,
+        "known_endpoint_reductions": 78,
+        "retired_edges_2": 211,
+        "same_prefix_fingerprint_state_comparisons": 666,
+        "actual_conditional_support_inclusions": 2880,
+        "runs": 192,
+        "known_endpoint_prunings": 5
+      }
+    },
+    {
+      "name": "four_overlapping_windows",
+      "arity": 4,
+      "length": 13,
+      "q": 2,
+      "alphabet_size": 4,
+      "pair_codegree": 3,
+      "origin_pair_codegree_bound": 12,
+      "candidate_word_count": 8192,
+      "candidate_family": "All binary words with positions at or above candidate_bits fixed to zero.",
+      "candidate_bits": 13,
+      "query_order": "min",
+      "feasible_in_candidate_family": 2361,
+      "tested_words": 64,
+      "thresholds": [
+        [
+          1,
+          {
+            "2": 2,
+            "3": 3
+          }
+        ],
+        [
+          1,
+          {
+            "2": 7,
+            "3": 2
+          }
+        ],
+        [
+          2,
+          {
+            "2": 4,
+            "3": 6
+          }
+        ]
+      ],
+      "counts": {
+        "full_fingerprint_replays": 192,
+        "first_heavy_sources": 419,
+        "active_vertex_removals": 9216,
+        "palette_deletions": 3357,
+        "insertions_3": 4167,
+        "queries_3": 1480,
+        "negative_queries_3": 985,
+        "removals_3": 4167,
+        "positive_queries_3": 495,
+        "insertions_2": 1808,
+        "queries_2": 325,
+        "negative_queries_2": 259,
+        "removals_2": 1808,
+        "first_heavy_witnesses": 419,
+        "known_endpoint_reductions": 521,
+        "bad_hyperedges": 608,
+        "recorded_source_bad_hyperedges": 224,
+        "full_forbidden_origins": 7495,
+        "original_hyperedges": 1152,
+        "max_positive_query_depth": 2,
+        "positive_queries_2": 66,
+        "nested_strictly_lower_rank_positive_queries": 35,
+        "retired_edges_3": 98,
+        "retired_edges_2": 402,
+        "same_prefix_fingerprint_state_comparisons": 446,
+        "actual_conditional_support_inclusions": 2304,
+        "runs": 192
+      }
+    },
+    {
+      "name": "five_levels_nested",
+      "arity": 5,
+      "length": 13,
+      "q": 1,
+      "alphabet_size": 2,
+      "pair_codegree": 4,
+      "origin_pair_codegree_bound": 16,
+      "candidate_word_count": 8192,
+      "candidate_family": "All binary words with positions at or above candidate_bits fixed to zero.",
+      "candidate_bits": 13,
+      "query_order": "min",
+      "feasible_in_candidate_family": 854,
+      "tested_words": 64,
+      "thresholds": [
+        [
+          1,
+          {
+            "2": 2,
+            "3": 3,
+            "4": 4
+          }
+        ],
+        [
+          1,
+          {
+            "2": 6,
+            "3": 2,
+            "4": 3
+          }
+        ],
+        [
+          2,
+          {
+            "2": 3,
+            "3": 4,
+            "4": 6
+          }
+        ]
+      ],
+      "counts": {
+        "full_fingerprint_replays": 192,
+        "first_heavy_sources": 710,
+        "active_vertex_removals": 4992,
+        "palette_deletions": 1200,
+        "insertions_4": 2587,
+        "first_heavy_witnesses": 710,
+        "removals_4": 2587,
+        "queries_4": 547,
+        "positive_queries_4": 272,
+        "insertions_3": 1057,
+        "queries_3": 318,
+        "negative_queries_3": 234,
+        "removals_3": 1057,
+        "negative_queries_4": 275,
+        "insertions_2": 280,
+        "queries_2": 56,
+        "negative_queries_2": 56,
+        "removals_2": 280,
+        "bad_hyperedges": 644,
+        "recorded_source_bad_hyperedges": 68,
+        "full_forbidden_origins": 3184,
+        "original_hyperedges": 1728,
+        "max_positive_query_depth": 2,
+        "retired_edges_4": 292,
+        "retired_edges_3": 104,
+        "same_prefix_fingerprint_state_comparisons": 779,
+        "actual_conditional_support_inclusions": 2496,
+        "runs": 192,
+        "positive_queries_3": 84,
+        "nested_strictly_lower_rank_positive_queries": 24,
+        "retired_edges_2": 48,
+        "known_endpoint_reductions": 57
+      }
+    },
+    {
+      "name": "five_overlapping_windows",
+      "arity": 5,
+      "length": 13,
+      "q": 2,
+      "alphabet_size": 4,
+      "pair_codegree": 2,
+      "origin_pair_codegree_bound": 32,
+      "candidate_word_count": 8192,
+      "candidate_family": "All binary words with positions at or above candidate_bits fixed to zero.",
+      "candidate_bits": 13,
+      "query_order": "min",
+      "feasible_in_candidate_family": 3588,
+      "tested_words": 64,
+      "thresholds": [
+        [
+          1,
+          {
+            "2": 2,
+            "3": 3,
+            "4": 4
+          }
+        ],
+        [
+          1,
+          {
+            "2": 8,
+            "3": 2,
+            "4": 5
+          }
+        ],
+        [
+          2,
+          {
+            "2": 4,
+            "3": 5,
+            "4": 7
+          }
+        ]
+      ],
+      "counts": {
+        "full_fingerprint_replays": 192,
+        "first_heavy_sources": 288,
+        "active_vertex_removals": 9216,
+        "palette_deletions": 2954,
+        "insertions_4": 4469,
+        "queries_4": 928,
+        "positive_queries_4": 375,
+        "removals_4": 4469,
+        "insertions_3": 1883,
+        "queries_3": 749,
+        "positive_queries_3": 188,
+        "nested_strictly_lower_rank_positive_queries": 78,
+        "removals_3": 1883,
+        "insertions_2": 840,
+        "queries_2": 142,
+        "negative_queries_2": 142,
+        "removals_2": 840,
+        "known_endpoint_reductions": 1304,
+        "first_heavy_witnesses": 288,
+        "negative_queries_3": 561,
+        "bad_hyperedges": 332,
+        "recorded_source_bad_hyperedges": 76,
+        "full_forbidden_origins": 17796,
+        "original_hyperedges": 768,
+        "max_positive_query_depth": 2,
+        "negative_queries_4": 553,
+        "same_prefix_fingerprint_state_comparisons": 436,
+        "actual_conditional_support_inclusions": 2304,
+        "runs": 192,
+        "retired_edges_2": 360,
+        "retired_edges_4": 64
+      }
+    },
+    {
+      "name": "six_levels_nested",
+      "arity": 6,
+      "length": 12,
+      "q": 1,
+      "alphabet_size": 2,
+      "pair_codegree": 5,
+      "origin_pair_codegree_bound": 40,
+      "candidate_word_count": 4096,
+      "candidate_family": "All binary words with positions at or above candidate_bits fixed to zero.",
+      "candidate_bits": 12,
+      "query_order": "min",
+      "feasible_in_candidate_family": 835,
+      "tested_words": 64,
+      "thresholds": [
+        [
+          1,
+          {
+            "2": 2,
+            "3": 3,
+            "4": 4,
+            "5": 5
+          }
+        ],
+        [
+          1,
+          {
+            "2": 8,
+            "3": 3,
+            "4": 2,
+            "5": 6
+          }
+        ],
+        [
+          2,
+          {
+            "2": 3,
+            "3": 4,
+            "4": 5,
+            "5": 7
+          }
+        ]
+      ],
+      "counts": {
+        "full_fingerprint_replays": 192,
+        "first_heavy_sources": 440,
+        "active_vertex_removals": 4608,
+        "palette_deletions": 961,
+        "insertions_5": 2522,
+        "queries_5": 385,
+        "positive_queries_5": 208,
+        "removals_5": 2522,
+        "insertions_4": 1222,
+        "queries_4": 369,
+        "positive_queries_4": 183,
+        "nested_strictly_lower_rank_positive_queries": 99,
+        "removals_4": 1222,
+        "insertions_3": 602,
+        "first_heavy_witnesses": 440,
+        "removals_3": 602,
+        "insertions_2": 131,
+        "queries_2": 34,
+        "negative_queries_2": 34,
+        "removals_2": 131,
+        "known_endpoint_reductions": 439,
+        "queries_3": 62,
+        "negative_queries_3": 59,
+        "retired_edges_3": 160,
+        "bad_hyperedges": 555,
+        "recorded_source_bad_hyperedges": 107,
+        "full_forbidden_origins": 4012,
+        "original_hyperedges": 1344,
+        "max_positive_query_depth": 3,
+        "negative_queries_4": 186,
+        "negative_queries_5": 177,
+        "retired_edges_4": 69,
+        "same_prefix_fingerprint_state_comparisons": 878,
+        "retired_edges_5": 75,
+        "positive_queries_3": 3,
+        "retired_edges_2": 11,
+        "actual_conditional_support_inclusions": 2304,
+        "runs": 192,
+        "duplicate_promotions_merged": 2
+      }
+    },
+    {
+      "name": "five_deferred_projection_packets",
+      "arity": 5,
+      "length": 23,
+      "q": 1,
+      "alphabet_size": 2,
+      "pair_codegree": 4,
+      "origin_pair_codegree_bound": 16,
+      "candidate_word_count": 65536,
+      "candidate_family": "All binary words with positions at or above candidate_bits fixed to zero.",
+      "candidate_bits": 16,
+      "query_order": "min",
+      "feasible_in_candidate_family": 245,
+      "tested_words": 64,
+      "thresholds": [
+        [
+          1,
+          {
+            "2": 1,
+            "3": 2,
+            "4": 100
+          }
+        ],
+        [
+          1,
+          {
+            "2": 2,
+            "3": 4,
+            "4": 100
+          }
+        ],
+        [
+          1,
+          {
+            "2": 1,
+            "3": 1,
+            "4": 100
+          }
+        ],
+        [
+          1,
+          {
+            "2": 2,
+            "3": 2,
+            "4": 10
+          }
+        ]
+      ],
+      "counts": {
+        "full_fingerprint_replays": 256,
+        "first_heavy_sources": 3313,
+        "active_vertex_removals": 11776,
+        "palette_deletions": 4128,
+        "insertions_4": 13594,
+        "first_heavy_witnesses": 3874,
+        "removals_4": 13594,
+        "insertions_3": 2623,
+        "queries_3": 1125,
+        "negative_queries_3": 770,
+        "removals_3": 2623,
+        "positive_queries_3": 355,
+        "higher_or_equal_rank_projections_deferred": 101,
+        "insertions_2": 648,
+        "queries_2": 436,
+        "negative_queries_2": 409,
+        "removals_2": 648,
+        "retired_edges_4": 4852,
+        "positive_queries_2": 27,
+        "nested_strictly_lower_rank_positive_queries": 18,
+        "known_endpoint_reductions": 305,
+        "retired_edges_3": 156,
+        "bad_hyperedges": 422,
+        "recorded_source_bad_hyperedges": 422,
+        "full_forbidden_origins": 14916,
+        "original_hyperedges": 5632,
+        "max_positive_query_depth": 2,
+        "actual_conditional_support_inclusions": 5888,
+        "runs": 256,
+        "retired_edges_2": 15
+      }
+    },
+    {
+      "name": "five_reverse_query_order",
+      "arity": 5,
+      "length": 16,
+      "q": 1,
+      "alphabet_size": 2,
+      "pair_codegree": 4,
+      "origin_pair_codegree_bound": 16,
+      "candidate_word_count": 16384,
+      "candidate_family": "All binary words with positions at or above candidate_bits fixed to zero.",
+      "candidate_bits": 14,
+      "query_order": "max",
+      "feasible_in_candidate_family": 941,
+      "tested_words": 64,
+      "thresholds": [
+        [
+          1,
+          {
+            "2": 2,
+            "3": 3,
+            "4": 4
+          }
+        ],
+        [
+          1,
+          {
+            "2": 8,
+            "3": 3,
+            "4": 6
+          }
+        ],
+        [
+          1,
+          {
+            "2": 100,
+            "3": 100,
+            "4": 3
+          }
+        ],
+        [
+          2,
+          {
+            "2": 3,
+            "3": 4,
+            "4": 6
+          }
+        ]
+      ],
+      "counts": {
+        "full_fingerprint_replays": 256,
+        "active_vertex_removals": 8192,
+        "first_heavy_sources": 1403,
+        "palette_deletions": 1827,
+        "insertions_4": 4984,
+        "queries_4": 607,
+        "negative_queries_4": 333,
+        "removals_4": 4984,
+        "first_heavy_witnesses": 1403,
+        "retired_edges_4": 1112,
+        "insertions_3": 1838,
+        "removals_3": 1838,
+        "insertions_2": 322,
+        "removals_2": 322,
+        "positive_queries_4": 274,
+        "retired_edges_3": 690,
+        "bad_hyperedges": 1011,
+        "recorded_source_bad_hyperedges": 243,
+        "full_forbidden_origins": 5766,
+        "original_hyperedges": 3072,
+        "max_positive_query_depth": 1,
+        "queries_2": 51,
+        "negative_queries_2": 51,
+        "queries_3": 103,
+        "negative_queries_3": 103,
+        "known_endpoint_reductions": 413,
+        "same_prefix_fingerprint_state_comparisons": 599,
+        "actual_conditional_support_inclusions": 4096,
+        "runs": 256,
+        "retired_edges_2": 109
+      }
+    }
+  ],
+  "totals": {
+    "full_fingerprint_replays": 1600,
+    "active_vertex_removals": 56576,
+    "first_heavy_sources": 8099,
+    "palette_deletions": 16433,
+    "insertions_2": 5459,
+    "first_heavy_witnesses": 9012,
+    "queries_2": 1233,
+    "negative_queries_2": 1114,
+    "removals_2": 5459,
+    "retired_edges_2": 1384,
+    "bad_hyperedges": 5215,
+    "recorded_source_bad_hyperedges": 1623,
+    "full_forbidden_origins": 56615,
+    "original_hyperedges": 18368,
+    "positive_queries_2": 119,
+    "known_endpoint_reductions": 3128,
+    "known_endpoint_prunings": 16,
+    "same_prefix_fingerprint_state_comparisons": 4437,
+    "actual_conditional_support_inclusions": 23680,
+    "runs": 1600,
+    "max_positive_query_depth": 3,
+    "insertions_3": 14782,
+    "removals_3": 14782,
+    "queries_3": 4359,
+    "positive_queries_3": 1341,
+    "negative_queries_3": 3018,
+    "retired_edges_3": 1959,
+    "nested_strictly_lower_rank_positive_queries": 254,
+    "insertions_4": 26856,
+    "removals_4": 26856,
+    "queries_4": 2451,
+    "positive_queries_4": 1104,
+    "negative_queries_4": 1347,
+    "retired_edges_4": 6389,
+    "insertions_5": 2522,
+    "queries_5": 385,
+    "positive_queries_5": 208,
+    "removals_5": 2522,
+    "negative_queries_5": 177,
+    "retired_edges_5": 75,
+    "duplicate_promotions_merged": 2,
+    "higher_or_equal_rank_projections_deferred": 101
+  }
+}

@@ -1,0 +1,93 @@
+FINAL ENGLISH-DRAFT REVIEW — CAUSAL CONTAINERS AND THEIR APPLICATION
+5 November 2026
+
+Files reviewed completely, including the new narrow specialization to E_2:
+/Users/timofejuzakov/Documents/Codex/2026-11-05/x20/outputs/lagarias-zero-dimension/paper/lagarias_zero_dimension.tex
+SHA256 05e7b7729853591197a0e00772a50117927d9226280afec649b89dc5dd864801
+/Users/timofejuzakov/Documents/Codex/2026-11-05/x20/outputs/lagarias-zero-dimension/paper/causal_container.tex
+SHA256 1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750
+
+Final status: PASS — internal analytic review of the finite causal lemma,
+its conditional-support application, and the reviewed proof chain.
+NO BLOCKING MATHEMATICAL ISSUE FOUND in this exact reviewed version.
+The finite causal lemma and the full-product/conditional-support application
+are valid under the exact assumptions written. The specialization from the
+Stage 16 general affine theorem to powers of 2 preserves the proof and is a
+clearer publication scope. Both Hausdorff and packing dimension conclusions
+are supported by the same chain, conditional only on the stated standard
+external ESS and Kneser theorems. Those original external papers are being
+checked separately by the other review roles; I do not claim independent
+source verification of all their bibliographic details here.
+
+Detailed findings
+1. The appendix preserves the exact pair-origin constant C Q^(r-3), the
+   source matching hypothesis, all-rank snapshot/recording, synchronous
+   rank-two exclusions, frozen-rank scheduler, finite termination, lifetime
+   insertion accounting, separate source/rank charge maps, chronological
+   retirement payments, and reconstruction from the final unordered F.
+   The extraction/formatting from Stage 16 has removed no essential step.
+2. Appendix lines 43–74 explicitly require at most one recorded pair per
+   position and theta<=1/2. These are the exact requirements for the stated
+   entropy bound. Source alternatives and discovery order incur no missing
+   factors: light sources pay Q and replay determines the algorithm's order.
+3. Main lines 265–280 use the full joint alphabet of size 3^((r-1)q).
+   No assumption that this whole letter is available at its left endpoint
+   has been introduced. The appendix explicitly allows arbitrary Z_i(x).
+4. Main lines 301–321 use the realized shorter prefix and F to identify one
+   assigned A_j; conditioning additionally on X_<j+b yields a subset of this
+   same A_j. Every selected row is an affine unit image of the input high
+   block. Full product compatibility permits all separately selected factors,
+   even though they need not occur in a single input. This avoids the known
+   false inference from only actual tuple compatibility.
+5. Main lines 324–357 use safe bounds on boundary incidence and overlapping
+   blocks, and include both H(F) and H(X|F). I checked the factors r,K,k in
+   the passage from edge bounds to the displayed finite entropy estimate.
+6. Main lines 360–387 take L to infinity only after fixing the finite system,
+   then use a countable cover; the growing R does not require a uniform bound.
+   The stated threshold powers make theta and eta tend to zero for fixed r,k.
+   The successive limits yield dim_P=0 and hence dim_H=0. The explicit
+   countable compact-cover conclusion follows by choosing k,r,u in that order.
+7. Main lines 389–403 accurately separate finite regression checks, internal
+   agent reviews, external peer review and proof-assistant verification.
+   Sole authorship is Timofei Iuzhakov as requested.
+
+Final source-freeze reconciliation
+The final layout-only changes were checked by reversing them in memory and
+comparing exact SHA256 hashes. Restoring only \clearpage before \appendix in
+the final main file reproduces the preceding reviewed hash
+4dc6d4d62eeb9a643ee804d6cfa894c5e9618c2336b4699c6641932ff517b9ec.
+Restoring only the manual prefixes 1., 4.1, 8.2, etc. in the final appendix's
+section headings reproduces the preceding reviewed hash
+26d6374580b4504218885125d12d34e72448f6e6b355297b9170dc901b197005.
+No mathematical paragraph, formula, equation tag, hypothesis or conclusion
+changed in this final layout pass.
+
+The preceding revision had already been reconciled exactly: undoing only its
+introduction-paragraph change reproduced the fully read main-file hash
+0dbfe16a0f704e76bed1c8ad7a332ea0e0122ffd928ead8c48c04d47cc1d5efd;
+undoing only its literal-notation correction reproduced the fully read
+appendix hash c1d122119fafcbf128e8018694d77c4f0e93fa569d6011518fd4a7c5ee63f635.
+The literal/position collision is corrected to v=(i,a), w=(j,c), and the joint
+letter display closes correctly. The final version therefore preserves the
+mathematics reviewed in full. Final PASS applies to the exact two source
+hashes at the top of this report. There are no outstanding findings from this
+review. No paper source was edited by this reviewer.
+
+Supplementary checks
+The detailed original-manuscript audit and finite test results are in the
+same directory as this report (REVIEW.txt and three JSON files).
+Commands, with assertions enabled and Python >=3.10:
+ python3.11 upstream_container_engine.py
+ python3.11 check_nonlocal_replay.py
+ python3.11 check_nonvacuous_budget.py
+The engine was inspected and copied unchanged from the downloaded archive;
+the two added test drivers and their direct support/product checks are new.
+All three completed successfully. The nonlocal check uses exact rational
+arithmetic for its fingerprint inequality. The nonvacuous example has
+1,048,576 positional edges and guaranteed bad-edge bound 768,000, theta=1/2,
+actual fingerprint size 5, actual bad-edge count 0, and exact replay.
+
+This is an internal mathematical review of identified source hashes, not a
+claim of formal certification or external expert acceptance. Any subsequent
+mathematical change to the source requires checking that change; this verdict
+must not be attached to an unrelated or revised text without reconciliation.

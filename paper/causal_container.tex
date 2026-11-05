@@ -1,0 +1,452 @@
+
+\subsection{Exact theorem}\label{exact-theorem}
+
+Let \(r\ge3\), let \(V_0=\{0,\ldots,N-1\}\), let \(\Omega\) be a finite alphabet of size \(Q\), and let \(\mathcal W\subseteq\mathcal X^L\) be nonempty, where \(\mathcal X\) is any finite input alphabet. For every \(i\in V_0\), a word \(x\) determines a letter \(Z_i(x)\in\Omega\). No locality hypothesis on the maps \(Z_i\) is needed for this finite theorem.
+
+Let \(\mathcal E\) be a fixed family of ordered positional edges
+
+\[
+e=(s=i_0<i_1<\cdots<i_{r-1}).
+\]
+
+For each edge there is a relation \(\mathcal R_e(x_{<s})\subseteq\Omega^r\), depending only on the indicated input prefix, and every \(x\in\mathcal W\) satisfies
+
+\[
+(Z_{i_0}(x),\ldots,Z_{i_{r-1}}(x))\in\mathcal R_e(x_{<s}).
+\]
+
+Assume:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  for a fixed source \(s\), the future position sets \(e\setminus\{s\}\) of distinct outgoing edges are disjoint;
+\item
+  every unordered pair of positions belongs to at most \(C\) positional edges.
+\end{enumerate}
+
+Fix positive integer thresholds \(T_{\rm s},T_2,\ldots,T_{r-1}\), and put
+
+\[
+D=CQ^{r-3},
+\]
+
+\[
+\theta=Q\left[
+\frac{D\sum_{j=2}^{r-1}T_j+1}{T_{\rm s}}
++\frac1{T_2}
++D\sum_{j=3}^{r-1}\frac{1+\sum_{l=2}^{j-1}T_l}{T_j}
+\right].
+\]
+
+Assume \(\theta\le1/2\). Then each word can be assigned a set \(F(x)\) of at most \(\theta N\) pairs \((i,Z_i(x))\), with at most one pair for each position, and nonempty sets \(A_i(x)\subseteq\Omega\), such that:
+
+\begin{itemize}
+\tightlist
+\item
+  \(Z_i(x)\in A_i(x)\);
+\item
+  \(A_i(x)\) is determined by \((x_{<i},F(x))\);
+\item
+  except for at most
+\end{itemize}
+
+\[
+Q\left(T_{\rm s}+D\sum_{j=2}^{r-1}T_j\right)N
+\]
+
+edges, the full product of the assigned alphabets is compatible:
+
+\[
+\prod_{\nu=0}^{r-1}A_{i_\nu}(x)\subseteq\mathcal R_e(x_{<i_0});
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  for every distribution on \(\mathcal W\),
+\end{itemize}
+
+\[
+H(F)\le N\bigl[h(\theta)+\theta\log Q\bigr],
+\qquad
+h(t)=-t\log t-(1-t)\log(1-t).
+\]
+
+The window parameter \(q\) in the application only sets \(N=L-q+1\); the abstract theorem itself does not involve windows.
+
+\subsection{Literals, truth, and complete origins}\label{literals-truth-and-complete-origins}
+
+Fix one realized word \(x\) for the construction and counting arguments, and write \(z_i=Z_i(x)\). A \textbf{literal} is a pair \((i,a)\) with \(a\in\Omega\). A literal is true if \(a=z_i\). There are \(QN\) literals.
+
+A \textbf{complete origin} consists of:
+
+\begin{itemize}
+\tightlist
+\item
+  one positional edge \(e=(s,i_1,\ldots,i_{r-1})\);
+\item
+  one assignment \((a_1,\ldots,a_{r-1})\) of letters to its future positions;
+\item
+  the condition
+\end{itemize}
+
+\[
+(z_s,a_1,\ldots,a_{r-1})\notin\mathcal R_e(x_{<s}).
+\]
+
+The source argument is the one fixed true source letter. An origin is therefore a forbidden future set of \(r-1\) literals. It always contains a false literal: otherwise the realized word would violate its original relation.
+
+A projection of an origin removes some true literals whose positions have been explicitly recorded. An origin becomes irrelevant when any of its required literals is excluded from a palette. An origin may also be discarded at the chronological retirement of an unrecorded position; this latter loss will be charged to the bad-edge budget.
+
+\subsubsection{Pair multiplicity lemma}\label{pair-multiplicity-lemma}
+
+For any two future literals \(v=(i,a)\), \(w=(j,c)\) at distinct positions, at most \(D=CQ^{r-3}\) complete origins contain both.
+
+\textbf{Proof.} There are at most \(C\) original positional edges containing the two positions. In any origin whose future set contains both literals, its source is earlier than both and its source letter is already fixed to the true letter. The two prescribed future letters leave only \(r-3\) future letters unspecified. There are at most \(Q^{r-3}\) possibilities. Sum over the at most \(C\) edges. \(\square\)
+
+This is a bound on distinct full origins over the entire execution for this word. It is not a bound on the number of historical projection shapes. The distinction is essential: an origin can appear successively at several ranks, but its complete label is unchanged.
+
+One may define the universe of all complete origins at the outset for purposes of counting, even though the actual algorithm enumerates an origin only when its source is processed. Thus an origin selected just before synchronous palette deletions can be charged to those deletions even if its queue job has not yet been materialized.
+
+\subsection{State and invariants}\label{state-and-invariants}
+
+Each position \(i\) has a palette \(S_i\), initially \(\Omega\). Palettes only shrink, and the true letter is always retained.
+
+A position is \textbf{recorded} when its true letter is put in the fingerprint. Its palette then becomes the singleton \(\{z_i\}\). A recorded true literal remains in that palette but is inactive in all graphs.
+
+An unprocessed, unrecorded literal in its current palette is active. At the chronological retirement of a position, all its remaining active literals become inactive permanently. Inactivity and palette exclusion are different operations.
+
+For each \(2\le j\le r-1\), maintain a simple \(j\)-uniform hypergraph \(J_j\) on active literals. Every physical hyperedge carries one or more complete-origin labels. All labels carried by a physical edge have that edge as their current projection.
+
+Also maintain a finite queue of jobs. A job contains a projected set of literals, the full-origin labels it owns, and a frozen rank bound. Its actual remaining arity may fall below that bound when recorded literals are substituted or excluded literals are noticed. The bound never increases along an origin's history.
+
+We maintain:
+
+\textbf{I1. Truth preservation.} Every palette contains its true letter.
+
+\textbf{I2. Unique ownership.} Each live origin has exactly one current owner: one physical edge or one queued job. Equal physical edges merge their label sets. Origins never branch.
+
+\textbf{I3. Sound projection.} A live projection is obtained from its complete origin only by removing recorded true literals. No unrecorded true value is silently substituted.
+
+\textbf{I4. No false resurrection.} A literal excluded from its palette never returns. An inactive literal never becomes active again.
+
+\textbf{I5. Degree control.} Immediately before every physical insertion, all active degrees in each \(J_j\) are strictly less than \(T_j\). At the instant any active literal is removed, its degree in \(J_j\) is at most \(T_j\).
+
+\textbf{I6. Source barriers.} Before the chronological retirement of a position, and before the next source is processed, every queue is empty.
+
+All choices---edge order, literal order, witness order, and queue tie breaking---are fixed deterministically from the available state. The full realized word is used only to answer an explicitly posed equality query and to select the heavy or light actual source branch. Replay will eliminate the latter dependence.
+
+\subsection{Primitive operations}\label{primitive-operations}
+
+\subsubsection{Excluding a false literal}\label{excluding-a-false-literal}
+
+Delete the literal from its palette and from the active graphs. Every active graph origin requiring it becomes irrelevant. A queued origin requiring it is likewise irrelevant, even if its job discovers this only later. Record the time of the actual palette exclusion for accounting; a later inspection of the job is not a second deletion event.
+
+A negative equality query is one way to exclude a false literal. Unit propagation from a valid forbidden projection is another.
+
+\subsubsection{Recording a true literal}\label{recording-a-true-literal}
+
+For an active literal \(v=(i,z_i)\):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  first snapshot and take ownership of all physical edges incident to \(v\), in every rank, with their origin labels;
+\item
+  add \((i,z_i)\) to the fingerprint; exclude all other palette letters at position \(i\); deactivate \(v\), preserving its singleton palette;
+\item
+  for every snapshotted rank-two edge \(\{v,w\}\), exclude \(w\), before inserting any new physical edge;
+\item
+  for every other snapshotted edge \(B\), put \(B\setminus\{v\}\), with its origin labels, into a queue with frozen rank \(|B|-1\).
+\end{enumerate}
+
+The order can be implemented without ambiguity by first removing all snapshotted physical edges from the graph and giving their labels to their projected jobs or unit consequences. Exclusions can make some of those projected jobs irrelevant before they are later inspected.
+
+Every rank-two neighbor is false: if it were true, an origin of the edge, together with the previously substituted true literals, would make the original forbidden assignment entirely true. Thus I1 is preserved.
+
+Edges contain at most one literal from any position, because they are projections of positional edges. In particular, the other letters excluded at position \(i\) do not form second ends of the saved edges incident to \(v\).
+
+\subsubsection{Processing a job}\label{processing-a-job}
+
+If a required letter has been excluded from its palette, discard the job's origins. Otherwise substitute every recorded true literal in it. A letter at a recorded position that does not match the recorded value was already excluded and falls under the first case.
+
+There cannot be zero remaining literals, because then a forbidden origin would be entirely true. With one remaining literal, exclude that false literal. With \(j\ge2\) remaining literals, insert their set into \(J_j\), or merge the origin labels if that physical edge already exists.
+
+A merge does not increase any physical degree and is not a physical insertion.
+
+\subsubsection{Degree-triggered queries}\label{degree-triggered-queries}
+
+Suppose a new physical edge of rank \(j\) is inserted. Before insertion every degree is below \(T_j\), so only its ends can reach \(T_j\), and none can exceed it. If an end reaches \(T_j\), choose one such end \(v\) and query whether it is true.
+
+A negative response excludes \(v\). A positive response records \(v\). In either case the newly inserted edge disappears immediately. Every other end that had just reached the threshold loses this same new edge and returns below threshold. At that moment other ranks have undergone only removals.
+
+The only remaining operations that can increase degrees are later physical insertions, each handled by the same rule. This proves I5 inductively, once the scheduler below ensures that new insertions are processed one at a time.
+
+\subsection{An explicit packet scheduler}\label{an-explicit-packet-scheduler}
+
+A positive query that is triggered in rank \(j\) opens its rank-\(j\) packet \textbf{before} the snapshot and recording operation. Thus the packet includes synchronous exclusion of the other letters at the recorded position and all saved rank-two neighbors.
+
+After recording, drain all pending jobs whose frozen rank is strictly less than \(j\). Each such job has actual arity at most its frozen rank, so any positive query it triggers has rank strictly less than \(j\). That query opens a nested packet of strictly smaller rank. On return, continue draining eligible jobs until none remains. Then close the rank-\(j\) packet.
+
+Jobs of frozen rank at least \(j\) are deferred while this packet is open. A parent packet can process them later if their frozen rank is below the parent's bound. An external drain with bound \(+\infty\) processes all jobs.
+
+This scheduler yields three facts used below:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  nested positive packets have strictly decreasing ranks;
+\item
+  two packets of the same rank have disjoint time intervals;
+\item
+  an origin that started as the projection of a saved rank-\(j\) edge can never be stranded in the rank-\(j\) packet's deferred queue: its initial projection has frozen rank \(j-1\), and every subsequent projection along that origin's chain has still smaller frozen rank.
+\end{enumerate}
+
+A job that came from an unrelated larger edge can have actual arity below \(j\) while retaining frozen rank at least \(j\); deferring it is harmless. The third fact concerns the selected own origins of the packet, whose frozen ranks are already below \(j\).
+
+There is no chronological retirement inside a packet. Chronological retirement happens only after the external drain has finished.
+
+Termination is finite. Only finitely many original forbidden assignments can be installed. Each origin has one chain, and every transfer created by recording strictly reduces its number of required literals. A job is processed once unless it is replaced by such a strict projection; it is otherwise discarded or attached to one physical edge. No origin is duplicated. There are therefore finitely many insertions, transfers, and query events.
+
+\subsection{Processing sources}\label{processing-sources}
+
+Process sources \(i=0,\ldots,N-1\) in order. Queues are empty at entry. The relations whose source is \(i\) are known from \(x_{<i}\).
+
+If \(i\) is already recorded, assign \(A_i=\{z_i\}\), enumerate every forbidden future tuple with source letter \(z_i\) in the current future palettes, and externally drain all resulting jobs.
+
+If \(i\) is not recorded, call a candidate \(a\in S_i\) \textbf{heavy} if at least \(T_{\rm s}\) outgoing positional edges admit a forbidden future tuple in the current future palettes when their first letter is \(a\). Otherwise it is light.
+
+If the true letter is heavy:
+
+\begin{itemize}
+\tightlist
+\item
+  snapshot the current palettes and the full list of forbidden future tuples for the true source letter;
+\item
+  begin the source accounting interval before any recording or deletion;
+\item
+  record the source, assign \(A_i=\{z_i\}\), and enqueue the snapshotted list;
+\item
+  externally drain every queue.
+\end{itemize}
+
+If the true letter is light, assign \(A_i\) to be all light letters of \(S_i\). This nonempty set contains the true letter. This branch creates no new constraints, no new jobs, and no queries.
+
+Finally, with all queues empty, retire the remaining active literals at position \(i\). Delete all physical edges incident to them, discarding their origins without substituting the unrecorded actual value. Do not change the assigned \(A_i\) afterward.
+
+The future positions of any newly installed origin are later than its source. Thus a newly installed origin never contains an already retired position. At a chronological retirement, every earlier queued job has been processed; all still-live origins requiring that position are on its active incident edges and are discarded then. Consequently no later event refers to a retired position. This also proves that future palette changes never alter an already assigned alphabet.
+
+\subsection{Physical insertion budget}\label{physical-insertion-budget}
+
+Let \(I_j\) be the number of physical insertions in rank \(j\). Every inserted edge is eventually removed, because all its positions are ultimately retired or recorded.
+
+Charge an insertion to the first removal of one of its active endpoints. Each literal is removed from active status once, and its degree at that event is at most \(T_j\). There are \(QN\) literals. Therefore
+
+\[
+I_j\le T_jQN. \tag{7.1}
+\]
+
+A physical edge with a given literal set cannot disappear and later be reinserted with that same literal set: its first disappearance removes at least one of those active literals permanently. This is also a direct reason why it is legitimate to speak of the unique insertion event of a surviving physical edge. Alternatively, charging by insertion occurrence gives the same estimate.
+
+\subsection{Positive-query budgets: the central charge maps}\label{positive-query-budgets-the-central-charge-maps}
+
+Let \(H_j\) be the number of positive rank-\(j\) queries, and let \(H_{\rm s}\) be the number of newly recorded heavy sources.
+
+\subsubsection{Rank two}\label{rank-two}
+
+At a positive rank-two query, the queried literal has exactly \(T_2\) distinct physical neighbors. All are active and present in their palettes at that instant. Recording removes these \(T_2\) distinct false neighbors before any new insertion.
+
+Each literal can be excluded from its palette at most once. Hence
+
+\[
+H_2T_2\le QN. \tag{8.1}
+\]
+
+Neighbors may belong to the same position but be different letters; they are still different literals, which is exactly what the \(QN\) budget counts.
+
+\subsubsection{\texorpdfstring{Rank \(j\ge3\): selection}{Rank j\textbackslash ge3: selection}}\label{rank-jge3-selection}
+
+At a positive rank-\(j\) query with true pivot \(v\), its snapshot has exactly \(T_j\) incident physical edges. Select one complete-origin label from each. These labels are distinct by unique ownership.
+
+Immediately after substituting \(v\), every selected origin has a projection of rank \(j-1\). Such an origin is never selected again by a different rank-\(j\) packet, because its single chain can never return to rank \(j\). Thus there are exactly \(H_jT_j\) distinct rank-\(j\) selected-origin instances over all such packets.
+
+\subsubsection{\texorpdfstring{Rank \(j\ge3\): exhaustive exit alternatives}{Rank j\textbackslash ge3: exhaustive exit alternatives}}\label{rank-jge3-exhaustive-exit-alternatives}
+
+For each selected origin, at the closure of its packet exactly one of the following accounting alternatives applies:
+
+\begin{itemize}
+\tightlist
+\item
+  it has lost a required palette letter during this packet;
+\item
+  it is carried by an active physical edge of rank \(l<j\).
+\end{itemize}
+
+Here is why this list is exhaustive. No chronological retirement occurs within the packet. The origin started alive and its actual projection has rank \(j-1\). Every subsequent job on its chain has frozen rank below \(j\), so cannot remain in the deferred queue when the packet closes. If a recorded end is substituted, the rank decreases further. A zero-end origin is impossible by soundness. A one-end origin causes a palette exclusion. If it is neither irrelevant nor still queued, unique ownership places it on an active physical edge, necessarily of smaller rank.
+
+\subsubsection{Charging actual palette losses}\label{charging-actual-palette-losses}
+
+For the first alternative, charge the selected origin to its first required palette exclusion during the packet. That excluded literal \(w\) and the packet pivot \(v\) both belong to the origin's full future assignment. They are distinct: the true pivot is recorded and retained, not excluded.
+
+For one fixed packet and one fixed exclusion event \(w\), the pair lemma bounds these selected origins by \(D\). Packets of the same rank are time-disjoint, so an actual exclusion event belongs to at most one rank-\(j\) packet. There are at most \(QN\) exclusion events overall. The total loss charge is therefore at most \(DQN\).
+
+This includes exclusions at packet opening. An origin whose queued projection is inspected later is charged to the earlier actual exclusion event within the same packet. Nothing is charged to a merely administrative late inspection.
+
+\subsubsection{Charging surviving lower edges}\label{charging-surviving-lower-edges}
+
+For the second alternative, charge the selected origin to the unique insertion event of its final active physical edge \(B\) of rank \(l<j\).
+
+Fix any pair of literals in \(B\). Every complete origin charged to this edge contains that pair. Across all rank-\(j\) packets, each complete origin is selected at most once at rank \(j\), and at most \(D\) complete origins contain the pair. The physical insertion consequently pays for at most \(D\) selected origins, even if some origins merge into an edge created before their packets began.
+
+This is the precise resolution of the ``old lower edge receives new projections'' concern. The budget counts its full-origin labels over time, not its creation time relative to the paying packet.
+
+Combining both charge classes gives
+
+\[
+H_jT_j\le D\left(QN+\sum_{l=2}^{j-1}I_l\right),
+\qquad 3\le j\le r-1. \tag{8.2}
+\]
+
+\subsection{Heavy-source budget}\label{heavy-source-budget}
+
+At a newly recorded heavy source choose \(T_{\rm s}\) different outgoing positional edges witnessing heaviness, and one forbidden future tuple from each, in the palettes snapshotted before recording.
+
+Their future position sets are pairwise disjoint. These tuples are alive at the start of the source accounting interval. At the end of the external drain, a selected origin either has lost a palette letter during this interval or is on an active physical edge. There are no queued jobs, no chronological retirements during the interval, and no completely true forbidden tuple.
+
+An actual excluded literal belongs to at most one selected future tuple for this source, by future-position disjointness. Source intervals are successive and disjoint. Thus palette-loss charges total at most \(QN\).
+
+For surviving-edge charges, any fixed pair of the active edge belongs to every paying complete origin; a source is processed only once and one origin was chosen for each selected outgoing edge. The pair lemma bounds charges to a physical insertion by \(D\), over all source intervals.
+
+Therefore
+
+\[
+H_{\rm s}T_{\rm s}\le QN+D\sum_{j=2}^{r-1}I_j. \tag{9.1}
+\]
+
+It is legitimate for a deletion or insertion to participate in the separate upper bounds for different ranks and for heavy sources. These are different estimates for different record counts; each estimate has its own valid charge map. The proof never asserts a single shared global budget across all these independently bounded classes.
+
+\subsection{Fingerprint size}\label{fingerprint-size}
+
+A position is recorded only once. Every recording is either a new heavy-source recording or a positive query recording. Thus
+
+\[
+|F|=H_{\rm s}+\sum_{j=2}^{r-1}H_j.
+\]
+
+Using (7.1), (8.1), (8.2), and (9.1) gives
+
+\[
+H_{\rm s}\le QN\frac{D\sum_{j=2}^{r-1}T_j+1}{T_{\rm s}},
+\]
+
+\[
+H_2\le QN/T_2,
+\]
+
+\[
+H_j\le DQN\frac{1+\sum_{l=2}^{j-1}T_l}{T_j}
+\quad (j\ge3).
+\]
+
+Their sum is exactly \(\theta N\), with the stated constant. No hidden dependence on \(N\), the relations, or the realized word appears.
+
+\subsection{Bad-edge budget}\label{bad-edge-budget}
+
+Call an edge bad for this word if its assigned full Cartesian product fails to be contained in the relation frozen at its actual source prefix.
+
+\subsubsection{Light sources}\label{light-sources}
+
+For a light source, each of its at most \(Q\) assigned source candidates has fewer than \(T_{\rm s}\) outgoing edges with a forbidden future tuple in the then-current future palettes. Later future alphabets are subsets of those palettes. Consequently the source has fewer than \(QT_{\rm s}\) bad outgoing edges.
+
+The total light-source contribution is at most \(QT_{\rm s}N\).
+
+\subsubsection{Recorded sources}\label{recorded-sources}
+
+For a bad edge with recorded source, choose one forbidden tuple from the final assigned alphabets. Its source letter is the actual recorded letter. Its future letters were all present when its source was processed, because palettes shrink and assigned alphabets are never enlarged after retirement. Hence this full origin was enumerated or was already rendered irrelevant only by a palette event that would also exclude a final alphabet letter.
+
+The latter cannot happen: every chosen future letter belongs to its assigned final alphabet, so none was ever excluded from its palette. Recording one of its future positions can only substitute the matching true letter; recording a different letter would exclude the chosen one, again contradicting final membership.
+
+Follow the origin's unique chain. It cannot end in a unit exclusion or an empty projection, and it cannot disappear through a false-letter exclusion. At the end of the complete execution no active literal remains. Because every chronological retirement has an empty queue, the origin must first be discarded on an active physical edge at a chronological retirement.
+
+Charge this bad positional edge to that physical edge's insertion event, using the selected complete origin as the invoice. Different bad positional edges have different complete origins. Every origin charged to a fixed physical edge contains any chosen pair of its literals. The pair lemma therefore bounds its charges by \(D\).
+
+The recorded-source contribution is at most \(D\sum_j I_j\). Together with (7.1),
+
+\[
+E_{\rm bad}
+\le QT_{\rm s}N+D\sum_{j=2}^{r-1}I_j
+\le Q\left(T_{\rm s}+D\sum_{j=2}^{r-1}T_j\right)N.
+\]
+
+This bound explicitly pays for chronological deletion without substituting an unrecorded actual value. Omitting that payment would leave a real gap; it is included in the bound here.
+
+\subsection{Exact replay from the final fingerprint}\label{exact-replay-from-the-final-fingerprint}
+
+Fix a realized pair \((x_{<i},F(x))\). We show that the entire execution through assignment of \(A_i\) can be reconstructed from this pair.
+
+At any equality query on an active literal \((k,a)\), the answer is positive if and only if \((k,a)\in F(x)\):
+
+\begin{itemize}
+\tightlist
+\item
+  every positive answer immediately records the pair;
+\item
+  every recorded pair is true;
+\item
+  a true literal cannot be excluded or change its value later.
+\end{itemize}
+
+The fingerprint is used only to answer the queries actually produced by the deterministic algorithm. It is not used to insert all future recorded letters into the state in advance. Absence of an unqueried pair says nothing by itself about that letter.
+
+Process earlier sources by induction. Their relations are known because their source prefixes are restrictions of \(x_{<i}\). Each queue action and literal query is then determined by the reconstructed state and the fingerprint oracle.
+
+The only remaining branch is a source \(s\le i\) that has not already been recorded when its turn arrives. At that point all queues are empty.
+
+\begin{itemize}
+\tightlist
+\item
+  If \(s\notin\operatorname{dom}F\), its actual source letter cannot be heavy, because that would record it. Its actual letter is light. The algorithm computes \(A_s\) as all light letters from the known state and creates no events.
+\item
+  If \(s\in\operatorname{dom}F\), its true letter is given by its fingerprint pair. If that letter were light, the light branch would create no events; the source would immediately retire, after which it could never be recorded. This contradicts membership in the final fingerprint. Therefore the actual letter is heavy and the heavy branch is determined.
+\end{itemize}
+
+An already recorded source uses its known recorded value. This completes the induction. The algorithm determines \(A_i\) from \((x_{<i},F)\) exactly as claimed.
+
+Consequently, for any probability distribution on \(\mathcal W\), the assigned \(A_i\) contains the entire conditional support
+
+\[
+\operatorname{supp}(Z_i\mid x_{<i},F),
+\]
+
+on every conditioning atom of positive probability. This is stronger than merely containing the one actual letter on one execution.
+
+\subsection{Fingerprint entropy}\label{fingerprint-entropy}
+
+There are at most
+
+\[
+\sum_{a=0}^{\lfloor\theta N\rfloor}\binom NaQ^a
+\]
+
+possible fingerprints. Since \(\theta\le1/2\),
+
+\[
+\sum_{a\le\lfloor\theta N\rfloor}\binom Na
+\le \exp\{Nh(\theta)\},
+\qquad
+Q^a\le Q^{\theta N}.
+\]
+
+Thus
+
+\[
+H(F)\le\log|\operatorname{range}F|
+\le N[h(\theta)+\theta\log Q].
+\]
+
+The map \(F\) is deterministic, but this count gives the same bound for every distribution on \(\mathcal W\). The proof of the finite theorem is complete.
+

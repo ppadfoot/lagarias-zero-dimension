@@ -1,0 +1,199 @@
+INDEPENDENT REVIEW OF THE FINITE CAUSAL CONTAINER LEMMA
+5 November 2026; reviewer role: combinatorics, reconstruction, full products.
+
+VERDICT
+I find the exact finite lemma in Appendix A of Stage 16 mathematically valid
+under its stated hypotheses. I found no counterexample or unproved transition
+in its source, projection, charge-map, retirement, or replay arguments. The
+particular obligations left unresolved in the preliminary review based only
+on the conversation summary are discharged by this complete appendix.
+
+This is an internal analytic review, not formal verification or independent
+external expert review. The finite calculations below test implementations;
+they do not prove the universal lemma or the dimension theorem. This report
+alone does not certify the separate arithmetic, ESS, countable-cover and
+entropy-to-dimension arguments.
+
+PRECISE TEXT REVIEWED
+/Users/timofejuzakov/Documents/Codex/2026-11-05/x20/outputs/erdos406_chat_materials_2026-11-05/papers_by_stage/erdos406_step16_RU.tex
+SHA-256: 1669addf65376940d0d568f57ea9d90a3661d56b73e70532ca7a8af0552a9ee8
+Main application: lines 356–459. Exact finite statement and complete proof:
+lines 822–1293. The cited line numbers below refer to this file.
+I also inspected the prior preliminary combinatorial review, the archived
+Stage 12 implementation, and the dimension-status passages in the later
+reports. Those later reports explicitly do not replace the dimension proof.
+
+1. EXACT HYPOTHESES AND CONCLUSION
+The abstract letters Z_i(x) may be arbitrary functions of the whole finite
+input. Relations alone must be causal: R_e depends on x_<s, where s is the
+first position of e. Future position sets of edges sharing a source are
+disjoint, and every positional pair belongs to at most C edges.
+For fixed r and Q, D=C Q^(r-3). The thresholds control two separate losses:
+a small set F of true position/letter pairs and O(N) bad positional edges.
+For every other edge, the conclusion is a full product of assigned palettes,
+not merely compatibility of the one realized tuple.
+
+This distinction is essential. For W={000,001,111} and the ternary sum
+condition, successive conditional supports need not have compatible product.
+That old negative control does not contradict Appendix A: its additional
+fingerprint/palette construction is the step that supplies the missing
+product property.
+
+2. DISTINCT FULL ORIGINS, NOT HISTORICAL PROJECTIONS (lines 900–931)
+For a fixed input, the source letter of each complete origin is its one true
+letter. Prescribing two future literals leaves r-3 future letters free, and
+there are at most C original positional edges containing their positions.
+Consequently no pair of future literals belongs to more than D distinct
+complete origins over the entire run. This count does not grow when an origin
+is projected or several origin labels are merged on one physical edge.
+Source alternatives are not silently omitted: recorded sources later have
+singleton assigned alphabet, whereas light sources pay a separate Q-factor
+in the bad-edge estimate. Thus the sharper exponent r-3 is justified.
+
+3. STATE, SOUNDNESS AND DEGREE CONTROL (lines 936–1040)
+An origin has one owner and one descending chain of projections. Only recorded
+true literals may be substituted. A live projection therefore still contains
+a false literal. In particular an empty projection is impossible and a unit
+projection safely excludes its sole literal.
+Recording a true pivot first snapshots all incident ranks. Rank-two neighbors
+are false and are synchronously excluded before any physical insertion.
+Every other incident edge becomes a queued projection with lower frozen rank.
+The same origin cannot branch during these transfers.
+
+Before an insertion all active degrees are strictly below threshold. An
+insertion adds one edge; querying a threshold-reaching endpoint removes that
+very new edge immediately, whether the answer is positive or negative. Every
+other newly threshold-reaching endpoint therefore falls back below threshold.
+No simultaneous insertion is allowed during these removals. Degree control
+in all ranks follows by induction.
+
+4. SCHEDULER AND ALL-LIFETIME CHARGES (lines 1017–1166)
+A rank-j positive packet drains precisely the queued jobs of frozen rank <j.
+Its selected own origins start at frozen rank j-1. Their subsequent frozen
+ranks can only decrease. At closure they cannot remain deferred. There is no
+chronological retirement during a packet. Hence each selected origin has
+exactly the needed exhaustive alternative: a required literal has actually
+been excluded during the packet, or the origin is on a live edge of rank <j.
+
+For palette losses, the pivot and excluded literal form a pair in the full
+origin, so one exclusion pays at most D invoices in one packet. Same-rank
+packets are disjoint in time; the total is at most D QN.
+For surviving lower edges, any pair in that lower edge lies in every charged
+full origin. Each origin can be selected only once at rank j, because after
+selection its arity is permanently below j. Thus one lower-edge insertion
+pays at most D invoices over all rank-j packets, even if later origins merge
+onto an old edge. This is an all-lifetime bound, not an instantaneous one.
+
+A physical insertion is charged to the first deactivation of one of its ends.
+That endpoint is removed once and has degree at most T_j at that moment.
+Therefore I_j<=T_j QN. A removed literal is never reactivated, so a physical
+edge cannot disappear and reappear with the same literal set.
+The resulting bounds are
+ H_2 T_2 <= QN,
+ H_j T_j <= D(QN + sum_{2<=l<j} I_l),
+ H_s T_s <= QN + D sum_j I_j.
+For the source bound, its selected outgoing future tuples are disjoint in
+positions, so one actual palette exclusion pays at most one invoice for that
+source. Source intervals are disjoint in time. These arguments give the exact
+stated theta with no additional N-dependent or K-dependent constant.
+
+5. BAD-EDGE BUDGET REALLY COVERS FULL PRODUCTS (lines 1197–1225)
+At a light source each assigned source candidate has fewer than T_s outgoing
+edges admitting any forbidden tuple in the current future palettes. Assigned
+future alphabets can only be smaller. Taking the union over at most Q source
+candidates gives at most Q T_s bad outgoing edges per light source.
+
+For a bad edge with recorded source choose one forbidden tuple from the final
+assigned alphabets. Its source is the recorded true source. Every future
+letter of that tuple survives in its own final assigned alphabet and so could
+not have suffered a palette exclusion. Following its unique origin chain,
+unit exclusion and empty projection are impossible. With queues empty at
+chronological barriers, the chain must terminate on a physical edge at a
+chronological retirement. Charging that insertion pays at most D distinct bad
+positional edges, by the full-origin pair bound. Thus retirement is explicitly
+paid for and E_bad<=Q(T_s+D sum T_j)N follows.
+
+6. REPLAY AND CONDITIONAL SUPPORTS (lines 1230–1293)
+A query answer is positive exactly when the queried pair is in final F. This
+is an equivalence for queries actually made by the deterministic algorithm;
+F is not used to preactivate future recorded literals or to answer queries
+that were never asked.
+The source branch is also reconstructible. A previously unrecorded source
+absent from dom F must be light. A previously unrecorded source present in
+F must be heavy: otherwise its event-free light branch would immediately
+retire it and it could never be recorded later. This eliminates the sole
+other dependence on an unrevealed true letter.
+
+All relations needed through source i depend only on restrictions of x_<i.
+Thus the execution through assigning A_i is determined by (x_<i,F), even if
+Z_i itself depends on input coordinates far later than i. Taking all inputs
+on the same conditioning atom proves
+ supp(Z_i | x_<i,F) subset A_i.
+No discovery order needs to be encoded in F. At most one true pair is recorded
+per position. The fingerprint count is therefore sum_{a<=theta N} binom(N,a)Q^a,
+and the usual binomial entropy inequality for theta<=1/2 gives the stated
+H(F)<=N[h(theta)+theta log Q].
+
+7. APPLICABILITY TO THE MAIN MANUSCRIPT'S WINDOW SUPPORTS
+The abstract no-locality statement is strong enough for joint overlapping
+q-windows (X,A_1 X,...,A_{r-2}X) labelled at their left endpoints. One must not
+replace its proof by a theorem that requires the whole Z_i to be known at i.
+Once a realized x and F are fixed, every later, more finely conditioned window
+support is a subset of the A_i determined by that x's shorter prefix. On a
+good edge, the product of all such subsets is permitted even when selections
+from different factors do not come from one jointly realizable input. This
+is precisely what the full-product conclusion supplies. I see no additional
+independence assumption at lines 411–416.
+
+8. FINITE IMPLEMENTATION CHECKS AND THEIR LIMITS
+Python 3.11 was used, with assertions enabled. Python 3.9 cannot run the
+archived engine unchanged because it uses int.bit_count; the engine itself
+explicitly requires Python >=3.10. Original files were not edited.
+
+A. Inspected and reran the archived implementation in a separate directory:
+  upstream_container_engine.py
+  sharp_origin_container_checks.json
+Eight original models: 1600 full fingerprint replays, 56,615 origins,
+23,680 conditional-support inclusions, positive and negative queries in
+ranks 2 through 5, 254 nested lower-rank packets, 101 deferred projections,
+and nonzero merge and recorded-source-retirement cases. All passed.
+
+B. Added tests with deliberately nonlocal Z_i, using a fixed permutation of
+input bit positions, including overlapping two-bit alphabet letters. The
+relations remain causal in the original input prefix. The inspected archived
+engine supplies the algorithm; new separate checks compare equal (prefix,F)
+atoms and independently enumerate full assigned Cartesian products:
+  check_nonlocal_replay.py
+  nonlocal_replay_results.json
+All 2339 feasible words in five specified finite models are tested, not a
+sample from those models. There are 22,618 support inclusions, 11,592 equality
+checks for states sharing (prefix,F), 10,205 complete product checks, 115 merged
+promotions and 380 nested positive packets. All passed. The small thresholds
+in many of these stress cases give theta>1/2, so those cases test the invariant
+and charge/replay machinery, not the small-entropy conclusion.
+
+C. Added a nonvacuous instance with theta<=1/2 and bad-edge bound strictly
+smaller than the total number of edges:
+  check_nonvacuous_budget.py
+  nonvacuous_results.json
+Use three blocks of 1024 positions. Edges are
+  (s,1024+u,2048+(u+s mod 1024)), 0<=s,u<1024.
+Each source has disjoint future pairs; each cross-block positional pair
+extends to exactly one triple, so C=1. Take r=3,Q=2,T_2=5,T_s=120, forbidden
+tuple 111, and realized word with first block all 1 and later blocks all 0.
+Then N=3072, |E|=1,048,576, theta=1/2, and the theorem's bad-edge bound is
+768,000<|E|. The actual algorithm records 5 source letters and leaves zero bad
+edges. Replay matches exactly. This checks that the executable tests are not
+limited to vacuous parameter regimes. It does not establish useful constants
+for every small input or independently prove the theorem.
+
+9. PUBLICATION-SCOPE RECOMMENDATION
+No blocking combinatorial issue found in the exact reviewed appendix.
+For the proposed narrow English paper retain the complete finite statement,
+all its hypotheses, the source matching condition, full-origin labels,
+all-rank recording, frozen-rank scheduler, chronological retirement payments,
+and final-fingerprint replay. Replacing these by a short appeal to ordinary
+static/online container results would remove the essential new proof.
+Separate the tests from the analytic proof and call the current review
+internal. A full new paper still needs review of its exact final mathematical
+text and of the separate arithmetic and dimension portions.

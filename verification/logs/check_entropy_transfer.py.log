@@ -1,0 +1,7 @@
+{
+  "status": "PASS_COMPONENT_DIAGNOSTICS_ONLY",
+  "entropy_cases": 17220,
+  "incidence_cases": 2640,
+  "conditional_support_negative_control": "reproduced",
+  "scope": "Overlap entropy and finite boundary counts; no proof certification by computation."
+}

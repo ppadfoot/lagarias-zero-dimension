@@ -1,0 +1,78 @@
+FINAL ENGLISH DRAFT REVIEW — GLOBAL DIMENSION AND APPLICATION
+Date: 2026-11-05
+Reviewer scope: complete English main file and complete finite-container appendix; specialization against the previously audited Stage 16.
+
+VERDICT: PASS for the mathematical chain in the exact source versions identified below. No unresolved mathematical correction is requested by this reviewer. This is an independent internal mathematical review, not proof-assistant verification or external peer review.
+
+REVIEWED FILES AND SHA-256
+outputs/lagarias-zero-dimension/paper/lagarias_zero_dimension.tex
+05e7b7729853591197a0e00772a50117927d9226280afec649b89dc5dd864801
+
+outputs/lagarias-zero-dimension/paper/causal_container.tex
+1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750
+
+A. EXACT MAIN-TEXT CHECK
+
+1. Statement, lines 39–65: the metric, exceptional-set definition, two dimension claims, and countable compact cover conclusion are mutually consistent. The text correctly separates zero dimension from countability and from exclusion of the point 1. Sole author is Timofei Iuzhakov.
+
+2. Sumset estimate, lines 104–134: the specialization h0=1 and N_k=2^k is correct. The stabilizer is that of the actual sum, and the Kneser iteration in the quotient is justified. The constant is B_rk=r log3+2^(k+1)log2.
+
+3. Templates and normalization, lines 136–210: the English statement permits arbitrary ordinary integer unit A_t and arbitrary 3-adic unit remainders u_i. It does not accidentally impose integrality on the latter or positivity on exponent differences n_i−n0. The displayed approximation precision absorbs normalization errors after division by 3^E_i. The finite data determining each compact are countable; the p-adic limiting coefficients are not retained as uncountable covering parameters. d_i=0 is a valid specialization for the original multiplicative orbit.
+
+4. Carry identity, lines 212–240: all r lower residues are ordinary nonnegative representatives, giving carry 0<=e<=r−1. The center depends only on the input strictly before the source j. The output condition applies to the relevant output q-window and does not assume auxiliary A_t X windows are ternary Cantor words.
+
+5. Low-digit removal, lines 242–258: fixing the low b input digits fixes the residue of the weighted sum; the first coefficient u_i is a unit. Its fixed low-part contribution is absorbed into the target shifts. The remaining first high factor is multiplied by u_i modulo 3^k, a bijection. The interval of possible low-target-minus-carry representatives has length <2·3^b, so at most two translates are enough. This matches the specialized Stage 16 argument.
+
+6. Finite W_L and joint letters, lines 260–281: the finite words are allowed to be more numerous than prefixes extending to the simultaneous compact. This is harmless for an upper bound. Since each output prefix lies in Sigma_L, every internal q-block lies in Sigma_q. Multipliers are 3-adic units, including rational negative powers of 2. The joint alphabet has r−1 rows and cardinality Q=3^((r−1)q). Its relations depend only on X_<source. The stated positional disjointness and pair multiplicity C=binom(r,2) follow from the separated ranges of possible distances.
+
+7. Conditional supports and full products, lines 292–323: fixing X_<j+b,F fixes the low b digits of all joint rows. Each required high-row projection is an affine unit image of C_j, hence has |C_j| possibilities. The full joint support belongs to A_j because A_j is determined by X_<j,F. On a good edge, the full Cartesian product belongs to the relation frozen at the single realized source prefix. Therefore supports arising under different endpoint prefixes may indeed be selected independently. The manuscript explicitly states that they need not be jointly realizable by a new input word. The earlier actual-tuple-versus-product pitfall is avoided by the exact theorem used.
+
+8. Incidence and entropy, lines 325–358: all factors r,K,k and the finite span R are correct. Short systems with N<E_i are covered by the missing-incidence term. Conditional entropy chain rule uses the same F throughout. Missing overlap multiplicity is k(b+k−1), giving the stated boundary constant. The deterministic F decomposition of H(X) is valid.
+
+9. Thresholds and limits, lines 360–388: for fixed k,r the displayed power hierarchy makes theta,epsilon_F,eta tend to zero. For each fixed u, each compact has a fixed finite R; L→infinity is taken within that compact. Upper box dimension bounds pass to the countable union by packing dimension's countable stability, not by upper box dimension's stability. The subsequent u→infinity, r→infinity at fixed k, and k→infinity are correctly ordered. The explicit countable compact covering assertion follows by selecting k,r,u successively for any delta>0. Both dimension conclusions, including packing, are supported.
+
+B. EXACT APPENDIX CHECK
+
+I read all 452 lines of causal_container.tex, not only its theorem statement. The mathematical construction, thresholds, charge constants, heavy/light source distinction, frozen-rank scheduling, chronological retirement charges, exact replay, and fingerprint entropy calculation agree with the previously independently checked Appendix A of Stage 16. Removing its old report wrappers and Stage-12-specific references did not strengthen a hypothesis or weaken a conclusion. In particular:
+- light source alternatives are all included and paid for;
+- recorded source alphabets are singletons;
+- origins are not multiplied by projection histories;
+- same-rank packet intervals are disjoint;
+- no selected own origin remains in a deferred queue at packet closure;
+- retirement discards are explicitly counted in E_bad;
+- equality-query replay uses only final F, and event-free light retirement closes the source-branch argument;
+- F stores at most one actual letter per position and needs no extra query-order encoding.
+
+The full-product conclusion required in the main text is exactly the one provided by this appendix. There is no unsupported substitution of an ordinary static container theorem.
+
+C. CORRECTION FOUND AND RESOLVED
+
+The first draft had a bare closing ']' at main-file line 269 after the displayed definition of Z_j. I reported this to the parent; the reviewed hash above contains the corrected '\]'. This was a LaTeX transcription error, not a mathematical gap. No direct edits to the manuscript were made by this reviewer.
+
+D. LIMITS OF THIS REVIEW
+
+This review checks the mathematical proof and its exact transcription. Bibliographic currency, novelty, legal authorship, PDF visual layout, release metadata, and GitHub upload are outside its remit. The computation diagnostics already recorded in check_entropy_transfer.json support finite ingredients only; they do not replace the proof. If either reviewed source file changes after these hashes, a new check of the changed portions and updated hashes is required.
+
+E. FINAL COSMETIC-EDIT CHECK
+
+The currently recorded hashes include exactly three changes after the first
+full reading: the introductory sentence about Lagarias was rephrased; the
+same upper bound was written as log_3(phi) with phi=(1+sqrt(5))/2; and the
+pair-multiplicity lemma names its position variables i,j instead of reusing v.
+I reversed these three textual replacements in memory and reproduced both
+previously reviewed SHA-256 values exactly. Thus there are no other source
+changes. Each edit is mathematically neutral or improves notation. PASS is
+retained for the current hashes above. Main-file line references in sections
+A and C refer to the prior 435-line version; lines after the introductory
+paragraph are shifted by minus one in the current 434-line version.
+
+F. FINAL SOURCE-FREEZE LAYOUT CHECK
+
+The final version removes only the clearpage command before appendix in the
+main file and redundant manual numerical prefixes from appendix headings.
+I restored exactly those heading prefixes and the clearpage command in
+memory and recovered both immediately preceding reviewed hashes. Thus no
+other text, mathematical formula, equation tag, or proof step changed.
+PASS is retained for the final source hashes listed at the top of this report.
+The line counts and mathematical line references are unchanged by this last
+layout edit.

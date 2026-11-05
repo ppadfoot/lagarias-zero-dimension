@@ -1,0 +1,434 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=27mm]{geometry}
+\usepackage{microtype,enumitem,booktabs}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\setlist{nosep}
+\newcommand{\Z}{\mathbb Z}\newcommand{\Q}{\mathbb Q}
+\newcommand{\Sig}{\Sigma}\newcommand{\dimH}{\dim_{\mathrm H}}
+\newcommand{\dimP}{\dim_{\mathrm P}}\newcommand{\dimB}{\overline{\dim}_{\mathrm B}}
+\newcommand{\supp}{\operatorname{supp}}\newcommand{\Stab}{\operatorname{Stab}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\title{Zero Hausdorff and packing dimension for the\newline
+3-adic exceptional set of powers of two}
+\author{Timofei Iuzhakov}
+\date{5 November 2026\quad---\quad Version 1.0.0}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $\Sigma$ be the set of 3-adic integers with digits in $\{0,1\}$,
+and let $E_2$ consist of the initial values whose forward orbit under
+multiplication by $2$ meets $\Sigma$ infinitely often. We prove
+$\dimH E_2=\dimP E_2=0$. The argument combines the finite-rank
+unit-equation theorem of Evertse, Schlickewei and Schmidt with a causal
+container lemma for relations depending on an already read input prefix.
+The latter supplies full compatible Cartesian products of conditional
+alphabets at small information cost. A sumset bound obtained from Kneser's
+theorem then yields countable compact covers of arbitrarily small upper
+box dimension. The proof does not establish countability of $E_2$ or
+exclude the point $1$ from $E_2$.
+\end{abstract}
+
+\section{Introduction and statement}
+Equip $\Z_3$ with the metric $|x-y|_3=3^{-v_3(x-y)}$, and put
+\[
+ \Sig=\left\{\sum_{j\ge0}\varepsilon_j3^j:
+                 \varepsilon_j\in\{0,1\}\right\},\qquad
+ E_2=\{x\in\Z_3:2^nx\in\Sig\text{ for infinitely many }n\ge0\}.
+\]
+Digits are read from low to high positions. Conjecture 1.7 of
+Lagarias \cite{Lagarias} asks whether $\dimH E_2=0$. Finite intersections of multiplicative translates of
+$\Sigma$ admit finite-automaton descriptions \cite{AL}; subsequent work
+of Abram, Bolshakov and Lagarias gave the upper bound
+$\dimH E_2\le\log_3\varphi$, where $\varphi=(1+\sqrt5)/2$ \cite{ABL}.
+
+\begin{theorem}\label{thm:main}
+The exceptional set satisfies
+\[
+ \boxed{\dimH E_2=\dimP E_2=0.}
+\]
+More precisely, for every $\delta>0$, it has a countable cover by compact
+sets of upper box dimension at most $\delta$.
+\end{theorem}
+
+The packing conclusion is stronger than the Hausdorff conclusion.
+Neither implies countability. In particular, this theorem does not
+settle Erd\H{o}s's question whether $2^n\in\Sigma$ for only finitely
+many nonnegative integers $n$, which is the assertion $1\notin E_2$.
+
+The new combinatorial ingredient is the finite causal statement in
+Appendix~\ref{app:container}. It is related to the container method and
+its online versions \cite{ST}. In the online framework of \cite{ST},
+the hypergraph is fixed before the vertex labels are disclosed. Here a
+relation is allowed to depend on the actual earlier input prefix. We
+therefore prove the precise finite lemma used, including reconstruction
+from the final fingerprint and the accounting for discarded constraints.
+No previously published container theorem is invoked to supply this step.
+
+The proof has four parts. Unit equations produce arbitrarily many
+well-separated arithmetic templates. An exact carry identity expresses
+these templates as causal relations. The finite lemma replaces the
+relations along an individual input by full products of conditional
+alphabets, apart from a controlled number of edges. Finally Kneser's
+theorem bounds the information carried by each good edge. All limits are
+taken after fixing the finite system to which they apply.
+
+\section{Notation and a sumset estimate}
+For $k\ge0$, write
+\[
+ \Sigma_k=\left\{\sum_{j=0}^{k-1}\varepsilon_j3^j:
+                    \varepsilon_j\in\{0,1\}\right\}
+       \subseteq\Z/3^k\Z,\qquad |\Sigma_k|=2^k.
+\]
+The empty block is identified with $0$. For $z\in\Z_3$, let $[z]_m$
+be its representative modulo $3^m$ in $[0,3^m)$, and let
+\[
+ B_{j,q}(z)=\left[(z-[z]_j)/3^j\right]_q
+\]
+be its $q$-digit block starting at position $j$.
+All logarithms and entropies are natural. For a bounded set $K$,
+$\dimB K$ denotes upper box dimension; the standard inequalities
+$\dimH K\le\dimP K\le\dimB K$ and countable stability of packing
+dimension will be used. For compact subsets of $\Z_3$, upper box
+dimension is the limsup of the logarithm of the number of occupied
+length-$L$ cylinders, divided by $L\log3$.
+
+\begin{lemma}[Two-translate capacity]\label{lem:capacity}
+Suppose $A_1,\ldots,A_r$ are nonempty subsets of $\Z/3^k\Z$ and
+\[
+ T=A_1+\cdots+A_r\subseteq(z_1+\Sigma_k)\cup(z_2+\Sigma_k).
+\]
+Then
+\begin{equation}\label{eq:capacity}
+ \sum_{i=1}^r\log|A_i|\le r\log3+2^{k+1}\log2=:B_{r,k}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let $H=\Stab(T)$ and $|H|=3^h$. A coset of $H$ fixes the lowest
+$k-h$ digits. Its intersection with a translate of $\Sigma_k$ has at
+most $2^h$ elements: after translating back, the highest $h$ digits
+form a word of $\Sigma_h$. Since the nonempty $H$-periodic set $T$
+contains a whole coset, $3^h\le2^{h+1}$. Thus $h\le1$.
+
+Set $n_i=|A_i+H|/|H|$. Kneser's addition theorem \cite{DeVos}, applied
+in the quotient by $H$, gives
+\[
+ \sum_i(n_i-1)\le |T|/|H|-1\le 2^{k+1}/|H|-1.
+\]
+Indeed the final sum in the quotient has trivial stabilizer; the
+stabilizer of any partial sum is contained in that of the final sum,
+so the two-summand aperiodic inequality may be applied successively.
+Since $n\le2^{n-1}$ for positive integers $n$,
+\[
+ \sum_i\log|A_i|\le rh\log3+\sum_i(n_i-1)\log2
+                  \le r\log3+2^{k+1}\log2.
+\]
+\end{proof}
+
+\section{Separated templates and countable compact covers}
+We use the following consequence of the theorem of Evertse,
+Schlickewei and Schmidt \cite{ESS}: over a field of characteristic
+zero, a linear equation with fixed nonzero coefficients has only
+finitely many nondegenerate solutions in a multiplicative group of
+finite rank. Nondegenerate means that no nonempty subsum of the
+left-hand side vanishes. Applying the theorem over an algebraic closure
+of $\Q_3$ also gives the asserted finiteness for solutions in $\Q_3$.
+
+\begin{lemma}[Extraction of templates]\label{lem:templates}
+Fix integers $r\ge3$, $K\ge1$ and $q\ge1$. Every $x\in E_2$ has
+true visits $n_0,n_1,\ldots,n_K$ and integers $A_1,\ldots,A_{r-2}$,
+all prime to $3$, such that, for $c_i=2^{n_i-n_0}$,
+\begin{equation}\label{eq:ci}
+ c_i=1+\sum_{t=1}^{r-2}A_t3^{e_{ti}}+u_i3^{E_i},
+ \qquad u_i\in\Z_3^\times,
+\end{equation}
+where $0<e_{1i}<\cdots<e_{r-2,i}<E_i$, each successive gap in this
+list (including the gap from $0$) is at least $q$, and
+\begin{equation}\label{eq:separation}
+ \min\{e_{1,i+1},e_{2,i+1}-e_{1,i+1},\ldots,
+            E_{i+1}-e_{r-2,i+1}\}>E_i\quad(1\le i<K).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Choose infinitely many distinct true-visit slopes $\alpha=2^n$.
+Compactness of $\Z_3^\times$ gives a subsequence $\alpha_i\to\rho$.
+After discarding at most one equality, write
+$\rho^{-1}\alpha_i=1+u_{1i}3^{e_{1i}}$, where $e_{1i}\to\infty$
+and $u_{1i}$ are units. Passing to a subsequence, $u_{1i}\to a_1$,
+a unit. Where the difference is nonzero, normalize $u_{1i}-a_1$
+by its valuation and repeat. Each new gap tends to infinity.
+
+An infinite collection of exact stops after $j$ steps would give
+infinitely many solutions of
+\[
+ \rho^{-1}\gamma-\sum_{t=1}^{j}a_t3^{e_t}=1,
+ \qquad \gamma\in\langle2\rangle,\quad0<e_1<\cdots<e_j.
+\]
+The variables belong to the finite-rank group
+$\langle2\rangle\times\langle3\rangle^j$.
+The summands on the left have distinct valuations $0,e_1,\ldots,e_j$,
+so every nonempty subsum has a unique term of minimal valuation and
+is nonzero. The unit-equation theorem rules out infinitely many such
+stops. Induction therefore gives, for any prescribed $r$,
+\[
+ \rho^{-1}\alpha_i
+    =1+\sum_{t=1}^{r-2}a_t3^{e_{ti}}+u_i^*3^{E_i},
+\]
+with unit coefficients and all successive gaps tending to infinity.
+Choose $K$ members so far apart that the required gap conditions hold.
+
+Approximate $a_t$ by an ordinary integer unit $A_t$ to accuracy
+$v_3(A_t-a_t)\ge\max_i(E_i-e_{ti}+q)$. Choose another true visit
+$\alpha_0=2^{n_0}$ with
+$v_3(\rho/\alpha_0-1)\ge\max_i(E_i+q)$.
+The error in each normalized slope, divided by $3^{E_i}$, is a
+multiple of $3^q$. Thus the remainder $u_i$ in \eqref{eq:ci} is still
+a unit. This proves the exact identity and all the separation claims.
+\end{proof}
+
+For such a finite collection of data $\mathcal D$, let
+\[
+ K_{\mathcal D}=\{X\in\Sigma:c_iX\in\Sigma\ (1\le i\le K)\}.
+\]
+It is compact. The extracted point satisfies $X=2^{n_0}x\in K_{\mathcal D}$.
+The data consist of finitely many nonnegative integer visit indices,
+integer exponents, and ordinary integer coefficients $A_t$. There are
+only countably many such data sets. In particular the potentially
+uncountable limits $\rho,a_t$ are not parameters indexing the cover.
+For every fixed $r,K,q$, we obtain
+\begin{equation}\label{eq:cover}
+ E_2\subseteq\bigcup_{\mathcal D}2^{-n_0}K_{\mathcal D}.
+\end{equation}
+Multiplication by $2^{-n_0}$ is a 3-adic isometry.
+
+\section{Exact causal arithmetic}
+Fix $k\ge1$ and choose $b\ge1$ with $3^b>r-1$; set $q=b+k$.
+For one of the finite systems above introduce $Y_t=A_tX$.
+For a template $i$ and a starting position $j$, put $v=j+E_i$.
+The participating windows are
+\[
+ B_0=B_{j,q}(X),\qquad
+ B_t=B_{v-e_{ti},q}(Y_t)\ (1\le t\le r-2),\qquad
+ B_{\rm end}=B_{v,q}(X).
+\]
+Let $P=[X]_j$, $T=3^{E_i}u_iP$, and define
+\[
+ t_v=[T]_v,\qquad D_j=(T-t_v)/3^v\in\Z_3.
+\]
+The center $D_j$ depends only on $X_{<j}$ and the fixed finite data.
+The lower parts contributing to $c_iX$ are
+\[
+ [X]_v,\quad 3^{e_{ti}}[Y_t]_{v-e_{ti}} (1\le t\le r-2),\quad t_v.
+\]
+These are $r$ nonnegative integers smaller than $3^v$.
+Their ordinary carry is some $e\in\{0,\ldots,r-1\}$.
+Taking the next $q$ digits in the exact identity \eqref{eq:ci} gives
+\begin{equation}\label{eq:causal}
+ u_iB_0+\sum_{t=1}^{r-2}B_t+B_{\rm end}+D_j+e\in\Sigma_q
+                  \pmod {3^q}
+ \quad\text{for some }0\le e\le r-1.
+\end{equation}
+The condition concerns a window of the output $c_iX$. The auxiliary
+windows of $Y_t$ are unrestricted 3-adic windows.
+
+\begin{lemma}[Removing the low digits]\label{lem:two}
+On a Cartesian product of windows all satisfying \eqref{eq:causal},
+fix the lowest $b$ digits of each argument. Then the sum of the
+resulting high $k$-digit factors (with the first multiplied by $u_i$)
+is contained in at most two translates of $\Sigma_k$.
+\end{lemma}
+\begin{proof}
+Write each argument as $l_\nu+3^bz_\nu$, with $0\le l_\nu<3^b$.
+After all $l_\nu$ and the center are fixed, the low residue of the
+sum is fixed. If $y\in\Sigma_q$ is an allowed target, then
+$y_{\rm low}-e\in[-(r-1),3^b-1]$.
+This interval has length less than $2\cdot3^b$, so a fixed residue
+modulo $3^b$ has at most two representatives in it. After division by
+$3^b$, the corresponding high target is in $\Sigma_k$ with at most
+two fixed shifts. Multiplication by the unit $u_i$ is a bijection on
+the high factors modulo $3^k$.
+\end{proof}
+
+\section{Conditional alphabets and the finite entropy estimate}
+Let $L\ge q$, $N=L-q+1$. Let $W_L$ consist of all length-$L$ digit
+words for which the input and every $c_iX$ modulo $3^L$ belong to
+$\Sigma_L$. A 3-adic unit multiplier determines the output prefix
+uniquely from the input prefix. We may assume $W_L$ is nonempty.
+It contains every length-$L$ prefix of $K_{\mathcal D}$.
+At position $j\in\{0,\ldots,N-1\}$ use the joint letter
+\[
+ Z_j=\bigl(B_{j,q}(X),B_{j,q}(Y_1),\ldots,B_{j,q}(Y_{r-2})\bigr)
+\]
+from an alphabet of size $Q=3^{(r-1)q}$. The ordered positional edges are
+\[
+ (j,\ j+E_i-e_{r-2,i},\ldots,j+E_i-e_{1i},\ j+E_i)
+\]
+whenever all ends are in $\{0,\ldots,N-1\}$.
+Their relations are \eqref{eq:causal} with the indicated coordinate
+selected from each joint letter.
+The outgoing future sets from one source are pairwise disjoint by
+\eqref{eq:separation}. Every pair of positions is in at most
+$C=\binom r2$ edges: its distance belongs to at most one template,
+and within that template there are at most $\binom r2$ role pairs.
+These are precisely the positional hypotheses of Appendix~\ref{app:container}.
+
+Choose positive integer thresholds $T_{\rm s},T_2,\ldots,T_{r-1}$,
+write $D=CQ^{r-3}$, and put
+\begin{align}
+ \theta&=Q\left[\frac{D\sum_{j=2}^{r-1}T_j+1}{T_{\rm s}}
+ +\frac1{T_2}+D\sum_{j=3}^{r-1}
+           \frac{1+\sum_{l=2}^{j-1}T_l}{T_j}\right],\label{eq:theta}\\
+ \epsilon_F&=h(\theta)+\theta\log Q,\qquad
+ h(t)=-t\log t-(1-t)\log(1-t).
+\end{align}
+Assume $\theta\le1/2$. The lemma gives a fingerprint $F$ and
+alphabets $\mathcal A_j$ determined by $(X_{<j},F)$, containing
+the true joint letters. For any distribution on $W_L$,
+\begin{equation}\label{eq:budgets}
+ H(F)\le N\epsilon_F,\qquad
+ E_{\rm bad}\le Q\left(T_{\rm s}+D\sum_{j=2}^{r-1}T_j\right)N.
+\end{equation}
+Except on these bad edges, the full product of the assigned alphabets
+satisfies its causal relation, at the realized source prefix.
+
+Take $X$ uniformly distributed on $W_L$. For each realized word define
+\[
+ C_j=\supp\bigl(X_{[j+b,j+b+k)}\mid X_{<j+b},F\bigr),
+ \qquad w_j=\log|C_j|\le k\log3.
+\]
+Each conditioning atom has positive probability. Fixing $X_{<j+b}$
+fixes the low $b$ digits of every joint window at $j$. On the remaining
+$k$ digits, multiplication by $A_t$ is an affine bijection modulo $3^k$,
+with its center determined by the fixed prefix. Thus every required
+projection of the joint conditional support has exactly $|C_j|$ elements.
+That joint support is contained in $\mathcal A_j$, since the latter
+is determined by the shorter prefix $X_{<j}$ and the same $F$.
+
+On a good edge we may therefore select these projected supports
+independently, even though the conditioning prefixes at its ends are
+different. The full-product property applies to all their combinations;
+we do not require those combinations to be realized by a single new
+input word. Lemmas~\ref{lem:two} and \ref{lem:capacity} yield, pointwise,
+\begin{equation}\label{eq:good}
+ \sum_{\nu=0}^{r-1}w_{j_\nu}\le B_{r,k}.
+\end{equation}
+On a bad edge use $rk\log3$.
+
+Set $R=\max_iE_i$. Template $i$ contributes $\max(N-E_i,0)$ edges;
+each role misses $\min(E_i,N)$ potential positions. Accounting for
+these missing incidences, with the safe upper bound $KN$ on the total
+number of edges, gives
+\[
+ rK\sum_{j=0}^{N-1}w_j
+ \le B_{r,k}KN+rk\log3\,E_{\rm bad}+rk\log3\,KR.
+\]
+Hence
+\begin{equation}\label{eq:weights}
+ \sum_j w_j\le NB_{r,k}/r+k\log3(E_{\rm bad}/K+R).
+\end{equation}
+This also covers short intervals and does not assume $B_{r,k}\le rk\log3$.
+
+Write $h_t=H(X_t\mid X_{<t},F)$. The entropy chain rule gives
+\[
+ \sum_{t=j+b}^{j+b+k-1}h_t
+ =H(X_{[j+b,j+b+k)}\mid X_{<j+b},F)\le\mathbb E w_j.
+\]
+In the sum over all $N$ windows, the multiplicities $m_t$ satisfy
+$0\le m_t\le k$ and $\sum_tm_t=kN$. Since $h_t\le\log3$,
+\[
+ H(X\mid F)\le k^{-1}\sum_j\mathbb E w_j+(b+k-1)\log3.
+\]
+As $F$ is a deterministic function of $X$, combine this with
+\eqref{eq:budgets}--\eqref{eq:weights}. For
+$\eta=Q(T_{\rm s}+D\sum_jT_j)/K$ we obtain
+\begin{equation}\label{eq:entropy}
+ \boxed{\begin{aligned}
+ \log|W_L|\le{}&N\left[\epsilon_F+\frac{\log3}{k}
+             +\frac{2^{k+1}\log2}{rk}+\eta\log3\right]\\
+             &+(R+b+k-1)\log3.
+ \end{aligned}}
+\end{equation}
+
+\section{Completion of the dimension argument}
+Fix first $k,r$, then $b,q,Q,C,D$. For integers $u\to\infty$, choose
+\[
+ T_j=u^{2^{j-1}-1}\ (2\le j\le r-1),\qquad
+ T_{\rm s}=u^{2^{r-1}-1},\qquad K=u^{2^r}.
+\]
+Every ratio in \eqref{eq:theta} tends to zero, and
+$\theta,\epsilon_F,\eta\to0$. In particular $\theta\le1/2$ for all
+sufficiently large $u$.
+For each such fixed $u$, use the countable cover \eqref{eq:cover}.
+In each fixed system $\mathcal D$, first let $L\to\infty$ in
+\eqref{eq:entropy}. Its span $R$ is fixed. Cylinder counting gives
+\[
+ \dimB K_{\mathcal D}
+ \le\frac{\epsilon_F}{\log3}+\frac1k
+              +\frac{2^{k+1}\log2}{rk\log3}+\eta.
+\]
+Countable stability of packing dimension, followed by $u\to\infty$,
+therefore gives
+\begin{equation}\label{eq:dimension}
+ \dimP E_2\le\frac1k+\frac{2^{k+1}\log2}{rk\log3}.
+\end{equation}
+For fixed $k$, let $r\to\infty$; then let $k\to\infty$.
+This proves $\dimP E_2=0$, and $\dimH E_2\le\dimP E_2$ proves the
+other equality. To obtain the explicit covering statement in
+Theorem~\ref{thm:main}, choose successively $k,r,u$ to make the displayed
+upper box bound at most any prescribed $\delta>0$.
+No uniform bound on the unbounded template span $R$ is used, and no
+uncountable union over limiting 3-adic coefficients occurs.
+
+\section{Verification and reproducibility}
+The mathematical proof consists of the arguments above and the complete
+finite construction below, with the unit-equation and addition theorems
+as external inputs. Accompanying programs check finite carry identities,
+low-digit reduction, positional incidences, and the state invariants
+of finite container examples. Such tests are regression checks and
+provide reproducible witnesses for implementation errors; they do not
+replace the proofs or certify the infinite-dimensional conclusion.
+
+The accompanying audit records identify the exact source files and
+separate the mathematical arguments from finite computations. ChatGPT
+was used in developing and editing the manuscript, implementing checks,
+and conducting independent agent reviews. This is not a claim of
+proof-assistant verification or external peer review. Authorship of this
+manuscript is attributed solely to Timofei Iuzhakov.
+
+\begin{thebibliography}{9}
+\bibitem{Lagarias} J. C. Lagarias,
+\emph{Ternary expansions of powers of 2},
+J. London Math. Soc. (2) \textbf{79} (2009), 562--588.
+\href{https://doi.org/10.1112/jlms/jdn080}{doi:10.1112/jlms/jdn080}.
+\bibitem{AL} W. C. Abram and J. C. Lagarias,
+\emph{Intersections of multiplicative translates of 3-adic Cantor sets},
+J. Fractal Geom. \textbf{1} (2014), 349--390.
+\url{https://ems.press/content/serial-article-files/37215}.
+\bibitem{ABL} W. C. Abram, A. Bolshakov and J. C. Lagarias,
+\emph{Intersections of multiplicative translates of 3-adic Cantor sets II:
+two infinite families}, Experimental Math. \textbf{26} (2017), 468--489.
+\href{https://doi.org/10.1080/10586458.2016.1205532}{doi:10.1080/10586458.2016.1205532}.
+\bibitem{ESS} J.-H. Evertse, H. P. Schlickewei and W. M. Schmidt,
+\emph{Linear equations in variables which lie in a multiplicative group},
+Ann. of Math. (2) \textbf{155} (2002), 807--836.
+\url{https://annals.math.princeton.edu/2002/155-3/p04}.
+\bibitem{DeVos} M. DeVos,
+\emph{A short proof of Kneser's addition theorem for abelian groups}.
+\url{https://www.sfu.ca/~mdevos/papers/kneser.pdf}.
+\bibitem{ST} D. Saxton and A. Thomason,
+\emph{Online containers for hypergraphs, with applications to linear equations},
+J. Combin. Theory Ser. B \textbf{121} (2016), 248--283.
+\href{https://doi.org/10.1016/j.jctb.2016.05.011}{doi:10.1016/j.jctb.2016.05.011}.
+\end{thebibliography}
+
+\appendix
+\section{A finite causal container lemma}\label{app:container}
+\input{causal_container.tex}
+\end{document}

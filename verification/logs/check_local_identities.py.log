@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "ordinary_carry",
+      "status": "PASS",
+      "elapsed_seconds": 0.0355,
+      "cases": 3240,
+      "primes": [
+        2,
+        3,
+        5
+      ],
+      "includes_negative_coefficients_and_centers": true,
+      "distinct_attained_prime_arity_carry_triples": 63
+    },
+    {
+      "name": "two_upper_translates",
+      "status": "PASS",
+      "elapsed_seconds": 0.1586,
+      "low_residue_cases": 617,
+      "cases_attaining_two_lifts": 306,
+      "tests_extreme_allowed_carry_p_to_b_minus_one": true
+    },
+    {
+      "name": "subshift_coset_occupancy",
+      "status": "PASS",
+      "elapsed_seconds": 0.0088,
+      "coset_class_checks": 109,
+      "targets": [
+        {
+          "p": 2,
+          "forbidden_word_low_to_high": [
+            0,
+            0
+          ],
+          "maximum_depth": 8,
+          "language_counts": [
+            1,
+            2,
+            3,
+            5,
+            8,
+            13,
+            21,
+            34,
+            55
+          ]
+        },
+        {
+          "p": 3,
+          "forbidden_word_low_to_high": [
+            0,
+            1,
+            2
+          ],
+          "maximum_depth": 6,
+          "language_counts": [
+            1,
+            3,
+            9,
+            26,
+            75,
+            216,
+            622
+          ]
+        },
+        {
+          "p": 3,
+          "forbidden_word_low_to_high": [
+            2
+          ],
+          "maximum_depth": 7,
+          "language_counts": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32,
+            64,
+            128
+          ]
+        }
+      ],
+      "includes_nonproduct_languages": true
+    },
+    {
+      "name": "overlap_and_short_interval_boundary",
+      "status": "PASS",
+      "elapsed_seconds": 0.0395,
+      "block_length_cases": 3840,
+      "includes_shorter_than_two_blocks": true,
+      "edge_span_cases_per_block_case": 5
+    }
+  ],
+  "ordinary_exponent_interval_scans": 0,
+  "previous_stage_scans_rerun": false,
+  "scope": "Finite regression checks only; mathematical proofs are in the report.",
+  "not_proved_by_this_program": [
+    "The general recurrence theorem",
+    "Countability of E2",
+    "1 not in E2",
+    "E2={0}",
+    "Exact list 1,4,256"
+  ]
+}

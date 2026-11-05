@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "Finite checks of arithmetic identities only; no verification of ESS or container lemma or dimension theorem",
+  "seed": 40620261105,
+  "counts": {
+    "ordinary_carry": 4800,
+    "integer_approximation_and_anchor": 4800,
+    "two_target_residues": 262,
+    "valuation_nondegeneracy": 78768,
+    "template_pair_codegrees": 600
+  }
+}
