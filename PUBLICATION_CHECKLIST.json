@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "sole_author": "Timofei Iuzhakov",
+  "scope": "Pre-publication package checks; remote publication verified separately",
+  "mathematical_reviews": [
+    {
+      "path": "audit/final_dimension_integration_review.txt",
+      "sha256": "80f68ceedac3b958dc8612d6deae1c3d560a576f88ee322705e8f33912f5b23e"
+    },
+    {
+      "path": "audit/final_dimension_pointwise_review.txt",
+      "sha256": "826b9c8ca333c5f3c11eb27c8762bc20ce8ded0dcfda4ac720ec431690758a73"
+    }
+  ],
+  "complete_proofs_preserved": true,
+  "unfinished_research_excluded": true,
+  "all_packaged_programs": "PASS",
+  "pdf_pages": 29,
+  "pdf_visual_review": "All pages inspected; no clipping, overflow or unresolved references found",
+  "source_cross_references": "PASS",
+  "citation_and_version_consistency": "PASS",
+  "prior_v1_files_preserved": true,
+  "manuscript_sha256": {
+    "paper/causal_container.tex": "1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750",
+    "paper/lagarias_zero_dimension.pdf": "67a4bcd769df5700742de1dfa93cc2bdaf6202e06a7d9c525aa6704379c8acbd",
+    "paper/lagarias_zero_dimension.tex": "80393a62d9d8b8c592ab347781d5d8c1f932cd6fea7cd430f723a1db4385992b"
+  },
+  "metadata_review": {
+    "path": "audit/final_release_metadata_review.txt",
+    "sha256": "f681e52054c27315ca3ba7cc9cf035e78fca27bd17182e103fef869faf25a85d"
+  }
+}

@@ -1,0 +1,145 @@
+INDEPENDENT INTEGRATION CHECKLIST — 6 November 2026
+Reviewer: hostile_core_20261106. No public actions authorized to reviewer.
+Source hashes are recorded independently in frozen_sources.json.
+The checklist is prospective; it is not a PASS verdict on a merged text.
+
+ARTICLE I: DIMENSIONS — TWO PRIMARY THEOREMS, ONE EARLIER CONSEQUENCE
+
+D01. Define Sigma, F_k with distinct arbitrary n>=0 visits, Gamma_H,
+Gamma_P, and FULL real E_R. F1 is union_n 2^-n Sigma, not literally Sigma.
+D02. State uniform finite-J countable compact cover for F_J and both
+Gamma limits0. Retain finite-rank rational-unit group extension only
+with rank-dependent J and its exact unit-injectivity proof.
+D03. State full real Conjecture1.4/A theorem dim_H E_R=dim_P E_R=0
+with countable compact cover. Do not conflate floor-truncated set,
+dimension log_3 2, with the full fractional-digit condition.
+D04. Old E2 conclusion is a consequence of Gamma0, with honest v1
+provenance. Neither E2 nor Gamma abstract dimension formula replaces
+the real affine FINITE-WORD transfer.
+D05. Finite uniform extraction: stage invariants, uniform ESS incidence,
+valuation-tie deletion, nondegenerate equation, rank and distinctness;
+strict growth order, unique valuation-minimal coordinate determinants;
+Ramsey augmented nonzero minors; canonical slot word and connectivity;
+cofactor minimum-pair refinement and buffered slot variation;
+one repeated descending label; five vectors in2D obstruction over F3;
+Cramer unit precision; finite least valuation ties only for NONZERO
+error coefficients; physical exponent order restored; bad-row bound;
+explicit finite N_d(L), backwards J and residue pigeonholes;
+disjoint positive distance sets, allowing internal repeated distances;
+virtual rational unit anchor, arbitrary span permitted.
+D06. Gamma entropy: input unrestricted ternary, not Sigma after virtual
+anchor. q=b+1 selected before requiring gaps>=q. Q=3^((r-1)q),
+C=binom(r,2), D=CQ^(r-3). Exactly r lower ordinary residues and carry
+0,...,r-1. Rational units legal. Causal center prefix-dependent only.
+D07. Gamma capacity: R_b=(3^b-1)/2, R_b+r-1<3^b ensures UNIQUE
+low representative; high one-digit Cartesian product <=2 over F3.
+This does not invoke the older two-translate Kneser capacity.
+D08. Frozen full causal theorem accurately restated, with nonlocal joint
+letters, arbitrary finite input alphabet, source-prefix relations,
+disjoint outgoing future positions, pair-codegreeC, exact theta/bad-edge
+budget, full Cartesian products, and fingerprint entropy. Appendix hash
+unchanged if claimed byte-identical; if changed, inspect complete diff.
+D09. Conditional high supports come from different prefix atoms but lie
+in the assigned alphabets; full-product statement licenses recombination.
+Boundary rKR and first b digits; finite-word count includes all locally
+valid words, no infinite extendability assumption.
+D10. Parameter hierarchy fixed r then u, finite K then finiteJ. Within
+each component fixed R before L->infinity. Rational data countable,
+unit anchor is3-adic isometry, countable stability of packing dimension.
+
+REAL BRANCH — DO NOT SILENTLY REPLACE ITS DEPENDENCIES
+R01. Infinite extraction applies to arbitrary infinite set S of REAL
+visit times, independently of any initial3-adic point. Compactness of
+dyadic unit slopes; residual unit limits and gaps to infinity; exact
+stops ruled out by nondegenerate finite-rank ESS; integer coefficient
+approximation; true positive dyadic rational anchor; terminal unit error.
+R02. Strong cross-span separation is legitimate for INFINITE extraction
+only. Do not import it into uniform finite-J lemma, where it is false.
+R03. Real affine finite-word bound: arbitrary fixed beta_i in Z3;
+input in Sigma permitted here; all locally admissible finite words;
+uniform shifts; q=b+k; capacity B_r,k=rlog3+2^(k+1)log2;
+causal center T=beta_i+3^E u_i[X]_j; r lower residues; carry0,...,r-1.
+R04. Two-translate Kneser proof included or precisely frozen-cited;
+stabilizer size3^h<=2^(h+1) impliesh<=1; quotient Kneser applies;
+no use of one-digit unique representative with incompatible b,k choices.
+R05. Real conditional k-block supports, multiplicity entropy chain bound,
+boundary(R+q-1)log3; s=epsilonF/log3+1/k+2^(k+1)log2/(rklog3)+eta.
+R06. For positive c=p/q,3 not dividingpq:
+beta_L=floor(3^LcX)-c floor(3^LX) lies in q^-1 Z intersect(-1,c),
+exactlyp+q-1 possibilities, independent of L. Reduction in Z3 valid
+for rational denominators. Real full0/1 tail<=1/2 makes floors allowed.
+R07. Finite shift union taken at EACH depthL; no fixed shifts across L,
+no infinite reversed input, no causal conditioning on unread real tails.
+R08. Real cells count(M+1)*product(p_i+q_i-1)*C0*3^(sL);
+bounded real digit set closed; compact finite intersections; endpoints;
+countable true-time/integer-coefficient data and M, no uncountable limits;
+similarity2^-n0; all heights/spans fixed per component; packing conclusion.
+R09. Parameter order firstk, thenr, thenb,q, thenu, then extraction.
+No accidental dependency on finite-J theorem needed for retained proof.
+
+ARTICLE II: INTEGER QUOTIENTS — TWO INDEPENDENT MAIN THEOREMS
+
+Q01. Positive witnesses N,a,b only; ordinary finite Cantor integers;
+M_C,M_H correctly defined and distinguished from dyadic exponent counts.
+Digits0/2 source positive members=2*C01, quotient sets identical.
+Q02. Power theorem beta=s+(2s-1)(s-g)/(1+g), exponent~.6660585297784;
+eventual absolute c>0; no full asymptotic or positive density claim.
+Q03. Sampling separation0<delta<=1; degreeK; Parseval and total variation;
+exact second/fourth moments2^-h,(3/8)^h. Farey spacingD^-2, h=ceil2log3D,
+third moment exponenteta=log3(27/16)<s.
+Q04. Holder block permutation denominator coprime3, no lost factor|T_D|;
+fixed-D product decay. Cantor denominatorsY>=3, divisor multiplicity
+<=4(Y/d)^s; exact reduced-denominator sum; dyadic dominated-tail proof
+for coupled Y,L conditionL>=3ceil2log3Y. N=1 handled.
+Q05. Common lengthL to L_N=floor log3(NX) uses monotonic Fourier modulus;
+orthogonality, removalzero, floors, X^sN^(s-1)/4-1;
+good denominators>=Y^s/8; first moment>=X^sY^(2s-1)/64 eventually.
+Q06. Golden finite-word overlap proof: r=1+3^e u; carry table0,1,2,3;
+future carry independent of intermediate admissible choices; branch mark
+at i+e; exact independent-set deletion comparison without a fixed forced
+digit; path components imply phi^(n+e); locally valid words, not only
+extendable ones. Actual distances averaged: sum phi^v<=CY^(2s), not
+worst-casephi^logY. Pair boundCX^gY^(2s+g).
+Q07. EndpointY=c0X^alpha,alpha=(s-g)/(1+g)<1/6; correct small c0
+controls Bonferroni. Spaced copies of positive finite witness implyM_H>=M_C.
+Q08. Family theorem forallk>=0, M=621*3^(4k)-20=23*3^m-20,m=4k+3;
+M outside quotientset AND outside elementaryD,E; hence infinitely manyF.
+Q09. Delayed carry exact partial sums/signs, interval[-11,10], eventual0;
+binary queue orientation, normalizeda0=b0=1, first nontrivial return to0
+must pass(0,-1). Backward closure containing(0,-1), excluding(0,0)
+is used in the logically correct direction.
+Q10. Reverse formula A^-=2A-alpha2^m+x,d^-=3d-20alpha-beta+23x;
+enumerates all four choices, valid iff d^- in carryinterval.
+Q11. Transfer EVERY register/carry set, P+,U+,W+ boundary additions,
+index ranges, all16 displayed predecessor rows/18 symbolic variants;
+baseP/U/W annotations and restricted destinations; k=1 emptyranges;
+high-bit inequalities X=16^k>=16; T_j recurrence and both wrap identities;
+register distinctness/cardinality38k+50. Binary A is not ternary value.
+Q12. Separate k=0 table65states, all260 predecessor choices. All-k proof
+comes from symbolic identities/inequalities, not finite instantiations.
+Q13. M1mod3 avoidsD; strict gap2*3^(m+2)<M<(3/2)3^(m+3) avoidsE.
+Positive source convention correct. Nonrepresentation does NOT imply
+dim_H C(1,M_k)=0 or lack of3-adic witnesses.
+Q14. No circular dependency between abundance and family proofs. No
+causal-container or ESS dependency introduced into elementary quotients.
+Standard notation collisions D,C,F,N,alpha,beta,r,s,g,carry symbols
+resolved locally; merged theorem/lemma/citation labels globally unique.
+
+BOTH FINAL ARTICLES: INTEGRATION AND PUBLICATION SCOPE
+
+I01. Sole authorTimofeiIuzhakov, coherent version/date, stable citation;
+v1 remains unchanged, v2 correctly records additions and old result.
+I02. Every theorem/lemma/equation/table label unique; every ref/eqref/cite
+defined; no inherited wrong numbering; appendix input names resolve.
+I03. No stale statement 'Gamma not proved' as aggregate current status;
+retained real proof may accurately say it alone uses infinite visits.
+I04. No claim1 outsideE2, onlyn=0,2,8, fullF4 resolution, countability,
+real emptiness, complete multiplier asymptotics, or world-priority proof.
+I05. No unrelated structural note, generic-word extension, partialfinite
+search direction or weaker superseded standalone theorem added for bulk.
+Only exact checks directly supporting included complete proofs retained.
+I06. Verification section distinguishes finite exact tests, internal
+reviews, external peer review and formal proof-assistant certification.
+I07. Capture FINAL exact source/appendix hashes in independent reviews.
+After further edits, reconcile precise deltas; do not approve a different
+file solely from earlier PASS. Root handles compile and full visual QA.

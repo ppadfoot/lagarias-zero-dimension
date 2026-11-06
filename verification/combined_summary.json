@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "Finite checks, not formal proof certification",
+  "results": [
+    {
+      "program": "run_checks.py",
+      "returncode": 0,
+      "sha256": "8ddbf18c5f216ca2aa14d10ac3d629363650e17e1eacf8a51d018388e68ea918"
+    },
+    {
+      "program": "code/root_exact_linear_checks.py",
+      "returncode": 0,
+      "sha256": "d97051697e5661fc3e4268b6c7f40903072569023e83e88a9169a665dbf8d149"
+    },
+    {
+      "program": "code/check_real_transfer.py",
+      "returncode": 0,
+      "sha256": "5210f1b6034fc4b293cd85d0ed0baec0b2bd7e4dde9395fac378bcc6af0d6469"
+    },
+    {
+      "program": "code/check_affine_carries.py",
+      "returncode": 0,
+      "sha256": "14bef662e7eb9c94e214240612fd4dcb0be3f70a6674e3b82200daead263274f"
+    }
+  ]
+}

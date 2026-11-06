@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "seed": 406,
+  "identities": 5400,
+  "negative_shifts": 2644,
+  "nonintegral_shifts": 3138,
+  "nonzero_carries": 4965,
+  "admissible_output_blocks": 2153,
+  "scope": "Affine causal identity for arbitrary finite inputs, including negative rational shifts; not a check of the infinite dimension theorem."
+}

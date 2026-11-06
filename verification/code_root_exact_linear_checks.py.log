@@ -1,0 +1,1 @@
+{"status": "PASS", "exact_monomial_minors": 660, "exact_cramer_corrections": 2520, "zero_corrections_explicitly_allowed": 13, "finite_field_capacity_pairs": 49, "seed": 40620261106, "scope": "Finite exact consistency checks, not the Ramsey/ESS proof."}

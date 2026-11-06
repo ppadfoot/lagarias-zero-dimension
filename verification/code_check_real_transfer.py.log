@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "points": 1845,
+  "slopes": 49,
+  "identities": 632835,
+  "full_target_instances": 12215,
+  "finite_target_instances": 87340,
+  "negative_shifts": 293169,
+  "rational_noninteger_shifts": 398652,
+  "changing_shift_example": {
+    "X": "1/2",
+    "c": "1/4",
+    "values": [
+      {
+        "L": 1,
+        "beta": "-1/4"
+      },
+      {
+        "L": 2,
+        "beta": "0"
+      },
+      {
+        "L": 3,
+        "beta": "-1/4"
+      },
+      {
+        "L": 4,
+        "beta": "0"
+      },
+      {
+        "L": 5,
+        "beta": "-1/4"
+      },
+      {
+        "L": 6,
+        "beta": "0"
+      },
+      {
+        "L": 7,
+        "beta": "-1/4"
+      },
+      {
+        "L": 8,
+        "beta": "0"
+      }
+    ]
+  },
+  "scope": "Exact finite bridge only; the dimension proof additionally uses the independently reviewed causal entropy theorem and infinite extraction."
+}

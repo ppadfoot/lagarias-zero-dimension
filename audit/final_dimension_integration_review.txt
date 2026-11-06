@@ -1,0 +1,181 @@
+FINAL INDEPENDENT INTEGRATION REVIEW — DIMENSION MANUSCRIPT
+Date: 6 November 2026
+Reviewer: hostile_core_20261106 (internal AI-assisted review)
+
+VERDICT: PASS for the exact source and appendix identified below.
+No unresolved substantive mathematical defect, missing proof branch, or
+incorrect theorem-scope transfer was found in this integration review.
+This is an internal mathematical review, not external peer review,
+proof-assistant certification, or certification of worldwide priority.
+
+1. EXACT REVIEWED ARTIFACTS
+
+outputs/github_final_2026-11-06/lagarias-zero-dimension/paper/lagarias_zero_dimension.tex
+SHA256 80393a62d9d8b8c592ab347781d5d8c1f932cd6fea7cd430f723a1db4385992b
+
+outputs/github_final_2026-11-06/lagarias-zero-dimension/paper/causal_container.tex
+SHA256 1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750
+
+Title: Zero dimension for the real exceptional set and vanishing 3-adic
+nesting constants. Sole author: Timofei Iuzhakov. Version 2.0.0,
+6 November 2026.
+
+The full merged main source was read, including the new introduction,
+all finite-extraction sections, both entropy applications, the real
+transfer, the dimension conclusions, limitations and dependency record.
+The unchanged appendix was compared byte-for-byte with the previously
+independently audited v1 appendix. This final review does not treat an
+author's merge-provenance statement as sufficient evidence of fidelity.
+
+2. INDEPENDENT TRANSFER COMPARISONS
+
+The script check_dimension_transfer.py and output dimension_static_checks.json
+in this review directory record independent comparisons with:
+
+Gamma source:
+964d8522e5431f723a355853aed097683e3fc501dd3f38ad8ec8714f35907687
+Real source:
+9cf7e5b9930f76788ea1d429a46ccab17e56fb8d8722356799f3921d8f7f4754
+Original v1 main source:
+05e7b7729853591197a0e00772a50117927d9226280afec649b89dc5dd864801
+
+The complete Gamma mathematical sections, from uniform finite extraction
+through its limitations, are identical to the frozen Gamma source.
+The real infinite-extraction proof and real floor-transfer proof are
+identical after the real: label namespace is removed. The real affine
+entropy proof differs only by replacing precise external preprint
+references with references to the now-included capacity lemma and
+container theorem. The real dimension proof changes only the former
+literal Section 3 reference to the correct named section reference.
+The complete two-translate capacity lemma and proof are identical to
+v1 after removing the vone: label namespace. The causal appendix is
+byte-identical. No mathematical steps were silently shortened during
+the merge.
+
+All 82 labels across the main source and included appendix are unique.
+Every ref/eqref and citation resolves. The six citation keys are ABL,
+Core, DeVos, ESS, Lagarias and LagariasArxiv. These syntactic checks
+complement, and do not replace, reading what the references assert.
+
+3. GAMMA BRANCH: MATHEMATICAL SCOPE AND DEPENDENCIES
+
+The definition of F_k counts arbitrary distinct n>=0 true visits, rather
+than assuming an anchored visit at n=0. The manuscript does not falsely
+identify F_1 with Sigma. Both limiting Hausdorff and packing dimensions
+are treated. The stronger operational statement is a uniform finite J
+such that F_J is covered by countably many compact sets of arbitrarily
+small upper box dimension.
+
+The extraction does not require a uniform bound on the span. Its uniform
+quantity is the number J of supplied distinct dyadic slopes. The full
+finite proof retains the incidence bound, finite Ramsey refinements,
+strict valuation ordering, unique minimum determinant term, canonical
+slot-word argument, the five-vector obstruction over F_3, and Cramer
+precision control. The error-tie deletion explicitly concerns nonzero
+error coefficients at a finite least valuation. The original physical
+exponent order is restored before checking successive gaps. The final
+distance-overlap selection allows repeated distances within a row but
+produces disjoint distance sets between selected rows.
+
+The virtual anchor alpha is a rational 3-adic unit. Consequently X=alpha*x
+need not belong to Sigma, and the finite-word proposition correctly
+allows arbitrary ternary input. The choice q=b+1 precedes the requirement
+that the extracted gaps be at least q. Ordinary addition has exactly r
+lower residues and carry in {0,...,r-1}. The prefix-dependent center is
+legal for the reproduced causal theorem. Fixing b low digits yields a
+unique low representative because (3^b-1)/2+r-1<3^b. The one remaining
+high digit lies in one translate of {0,1}; a full additive product in
+F_3 therefore has product cardinality at most 2. This is the sharp
+one-digit estimate used for Gamma, not the older two-translate estimate.
+
+Conditional supports obtained from different longer-prefix atoms all
+lie in the corresponding alphabets determined by the shorter prefix and
+the same fingerprint. Their recombination is justified by the exact
+full-Cartesian-product conclusion, not by an assumption that a single
+input realizes every combination. Boundary incidences, fingerprint
+entropy and the initial b digits give the stated finite-word bound.
+The r-then-u parameter hierarchy makes the residual entropy costs vanish.
+Each component's span is fixed before L tends to infinity.
+
+All extraction coefficients are rational; the finite component data are
+countable. Multiplication by alpha is a 3-adic isometry. Countable
+stability of packing dimension therefore proves Gamma_H=Gamma_P=0.
+The E2 theorem follows as a corollary. The finite-rank rational-unit
+group remark preserves its rank dependence and proves the necessary
+injectivity by the unit valuation; it does not assert a conclusion for
+arbitrary collections of integer multipliers.
+
+4. REAL BRANCH: SEPARATE COMPLETE ARGUMENT
+
+The manuscript treats the full, untruncated real digit condition,
+including every fractional digit. It explicitly distinguishes this
+from Lagarias's floor-truncated set of dimension log_3(2). The claimed
+result is dim_H E_R=dim_P E_R=0 and a countable compact upper-box cover.
+
+The infinite extraction is independently stated for an arbitrary
+infinite subset of nonnegative visit times. Compactness concerns the
+dyadic unit slopes in Z_3, not the initial real point. At every finite
+stage an infinite collection of exact stops would give distinct
+nondegenerate finite-rank unit-equation solutions; distinct valuations
+exclude vanishing subsums. Hence residual normalization can continue.
+Finite coefficient approximations and a sufficiently close TRUE visiting
+anchor preserve the terminal unit remainder. Strong cross-span
+separation is used only here, where the infinite extraction supports it;
+it is not imposed on the uniform finite-J theorem. Slopes can be dyadic
+fractions and this is explicitly retained.
+
+The real affine finite-word bound is uniform over all fixed shifts
+beta_i in Z_3 and counts every locally admissible finite word, whether
+or not infinitely extendable. It uses q=b+k, not q=b+1. The shifted
+prefix center beta_i+3^E*u_i*[X]_j is causal. The low-representative
+interval has at most two representatives, and the high k-digit sumset
+is contained in two translates of Sigma_k. The full Kneser capacity
+proof is included: a stabilizer coset has 3^h elements but meets the
+two translates in at most 2^(h+1), forcing h<=1; quotient Kneser then
+gives sum log|A_i|<=r log3+2^(k+1)log2. Its constants are translation
+uniform. The conditional-support argument and overlapping-window chain
+rule yield the stated s and boundary (R+b+k-1)log3.
+
+For c_i=p_i/q_i>0 with 3 not dividing p_i*q_i, the exact floor error is
+beta_i,L=floor(3^L*c_i*X)-c_i*floor(3^L*X). It lies in
+q_i^(-1) Z intersect (-1,p_i/q_i), a fixed set of p_i+q_i-1 choices.
+Every such shift belongs to Z_3. Reducing the integer part modulo 3^L
+is valid because c_i is a 3-adic unit. Full admissible real fractional
+tails are at most 1/2, so taking floors preserves the required 0/1
+integer prefixes, including terminating cases. No reversed infinite
+word or unread real tail is fed into the causal theorem.
+
+The shift vector may change with the point and with L. The proof takes
+a fixed finite union at each depth, which is exactly what the uniform
+finite-word estimate permits. It does not assume one shift vector for
+all depths. The real cell bound includes M+1 possible integer parts
+and product(p_i+q_i-1), both constant for a fixed component. The digit
+set is closed on bounded intervals, giving compact finite intersections.
+The union is indexed only by integer visit times, integer exponents,
+integer coefficient approximations, and M; no uncountable accumulation
+point indexes it. The similarity 2^(-n0) preserves upper box dimension.
+The order of limits fixes rational heights and spans before L->infinity,
+then uses countable stability of packing dimension. The real packing
+conclusion is therefore justified, not inferred from Hausdorff zero.
+
+5. RESOLVED INTEGRATION ISSUE AND LIMITATIONS
+
+The initial merged introduction could be read as saying infinite
+extraction was unused anywhere. That sentence has been corrected in
+the reviewed 80393a... source to restrict the assertion to the 3-adic
+finite-visit argument. This is the only change after initial source
+62a7039... relevant to this review. Its proof bodies are unchanged.
+
+The source correctly leaves open pointwise Erdős 406, exclusion of 1
+from E2 or E_R, emptiness/countability, and real finite-visit nesting.
+It does not add an Assouad conclusion or arbitrary-target theorem.
+The retained real proof is not presented as following from the bare
+Gamma=0 statement. Dependency provenance identifies v1, the exact
+appendix, ESS and Kneser. Both substantive new branches remain visible
+as main results of one coherent article.
+
+All checklist items D01-D10, R01-R09 and the mathematical parts of
+I01-I07 are satisfied. Compilation and PDF page-by-page visual review
+are root's separate responsibility. The release metadata and actual
+archive completeness are assessed in release_metadata_review.txt.
+No manuscript, public repository or release was changed by this reviewer.

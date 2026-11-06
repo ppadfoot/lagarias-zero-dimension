@@ -1,0 +1,41 @@
+{
+  "main_sha256": "80393a62d9d8b8c592ab347781d5d8c1f932cd6fea7cd430f723a1db4385992b",
+  "appendix_sha256": "1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750",
+  "main_lines": 1430,
+  "source_inputs": {
+    "outputs/lagarias_finite_visit_results_2026-11-06/gamma/paper/dyadic_nesting_zero.tex": "964d8522e5431f723a355853aed097683e3fc501dd3f38ad8ec8714f35907687",
+    "outputs/lagarias-real-zero-dimension/paper/lagarias_real_zero_dimension.tex": "9cf7e5b9930f76788ea1d429a46ccab17e56fb8d8722356799f3921d8f7f4754",
+    "outputs/lagarias-zero-dimension/paper/lagarias_zero_dimension.tex": "05e7b7729853591197a0e00772a50117927d9226280afec649b89dc5dd864801",
+    "outputs/lagarias_finite_visit_results_2026-11-06/gamma/paper/causal_container.tex": "1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750"
+  },
+  "checks": {
+    "unique_labels": 82,
+    "resolved_references": 88,
+    "resolved_citation_keys": [
+      "ABL",
+      "Core",
+      "DeVos",
+      "ESS",
+      "Lagarias",
+      "LagariasArxiv"
+    ],
+    "gamma_proof_blocks_preserved_byte_for_byte": 4,
+    "appendix_unchanged": true,
+    "gamma_complete_mathematical_sections_preserved_byte_for_byte": true,
+    "real_proof_blocks": 4,
+    "real_extraction_and_transfer_proofs_unchanged_after_label_normalization": true,
+    "real_remaining_proof_edits": "finite entropy proof: only local capacity/container references and source attribution; final dimension proof: only Section3 -> named section reference",
+    "full_v1_capacity_lemma_and_proof_preserved_after_label_namespace": true
+  },
+  "real_transformations": [
+    "prefix internal labels/refs with real:",
+    "replace obsolete addendum/dependency prose with local theorem/appendix references",
+    "include complete v1 capacity lemma and proof with vone: labels",
+    "replace Section 3 literal reference with sec:real:finite",
+    "scope final limitations to real argument while acknowledging separately proved Gamma theorem"
+  ],
+  "publication_action": "none; source preparation only",
+  "post_review_editorial_corrections": [
+    "Restrict the introductory statement that infinite extraction is not used to the 3-adic finite-visit argument; the real proof retains infinite extraction."
+  ]
+}

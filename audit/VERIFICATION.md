@@ -1,26 +1,11 @@
-# Verification scope
+# Verification scope: version 2.0.0
 
-The proof was reviewed along three separate lines:
+The final merged manuscript and unchanged causal-container appendix receive two independent internal full-source reviews. The reports named `final_*` bind their conclusions to exact SHA-256 source hashes. The authoring agents also checked preservation of their source arguments; these checks are not independent reviews of their own contributions.
 
-1. **Arithmetic and unit equations:** nondegeneracy, extraction of separated templates, approximation by integer coefficients, the true-visit anchor, countability of covering data, and exact carries.
-2. **Finite causal containers:** full-origin multiplicity, source branches, all-rank recording, projection queues, lifetime charging, retirement, complete Cartesian products, and reconstruction from the final fingerprint.
-3. **Entropy and dimension:** conditional supports, Kneser capacity, incidence deficits, overlapping windows, countable compact covers, and the order of limits giving packing dimension zero.
+The v2 review covers the uniform finite-visit theorem, vanishing 3-adic nesting constants, the E2 corollary, and the separate real infinite-visit proof. It specifically distinguishes virtual anchors in the finite-visit argument from true-visit anchors in the real extraction, and checks the real affine word bound, floor transfer, countable compact covers and packing-dimension limit. The shared causal-container appendix remains unchanged from v1 and is included in the dependency review.
 
-Each reviewer also read the complete final English source. Exact source hashes and the scope of each conclusion appear in the `*_final_review.txt` files. The source-stage reports retain their original local references.
+Run `python3 run_all_checks.py` with Python 3.10 or newer and assertions enabled. The original six-program suite is retained. Additional checks cover exact linear geometry, 632835 real-transfer identities and 5400 affine-carry identities. Machine-readable outcomes and execution logs are in `verification/combined_summary.json` and its accompanying logs.
 
-## Finite programs
+The original v1 verification description and reports retain their historical scope; its description is preserved in `archive/v1.0.0/audit/VERIFICATION.md`. Older reports do not certify the new merged source. `PUBLICATION_CHECKLIST.json` records the final package checks.
 
-| Program | Scope |
-| --- | --- |
-| `check_arithmetic.py` | 4,800 carry identities; 4,800 finite anchor/approximation cases; 262 low residues; 78,768 distinct-valuation subsums; 600 template configurations |
-| `check_local_identities.py` | General carry and two-target identities, coset occupancy, and boundary multiplicities from the archived Stage 16 tests |
-| `check_entropy_transfer.py` | 17,220 entropy diagnostics and 2,640 boundary instances; negative control showing why actual tuples alone do not imply full-product compatibility |
-| `upstream_container_engine.py` | Eight finite fixtures; origin and queue invariants; 1,600 complete fingerprint replays |
-| `check_nonlocal_replay.py` | All 2,339 feasible words of five specified models with deliberately nonlocal joint letters; measurability, conditional supports, and full products |
-| `check_nonvacuous_budget.py` | Latin-square triple system: N=3,072, 1,048,576 edges, theta=1/2, predicted bad-edge bound 768,000, actual fingerprint size 5 and zero bad edges |
-
-The arithmetic, set, and container checks use exact integer/rational operations. The entropy diagnostic uses floating-point logarithms with explicit tolerances; its analytic inequalities are proved in the paper. The container engine was copied from the historical Stage 12 verification code, inspected, and independently rerun. The new nonlocal and nonvacuous tests add independent checks around that implementation.
-
-Many small stress fixtures use thresholds for which the entropy bound is vacuous; they exercise queue and charging paths. The separate million-edge fixture verifies a genuinely nonvacuous parameter choice. None of these finite computations establishes the universal lemma by extrapolation.
-
-The external unit-equation theorem and Kneser's theorem are cited mathematical inputs. They are not re-proved or formally checked by these programs. No Lean/Coq/Isabelle certificate or external journal review is included.
+Finite programs check identities and implementation invariants; they do not prove universal assertions by extrapolation. The external unit-equation and Kneser theorems are cited inputs. Internal AI-assisted reviews are not external peer review or Lean/Coq/Isabelle verification.

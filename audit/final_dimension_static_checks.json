@@ -1,0 +1,31 @@
+{
+  "sha256": {
+    "merged": "80393a62d9d8b8c592ab347781d5d8c1f932cd6fea7cd430f723a1db4385992b",
+    "gamma": "964d8522e5431f723a355853aed097683e3fc501dd3f38ad8ec8714f35907687",
+    "real": "9cf7e5b9930f76788ea1d429a46ccab17e56fb8d8722356799f3921d8f7f4754",
+    "v1": "05e7b7729853591197a0e00772a50117927d9226280afec649b89dc5dd864801",
+    "appendix": "1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750",
+    "old_appendix": "1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750"
+  },
+  "gamma_complete_mathematical_sections_identical": true,
+  "capacity_lemma_and_proof_identical_after_label_namespace": true,
+  "appendix_byte_identical": true,
+  "real_proof_diffs_after_label_namespace": {
+    "1": "",
+    "2": "--- old-real-proof\n+++ merged-real-proof\n@@ -44,14 +44,14 @@\n by $3^b$ shows that the sum of the high $k$-digit factors lies in at most\n two translates of $\\Sig_k$. The first high factor is multiplied by the\n unit $u_i$, an affine bijection after its low digits are fixed.\n-We use the capacity estimate of \\cite[Lemma~2.1]{Core}: for nonempty\n+We use Lemma~\\ref{vone:lem:capacity}: for nonempty\n $H_1,\\ldots,H_r\\subseteq\\Z/3^k\\Z$,\n \\begin{equation}\\label{eq:capacity}\n  H_1+\\cdots+H_r\\subseteq(z_1+\\Sig_k)\\cup(z_2+\\Sig_k)\n  \\quad\\Longrightarrow\\quad\n  \\sum_{\\nu=1}^r\\log|H_\\nu|\\le r\\log3+2^{k+1}\\log2=:B_{r,k}.\n \\end{equation}\n-This estimate is derived from Kneser's theorem in the cited preprint;\n+The proof above derives this estimate from Kneser's theorem;\n its constants do not depend on either translate.\n \n \\emph{The finite causal-container input.}\n@@ -70,7 +70,8 @@\n most $C=\\binom r2$ edges: the distance belongs to at most one template,\n and that template has at most $\\binom r2$ role pairs.\n \n-The theorem in \\cite[Appendix~A]{Core} therefore supplies a deterministic\n+Theorem~\\ref{thm:container}, with its complete proof in\n+Appendix~\\ref{app:container}, therefore supplies a deterministic\n fingerprint $F$ and alphabets $\\mathcal A_j$, each determined by\n $(X_{<j},F)$ and containing the actual joint letter. It gives\n \\begin{equation}\\label{eq:budgets}\n",
+    "3": "",
+    "4": "--- old-real-proof\n+++ merged-real-proof\n@@ -5,7 +5,7 @@\n              \\frac1k+\\frac{2^{k+1}\\log2}{rk\\log3}<\\delta.\n \\]\n Leave a positive margin in this inequality. Choose $b$ with $3^b>r-1$,\n-and set $q=b+k$, $Q,C,D$ as in Section~3. For integers $u\\to\\infty$\n+and set $q=b+k$, $Q,C,D$ as in Section~\\ref{sec:real:finite}. For integers $u\\to\\infty$\n use the thresholds and number of templates\n \\[\n  T_j=u^{2^{j-1}-1}\\quad(2\\le j\\le r-1),\\qquad\n"
+  },
+  "labels": 82,
+  "duplicate_labels": [],
+  "unresolved_refs": [],
+  "unresolved_cites": [],
+  "citations": [
+    "ABL",
+    "Core",
+    "DeVos",
+    "ESS",
+    "Lagarias",
+    "LagariasArxiv"
+  ]
+}

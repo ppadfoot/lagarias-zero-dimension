@@ -1,63 +1,46 @@
-# Zero Hausdorff and packing dimension for the 3-adic exceptional set of powers of two
+# Zero dimension for the real exceptional set and vanishing 3-adic nesting constants
 
-**Timofei Iuzhakov** · Manuscript version **1.0.0** · 5 November 2026
+**Timofei Iuzhakov** · Research preprint **2.0.0** · 6 November 2026
 
-[Read the paper](paper/lagarias_zero_dimension.pdf) · [LaTeX source](paper/lagarias_zero_dimension.tex) · [Full causal-container proof](paper/causal_container.tex) · [Verification scope](audit/VERIFICATION.md) · [Citation metadata](CITATION.cff)
+[Paper](paper/lagarias_zero_dimension.pdf) · [LaTeX](paper/lagarias_zero_dimension.tex) · [Versioned release](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v2.0.0) · [Citation](CITATION.cff)
 
-Let
+The dyadic nesting constants satisfy Gamma_H=Gamma_P=0. The untruncated real exceptional set has Hausdorff and packing dimension zero. The earlier zero-dimensional 3-adic exceptional-set theorem is recovered as a corollary.
 
-```math
-\Sigma=\left\{\sum_{j\ge0}\varepsilon_j3^j:\varepsilon_j\in\{0,1\}\right\},\qquad
-E_2=\{x\in\mathbb Z_3:2^nx\in\Sigma\text{ for infinitely many }n\ge0\}.
-```
+The manuscript does not resolve Erdős Problem 406, exclude 1 from E2, or prove countability of E2. The multiplier lower bound, where discussed, is not a bound on the number of exceptional powers of two.
 
-The manuscript proves
+## Version history
 
-```math
-\dim_H E_2=\dim_P E_2=0.
-```
+v1.0.0 (5 November 2026) proved zero Hausdorff and packing dimension of E2. Its [release](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v1.0.0) and original files in `archive/v1.0.0/` are preserved. Version 2.0.0 first adds the uniform finite-visit theorem and the full real exceptional-set theorem. These additions are not backdated to v1.0.0. The real theorem uses its own affine finite-word transfer, not the bare Gamma=0 conclusion.
 
-More precisely, for every positive epsilon, it constructs a countable cover by compact sets with upper box dimension at most epsilon. The proof combines the Evertse–Schlickewei–Schmidt finite-rank unit-equation theorem, a fully proved causal container lemma, Kneser's addition theorem, and conditional entropy.
+## Reproduction
 
-The Hausdorff assertion is [Lagarias's Conjecture 1.7 (2009)](https://doi.org/10.1112/jlms/jdn080). The packing assertion is stronger. The paper does not prove countability of E2, E2={0}, or the pointwise Erdős assertion that 1 is outside E2.
-
-## Reproduce the finite checks
-
-Python **3.10 or newer**, standard library only:
+Python 3.10 or newer, standard library only, assertions enabled:
 
 ```bash
-python3 run_checks.py
+python3 run_all_checks.py
 ```
 
-Run with assertions enabled. Six programs check exact arithmetic identities, entropy calculations, full-product compatibility, origin accounting, nested projection queues, and replay from final fingerprints. The suite includes a nonvacuous container instance with 1,048,576 edges. Details and logs are written to `verification/`; individual JSON results are in `code/`.
+The finite programs test identities, algorithm invariants and the supplied certificate. They do not replace the general mathematical arguments. Results and execution logs are included. The final-source internal reviews and their scope are in `audit/`.
 
-These computations test finite instances and implementation invariants. They are not a proof-assistant certificate for the theorem. The infinite result is supported by the written proof. Three separate AI agent reviews of the complete proof and the exact final English source are included in `audit/`; no external peer review or formal verification is claimed.
-
-## Build the PDF
-
-The release PDF was built with [Tectonic](https://tectonic-typesetting.github.io/) **0.17.0**:
+Build with Tectonic 0.17.0 (or a conventional LaTeX installation):
 
 ```bash
 cd paper
-tectonic -X compile lagarias_zero_dimension.tex
+tectonic lagarias_zero_dimension.tex
 ```
 
-The first build may download the standard TeX packages and fonts. The two TeX files are sufficient. A conventional LaTeX installation with the listed packages can also compile the source.
+## Citation
 
-## Version and citation
-
-Cite **version 1.0.0** and the repository commit used. `v1.0.0` identifies this research release. A BibTeX key is a local citation label; it is not an identifier issued by a publisher or evidence of priority. No DOI or arXiv identifier is claimed.
+Cite the exact manuscript version and relevant theorem. For the code, also identify the commit. No DOI or arXiv identifier is claimed.
 
 ```bibtex
-@misc{iuzhakov2026lagarias,
+@unpublished{iuzhakov2026lagarias,
   author = {Timofei Iuzhakov},
-  title = {Zero Hausdorff and packing dimension for the 3-adic exceptional set of powers of two},
+  title = {Zero dimension for the real exceptional set and vanishing 3-adic nesting constants},
   year = {2026},
-  note = {Version 1.0.0. Manuscript with finite verification code},
-  url = {https://github.com/ppadfoot/lagarias-zero-dimension}
+  note = {Version 2.0.0; research preprint},
+  url = {https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v2.0.0}
 }
 ```
 
-Public GitHub timestamps record when this version became publicly available. They are not a guarantee of novelty or of priority over all independent work. The source history and review scope are described in [PROVENANCE.md](audit/PROVENANCE.md).
-
-ChatGPT assisted with mathematical development, code, editing, and internal review, as disclosed in the manuscript. The sole named author is Timofei Iuzhakov.
+AI assistance was used for mathematical development, editing, code and internal review. Sole author: Timofei Iuzhakov. Internal reviews are not external peer review or proof-assistant verification; novelty and worldwide priority are not certified by GitHub timestamps.

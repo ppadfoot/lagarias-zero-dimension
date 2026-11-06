@@ -1,0 +1,68 @@
+{
+  "lagarias-zero-dimension": {
+    "recorded_checks": [
+      {
+        "program": "run_checks.py",
+        "recorded_returncode": 0,
+        "hash_matches_record": true
+      },
+      {
+        "program": "code/root_exact_linear_checks.py",
+        "recorded_returncode": 0,
+        "hash_matches_record": true
+      },
+      {
+        "program": "code/check_real_transfer.py",
+        "recorded_returncode": 0,
+        "hash_matches_record": true
+      },
+      {
+        "program": "code/check_affine_carries.py",
+        "recorded_returncode": 0,
+        "hash_matches_record": true
+      }
+    ],
+    "metadata_sha256": {
+      "README.md": "901a43a01ef6e7de1cd8bb38d19b7d5d13b1158e07fcf9ba74ae71c30944a21e",
+      "CITATION.cff": "747c46478bdee285ccb3ba5d308ecbf925e4721152f3d3adb9a583607dc83cec",
+      "CITATION.bib": "19b8387e772f03f5fed0f540cd6e44c02efd88e7f9a1a8442e7791d619bf02a9",
+      "CHANGELOG.md": "9ffecd1558c106043e8a7f04e8f7ab6e96c41e3e7d83fbfa19f64f319e443507",
+      "audit/VERIFICATION.md": "7d21dc034ea9a9cb5493ea420ff44e4d1ab476dcc18bf728c2ce76da735d6b63",
+      "audit/PROVENANCE.md": "1f0e5685c2fe94259aa921d32055a38c1b5db378021e2ad7473615cc66d06c2b"
+    },
+    "bytecode_files": [
+      "code/__pycache__/upstream_container_engine.cpython-312.pyc"
+    ]
+  },
+  "ternary-cantor-quotients": {
+    "recorded_checks": [
+      {
+        "program": "code/verify_power_gain_lemmas.py",
+        "recorded_returncode": 0,
+        "hash_matches_record": true
+      },
+      {
+        "program": "certificate/verify_parametric_certificate.py",
+        "recorded_returncode": 0,
+        "hash_matches_record": true
+      },
+      {
+        "program": "certificate/hostile_symbolic_check.py",
+        "recorded_returncode": 0,
+        "hash_matches_record": true
+      },
+      {
+        "program": "certificate/history_model_verifier.py",
+        "recorded_returncode": 0,
+        "hash_matches_record": true
+      }
+    ],
+    "metadata_sha256": {
+      "README.md": "088c81806a231a4071e574edfdf73b581f9ba5181aee096e15180fc1b11a7021",
+      "CITATION.cff": "49b3aaae47899ff26b24e844a9569fdb5b0d85621247ecae4a8c1ae24fc18db3",
+      "CITATION.bib": "e7e218e58cb3eb32b3494e4f7956437a4ebfc638be84b2fd3ca150fdaec64f56",
+      "CHANGELOG.md": "85c35381ca7dc9eb6a4b97897c27f8e2ffce4fd7e0e35722be3814b799a844a9"
+    },
+    "bytecode_files": []
+  }
+}

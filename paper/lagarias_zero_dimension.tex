@@ -1,112 +1,987 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
-\usepackage[margin=27mm]{geometry}
-\usepackage{microtype,enumitem,booktabs}
-\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
-\usepackage{xcolor}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
 \setlist{nosep}
-\newcommand{\Z}{\mathbb Z}\newcommand{\Q}{\mathbb Q}
-\newcommand{\Sig}{\Sigma}\newcommand{\dimH}{\dim_{\mathrm H}}
-\newcommand{\dimP}{\dim_{\mathrm P}}\newcommand{\dimB}{\overline{\dim}_{\mathrm B}}
-\newcommand{\supp}{\operatorname{supp}}\newcommand{\Stab}{\operatorname{Stab}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
-\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\title{Zero Hausdorff and packing dimension for the\newline
-3-adic exceptional set of powers of two}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Sig}{\Sigma}
+\newcommand{\CR}{\mathcal C_{\R}}
+\newcommand{\ER}{E_{\R}}
+\newcommand{\hbin}{h_{\mathrm{bin}}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\F}{\mathbb F}
+\newcommand{\dimH}{\dim_{\mathrm H}}
+\newcommand{\dimP}{\dim_{\mathrm P}}
+\newcommand{\dimB}{\overline{\dim}_{\mathrm B}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\val}{v_3}
+\newcommand{\hb}{h_{\mathrm{bin}}}
+\newcommand{\Ram}{\mathcal R}
+\title{Zero dimension for the real exceptional set\protect\\
+and vanishing $3$-adic nesting constants}
 \author{Timofei Iuzhakov}
-\date{5 November 2026\quad---\quad Version 1.0.0}
+\date{6 November 2026\\Version 2.0.0}
 \begin{document}
 \maketitle
 \begin{abstract}
-Let $\Sigma$ be the set of 3-adic integers with digits in $\{0,1\}$,
-and let $E_2$ consist of the initial values whose forward orbit under
-multiplication by $2$ meets $\Sigma$ infinitely often. We prove
-$\dimH E_2=\dimP E_2=0$. The argument combines the finite-rank
-unit-equation theorem of Evertse, Schlickewei and Schmidt with a causal
-container lemma for relations depending on an already read input prefix.
-The latter supplies full compatible Cartesian products of conditional
-alphabets at small information cost. A sumset bound obtained from Kneser's
-theorem then yields countable compact covers of arbitrarily small upper
-box dimension. The proof does not establish countability of $E_2$ or
-exclude the point $1$ from $E_2$.
+Let $\Sigma\subset\Z_3$ be the set of $3$-adic integers with digits in
+$\{0,1\}$, and let $F_k$ consist of the points $x\in\Z_3$ for which
+$2^n x\in\Sigma$ at least $k$ times. We prove
+$\lim_{k\to\infty}\dimH F_k=\lim_{k\to\infty}\dimP F_k=0$.
+For each $\delta>0$, some finite $k$ admits a countable compact cover
+of $F_k$ whose members have upper box dimension at most $\delta$.
+The arithmetic input is a uniform finite extraction theorem: sufficiently
+many distinct powers of two yield templates of any fixed arity, with
+common rational $3$-adic unit coefficients and disjoint positive
+distance sets. Its proof uses a uniform unit-equation bound, finite
+Ramsey theory, valuation-minimal minors, and a two-dimensional
+residue-field obstruction.
+
+We also prove that the positive real numbers $\lambda$ for which
+$2^n\lambda$ has a full ternary expansion omitting $2$ for infinitely
+many $n$ form a set of Hausdorff and packing dimension zero, again with
+countable compact covers of arbitrarily small upper box dimension.
+This is the untruncated real exceptional set of Lagarias's
+Conjecture~1.4. Its proof retains a separate infinite-set extraction
+and a finite-word transfer: real truncations satisfy affine $3$-adic
+constraints with shifts in fixed finite sets. Both arguments use the
+finite causal-container theorem of version~1.0.0, whose complete frozen
+proof is reproduced unchanged. The required two-translate sumset
+capacity estimate is also proved here. Neither conclusion excludes the
+point $1$ or proves countability or emptiness of an exceptional set.
 \end{abstract}
 
-\section{Introduction and statement}
-Equip $\Z_3$ with the metric $|x-y|_3=3^{-v_3(x-y)}$, and put
+\paragraph{Relation to version 1.0.0.}
+The previous version~\cite{Core} proved zero Hausdorff and packing
+dimension for the $3$-adic infinite-visit set $E_2$. The present version
+strengthens that conclusion to uniform finite-visit compact covers and
+vanishing nesting constants, and adds the real exceptional-set theorem.
+The earlier $E_2$ conclusion is recovered as a corollary. The two new
+arguments are given in full and share the unchanged finite
+causal-container appendix. No implication from a bare $3$-adic
+dimension formula to the real theorem is assumed.
+
+\section{The $3$-adic finite-visit problem}
+
+We use the metric $|x-y|_3$ on $\Z_3$, with $\val(3)=1$ and
+$\val(0)=+\infty$. Put
 \[
- \Sig=\left\{\sum_{j\ge0}\varepsilon_j3^j:
-                 \varepsilon_j\in\{0,1\}\right\},\qquad
- E_2=\{x\in\Z_3:2^nx\in\Sig\text{ for infinitely many }n\ge0\}.
+ \Sigma=\left\{\sum_{j\ge0}x_j3^j:x_j\in\{0,1\}\right\},
+ \qquad
+ F_k=\{x\in\Z_3:\#\{n\ge0:2^nx\in\Sigma\}\ge k\}.
 \]
-Digits are read from low to high positions. Conjecture 1.7 of
-Lagarias \cite{Lagarias} asks whether $\dimH E_2=0$. Finite intersections of multiplicative translates of
-$\Sigma$ admit finite-automaton descriptions \cite{AL}; subsequent work
-of Abram, Bolshakov and Lagarias gave the upper bound
-$\dimH E_2\le\log_3\varphi$, where $\varphi=(1+\sqrt5)/2$ \cite{ABL}.
+The visits in this definition occur at distinct nonnegative integer
+times. Set
+\[
+ \Gamma_{\mathrm H}=\lim_{k\to\infty}\dimH F_k,
+ \qquad
+ \Gamma_{\mathrm P}=\lim_{k\to\infty}\dimP F_k.
+\]
+These limits exist because the sets decrease. The Hausdorff limit is
+the dyadic nesting constant considered in the study of the exceptional
+set by Lagarias and by Abram, Bolshakov and Lagarias
+\cite{Lagarias,ABL}. We retain the arbitrary-visit convention throughout:
+in particular $F_1=\bigcup_{n\ge0}2^{-n}\Sigma$, rather than literally
+$\Sigma$.
 
 \begin{theorem}\label{thm:main}
-The exceptional set satisfies
+For every $\delta>0$ there is an integer $J\ge1$ and a countable family
+of compact subsets $K_m\subset\Z_3$ such that
 \[
- \boxed{\dimH E_2=\dimP E_2=0.}
+ F_J\subseteq\bigcup_{m\ge1}K_m,
+ \qquad \dimB K_m\le\delta\quad(m\ge1).
 \]
-More precisely, for every $\delta>0$, it has a countable cover by compact
-sets of upper box dimension at most $\delta$.
+Consequently
+\[
+ \boxed{\Gamma_{\mathrm H}=\Gamma_{\mathrm P}=0.}
+\]
 \end{theorem}
 
-The packing conclusion is stronger than the Hausdorff conclusion.
-Neither implies countability. In particular, this theorem does not
-settle Erd\H{o}s's question whether $2^n\in\Sigma$ for only finitely
-many nonnegative integers $n$, which is the assertion $1\notin E_2$.
+The distinction from an infinite-visit argument is the order of
+quantifiers. The cardinality $J$ will be fixed before any visiting times
+are given. The exponent spans of the extracted templates need not be
+bounded uniformly. They are fixed separately on each member of the
+countable cover before its digit length tends to infinity.
 
-The new combinatorial ingredient is the finite causal statement in
-Appendix~\ref{app:container}. It is related to the container method and
-its online versions \cite{ST}. In the online framework of \cite{ST},
-the hypergraph is fixed before the vertex labels are disclosed. Here a
-relation is allowed to depend on the actual earlier input prefix. We
-therefore prove the precise finite lemma used, including reconstruction
-from the final fingerprint and the accounting for discarded constraints.
-No previously published container theorem is invoked to supply this step.
+The analytic input is the finite causal-container theorem in Appendix A
+of the frozen release v1.0.0 of \cite{Core}. The real theorem is stated
+in Theorem~\ref{real:thm:main}; its proof begins in
+Section~\ref{sec:real:statement} and uses a separate arithmetic extraction. We state exactly the portion
+used in Section~\ref{sec:entropy} and reproduce its complete source
+unchanged in Appendix~\ref{app:container}. The new arithmetic extraction is proved in
+full below. In the $3$-adic finite-visit argument, neither the extraction
+from an infinite set in \cite{Core} nor a uniform bound on the spans
+of finite templates is used.
 
-The proof has four parts. Unit equations produce arbitrarily many
-well-separated arithmetic templates. An exact carry identity expresses
-these templates as causal relations. The finite lemma replaces the
-relations along an individual input by full products of conditional
-alphabets, apart from a controlled number of edges. Finally Kneser's
-theorem bounds the information carried by each good edge. All limits are
-taken after fixing the finite system to which they apply.
+\section{Uniform finite extraction: statement and incidence bound}
 
-\section{Notation and a sumset estimate}
-For $k\ge0$, write
+For a finite set of nonnegative integers $P$ write
 \[
- \Sigma_k=\left\{\sum_{j=0}^{k-1}\varepsilon_j3^j:
-                    \varepsilon_j\in\{0,1\}\right\}
-       \subseteq\Z/3^k\Z,\qquad |\Sigma_k|=2^k.
+ \Delta(P)=\{v-u:u,v\in P,\ u<v\}.
 \]
-The empty block is identified with $0$. For $z\in\Z_3$, let $[z]_m$
-be its representative modulo $3^m$ in $[0,3^m)$, and let
-\[
- B_{j,q}(z)=\left[(z-[z]_j)/3^j\right]_q
-\]
-be its $q$-digit block starting at position $j$.
-All logarithms and entropies are natural. For a bounded set $K$,
-$\dimB K$ denotes upper box dimension; the standard inequalities
-$\dimH K\le\dimP K\le\dimB K$ and countable stability of packing
-dimension will be used. For compact subsets of $\Z_3$, upper box
-dimension is the limsup of the logarithm of the number of occupied
-length-$L$ cylinders, divided by $L\log3$.
+These are sets, so equal distances within one $P$ are counted only once.
 
-\begin{lemma}[Two-translate capacity]\label{lem:capacity}
+\begin{theorem}[Uniform finite templates]\label{thm:templates}
+Fix integers $r\ge3$, $K\ge1$, and $q\ge1$. There is a finite integer
+$J=J(r,K,q)$ with the following property. Every set of $J$ distinct
+powers $2^n$, $n\ge0$, contains $K$ distinct members $\gamma_i$ and
+admits rational units
+\[
+ \alpha,A_1,\ldots,A_{r-2},u_1,\ldots,u_K
+ \in\Q\cap\Z_3^\times
+\]
+such that
+\begin{equation}\label{eq:template}
+ c_i:=\gamma_i/\alpha
+ =1+\sum_{t=1}^{r-2}A_t3^{e_{ti}}+u_i3^{E_i}
+ \qquad(1\le i\le K).
+\end{equation}
+The positions
+\[
+ P_i=\{0,e_{1i},\ldots,e_{r-2,i},E_i\}
+\]
+are in increasing order, every successive gap is at least $q$, and
+$\Delta(P_i)\cap\Delta(P_j)=\varnothing$ for $i\ne j$.
+The bound $J$ is independent of the original powers and of all exponent
+spans. The coefficient $\alpha$ is a virtual unit anchor: it need not
+be one of the original powers.
+\end{theorem}
+
+We prove this theorem by induction on the number of common monomial
+coordinates. At a stage with $d\ge1$ coordinates the data are
+\begin{align}
+ &\gamma_i=2^{n_i}\quad\text{distinct},\qquad
+ 0=e_{0i}<e_{1i}<\cdots<e_{d-1,i},\label{eq:stage}\\
+ &\gamma_i=\sum_{t=0}^{d-1}a_t3^{e_{ti}}+\varepsilon_i,
+ \quad a_t\in\Q\cap\Z_3^\times,
+ \quad \val(\varepsilon_i)\ge e_{d-1,i}+q.\label{eq:error}
+\end{align}
+Successive gaps in \eqref{eq:stage} are at least $q$, and every column
+$e_{ti}-e_{si}$, $s<t$, is injective as $i$ varies. For $d=1$ the last
+condition is empty.
+
+We use the uniform theorem of Evertse, Schlickewei and Schmidt
+\cite[Theorem 1.1]{ESS}. In characteristic zero, an equation
+$a_1z_1+\cdots+a_hz_h=1$, with nonzero coefficients and variables in a
+subgroup of $(L^\times)^h$ of rank $\rho$, has at most
+\[
+ \exp\bigl((6h)^{3h}(\rho+1)\bigr)
+\]
+nondegenerate solutions. Here nondegenerate means that no nonempty
+subsum on the left vanishes. The theorem applies over an algebraic
+closure of $\Q_3$ and hence to the solutions considered here.
+
+\begin{lemma}[Uniform incidence bound]\label{lem:incidence}
+Suppose the $\gamma_i$ are distinct powers of two and every difference
+column $e_{ti}-e_{si}$ is injective. For any fixed coefficients
+$c_0,\ldots,c_{d-1}\in\Q_3$, the equation
+\begin{equation}\label{eq:span}
+ \gamma_i=\sum_{t=0}^{d-1}c_t3^{e_{ti}}
+\end{equation}
+holds for at most
+\[
+ B_d=\binom d2+\left\lceil
+ \exp\bigl((6d)^{3d}(d+2)\bigr)\right\rceil
+\]
+indices $i$.
+\end{lemma}
+\begin{proof}
+Delete zero coefficients. If no coefficient remains, there is no
+solution. For each pair of remaining terms, equality of valuations fixes
+one value of $e_{ti}-e_{si}$ and occurs on at most one row. Excluding
+at most $\binom d2$ rows, all terms on the right of \eqref{eq:span}
+have different valuations; no nonempty subsum of them can vanish.
+
+Choose one remaining index $t_0$ and divide by $c_{t_0}3^{e_{t_0i}}$:
+\begin{equation}\label{eq:unit}
+ c_{t_0}^{-1}\gamma_i3^{-e_{t_0i}}
+ -\sum_{t\ne t_0}\frac{c_t}{c_{t_0}}3^{e_{ti}-e_{t_0i}}=1.
+\end{equation}
+A vanishing subsum not containing the $\gamma_i$ term is impossible by
+the distinct valuations. A vanishing subsum containing that term would,
+on using \eqref{eq:span}, force a nonempty complementary subsum of the
+original right-hand side to vanish; the complement includes the
+$t_0$ term. Thus \eqref{eq:unit} is nondegenerate.
+
+Its variable tuple belongs to the image of
+$\langle2\rangle\times\langle3\rangle^d$, a group of rank at most
+$d+1$. Two rows with the same tuple have
+$2^{n_i-n_j}=3^{e_{t_0i}-e_{t_0j}}$, hence $n_i=n_j$ by multiplicative
+independence. Thus rows give distinct solutions. The uniform
+unit-equation bound gives the stated number. If only one coefficient
+remains, multiplicative independence gives at most one row directly.
+\end{proof}
+
+\section{The extension lemma}
+
+\begin{lemma}[One additional coordinate]\label{lem:extension}
+For every $d\ge1$ and $L\ge1$ there is a finite $N_d(L)$ such that,
+from $N_d(L)$ rows satisfying \eqref{eq:stage}--\eqref{eq:error} and the
+injectivity conditions above, one can retain $L$ rows and find rational
+units $b_0,\ldots,b_{d-1}$ with
+\begin{equation}\label{eq:newresidual}
+ \gamma_i=\sum_{t=0}^{d-1}b_t3^{e_{ti}}+u_i3^{E_i},
+ \quad u_i\in\Q\cap\Z_3^\times,
+ \quad E_i\ge e_{d-1,i}+q,
+\end{equation}
+such that every column $E_i-e_{ti}$, $0\le t<d$, is injective.
+The previous exponent columns do not change. The threshold $N_d(L)$
+can be chosen independently of $q$, the coefficients and the exponents.
+\end{lemma}
+
+\subsection{Growth order and valuation-minimal minors}
+Give the rows any linear order. Color a pair $i<j$ by the signs of all
+differences
+\[
+ (e_{tj}-e_{sj})-(e_{ti}-e_{si})\qquad(s<t).
+\]
+None is zero. Finite Ramsey theory gives an arbitrarily large
+homogeneous subset, provided the original set is sufficiently large.
+The numbers
+$\Delta_t(i,j)=e_{tj}-e_{ti}$ have the same strict order for every
+pair $i<j$: their pairwise comparisons are fixed, and they are
+transitive since they compare actual numbers. Temporarily relabel the
+coordinates $1,\ldots,d$ in this growth order, so that
+\begin{equation}\label{eq:growth}
+ \Delta_1(i,j)<\cdots<\Delta_d(i,j)\qquad(i<j).
+\end{equation}
+This temporary order need not agree with the increasing order of
+exponents within a row.
+
+For $s<t$ and $i<j$, \eqref{eq:growth} gives
+\begin{equation}\label{eq:monge}
+ e_{si}+e_{tj}>e_{sj}+e_{ti}.
+\end{equation}
+It follows that every square submatrix of $(3^{e_{ti}})$ has exactly
+one determinant term of least valuation. Indeed, exchanging an
+assignment which is not order-reversing strictly lowers its valuation
+by \eqref{eq:monge}. The unique minimum pairs increasing row indices
+with decreasing growth-coordinate indices. In particular every
+$d$-by-$d$ coordinate minor is nonzero, and its valuation equals that
+minimum permutation cost.
+
+Adjoin $\gamma_i$ to the coordinate column and write
+\[
+ v_i=(3^{e_{1i}},\ldots,3^{e_{di}},\gamma_i)^{\mathsf T}
+ \in\Q_3^{d+1}.
+\]
+Color each $(d+1)$-subset according to whether its augmented determinant
+is zero. An all-zero subset of size greater than $B_d$ is impossible:
+its augmented matrix would have rank at most $d$, while the coordinate
+matrix has rank $d$, forcing the $\gamma_i$ row to be one fixed linear
+combination of the coordinate rows, contrary to
+Lemma~\ref{lem:incidence}. A second Ramsey refinement therefore gives
+as many rows as needed with every augmented $(d+1)$-minor nonzero.
+
+\subsection{Canonical determinant valuations}
+For an increasing $(d+1)$-tuple $I=(i_1,\ldots,i_{d+1})$ put
+\[
+ D_I=\det(v_{i_1},\ldots,v_{i_{d+1}}),\qquad w_I=\val(D_I).
+\]
+Consider an increasing $(d+2)$-tuple. For each slot
+$h\in\{1,\ldots,d+1\}$, compare its two $(d+1)$-subtuples obtained
+by keeping either of the adjacent indices in positions $h,h+1$ and
+keeping every other index. Color this comparison $t\in\{1,\ldots,d\}$
+if the change in $w$ equals the change in $e_t$ at the variable slot;
+otherwise color it $G$. At most one coordinate color is possible by
+\eqref{eq:growth}. There are at most $(d+1)^{d+1}$ combined colors.
+Another finite Ramsey refinement makes the comparison color at each
+slot independent of the chosen indices.
+
+If one slot has color $G$, fix the $d$ other indices as pivots, with a
+large consecutive group of variable indices in that slot. For these
+variables, each column
+\begin{equation}\label{eq:goodslot}
+ w_{\text{pivots},i}-e_{ti}\qquad(1\le t\le d)
+\end{equation}
+is injective. This is the situation needed for interpolation below.
+We now prove that a $G$ slot must exist on a sufficiently large
+homogeneous subset.
+
+Suppose every slot has a coordinate color $t_h$. The graph of increasing
+$(d+1)$-tuples, with an edge for a change in only one coordinate, is
+connected. Along such an edge the value
+$w_I-\sum_h e_{t_h,i_h}$ is unchanged, because the union of the two
+tuples is an increasing $(d+2)$-tuple of the type just colored.
+Consequently there is one constant $C$ with
+\begin{equation}\label{eq:word}
+ w_{i_1,\ldots,i_{d+1}}=C+\sum_{h=1}^{d+1}e_{t_h,i_h}
+\end{equation}
+for every increasing tuple in the homogeneous subset.
+
+For a coordinate $t$ and an increasing $(d+2)$-tuple $I$, the cofactor
+identity is
+\begin{equation}\label{eq:cofactor}
+ \sum_{l=1}^{d+2}(-1)^l3^{e_{t,i_l}}D_{I\setminus i_l}=0.
+\end{equation}
+Its nonzero summands cannot have a unique least valuation. Color $I$
+by a selected pair $(l_t,m_t)$, $l_t<m_t$, of minimum-valuation
+positions for each $t$. A further Ramsey refinement fixes these pairs
+for all tuples. This uses at most $\binom{d+2}{2}^{d}$ colors.
+
+Write $A_l$ for the valuation of the $l$th summand of
+\eqref{eq:cofactor}. For a fixed $t$ and its fixed pair $l<m$, the
+identity $A_m-A_l=0$, after inserting \eqref{eq:word}, has the
+following slot contributions:
+\begin{equation}\label{eq:slotfunctions}
+ \begin{cases}
+ e_{t_l,i_l}-e_{t,i_l},&\text{at slot }l,\\
+ e_{t_j,i_j}-e_{t_{j-1},i_j},&l<j<m,\\
+ e_{t,i_m}-e_{t_{m-1},i_m},&\text{at slot }m.
+ \end{cases}
+\end{equation}
+All other contributions cancel. Hold the other slots fixed and give
+one slot two possible indices. This is possible for every slot in an
+ordered set with at least $d+3$ elements. A difference of two distinct
+coordinate functions is injective by hypothesis, so it cannot have
+the same value for these two choices. Hence all the labels in each
+slot function of \eqref{eq:slotfunctions} coincide, and
+\begin{equation}\label{eq:intervalword}
+ t_l=t_{l+1}=\cdots=t_{m-1}=t.
+\end{equation}
+In particular each of the $d$ coordinate labels appears in the word
+$t_1,\ldots,t_{d+1}$. Exactly one label appears twice and all the
+others appear once.
+
+This word is nonincreasing in the growth order. Indeed, adjacent
+summand valuations for coordinate $t$ satisfy
+\begin{equation}\label{eq:adjacent}
+ A_{j+1}-A_j=
+ \Delta_t(i_j,i_{j+1})-\Delta_{t_j}(i_j,i_{j+1}).
+\end{equation}
+Suppose $t_h=a<b=t_{h+1}$. If $a$ appeared only once, its fixed minimum
+pair, by \eqref{eq:intervalword}, would be $h,h+1$. But the next
+difference in \eqref{eq:adjacent} is negative, making $A_{h+2}$ smaller
+than that minimum. Thus $a$ must be the repeated label. If $b$ appeared
+only once, its minimum pair would be $h+1,h+2$, while the preceding
+difference in \eqref{eq:adjacent} is positive, making $A_h$ smaller
+than that minimum. Thus $b$ must also repeat, a contradiction.
+Therefore the word has the form
+\begin{equation}\label{eq:descending}
+ d,d-1,\ldots,t_*,t_*,\ldots,1.
+\end{equation}
+
+\subsection{A two-dimensional residue-field obstruction}
+Let the repeated label $t_*$ occupy slots $h,h+1$. Fix $h-1$ pivot
+indices before a group of five variable indices, and $d-h$ pivots
+after it. There are $d-1$ pivots in total, so $d+4$ available indices
+suffice. Their augmented columns are independent, as follows by
+extending them to a nonzero $d$-by-$d$ coordinate minor.
+Quotient $\Q_3^{d+1}$ by their span. This is a two-dimensional vector
+space; let $u_i$ denote the images of the five variable columns.
+
+In any fixed coordinates on the quotient, its pair determinants are
+the corresponding augmented determinants times one fixed nonzero
+factor (up to signs). By \eqref{eq:word} and \eqref{eq:descending},
+\[
+ \val\det(u_i,u_j)=C'+e_{t_*,i}+e_{t_*,j}.
+\]
+The vectors $z_i=3^{-e_{t_*,i}}u_i$ therefore have all pair
+determinants nonzero and of the same valuation. There can be at most
+four such vectors. To see this without any normalization assumption on
+their norms, use $z_1,z_2$ as a basis and write
+$z_i=a_i z_1+b_i z_2$ for $i\ge3$. Comparison with the first two
+vectors gives $a_i,b_i\in\Z_3^\times$. Comparison between $i,j\ge3$
+gives $a_i b_j-a_j b_i\in\Z_3^\times$. Thus the residues of $a_i/b_i$
+are distinct nonzero elements of $\F_3$, of which there are only two.
+There are at most two vectors beyond the basis, contradicting the
+five variables. The assumption that all slots have coordinate colors
+is impossible. A $G$ slot exists.
+
+\subsection{Interpolation and preservation of the gap}
+Restore the original within-row exponent order
+$0=e_{0i}<\cdots<e_{d-1,i}$. Fix the $d$ pivots of a $G$ slot.
+Their coordinate matrix is invertible. Let $b_t$ interpolate the
+$\gamma_i$ on the pivots, and put $\delta_t=b_t-a_t$. The data for
+$\delta_t$ are the errors $\varepsilon_i$.
+
+By Cramer's rule, $\val(\delta_t)\ge q$ for every $t$. In fact, the
+denominator determinant has valuation exactly its minimum permutation
+cost, by \eqref{eq:monge}. A term of a numerator determinant replaces
+one entry $3^{e_{ti}}$ in the corresponding denominator term by
+$\varepsilon_i$, whose valuation is at least
+$\max_s e_{si}+q\ge e_{ti}+q$. Every numerator term has valuation at
+least the denominator's minimum cost plus $q$. Cancellation can only
+increase this valuation. The $b_t$ remain units; they are rational,
+since both the coordinate matrix and its interpolation data are
+rational.
+
+For a variable index put
+\[
+ R_i=\gamma_i-\sum_{t=0}^{d-1}b_t3^{e_{ti}},\qquad E_i=\val(R_i).
+\]
+The augmented determinant formula for an interpolation residual gives
+$E_i=w_{\text{pivots},i}-C_0$ for one fixed constant $C_0$.
+All residuals are nonzero, and \eqref{eq:goodslot} shows that every
+$E_i-e_{ti}$ is injective.
+
+It remains to discard rows on which $E_i<e_{d-1,i}+q$. On such a row
+the old $\varepsilon_i$ cannot attain the least valuation in
+\[
+ R_i=\varepsilon_i-\sum_t\delta_t3^{e_{ti}}.
+\]
+If two \emph{nonzero} error terms tie for the finite least valuation,
+that equality fixes one value of the corresponding difference column;
+there is at most one such row per unordered pair of coordinates.
+These rows number at most $\binom d2$. On every other bad row exactly
+one error term, say $t$, is least, giving
+\[
+ E_i-e_{ti}=\val(\delta_t).
+\]
+Injectivity of this residual column permits at most one such row for
+each $t$, hence at most $d$ more. Deleting at most
+$d+\binom d2$ rows gives \eqref{eq:newresidual} and proves
+Lemma~\ref{lem:extension}, subject only to choosing the finite
+cardinality thresholds, made explicit next.
+
+\subsection{Uniform cardinality bookkeeping}\label{subsec:ramsey}
+Let $\Ram_k(m;c)$ be any finite Ramsey number for $c$ colors on
+$k$-subsets and monochromatic size $m$; use the usual one-color
+convention. For desired output $L$, put
+\begin{align*}
+ b_d&=d+\binom d2,\qquad M=L+b_d,\\
+ H&=\max\left\{d+M,\ \Ram_{d+2}
+       \left(d+4;\binom{d+2}{2}^{d}\right)\right\},\\
+ P&=\Ram_{d+2}\left(H;(d+1)^{d+1}\right),\\
+ Q_0&=\Ram_{d+1}\left(\max\{P,B_d+1\};2\right),\\
+ N_d(L)&=\Ram_2\left(Q_0;2^{\binom d2}\right).
+\end{align*}
+The refinements are respectively the growth comparisons, the nonzero
+augmented minors, and the fixed slot colors. A $G$ slot leaves at
+least $H-d\ge L+b_d$ variable indices: take the required pivots at
+the two ends and all intermediate indices as variables. Discarding
+$b_d$ bad rows leaves $L$. If there is no $G$ slot, the minimum-pair
+refinement leaves $d+4$ indices, sufficient for every local slot
+variation and the five-variable quotient contradiction. This supplies
+a finite threshold depending only on $d,L$. In particular, no valuation
+depth or exponent span occurs in it.
+
+\section{Iteration and disjoint distance sets}
+
+\begin{proof}[Proof of Theorem~\ref{thm:templates}]
+There are $U_q=2\cdot3^{q-1}$ unit residue classes modulo $3^q$.
+Pigeonhole sufficiently many original powers into one such class and
+choose an ordinary unit representative $a_0$. Then
+$\gamma_i=a_0+\varepsilon_i$, with $\val(\varepsilon_i)\ge q$,
+provides the $d=1$ starting stage.
+
+Apply Lemma~\ref{lem:extension}. If another common coordinate is
+needed, write its residual $R_i=u_i3^{E_i}$ and retain one residue
+class of the units $u_i$ modulo $3^q$, represented by a unit $a_d$.
+Adjoin the common monomial $a_d3^{e_{di}}$ with $e_{di}=E_i$.
+The remaining error has valuation at least $e_{di}+q$.
+All former difference columns are unchanged, and all new ones are
+injective by the extension lemma. Thus the induction hypotheses hold
+with $d+1$ common coordinates.
+
+At $d=r-1$ perform one final extension, leaving its terminal unit
+coefficient free. There are then $r$ positions, every successive gap
+is at least $q$, and each of the $c=\binom r2$ positive difference
+columns is injective. Form the graph on rows in which two rows are
+adjacent if their distance sets intersect. A fixed row has at most
+$c$ distances. For each of these distances, each of the $c$ difference
+columns attains it in at most one row. Thus the graph has maximum
+degree at most $c^2$. From $K(c^2+1)$ rows a greedy independent-set
+selection retains $K$ pairwise disjoint distance sets. This argument
+allows repeated distances within an individual template.
+
+For clarity, all input sizes may be fixed backwards. Start with
+$L_{r-1}=K(c^2+1)$ and require $N_{r-1}(L_{r-1})$ rows at that stage.
+For each preceding extension choose an output size $U_q$ times the
+next stage's required input size, and apply the corresponding $N_d$.
+Finally multiply the $d=1$ required input size by $U_q$ for the initial
+residue pigeonhole. This is a finite integer $J(r,K,q)$ depending only
+on the displayed parameters.
+
+The final common coefficient at exponent zero is a rational unit
+$\alpha$. Divide the identity by $\alpha$ to obtain
+\eqref{eq:template}. All coefficients and terminal residuals are
+rational, because every interpolation used rational data. No bound on
+their heights or on the exponent spans has been asserted.
+\end{proof}
+
+\section{A finite entropy estimate for weakly separated templates}
+\label{sec:entropy}
+
+For $z\in\Z_3$ let $[z]_j\in\{0,\ldots,3^j-1\}$ denote its
+residue modulo $3^j$, and define the length-$q$ window
+\[
+ B_j^{(q)}(z)=\frac{[z]_{j+q}-[z]_j}{3^j}.
+\]
+Let $\Sigma_L=\{\sum_{j=0}^{L-1}x_j3^j:x_j\in\{0,1\}\}$.
+All entropies and logarithms below use the natural logarithm.
+
+We first specify the external finite result. This is Appendix A,
+``Exact theorem'', of \cite{Core}.
+
+\begin{theorem}[Finite causal-container input]\label{thm:container}
+Let $r\ge3$, $V_0=\{0,\ldots,N-1\}$, and $\Omega$ be an alphabet
+of size $Q$. A nonempty finite family $\mathcal W\subseteq\mathcal X^L$
+determines letters $Z_j(x)\in\Omega$; these maps need not be local.
+Let a fixed family of ordered positional edges
+$e=(j_0<\cdots<j_{r-1})$ have relations
+$\mathcal R_e(x_{<j_0})\subseteq\Omega^r$ depending only on the
+indicated input prefix, and suppose every word satisfies every relation.
+Assume that distinct edges with the same source have disjoint future
+position sets and that each unordered pair of positions belongs to
+at most $C$ edges.
+
+For positive integer thresholds $T_{\mathrm s},T_2,\ldots,T_{r-1}$
+put $D=CQ^{r-3}$ and
+\begin{equation}\label{eq:theta}
+ \theta=Q\left[
+ \frac{D\sum_{j=2}^{r-1}T_j+1}{T_{\mathrm s}}
+ +\frac1{T_2}
+ +D\sum_{j=3}^{r-1}\frac{1+\sum_{l=2}^{j-1}T_l}{T_j}
+ \right].
+\end{equation}
+If $\theta\le1/2$, each word has a fingerprint $F(x)$ and nonempty
+assigned alphabets $A_j(x)\subseteq\Omega$ such that $Z_j(x)\in A_j(x)$,
+$A_j(x)$ is determined by $(x_{<j},F(x))$, and, outside at most
+\begin{equation}\label{eq:badbound}
+ Q\left(T_{\mathrm s}+D\sum_{j=2}^{r-1}T_j\right)N
+\end{equation}
+edges, the \emph{full Cartesian product} of their assigned alphabets
+is contained in $\mathcal R_e(x_{<j_0})$. For every distribution on
+$\mathcal W$,
+\[
+ H(F)\le N\bigl[\hb(\theta)+\theta\log Q\bigr],
+ \quad \hb(t)=-t\log t-(1-t)\log(1-t).
+\]
+\end{theorem}
+
+The proof of Theorem~\ref{thm:container} is reproduced in
+Appendix~\ref{app:container} from the cited frozen source. The remaining argument, including its application to
+unrestricted ternary inputs and rational units, is given here.
+
+\begin{proposition}[Finite-word bound]\label{prop:words}
+Choose $b\ge1$ so that $3^b>2(r-1)$ and put $q=b+1$.
+Suppose \eqref{eq:template} has successive position gaps at least
+this $q$ and pairwise disjoint positive distance sets, as in
+Theorem~\ref{thm:templates}. Set
+\[
+ q=b+1,\quad Q=3^{(r-1)q},\quad
+ C=\binom r2,\quad D=CQ^{r-3},\quad R=\max_i E_i.
+\]
+For $L\ge q$ let $W_L$ be the set of all ternary input words modulo
+$3^L$ for which
+$[c_iX]_L\in\Sigma_L$ for every $1\le i\le K$; no infinite
+extendability is required. Set $N=L-q+1=L-b$. With thresholds as in
+Theorem~\ref{thm:container}, define
+\[
+ \epsilon_F=\hb(\theta)+\theta\log Q,
+ \qquad \eta=\frac{Q(T_{\mathrm s}+D\sum_{j=2}^{r-1}T_j)}{K}.
+\]
+If $\theta\le1/2$, then
+\begin{equation}\label{eq:finitebound}
+ \log|W_L|\le
+ N\left[\epsilon_F+\frac{\log2}{r}+\eta\log3\right]
+ +(R+b)\log3.
+\end{equation}
+\end{proposition}
+
+\subsection{Ordinary carries and the positional graph}
+For a source $j$ and a template $i$ with $v=j+E_i<N$, consider the
+$r$ window positions
+\[
+ j,\quad v-e_{r-2,i},\ldots,v-e_{1i},\quad v.
+\]
+At these positions use respectively the windows of $X$, the
+corresponding $A_tX$, and $X$ again. The joint letter available at
+every position is
+\begin{equation}\label{eq:joint}
+ Z_j(X)=\bigl(B_j^{(q)}(X),
+ B_j^{(q)}(A_1X),\ldots,B_j^{(q)}(A_{r-2}X)\bigr).
+\end{equation}
+It takes values in an alphabet of size $Q$.
+
+At position $v$, the identity for $c_iX$ has $r$ summands:
+$X$, the $r-2$ terms $3^{e_{ti}}A_tX$, and $3^{E_i}u_iX$.
+Their ordinary nonnegative residues below position $v$ sum to a
+carry $h\in\{0,\ldots,r-1\}$ into that position. The terminal summand
+has window, modulo $3^q$,
+\[
+ u_i B_j^{(q)}(X)+D_{ij}(X_{<j}),\qquad
+ D_{ij}=\frac{3^{E_i}u_i[X]_j-[3^{E_i}u_i[X]_j]_v}{3^v}.
+\]
+Here $D_{ij}\in\Z_3$ depends only on the input digits before $j$.
+Consequently the corresponding edge relation is
+\begin{equation}\label{eq:carry}
+ u_iB_j^{(q)}(X)+\sum_{t=1}^{r-2}B_{v-e_{ti}}^{(q)}(A_tX)
+ +B_v^{(q)}(X)+D_{ij}+h\in\Sigma_q\pmod{3^q}
+\end{equation}
+for some $0\le h\le r-1$. This derivation is valid for rational
+$3$-adic units, with all residues interpreted in $\Z_3$.
+It imposes no restriction $X\in\Sigma$.
+
+Every future displacement from $j$ is a positive distance in $P_i$.
+Thus different templates have disjoint future sets at the same source.
+If two positions belong to an edge, their distance belongs to exactly
+one of the template distance sets, and there are at most
+$\binom r2$ choices of roles in that template. The source is then
+fixed. The graph therefore satisfies the two hypotheses of
+Theorem~\ref{thm:container} with the stated $C$. The relations
+\eqref{eq:carry} are causal, as their only extra parameter is $D_{ij}$.
+
+\subsection{The one-digit Cartesian-product bound}
+Freeze the low $b=q-1$ digits of each of the $r$ windows. Let each
+remaining high digit range in a nonempty subset of $\F_3$. Suppose
+the full Cartesian product of these choices satisfies
+\eqref{eq:carry}, allowing the target and carry to vary with the choice.
+For a target $y\in\Sigma_q$, its low part satisfies
+$0\le[y]_b\le R_b=(3^b-1)/2$. Hence
+\[
+ [y]_b-h\in[-(r-1),R_b].
+\]
+This interval has length $R_b+r-1<3^b$. For the fixed residue modulo
+$3^b$ determined by the frozen inputs and $D_{ij}$, it therefore
+contains at most one representative. After subtracting that
+representative and dividing by $3^b$, the sum of the high-digit factors,
+with the first multiplied by the unit $u_i\bmod3$, lies in a single
+translate of $\{0,1\}\subset\F_3$.
+
+No factor can have size three. Two factors of size at least two would
+already have sumset $\F_3$. Thus at most one factor has size two and
+all the others have size one. The product of the factor cardinalities
+is at most two, or equivalently their log-cardinalities sum to at most
+$\log2$.
+
+\subsection{Conditional supports, incidence, and entropy}
+Apply Theorem~\ref{thm:container} to the uniform distribution on $W_L$,
+using \eqref{eq:joint} and \eqref{eq:carry}. (The set is nonempty
+because it contains zero.) For each realized word and $0\le j<N$ put
+\[
+ C_j=\supp(X_{j+b}\mid X_{<j+b},F),\qquad w_j=\log|C_j|\le\log3.
+\]
+Under this conditioning the low $b$ digits of every window of $X$ or
+$A_tX$ starting at $j$ are fixed. Multiplication by a unit maps the
+high input digit bijectively onto the high output digit, so the
+projected support of the appropriate window has cardinality $|C_j|$.
+Moreover it lies in the relevant projection of the assigned alphabet
+$A_j$: every word in this finer conditional atom has the same
+$(X_{<j},F)$ as the realized word.
+
+On a good edge the full-product conclusion of
+Theorem~\ref{thm:container} permits these projected supports to be
+combined, although the supports at different positions come from
+different prefix atoms. Freezing the low digits to their realized
+values and using the preceding Cartesian-product bound gives
+\[
+ \sum_{j\in e}w_j\le\log2.
+\]
+A bad edge instead costs at most $r\log3$. Let $E_{\mathrm{bad}}$
+be the number of bad edges for the realized word. There are at most
+$KN$ edges. For a given template, each role covers all positions
+except at most $E_i\le R$ boundary positions. Summing incidences
+over all roles and templates gives
+\[
+ rK\sum_{j=0}^{N-1}w_j-rKR\log3
+ \le\sum_e\sum_{j\in e}w_j
+ \le KN\log2+rE_{\mathrm{bad}}\log3.
+\]
+The estimate remains valid when some templates have no edges because
+$E_i\ge N$, since the stated boundary loss then dominates the
+missing incidences. Dividing by $rK$ and using
+$E_{\mathrm{bad}}\le\eta KN$ yields
+\[
+ \sum_jw_j\le N\frac{\log2}{r}+\eta N\log3+R\log3.
+\]
+The windows' high input digits are precisely the positions
+$b,b+1,\ldots,L-1$. The first $b$ digits cost at most $b\log3$.
+The chain rule and the support bound on conditional entropy give
+\[
+ H(X\mid F)\le b\log3+\mathbb E\sum_jw_j.
+\]
+Finally $H(X)\le H(F)+H(X\mid F)$, and the fingerprint bound is
+$H(F)\le N\epsilon_F$. Since $X$ is uniform on $W_L$, this proves
+\eqref{eq:finitebound} and Proposition~\ref{prop:words}.
+
+\section{Compact covers and the limit of finite-visit dimensions}
+
+Fix $r\ge3$. Choose $b$, $q=b+1$, $Q,C,D$ as above. For an integer
+$u\ge2$ set
+\begin{equation}\label{eq:thresholds}
+ T_j=u^{2^{j-1}-1}\ (2\le j\le r-1),\qquad
+ T_{\mathrm s}=u^{2^{r-1}-1},\qquad K=u^{2^r}.
+\end{equation}
+Every ratio occurring in \eqref{eq:theta} tends to zero as
+$u\to\infty$. Also
+$Q(T_{\mathrm s}+D\sum_jT_j)/K\to0$. Thus
+\begin{equation}\label{eq:vanishing}
+ \theta\longrightarrow0,
+ \qquad \epsilon_F\longrightarrow0,
+ \qquad \eta\longrightarrow0
+ \quad\text{for fixed }r.
+\end{equation}
+
+For any one extracted finite template system $\mathcal D$ define
+\[
+ K_{\mathcal D}=\{X\in\Z_3:c_iX\in\Sigma\text{ for }1\le i\le K\}.
+\]
+It is compact. Its number of occupied length-$L$ cylinders is at most
+$|W_L|$. Proposition~\ref{prop:words}, applied with the fixed span
+$R$ of this system and then $L\to\infty$, gives
+\begin{equation}\label{eq:box}
+ \dimB K_{\mathcal D}\le
+ s_{r,u}:=\frac{\log2}{r\log3}+\frac{\epsilon_F}{\log3}+\eta.
+\end{equation}
+The fact that $W_L$ contains all locally valid finite words only makes
+this upper bound larger; an assumption of infinite extendability is
+unnecessary.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Given $\delta>0$, first choose $r$ so that
+$\log2/(r\log3)<\delta/2$. Then choose a finite $u$ sufficiently
+large that $\theta\le1/2$ and
+$\epsilon_F/\log3+\eta<\delta/2$. Fix the associated $K,q$ and
+$J=J(r,K,q)$ from Theorem~\ref{thm:templates}.
+
+For any $x\in F_J$, choose $J$ distinct true visit slopes
+$\gamma=2^n$ and apply that finite theorem. The normalized variable
+$X=\alpha x$ lies in $K_{\mathcal D}$, since
+$c_iX=\gamma_i x\in\Sigma$. The normalized input $X$ need not lie
+in $\Sigma$, which is why Proposition~\ref{prop:words} was stated
+for arbitrary ternary inputs.
+
+All coefficients constructed in the extraction are rational, and all
+exponents and visit times are ordinary integers. There are only
+countably many possible finite systems $\mathcal D$, including their
+unit anchors $\alpha_{\mathcal D}$. Hence
+\[
+ F_J\subseteq\bigcup_{\mathcal D}
+ \alpha_{\mathcal D}^{-1}K_{\mathcal D}.
+\]
+These are compact sets, and multiplication by a $3$-adic unit is an
+isometry. By \eqref{eq:box}, each has upper box dimension at most
+$s_{r,u}<\delta$. This proves the covering statement.
+
+Packing dimension is countably stable and is bounded above by upper
+box dimension on bounded sets. Therefore
+\[
+ \dimH F_J\le\dimP F_J\le\delta.
+\]
+As $F_{k+1}\subseteq F_k$ and $\delta>0$ was arbitrary, both limiting
+dimensions are zero.
+\end{proof}
+
+\begin{remark}[Fixed finite-rank groups]
+The same proof applies to any fixed subgroup
+$G\le\Q^\times\cap\Z_3^\times$ of finite rank $\rho$. Replace
+distinct powers of two by distinct members $\gamma_i\in G$ and put
+$F_k(G)=\{x\in\Z_3:\#\{\gamma\in G:\gamma x\in\Sigma\}\ge k\}$.
+In Lemma~\ref{lem:incidence} the variable group has rank at most
+$\rho+d$, so replace the factor $d+2$ in $B_d$ by $\rho+d+1$.
+The normalized solution tuples are still distinct: equality of their
+first coordinates gives $\gamma_i/\gamma_j=3^{e_{t_0i}-e_{t_0j}}$;
+the left side is a unit, so the exponent difference is zero and
+$\gamma_i=\gamma_j$. All remaining arguments are unchanged.
+The coefficients stay rational, and the compact-cover data are
+countable. Thus for each $\delta>0$ some finite
+$J=J(\delta,\rho)$ gives the same compact-cover conclusion for
+$F_J(G)$, and both finite-visit dimension limits are zero.
+The finite-rank hypothesis is essential to this argument; this remark
+does not concern arbitrary families of integer multipliers.
+\end{remark}
+
+\begin{corollary}
+The infinite-visit exceptional set
+\[
+E_2=\{x\in\Z_3:2^nx\in\Sigma\text{ for infinitely many }n\ge0\}
+\]
+has Hausdorff and packing dimension zero.
+\end{corollary}
+\begin{proof}
+$E_2\subseteq F_J$ for every $J$, so the result follows from
+Theorem~\ref{thm:main}.
+\end{proof}
+
+The finite-visit conclusion supplies uniformity in the number of
+visits, rather than a statement about a particular initial point.
+It does not imply that $1\notin E_2$, that every nonzero orbit has
+finitely many visits, or that the exceptional set is countable.
+In particular no resolution of the pointwise Erd\H{o}s problem is
+claimed. The effective constants supplied by repeated Ramsey numbers
+and the unit-equation bound are far too large for the result to serve
+as a practical search cutoff.
+
+\section{The real exceptional set and the proof dependencies}\label{sec:real:statement}
+Define
+\begin{align*}
+ \CR&=\left\{\sum_{j=-\infty}^{m}\varepsilon_j3^j:
+       m\in\Z,\ \varepsilon_j\in\{0,1\}\right\}\subseteq[0,\infty),\\
+ \ER&=\{\lambda>0:2^n\lambda\in\CR\text{ for infinitely many }n\ge0\}.
+\end{align*}
+The digit condition includes every fractional digit. This is the
+untruncated real exceptional set in Lagarias~\cite[\S1.2]{Lagarias},
+whose Conjecture~1.4 asks whether $\dimH\ER=0$. The corresponding
+statement is called Conjecture~A in the arXiv manuscript~\cite{LagariasArxiv}.
+It differs from the truncated set defined using only
+$\lfloor2^n\lambda\rfloor$: Lagarias~\cite[Theorem~1.3]{Lagarias}
+proved that the latter has Hausdorff dimension $\log_3 2$.
+
+\begin{theorem}\label{real:thm:main}
+The untruncated real exceptional set satisfies
+\[
+                    \boxed{\dimH\ER=\dimP\ER=0.}
+\]
+More precisely, for every $\delta>0$ there is a countable cover of
+$\ER$ by compact subsets of $\R$ of upper box dimension at most $\delta$.
+\end{theorem}
+
+The real proof uses the same finite causal-container theorem,
+Theorem~\ref{thm:container}, whose complete frozen proof from
+version~1.0.0 is reproduced in Appendix~\ref{app:container}.
+Its two-translate capacity estimate is Lemma~\ref{vone:lem:capacity}
+below; we reproduce its proof from \cite[Lemma~2.1]{Core} as well.
+Thus neither finite input is left implicit. We give the full affine
+finite-word application, the transfer to real prefixes, and the dimension
+argument. We also restate and prove the arithmetic extraction for an
+arbitrary infinite set of visit times. Its external input is the
+finite-rank unit-equation theorem of Evertse, Schlickewei and
+Schmidt~\cite{ESS}. This infinite extraction uses a true visiting anchor;
+it is distinct from the uniform finite extraction with a virtual anchor
+in Theorem~\ref{thm:templates}.
+
+Throughout, logarithms and Shannon entropies are natural. Write
+\[
+ \Sig_L=\left\{\sum_{j=0}^{L-1}\varepsilon_j3^j:
+              \varepsilon_j\in\{0,1\}\right\}
+              \subseteq\Z/3^L\Z.
+\]
+For $z\in\Z_3$, let $[z]_m$ be its representative modulo $3^m$ in
+$[0,3^m)$, and put
+\[
+ B_{j,q}(z)=\left[(z-[z]_j)/3^j\right]_q.
+\]
+A rational number with denominator prime to $3$ is interpreted in
+$\Z_3$ when residues or valuations are used. Its ordinary real value
+is used in floors and real intervals. This distinction is essential
+in the transfer below.
+
+\section{Templates from an infinite set of exponents}
+The following extraction is the version of
+\cite[Lemma~3.1]{Core} that separates the arithmetic from the space in
+which the initial value lies.
+
+\begin{lemma}\label{real:lem:extraction}
+Let $S\subseteq\Z_{\ge0}$ be infinite, and fix integers
+$r\ge3$, $K\ge1$ and $q\ge1$. There exist distinct indices
+$n_0,n_1,\ldots,n_K\in S$ and ordinary integer units
+$A_1,\ldots,A_{r-2}\in\Z_3^\times$ such that
+$c_i=2^{n_i-n_0}$ has an exact expansion
+\begin{equation}\label{real:eq:template}
+ c_i=1+\sum_{t=1}^{r-2}A_t3^{e_{ti}}+u_i3^{E_i},
+ \qquad u_i\in\Z_3^\times,
+\end{equation}
+where $0<e_{1i}<\cdots<e_{r-2,i}<E_i$, every successive gap,
+including the gap from $0$, is at least $q$, and
+\begin{equation}\label{real:eq:separation}
+ \min\{e_{1,i+1},e_{2,i+1}-e_{1,i+1},\ldots,
+                 E_{i+1}-e_{r-2,i+1}\}>E_i\qquad(1\le i<K).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The distinct slopes $\alpha=2^n$, $n\in S$, lie in the compact group
+$\Z_3^\times$. Choose a subsequence $\alpha_j\to\rho\in\Z_3^\times$.
+After discarding a possible equality, write
+\[
+ \rho^{-1}\alpha_j=1+v_{1j}3^{e_{1j}},
+ \qquad v_{1j}\in\Z_3^\times,\quad e_{1j}\to\infty.
+\]
+Pass to a subsequence on which $v_{1j}\to a_1\in\Z_3^\times$.
+Whenever $v_{1j}-a_1\ne0$, normalize this difference by its valuation
+and take a further convergent subsequence of its unit part. Repeating
+this procedure produces successive exponent gaps tending to infinity.
+
+An infinite collection of exact stops after $s$ terms would give
+infinitely many solutions of
+\[
+ \rho^{-1}\gamma-\sum_{t=1}^{s}a_t3^{e_t}=1,
+ \qquad \gamma\in\langle2\rangle,\quad 0<e_1<\cdots<e_s.
+\]
+The coordinate variables belong to the finite-rank multiplicative group
+$\langle2\rangle\times\langle3\rangle^s$.
+Every nonempty subsum on the left is nonzero: its terms have distinct
+3-adic valuations $0,e_1,\ldots,e_s$, so the term of least valuation
+cannot cancel. The characteristic-zero finite-rank theorem of
+\cite{ESS}, applied over an algebraic closure of $\Q_3$, excludes
+infinitely many such nondegenerate solutions. Exact stops may therefore
+be discarded at each of the finitely many stages required here.
+
+We obtain
+\[
+ \rho^{-1}\alpha_j
+ =1+\sum_{t=1}^{r-2}a_t3^{e_{tj}}+u_j^*3^{E_j},
+ \qquad a_t,u_j^*\in\Z_3^\times,
+\]
+with every successive gap tending to infinity. Choose $K$ members,
+now indexed by $i$, so that the required lower gap bounds and
+\eqref{real:eq:separation} hold. Choose ordinary integer units $A_t$ with
+\[
+ v_3(A_t-a_t)\ge\max_i(E_i-e_{ti}+q).
+\]
+Finally choose another member $\alpha_0=2^{n_0}$ of the original
+subsequence, outside the selected finite set, with
+\[
+ v_3(\rho/\alpha_0-1)\ge\max_i(E_i+q).
+\]
+In replacing $\alpha_i/\rho$ by $\alpha_i/\alpha_0$, and $a_t$ by
+$A_t$, the total error in row $i$ is divisible by $3^{E_i+q}$ in
+$\Z_3$. The normalized final remainder is consequently still a unit.
+This gives \eqref{real:eq:template} with the same exponents and separation.
+\end{proof}
+
+\begin{remark}\label{real:rem:rational}
+The slopes $c_i$ are positive rational 3-adic units, but need not be
+ordinary integers: the selected anchor $n_0$ can exceed some $n_i$.
+The proof used only the infinite set $S$, not an initial point in
+$\Z_3$. In particular, it applies to true visit times of a real point.
+\end{remark}
+
+\section{An affine finite-word estimate}\label{sec:real:finite}
+Fix a template system as in Lemma~\ref{real:lem:extraction}. Choose
+$k\ge1$ and $b\ge1$ with $3^b>r-1$, and use $q=b+k$ in the
+extraction. Set
+\[
+ R=\max_iE_i,\qquad Q=3^{(r-1)q},\qquad
+ C=\binom r2,\qquad D=CQ^{r-3}.
+\]
+For positive integer thresholds $T_{\rm s},T_2,\ldots,T_{r-1}$ define
+\begin{align}
+ \theta&=Q\left[\frac{D\sum_{j=2}^{r-1}T_j+1}{T_{\rm s}}
+ +\frac1{T_2}+D\sum_{j=3}^{r-1}
+          \frac{1+\sum_{l=2}^{j-1}T_l}{T_j}\right],\label{real:eq:theta}\\
+ \epsilon_F&=\hbin(\theta)+\theta\log Q,
+ &\hbin(t)&=-t\log t-(1-t)\log(1-t),\label{real:eq:epsF}\\
+ \eta&=\frac{Q(T_{\rm s}+D\sum_{j=2}^{r-1}T_j)}{K},
+ &s&=\frac{\epsilon_F}{\log3}+\frac1k+
+       \frac{2^{k+1}\log2}{rk\log3}+\eta.\label{real:eq:s}
+\end{align}
+We assume $\theta\le1/2$.
+
+The following estimate is reproduced from \cite[Lemma~2.1]{Core}.
+It is uniform in both target translates.
+
+\begin{lemma}[Two-translate capacity]\label{vone:lem:capacity}
 Suppose $A_1,\ldots,A_r$ are nonempty subsets of $\Z/3^k\Z$ and
 \[
  T=A_1+\cdots+A_r\subseteq(z_1+\Sigma_k)\cup(z_2+\Sigma_k).
 \]
 Then
-\begin{equation}\label{eq:capacity}
+\begin{equation}\label{vone:eq:capacity}
  \sum_{i=1}^r\log|A_i|\le r\log3+2^{k+1}\log2=:B_{r,k}.
 \end{equation}
 \end{lemma}
@@ -132,303 +1007,424 @@ Since $n\le2^{n-1}$ for positive integers $n$,
 \]
 \end{proof}
 
-\section{Separated templates and countable compact covers}
-We use the following consequence of the theorem of Evertse,
-Schlickewei and Schmidt \cite{ESS}: over a field of characteristic
-zero, a linear equation with fixed nonzero coefficients has only
-finitely many nondegenerate solutions in a multiplicative group of
-finite rank. Nondegenerate means that no nonempty subsum of the
-left-hand side vanishes. Applying the theorem over an algebraic closure
-of $\Q_3$ also gives the asserted finiteness for solutions in $\Q_3$.
-
-\begin{lemma}[Extraction of templates]\label{lem:templates}
-Fix integers $r\ge3$, $K\ge1$ and $q\ge1$. Every $x\in E_2$ has
-true visits $n_0,n_1,\ldots,n_K$ and integers $A_1,\ldots,A_{r-2}$,
-all prime to $3$, such that, for $c_i=2^{n_i-n_0}$,
-\begin{equation}\label{eq:ci}
- c_i=1+\sum_{t=1}^{r-2}A_t3^{e_{ti}}+u_i3^{E_i},
- \qquad u_i\in\Z_3^\times,
+\begin{proposition}\label{real:prop:finite}
+For arbitrary fixed shifts $\beta_1,\ldots,\beta_K\in\Z_3$ and
+$L\ge q$, let
+\[
+ W_L(\boldsymbol\beta)=
+ \{x\in\{0,\ldots,3^L-1\}:
+      [x]_L\in\Sig_L,\ [c_ix+\beta_i]_L\in\Sig_L\ (1\le i\le K)\}.
+\]
+Then, with $N=L-q+1$,
+\begin{equation}\label{real:eq:finite}
+ \log|W_L(\boldsymbol\beta)|
+ \le Ns\log3+(R+b+k-1)\log3
 \end{equation}
-where $0<e_{1i}<\cdots<e_{r-2,i}<E_i$, each successive gap in this
-list (including the gap from $0$) is at least $q$, and
-\begin{equation}\label{eq:separation}
- \min\{e_{1,i+1},e_{2,i+1}-e_{1,i+1},\ldots,
-            E_{i+1}-e_{r-2,i+1}\}>E_i\quad(1\le i<K).
+whenever the set is nonempty. Equivalently, including the empty case,
+\begin{equation}\label{real:eq:finite-simple}
+ |W_L(\boldsymbol\beta)|\le 3^{R+b+k-1}\,3^{sL}.
 \end{equation}
-\end{lemma}
+Both bounds are uniform in the shifts. All locally admissible finite
+words are counted; an extension to an infinite admissible word is not
+required.
+\end{proposition}
 \begin{proof}
-Choose infinitely many distinct true-visit slopes $\alpha=2^n$.
-Compactness of $\Z_3^\times$ gives a subsequence $\alpha_i\to\rho$.
-After discarding at most one equality, write
-$\rho^{-1}\alpha_i=1+u_{1i}3^{e_{1i}}$, where $e_{1i}\to\infty$
-and $u_{1i}$ are units. Passing to a subsequence, $u_{1i}\to a_1$,
-a unit. Where the difference is nonzero, normalize $u_{1i}-a_1$
-by its valuation and repeat. Each new gap tends to infinity.
+We give the affine application in detail because uniformity in the
+shifts is needed for the real transfer. View a finite input word as its
+ordinary representative $X\in[0,3^L)$, extended by zero digits if needed,
+and set $Y_t=A_tX$ in $\Z_3$.
 
-An infinite collection of exact stops after $j$ steps would give
-infinitely many solutions of
+\emph{Exact causal arithmetic.}
+For template $i$ and source position $j$, put $v=j+E_i$. The participating
+windows are
 \[
- \rho^{-1}\gamma-\sum_{t=1}^{j}a_t3^{e_t}=1,
- \qquad \gamma\in\langle2\rangle,\quad0<e_1<\cdots<e_j.
-\]
-The variables belong to the finite-rank group
-$\langle2\rangle\times\langle3\rangle^j$.
-The summands on the left have distinct valuations $0,e_1,\ldots,e_j$,
-so every nonempty subsum has a unique term of minimal valuation and
-is nonzero. The unit-equation theorem rules out infinitely many such
-stops. Induction therefore gives, for any prescribed $r$,
-\[
- \rho^{-1}\alpha_i
-    =1+\sum_{t=1}^{r-2}a_t3^{e_{ti}}+u_i^*3^{E_i},
-\]
-with unit coefficients and all successive gaps tending to infinity.
-Choose $K$ members so far apart that the required gap conditions hold.
-
-Approximate $a_t$ by an ordinary integer unit $A_t$ to accuracy
-$v_3(A_t-a_t)\ge\max_i(E_i-e_{ti}+q)$. Choose another true visit
-$\alpha_0=2^{n_0}$ with
-$v_3(\rho/\alpha_0-1)\ge\max_i(E_i+q)$.
-The error in each normalized slope, divided by $3^{E_i}$, is a
-multiple of $3^q$. Thus the remainder $u_i$ in \eqref{eq:ci} is still
-a unit. This proves the exact identity and all the separation claims.
-\end{proof}
-
-For such a finite collection of data $\mathcal D$, let
-\[
- K_{\mathcal D}=\{X\in\Sigma:c_iX\in\Sigma\ (1\le i\le K)\}.
-\]
-It is compact. The extracted point satisfies $X=2^{n_0}x\in K_{\mathcal D}$.
-The data consist of finitely many nonnegative integer visit indices,
-integer exponents, and ordinary integer coefficients $A_t$. There are
-only countably many such data sets. In particular the potentially
-uncountable limits $\rho,a_t$ are not parameters indexing the cover.
-For every fixed $r,K,q$, we obtain
-\begin{equation}\label{eq:cover}
- E_2\subseteq\bigcup_{\mathcal D}2^{-n_0}K_{\mathcal D}.
-\end{equation}
-Multiplication by $2^{-n_0}$ is a 3-adic isometry.
-
-\section{Exact causal arithmetic}
-Fix $k\ge1$ and choose $b\ge1$ with $3^b>r-1$; set $q=b+k$.
-For one of the finite systems above introduce $Y_t=A_tX$.
-For a template $i$ and a starting position $j$, put $v=j+E_i$.
-The participating windows are
-\[
- B_0=B_{j,q}(X),\qquad
- B_t=B_{v-e_{ti},q}(Y_t)\ (1\le t\le r-2),\qquad
+ B_0=B_{j,q}(X),\quad
+ B_t=B_{v-e_{ti},q}(Y_t)\ (1\le t\le r-2),\quad
  B_{\rm end}=B_{v,q}(X).
 \]
-Let $P=[X]_j$, $T=3^{E_i}u_iP$, and define
+Write $P=[X]_j$ and define
 \[
+ T=\beta_i+3^{E_i}u_iP,\qquad
  t_v=[T]_v,\qquad D_j=(T-t_v)/3^v\in\Z_3.
 \]
-The center $D_j$ depends only on $X_{<j}$ and the fixed finite data.
-The lower parts contributing to $c_iX$ are
+The center $D_j$ depends only on the fixed data and the input prefix
+$X_{<j}$. In the exact identity for $c_iX+\beta_i$, the lower parts are
 \[
- [X]_v,\quad 3^{e_{ti}}[Y_t]_{v-e_{ti}} (1\le t\le r-2),\quad t_v.
+ [X]_v,\qquad 3^{e_{ti}}[Y_t]_{v-e_{ti}}\ (1\le t\le r-2),\qquad t_v.
 \]
-These are $r$ nonnegative integers smaller than $3^v$.
-Their ordinary carry is some $e\in\{0,\ldots,r-1\}$.
-Taking the next $q$ digits in the exact identity \eqref{eq:ci} gives
-\begin{equation}\label{eq:causal}
- u_iB_0+\sum_{t=1}^{r-2}B_t+B_{\rm end}+D_j+e\in\Sigma_q
-                  \pmod {3^q}
- \quad\text{for some }0\le e\le r-1.
+These are $r$ nonnegative integers below $3^v$, so their ordinary carry
+lies in $\{0,\ldots,r-1\}$. Taking the next $q$ digits gives the relation
+\begin{equation}\label{real:eq:causal}
+ u_iB_0+\sum_{t=1}^{r-2}B_t+B_{\rm end}+D_j+e\in\Sig_q
+       \pmod{3^q}\qquad\text{for some }0\le e\le r-1.
 \end{equation}
-The condition concerns a window of the output $c_iX$. The auxiliary
-windows of $Y_t$ are unrestricted 3-adic windows.
+Only windows contained in the first $L$ output digits will be used.
+Thus this relation is valid for every word in $W_L(\boldsymbol\beta)$.
 
-\begin{lemma}[Removing the low digits]\label{lem:two}
-On a Cartesian product of windows all satisfying \eqref{eq:causal},
-fix the lowest $b$ digits of each argument. Then the sum of the
-resulting high $k$-digit factors (with the first multiplied by $u_i$)
-is contained in at most two translates of $\Sigma_k$.
-\end{lemma}
-\begin{proof}
-Write each argument as $l_\nu+3^bz_\nu$, with $0\le l_\nu<3^b$.
-After all $l_\nu$ and the center are fixed, the low residue of the
-sum is fixed. If $y\in\Sigma_q$ is an allowed target, then
-$y_{\rm low}-e\in[-(r-1),3^b-1]$.
-This interval has length less than $2\cdot3^b$, so a fixed residue
-modulo $3^b$ has at most two representatives in it. After division by
-$3^b$, the corresponding high target is in $\Sigma_k$ with at most
-two fixed shifts. Multiplication by the unit $u_i$ is a bijection on
-the high factors modulo $3^k$.
-\end{proof}
-
-\section{Conditional alphabets and the finite entropy estimate}
-Let $L\ge q$, $N=L-q+1$. Let $W_L$ consist of all length-$L$ digit
-words for which the input and every $c_iX$ modulo $3^L$ belong to
-$\Sigma_L$. A 3-adic unit multiplier determines the output prefix
-uniquely from the input prefix. We may assume $W_L$ is nonempty.
-It contains every length-$L$ prefix of $K_{\mathcal D}$.
-At position $j\in\{0,\ldots,N-1\}$ use the joint letter
+\emph{Low digits and capacity.}
+On any Cartesian product of windows satisfying \eqref{real:eq:causal},
+fix the lowest $b$ digits of each argument. The low residue of their
+sum, including $D_j$, is fixed. If $y\in\Sig_q$ is an allowed output,
+then
 \[
- Z_j=\bigl(B_{j,q}(X),B_{j,q}(Y_1),\ldots,B_{j,q}(Y_{r-2})\bigr)
+                 y_{\rm low}-e\in[-(r-1),3^b-1].
 \]
-from an alphabet of size $Q=3^{(r-1)q}$. The ordered positional edges are
-\[
- (j,\ j+E_i-e_{r-2,i},\ldots,j+E_i-e_{1i},\ j+E_i)
-\]
-whenever all ends are in $\{0,\ldots,N-1\}$.
-Their relations are \eqref{eq:causal} with the indicated coordinate
-selected from each joint letter.
-The outgoing future sets from one source are pairwise disjoint by
-\eqref{eq:separation}. Every pair of positions is in at most
-$C=\binom r2$ edges: its distance belongs to at most one template,
-and within that template there are at most $\binom r2$ role pairs.
-These are precisely the positional hypotheses of Appendix~\ref{app:container}.
+Since $3^b>r-1$, a fixed residue modulo $3^b$ has at most two
+representatives in this interval. Dividing the corresponding identities
+by $3^b$ shows that the sum of the high $k$-digit factors lies in at most
+two translates of $\Sig_k$. The first high factor is multiplied by the
+unit $u_i$, an affine bijection after its low digits are fixed.
+We use Lemma~\ref{vone:lem:capacity}: for nonempty
+$H_1,\ldots,H_r\subseteq\Z/3^k\Z$,
+\begin{equation}\label{real:eq:capacity}
+ H_1+\cdots+H_r\subseteq(z_1+\Sig_k)\cup(z_2+\Sig_k)
+ \quad\Longrightarrow\quad
+ \sum_{\nu=1}^r\log|H_\nu|\le r\log3+2^{k+1}\log2=:B_{r,k}.
+\end{equation}
+The proof above derives this estimate from Kneser's theorem;
+its constants do not depend on either translate.
 
-Choose positive integer thresholds $T_{\rm s},T_2,\ldots,T_{r-1}$,
-write $D=CQ^{r-3}$, and put
-\begin{align}
- \theta&=Q\left[\frac{D\sum_{j=2}^{r-1}T_j+1}{T_{\rm s}}
- +\frac1{T_2}+D\sum_{j=3}^{r-1}
-           \frac{1+\sum_{l=2}^{j-1}T_l}{T_j}\right],\label{eq:theta}\\
- \epsilon_F&=h(\theta)+\theta\log Q,\qquad
- h(t)=-t\log t-(1-t)\log(1-t).
-\end{align}
-Assume $\theta\le1/2$. The lemma gives a fingerprint $F$ and
-alphabets $\mathcal A_j$ determined by $(X_{<j},F)$, containing
-the true joint letters. For any distribution on $W_L$,
-\begin{equation}\label{eq:budgets}
+\emph{The finite causal-container input.}
+At each position $j\in\{0,\ldots,N-1\}$ take the joint letter
+\[
+ Z_j=(B_{j,q}(X),B_{j,q}(Y_1),\ldots,B_{j,q}(Y_{r-2}))
+\]
+in an alphabet of size $Q$. The ordered positional edges are
+\[
+ (j,j+E_i-e_{r-2,i},\ldots,j+E_i-e_{1i},j+E_i)
+\]
+whenever all positions belong to $\{0,\ldots,N-1\}$.
+Their relations select the indicated coordinates in \eqref{real:eq:causal}.
+By \eqref{real:eq:separation}, future position sets of distinct edges from
+the same source are disjoint. Every pair of positions belongs to at
+most $C=\binom r2$ edges: the distance belongs to at most one template,
+and that template has at most $\binom r2$ role pairs.
+
+Theorem~\ref{thm:container}, with its complete proof in
+Appendix~\ref{app:container}, therefore supplies a deterministic
+fingerprint $F$ and alphabets $\mathcal A_j$, each determined by
+$(X_{<j},F)$ and containing the actual joint letter. It gives
+\begin{equation}\label{real:eq:budgets}
  H(F)\le N\epsilon_F,\qquad
  E_{\rm bad}\le Q\left(T_{\rm s}+D\sum_{j=2}^{r-1}T_j\right)N.
 \end{equation}
-Except on these bad edges, the full product of the assigned alphabets
-satisfies its causal relation, at the realized source prefix.
+Except for at most $E_{\rm bad}$ edges, the \emph{full Cartesian product}
+of the assigned alphabets satisfies its relation at the actual source
+prefix. This full-product conclusion, rather than compatibility along
+one input, is the property used next.
 
-Take $X$ uniformly distributed on $W_L$. For each realized word define
+\emph{Conditional supports and entropy.}
+Take $X$ uniformly distributed on the nonempty set
+$W_L(\boldsymbol\beta)$. For each realized word put
 \[
- C_j=\supp\bigl(X_{[j+b,j+b+k)}\mid X_{<j+b},F\bigr),
- \qquad w_j=\log|C_j|\le k\log3.
+ C_j=\supp(X_{[j+b,j+b+k)}\mid X_{<j+b},F),\qquad
+ w_j=\log|C_j|\le k\log3.
 \]
-Each conditioning atom has positive probability. Fixing $X_{<j+b}$
-fixes the low $b$ digits of every joint window at $j$. On the remaining
-$k$ digits, multiplication by $A_t$ is an affine bijection modulo $3^k$,
-with its center determined by the fixed prefix. Thus every required
-projection of the joint conditional support has exactly $|C_j|$ elements.
-That joint support is contained in $\mathcal A_j$, since the latter
-is determined by the shorter prefix $X_{<j}$ and the same $F$.
+Fixing $X_{<j+b}$ fixes the low $b$ digits of all joint windows at $j$.
+Multiplication by any $A_t$ induces an affine bijection on the next
+$k$ digits. Each required high-coordinate projection of the conditional
+joint support consequently has exactly $|C_j|$ elements. This joint
+support is contained in $\mathcal A_j$, since $\mathcal A_j$ is determined
+by the shorter prefix $X_{<j}$ and the same fingerprint.
 
-On a good edge we may therefore select these projected supports
-independently, even though the conditioning prefixes at its ends are
-different. The full-product property applies to all their combinations;
-we do not require those combinations to be realized by a single new
-input word. Lemmas~\ref{lem:two} and \ref{lem:capacity} yield, pointwise,
-\begin{equation}\label{eq:good}
- \sum_{\nu=0}^{r-1}w_{j_\nu}\le B_{r,k}.
-\end{equation}
-On a bad edge use $rk\log3$.
-
-Set $R=\max_iE_i$. Template $i$ contributes $\max(N-E_i,0)$ edges;
-each role misses $\min(E_i,N)$ potential positions. Accounting for
-these missing incidences, with the safe upper bound $KN$ on the total
-number of edges, gives
+On a good edge these projections may be selected independently, even
+though the prefixes defining them differ at the different positions.
+The full-product property applies to every such selection; no common
+new input realizing all selections is asserted. The low-digit reduction
+and \eqref{real:eq:capacity} imply, pointwise on that edge,
+\[
+                     \sum_{\nu=0}^{r-1}w_{j_\nu}\le B_{r,k}.
+\]
+On a bad edge use $rk\log3$. Template $i$ has
+$\max(N-E_i,0)$ edges, and each of its $r$ roles misses
+$\min(E_i,N)$ positions. Accounting for these boundary incidences gives
 \[
  rK\sum_{j=0}^{N-1}w_j
- \le B_{r,k}KN+rk\log3\,E_{\rm bad}+rk\log3\,KR.
+ \le B_{r,k}KN+rk\log3\,E_{\rm bad}+rk\log3\,KR,
 \]
-Hence
-\begin{equation}\label{eq:weights}
- \sum_j w_j\le NB_{r,k}/r+k\log3(E_{\rm bad}/K+R).
+and hence
+\begin{equation}\label{real:eq:weights}
+ \sum_jw_j\le \frac{NB_{r,k}}r+
+                       k\log3\left(\frac{E_{\rm bad}}K+R\right).
 \end{equation}
-This also covers short intervals and does not assume $B_{r,k}\le rk\log3$.
+For $h_t=H(X_t\mid X_{<t},F)$ the entropy chain rule yields
+\[
+ \sum_{t=j+b}^{j+b+k-1}h_t\le\mathbb E w_j.
+\]
+The multiplicities of the $h_t$ in this sum are at most $k$ and total
+$kN$. Since $h_t\le\log3$, their deficit from $kL$ is at most
+$k(q-1)\log3$ in entropy units. Therefore
+\[
+ H(X\mid F)\le k^{-1}\sum_j\mathbb E w_j+(q-1)\log3.
+\]
+Combining this with \eqref{real:eq:budgets}--\eqref{real:eq:weights}, and using
+$H(X)=H(F)+H(X\mid F)=\log|W_L(\boldsymbol\beta)|$, proves
+\eqref{real:eq:finite}. Dropping its nonpositive contribution
+$-(q-1)s\log3$ gives \eqref{real:eq:finite-simple}. All bounds are independent
+of the shifts, as required.
+\end{proof}
 
-Write $h_t=H(X_t\mid X_{<t},F)$. The entropy chain rule gives
+\section{Transfer from real truncations to finite words}
+The next lemma is the additional step connecting the two number systems.
+It requires a bound for all finite words, not merely for prefixes that
+extend to infinite admissible 3-adic inputs.
+
+\begin{lemma}[Finite-word transfer]\label{real:lem:transfer}
+Let $c_i=p_i/q_i>0$ be rational numbers in lowest terms, with
+$3\nmid p_iq_i$, for $1\le i\le K$. Suppose that, for some constants
+$C_0>0$, $s\ge0$ and $L_0$, their affine word sets satisfy
 \[
- \sum_{t=j+b}^{j+b+k-1}h_t
- =H(X_{[j+b,j+b+k)}\mid X_{<j+b},F)\le\mathbb E w_j.
+ |W_L(\boldsymbol\beta)|\le C_0\,3^{sL}
+ \quad(L\ge L_0)
 \]
-In the sum over all $N$ windows, the multiplicities $m_t$ satisfy
-$0\le m_t\le k$ and $\sum_tm_t=kN$. Since $h_t\le\log3$,
+for all $\boldsymbol\beta\in\Z_3^K$. For each integer $M\ge1$, put
 \[
- H(X\mid F)\le k^{-1}\sum_j\mathbb E w_j+(b+k-1)\log3.
+ K_{\R}(\boldsymbol c;M)=
+ \{X\in[0,M]:X\in\CR,\ c_iX\in\CR\ (1\le i\le K)\}.
 \]
-As $F$ is a deterministic function of $X$, combine this with
-\eqref{eq:budgets}--\eqref{eq:weights}. For
-$\eta=Q(T_{\rm s}+D\sum_jT_j)/K$ we obtain
-\begin{equation}\label{eq:entropy}
- \boxed{\begin{aligned}
- \log|W_L|\le{}&N\left[\epsilon_F+\frac{\log3}{k}
-             +\frac{2^{k+1}\log2}{rk}+\eta\log3\right]\\
-             &+(R+b+k-1)\log3.
- \end{aligned}}
+This set is compact and has upper box dimension at most $s$.
+\end{lemma}
+\begin{proof}
+On a bounded interval, there are only finitely many possible integer
+digit prefixes in $\CR$. Each has a compact set of fractional tails,
+the continuous image of the compact product $\{0,1\}^{\mathbb N}$.
+It follows that $\CR$ is closed on bounded intervals, and the stated
+finite intersection is compact.
+
+Fix $X\in K_{\R}(\boldsymbol c;M)$ and $L\ge1$. Define
+\[
+ T_L=\lfloor3^LX\rfloor,\qquad
+ T_{i,L}=\lfloor3^Lc_iX\rfloor,\qquad
+ U_L=T_L\bmod3^L\in\{0,\ldots,3^L-1\}.
+\]
+The full real digit conditions imply
+$U_L\in\Sig_L$ and $T_{i,L}\bmod3^L\in\Sig_L$.
+Indeed, after multiplication by $3^L$, the remaining fractional
+$0/1$ tail lies in $[0,1/2]$, so taking the floor gives exactly the
+allowed integer prefix. This also handles terminating expansions.
+Set
+\[
+ \beta_{i,L}=T_{i,L}-c_iT_L.
+\]
+If $\tau=\{3^LX\}$ and $\tau_i=\{3^Lc_iX\}$, then exactly
+\begin{equation}\label{real:eq:beta}
+ \beta_{i,L}=c_i\tau-\tau_i
+ \in q_i^{-1}\Z\cap(-1,p_i/q_i)=:\mathcal B_i.
 \end{equation}
+This is a fixed finite set of cardinality $p_i+q_i-1$. Every element
+belongs to $\Z_3$ because $3\nmid q_i$.
 
-\section{Completion of the dimension argument}
-Fix first $k,r$, then $b,q,Q,C,D$. For integers $u\to\infty$, choose
+Now $T_L-U_L$ is an integer multiple of $3^L$, so in $\Z_3$
 \[
- T_j=u^{2^{j-1}-1}\ (2\le j\le r-1),\qquad
+ c_iU_L+\beta_{i,L}
+ =T_{i,L}-c_i(T_L-U_L)\equiv T_{i,L}\pmod{3^L}.
+\]
+Consequently
+\begin{equation}\label{real:eq:membership}
+ U_L\in W_L(\beta_{1,L},\ldots,\beta_{K,L}).
+\end{equation}
+The vector of shifts may change with $X$ and with $L$. We take the finite
+union over $\prod_i\mathcal B_i$ at each depth; no consistency of a
+single shift vector across depths is needed.
+
+For a fixed integer part of $X$, the value $U_L$ determines a real
+half-open cell of length $3^{-L}$. The first $L$ fractional digits form
+the ordinary base-three integer $U_L$ in their usual written order;
+the associated 3-adic word reads these same digits from low to high.
+Both orders preserve the condition that every digit is $0$ or $1$.
+There are at most $M+1$ integer parts. Thus the
+number of occupied real cells of this length is at most
+\begin{equation}\label{real:eq:real-count}
+ (M+1)\left(\prod_{i=1}^K(p_i+q_i-1)\right)C_0\,3^{sL},
+ \qquad L\ge L_0.
+\end{equation}
+Closed intervals give a cover with the same bound up to a fixed factor.
+The factors preceding $3^{sL}$ are independent of $L$, so the upper
+box dimension is at most $s$. The discrete scales $3^{-L}$ suffice,
+since consecutive scales have bounded ratio.
+\end{proof}
+
+\begin{remark}\label{real:rem:changing}
+The variability of the shifts is real, even for fully admissible
+numbers. For $X=1/2$ and $c=1/4$, both $X$ and $cX=1/8$ belong to
+$\CR$, while \eqref{real:eq:beta} equals $-1/4$ for odd $L$ and $0$ for
+even $L$. Applying the container theorem after fixing each vector in
+the finite union is what preserves prefix dependence. The proof does
+not feed an unread real tail into a causal relation.
+\end{remark}
+
+\section{Countable compact covers and the dimension conclusion}
+\begin{proof}[Proof of Theorem~\ref{real:thm:main}]
+Fix $\delta>0$. Choose first $k$ sufficiently large, and then $r$ so
+large that
+\[
+             \frac1k+\frac{2^{k+1}\log2}{rk\log3}<\delta.
+\]
+Leave a positive margin in this inequality. Choose $b$ with $3^b>r-1$,
+and set $q=b+k$, $Q,C,D$ as in Section~\ref{sec:real:finite}. For integers $u\to\infty$
+use the thresholds and number of templates
+\[
+ T_j=u^{2^{j-1}-1}\quad(2\le j\le r-1),\qquad
  T_{\rm s}=u^{2^{r-1}-1},\qquad K=u^{2^r}.
 \]
-Every ratio in \eqref{eq:theta} tends to zero, and
-$\theta,\epsilon_F,\eta\to0$. In particular $\theta\le1/2$ for all
-sufficiently large $u$.
-For each such fixed $u$, use the countable cover \eqref{eq:cover}.
-In each fixed system $\mathcal D$, first let $L\to\infty$ in
-\eqref{eq:entropy}. Its span $R$ is fixed. Cylinder counting gives
+Every ratio in \eqref{real:eq:theta} tends to zero. Thus
+$\theta,\epsilon_F,\eta\to0$, and we can fix one finite $u$ with
+$\theta\le1/2$ and $s\le\delta$ in \eqref{real:eq:s}.
+All these parameters are now fixed.
+
+For $\lambda\in\ER$ the true visit set
 \[
- \dimB K_{\mathcal D}
- \le\frac{\epsilon_F}{\log3}+\frac1k
-              +\frac{2^{k+1}\log2}{rk\log3}+\eta.
+                  S(\lambda)=\{n\ge0:2^n\lambda\in\CR\}
 \]
-Countable stability of packing dimension, followed by $u\to\infty$,
-therefore gives
-\begin{equation}\label{eq:dimension}
- \dimP E_2\le\frac1k+\frac{2^{k+1}\log2}{rk\log3}.
+is infinite. Apply Lemma~\ref{real:lem:extraction} to this set, obtaining
+true indices $n_0,n_1,\ldots,n_K$ and finite template data. Then
+$X=2^{n_0}\lambda$ and $c_iX=2^{n_i}\lambda$ all belong to $\CR$.
+For some positive integer $M$, therefore,
+\[
+                 X\in K_{\R}(\boldsymbol c;M).
+\]
+By Proposition~\ref{real:prop:finite} and Lemma~\ref{real:lem:transfer}, this
+compact set has upper box dimension at most $s\le\delta$.
+
+Let $\mathcal D$ range over the finite data consisting of the visit
+indices, the integer exponents and the ordinary integer coefficients
+in Lemma~\ref{real:lem:extraction}. There are only countably many such data.
+We have proved the cover
+\begin{equation}\label{real:eq:cover}
+ \ER\subseteq\bigcup_{\mathcal D}\ \bigcup_{M\ge1}
+       2^{-n_0}K_{\R}(\boldsymbol c(\mathcal D);M).
 \end{equation}
-For fixed $k$, let $r\to\infty$; then let $k\to\infty$.
-This proves $\dimP E_2=0$, and $\dimH E_2\le\dimP E_2$ proves the
-other equality. To obtain the explicit covering statement in
-Theorem~\ref{thm:main}, choose successively $k,r,u$ to make the displayed
-upper box bound at most any prescribed $\delta>0$.
-No uniform bound on the unbounded template span $R$ is used, and no
-uncountable union over limiting 3-adic coefficients occurs.
+No 3-adic accumulation point or limiting coefficient indexes this union.
+Each set is compact, and multiplication by $2^{-n_0}$ is a real
+similarity, so its upper box dimension is at most $\delta$.
 
-\section{Verification and reproducibility}
-The mathematical proof consists of the arguments above and the complete
-finite construction below, with the unit-equation and addition theorems
-as external inputs. Accompanying programs check finite carry identities,
-low-digit reduction, positional incidences, and the state invariants
-of finite container examples. Such tests are regression checks and
-provide reproducible witnesses for implementation errors; they do not
-replace the proofs or certify the infinite-dimensional conclusion.
+The span $R$ and the rational heights $p_i,q_i$ may be unbounded across
+the cover. This causes no problem: in \eqref{real:eq:real-count} the depth
+$L$ tends to infinity for one fixed finite system at a time. All of
+those quantities affect only its multiplicative counting constant.
+Countable stability of packing dimension and the usual inequalities
+$\dimH\le\dimP\le\dimB$ on each compact component now imply
+\[
+                         \dimH\ER\le\dimP\ER\le\delta.
+\]
+Since $\delta>0$ was arbitrary, both dimensions are zero.
+\end{proof}
 
-The accompanying audit records identify the exact source files and
-separate the mathematical arguments from finite computations. ChatGPT
-was used in developing and editing the manuscript, implementing checks,
-and conducting independent agent reviews. This is not a claim of
-proof-assistant verification or external peer review. Authorship of this
+The real argument uses infinitely many visits in its extraction step;
+no uniform finite-visit conclusion for the real sets is asserted here.
+The $3$-adic finite-visit conclusion of Theorem~\ref{thm:main} was proved
+separately using the uniform finite extraction in
+Theorem~\ref{thm:templates}. A zero-dimensional exceptional set need
+not be countable or empty. In particular, Theorem~\ref{real:thm:main}
+does not settle whether $1\in\ER$, the remaining pointwise question
+associated with the powers of two.
+
+The positive-dimensional truncated exceptional set does not contradict
+the transfer: a condition only on $\lfloor2^n\lambda\rfloor$ gives no
+restriction on arbitrarily long fractional prefixes. In that setting
+the membership assertion \eqref{real:eq:membership} is unavailable.
+
+\section{Exact checks for the real transfer}
+The real proof consists of the arguments above, the reproduced finite
+causal-container proof in Appendix~\ref{app:container}, and the
+published unit-equation and sumset theorems~\cite{ESS,DeVos}.
+The finite inputs originating in version~1.0.0 are explicitly identified. The accompanying
+exact-arithmetic program checks the new finite-word bridge using
+rational numbers, including terminating and periodic ternary expansions.
+It verifies the bounds on the shifts, reduction with rational unit
+denominators, and membership of the resulting finite words. The current
+finite test set contains $1845$ rational inputs and $49$ slopes, with
+$632835$ checked identities, including $12215$ instances with fully
+admissible input and output expansions. Negative and nonintegral shifts
+are included, as is the alternating-shift example in
+Remark~\ref{real:rem:changing}.
+
+These computations detect errors in the finite identities; they do not
+prove the dimension theorem or replace the causal-container argument.
+ChatGPT was used in developing and editing the manuscript, implementing
+the exact checks, and conducting internal AI-assisted reviews from
+several mathematical perspectives. Such reviews do not constitute
+external peer review or proof-assistant verification. Authorship of this
 manuscript is attributed solely to Timofei Iuzhakov.
 
+
+\section*{Dependency and verification record}
+The only imported nonstandard finite result is
+Theorem~\ref{thm:container}, from Appendix A of the exact release
+v1.0.0 of \cite{Core}, commit
+\begin{center}\small\ttfamily
+81c7f5ae45c3ce507173b82baca48fdfeb52c6ef
+\end{center}
+Its complete proof is included unchanged in Appendix~\ref{app:container}.
+The SHA-256 digest of the appendix source
+\texttt{causal\_container.tex} is
+\begin{center}\small\ttfamily
+1ae15961cd3bc705e7313c9e56de34e5127\\
+7cffaa7cc3a58c6e4c9cb6e672750
+\end{center}
+with the two displayed lines concatenated. This identifies the exact
+imported proof on which the finite entropy estimate depends. The
+unit-equation theorem is the published result \cite{ESS}; finite
+Ramsey theory is used only in its ordinary finite form. The real argument
+also uses Kneser's addition theorem~\cite{DeVos}, through the full proof
+of Lemma~\ref{vone:lem:capacity} reproduced from
+\cite[Lemma~2.1]{Core}. The statements and proofs of the uniform finite
+extraction and of the real infinite-set extraction are kept separate.
+The present version does not assert a real finite-visit nesting theorem,
+a finite-visit Assouad theorem, or an arbitrary-target generalization.
+
+The arithmetic extraction and the entropy transfer were subjected to
+independent internal AI-assisted reviews. Exact finite checks were
+also used to test determinant identities and low-dimensional cases.
+These checks do not replace the arguments for arbitrary $d$, all
+Ramsey refinements, or the causal-container theorem.
+AI assistance was used in developing proofs, writing the manuscript,
+and implementing checks. This is not external peer review or
+proof-assistant verification. Authorship is attributed solely to
+Timofei Iuzhakov.
+
 \begin{thebibliography}{9}
-\bibitem{Lagarias} J. C. Lagarias,
+\bibitem{Lagarias}
+J. C. Lagarias,
 \emph{Ternary expansions of powers of 2},
 J. London Math. Soc. (2) \textbf{79} (2009), 562--588.
 \href{https://doi.org/10.1112/jlms/jdn080}{doi:10.1112/jlms/jdn080}.
-\bibitem{AL} W. C. Abram and J. C. Lagarias,
-\emph{Intersections of multiplicative translates of 3-adic Cantor sets},
-J. Fractal Geom. \textbf{1} (2014), 349--390.
-\url{https://ems.press/content/serial-article-files/37215}.
-\bibitem{ABL} W. C. Abram, A. Bolshakov and J. C. Lagarias,
+
+\bibitem{ABL}
+W. C. Abram, A. Bolshakov and J. C. Lagarias,
 \emph{Intersections of multiplicative translates of 3-adic Cantor sets II:
-two infinite families}, Experimental Math. \textbf{26} (2017), 468--489.
-\href{https://doi.org/10.1080/10586458.2016.1205532}{doi:10.1080/10586458.2016.1205532}.
-\bibitem{ESS} J.-H. Evertse, H. P. Schlickewei and W. M. Schmidt,
+two infinite families},
+Experimental Math. \textbf{26} (2017), 468--489.
+\href{https://doi.org/10.1080/10586458.2016.1205532}
+{doi:10.1080/10586458.2016.1205532};
+\href{https://arxiv.org/abs/1508.05967}{arXiv:1508.05967}.
+
+\bibitem{ESS}
+J.-H. Evertse, H. P. Schlickewei and W. M. Schmidt,
 \emph{Linear equations in variables which lie in a multiplicative group},
 Ann. of Math. (2) \textbf{155} (2002), 807--836.
 \url{https://annals.math.princeton.edu/2002/155-3/p04}.
-\bibitem{DeVos} M. DeVos,
+
+\bibitem{Core}
+T. Iuzhakov,
+\emph{Zero Hausdorff and packing dimension for the
+$3$-adic exceptional set of powers of two},
+research preprint, release v1.0.0 (5 November 2026), Lemma~2.1 and Appendix~A.
+\url{https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v1.0.0}.
+\bibitem{LagariasArxiv}
+J. C. Lagarias,
+\emph{Ternary expansions of powers of 2}, arXiv manuscript.
+\href{https://arxiv.org/abs/math/0512006}{arXiv:math/0512006}.
+
+\bibitem{DeVos}
+M. DeVos,
 \emph{A short proof of Kneser's addition theorem for abelian groups}.
 \url{https://www.sfu.ca/~mdevos/papers/kneser.pdf}.
-\bibitem{ST} D. Saxton and A. Thomason,
-\emph{Online containers for hypergraphs, with applications to linear equations},
-J. Combin. Theory Ser. B \textbf{121} (2016), 248--283.
-\href{https://doi.org/10.1016/j.jctb.2016.05.011}{doi:10.1016/j.jctb.2016.05.011}.
 \end{thebibliography}
-
 \appendix
-\section{A finite causal container lemma}\label{app:container}
+\section{The finite causal-container theorem and its proof}
+\label{app:container}
+The following source is reproduced unchanged from Appendix A of
+\cite{Core}, release v1.0.0. Its symbols are local to this appendix.
 \input{causal_container.tex}
 \end{document}

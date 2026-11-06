@@ -1,0 +1,151 @@
+INDEPENDENT HOSTILE INTEGRATION REVIEW: DIMENSION VERSION 2.0.0
+Date: 6 November 2026
+Reviewer: pointwise_attack_20261106
+Verdict: PASS at the exact final source hash below.
+
+Manuscript:
+outputs/github_final_2026-11-06/lagarias-zero-dimension/paper/
+lagarias_zero_dimension.tex
+SHA256: 80393a62d9d8b8c592ab347781d5d8c1f932cd6fea7cd430f723a1db4385992b
+Included causal_container.tex:
+SHA256: 1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750
+
+I read the complete merged source at its initial hash 62a7039c...2918,
+then checked the sole final correction: the statement that no infinite
+extraction is used now explicitly refers only to the 3-adic finite-visit
+argument. The real proof does use infinite extraction. The final wording
+correctly distinguishes them. I made no edits to the dimension source.
+The final manuscript has 1430 lines. Compilation and visual PDF review are
+handled by the parent agent; this report concerns mathematical content.
+
+TRANSFER CHECKS
+1. The entire Gamma mathematical block, from the uniform finite-template
+   section through the compact-cover conclusion, finite-rank extension
+   and E2 corollary, is byte-identical to the previously fully reviewed
+   dyadic_nesting_zero.tex block. Its block SHA256 is
+   18e0bd0503732bda78a7027a03b244b753f0e7fcc839b2cd537317146f1fcd95.
+2. I independently normalized the real: labels and compared the full real
+   body with the frozen lagarias_real_zero_dimension.tex. No mathematical
+   step was removed or altered. Changes consist of explicit local cross-
+   references, corrected combined scope prose, the inserted capacity proof,
+   and a reference replacing the former literal Section 3.
+3. The inserted capacity lemma and proof are byte-identical to version
+   1.0.0 after removing the vone: namespace. Their normalized block SHA256 is
+   286e7fba2a7e44c5fc9ebbfd0f805f1760b88a836d37c088cc57852d15d2097e.
+   I also checked the mathematical argument anew, as described below.
+4. The appendix hash exactly matches the frozen source already read in
+   full during the earlier review. The theorem restatement preserves its
+   nonlocal letters, arbitrary finite input alphabets, prefix dependence,
+   full-product conclusion and exact constants. It is explicitly included,
+   not asserted to follow from a finite test.
+5. All 57 labels in the main source are unique; every internal reference
+   resolves. The real and p-adic main theorems have distinct labels. Author
+   is solely Timofei Iuzhakov, date 6 November 2026, version 2.0.0. The cited
+   version-1 date agrees with the frozen source/CITATION (5 November 2026).
+
+ARITHMETIC AND P-ADIC DIMENSION AUDIT
+The uniform finite incidence proof normalizes to a nondegenerate unit
+equation after discarding finitely many valuation ties. Distinct powers
+give distinct variable tuples; the rank and ESS solution bound are uniform
+in the number of rows and in their heights. Pair Ramsey refinement gives
+the strict Monge order and valuation-minimal coordinate minors. The next
+Ramsey steps do not assume general position: a large all-zero augmented-
+minor set would contradict that uniform incidence bound.
+
+The determinant word, fixed minimum cofactor pairs, descending single-
+repeat pattern and five-vector quotient obstruction are retained in full.
+Five vectors with equal pair-determinant valuations in Q3^2 are impossible:
+after choosing two as a basis, at most two additional nonzero unit ratios
+can have distinct residues in F3. Cramer interpolation preserves unit
+coefficients. The bad-row count correctly excludes zero-error terms from
+finite valuation ties. Explicit Ramsey budgets and backward stage budgets
+make J depend only on r,K,q. No precision-dependent iteration or bound on
+the template spans has been smuggled into the finite claim.
+
+The finite-word proposition allows all ternary input words, which is
+essential for the virtual anchor. Ordinary carries lie in 0,...,r-1.
+After low b digits are fixed, the sharper interval of length less than
+3^b leaves one high-digit target translate and product capacity at most 2.
+The nonlocal joint letters and conditional support recombination satisfy
+the exact included container theorem. The boundary term (R+b)log 3 and
+bad-edge coefficient eta are unchanged. Choosing fixed r, then finite u,
+then J yields a countable compact cover of F_J by sets of box dimension
+less than any prescribed delta. Rationality makes the indexing countable;
+each span is fixed before digit length tends to infinity. Countable
+stability of packing dimension proves both Gamma limits zero.
+
+The finite-rank rational-unit-group remark remains valid. Unit ratios
+replace dyadic multiplicative independence for injectivity of normalized
+solution tuples, while rank at most rho+d controls ESS. It does not claim
+the result for arbitrary integer-multiplier families. The manuscript
+correctly keeps F1 as the countable union of inverse dyadic translates of
+Sigma, rather than identifying F1 with Sigma.
+
+REAL-PROOF AUDIT AND ADDED CAPACITY PROOF
+The real argument deliberately keeps a TRUE visiting anchor. Its compact
+infinite-slope extraction yields successive valuation gaps tending to
+infinity. Infinite exact stops would yield infinitely many nondegenerate
+finite-rank unit-equation solutions, because the summand valuations are
+distinct. Integer approximations to the finitely many limiting unit
+coefficients and a sufficiently close true anchor change every selected
+row only beyond its terminal valuation. The resulting slopes are positive
+rational 3-adic units, even when an exponent difference is negative.
+
+For the two-translate capacity estimate, H=Stab(T) has order 3^h. A coset
+of H fixes the lowest k-h digits and meets each translate of Sigma_k in
+at most 2^h points. A full H-coset in T therefore forces 3^h<=2^(h+1),
+hence h<=1. In the quotient, the final sum and every partial sum have
+trivial stabilizer: a stabilizer of a partial sum would also stabilize the
+final sum. Iterating Kneser's aperiodic addition bound is therefore valid.
+Together with n<=2^(n-1), it gives the displayed r log 3+2^(k+1)log 2
+capacity uniformly in the target translates. The proof is complete and
+uses the cited published sumset theorem, with no hidden digital premise.
+
+The affine finite-word relation handles arbitrary fixed shifts beta_i in
+Z3 by including them in a center determined by the source prefix. Its r
+lower canonical residues still have carry 0,...,r-1. The two-translate
+low-digit reduction and joint conditional supports agree with the exact
+container hypotheses. The overlapping k-digit entropy chains pay their
+full boundary deficit k(q-1)log 3 before division by k. The resulting
+uniform bound includes every locally valid word, not only words admitting
+an infinite extension. This is precisely the scope needed by the transfer.
+
+For a real bounded component, T_L=floor(3^L X) has an allowed integer
+prefix because the omitted 0/1 fractional tail is in [0,1/2]. This covers
+terminating expansions without borrowing a tail of 2s. For c_i=p_i/q_i>0,
+beta_i,L=T_i,L-c_i T_L belongs to the fixed finite set
+q_i^-1 Z intersect (-1,p_i/q_i), of cardinality p_i+q_i-1. Every such shift
+is in Z3. The residue U_L=T_L mod 3^L satisfies the affine constraints.
+The shift vector may change with L; the proof takes a finite union at each
+depth and never feeds a future real tail into a causal relation. At most
+M+1 integer parts and finitely many shift vectors give the correct real
+cell bound. Digit reversal causes no issue for the per-depth 0/1 condition
+and is not assumed to produce a consistent p-adic path.
+
+Compactness on bounded intervals and bounded-ratio discrete scales justify
+the upper box estimate. The final cover uses only finite integer/rational
+data and bounded real intervals; limiting 3-adic coefficients do not index
+an uncountable cover. Fixed heights and spans may vary across its countably
+many members. Hence Hausdorff and packing dimension of the untruncated
+real exceptional set are both zero.
+
+SCOPE AND DEPENDENCIES
+The main statements are precisely: vanishing p-adic finite-visit limits,
+with uniform finite visit cardinality; and zero real infinite-visit
+dimension, with a separate infinite extraction. No real finite-visit
+theorem is asserted. The full real fractional-digit condition is clearly
+distinguished from Lagarias's known positive-dimensional truncated set.
+
+This version does not deduce the real theorem from a bare p-adic dimension
+identity, nor infer absence of 1, countability, emptiness, the pointwise
+Erdos assertion, or an unproved Assouad/arbitrary-target generalization.
+The new capacity proof and unchanged appendix make the nonstandard finite
+inputs inspectable inside the manuscript. ESS, finite Ramsey theory,
+Kneser's theorem and standard dimension/entropy facts remain the stated
+external mathematical inputs.
+
+No blocking issue remains at the reviewed hash. The one requested edit was
+editorial scope clarification and has been checked. Exact finite tests
+remain supplementary; they do not establish the asymptotic or arbitrary-
+arity proofs. This review is internal and does not certify worldwide
+novelty, external peer review, or proof-assistant formalization.

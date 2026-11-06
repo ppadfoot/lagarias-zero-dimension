@@ -1,0 +1,85 @@
+RELEASE METADATA AND COVERAGE REVIEW — 6 November 2026
+Reviewer: hostile_core_20261106 (internal AI-assisted review)
+
+Mathematical source verdicts: PASS, as recorded in the two accompanying
+independent integration reports. This report concerns local preparation;
+the reviewer has not published anything or verified a future release URL
+as an already-existing public object.
+
+1. IDENTITY AND VERSIONING
+
+Dimension source SHA256:
+80393a62d9d8b8c592ab347781d5d8c1f932cd6fea7cd430f723a1db4385992b
+Quotients source SHA256:
+a316227f095f520b04d9c8dd8ea95f85de6c5cb6f648aba4ed845e17c72bdb0e
+
+Both README, CFF and BibTeX files match their respective final TeX titles,
+sole author Timofei Iuzhakov, date 6 November 2026, and intended versions
+2.0.0 (dimension) and 1.0.0 (quotients). The citation keys are stable and
+distinct. Citation text asks for the manuscript version and theorem,
+and the commit when reproducing code. Planned repository/release links
+match the intended package identities. No nonexistent DOI, arXiv number,
+external endorsement or timestamp-based priority guarantee is asserted.
+
+The dimension README correctly states that the finite-visit/Gamma and
+full real theorems first appear in v2; the E2 theorem was in v1. The
+earlier version is preserved rather than having new results backdated.
+The two complete main theorems in the quotient paper remain separate
+from the dimension claims. Both packages distinguish integer multiplier
+counts from counting exceptional powers of two, and leave Erdős 406
+and exclusion of the particular point 1 unresolved.
+
+2. REVIEW AND DEPENDENCY RECORD
+
+The initial dimension audit/VERIFICATION.md and PROVENANCE.md were stale
+v1 texts. This was reported to root and resolved: their current versions
+explicitly describe the merged v2, the two new branches, the unchanged
+container appendix, true versus virtual anchors, finite-word real
+transfer and the limits of internal review. The original descriptions
+are retained under archive/v1.0.0. The current texts properly distinguish
+authoring checks from independent cross-reviews.
+
+The final hash-bound reports must accompany the public package. Root is
+performing that copy after receipt of these reports. Reports on frozen
+inputs remain historical evidence; they do not replace reports bound to
+the actual merged sources. No extra structural paper, generic extension
+or unfinished finite-search direction has been added to the release set.
+
+3. EXACT CHECKS AND REPRODUCIBILITY
+
+Both run_all_checks.py runners require Python >=3.10 and enabled
+assertions, execute the complete listed suites, fail on nonzero exits,
+and record both program hashes and outcomes. I inspected their code
+and the current recorded results. All listed checks have return code0,
+and the program files presently match every recorded SHA256. The
+independent check is in metadata_hash_checks.json.
+
+The dimension suite includes the original finite-container tests,
+linear-geometry identities, 632835 exact real-transfer identities and
+5400 affine-carry cases. The quotient suite includes the counting lemma
+checks, symbolic parametric certificate, independent symbolic checker
+and model verifier. The all-k family is supported by a symbolic
+parameter identity and closure proof; it is not certified by extrapolating
+numerical instances. The metadata correctly says that finite programs
+do not replace the general proofs and that internal AI-assisted reviews
+are not external peer review or formal verification.
+
+4. FINAL PACKAGING ITEMS
+
+No mathematical or metadata-scope blocker remains. Root separately
+reports completing compilation and visual inspection of both PDFs;
+this reviewer did not render them and does not independently certify
+their layout. Before freezing the final manifest, copy the hash-bound
+final reviews into the packages, remove generated Python bytecode, and
+ensure the published manifest includes the final PDF/source hashes.
+At inspection the dimension package still contained the generated file
+code/__pycache__/upstream_container_engine.cpython-312.pyc; it is a
+packaging cleanup item, not a proof defect. Re-running tests can recreate
+it, so exclude it from the final public artifact after the last run.
+
+README/CFF/BibTeX/CHANGELOG and audit text hashes at inspection are in
+metadata_hash_checks.json. Changes confined to final report copies,
+manifest generation and removal of bytecode do not change the source
+review verdict. Any substantive manuscript edit requires a corresponding
+review reconciliation. The root publisher should verify the actual
+remote commit/tag and release asset identities after publication.

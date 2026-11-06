@@ -1,25 +1,19 @@
 cff-version: 1.2.0
-message: "Please cite the manuscript version and identify the repository commit used."
-title: "Zero Hausdorff and packing dimension for the 3-adic exceptional set of powers of two"
+message: "Please cite the manuscript version and theorem; identify the code commit for computational reproduction."
+title: "Zero dimension for the real exceptional set and vanishing 3-adic nesting constants"
 authors:
   - family-names: Iuzhakov
     given-names: Timofei
-version: 1.0.0
-date-released: 2026-11-05
+version: 2.0.0
+date-released: 2026-11-06
 repository-code: "https://github.com/ppadfoot/lagarias-zero-dimension"
-keywords:
-  - 3-adic integers
-  - Hausdorff dimension
-  - packing dimension
-  - hypergraph containers
-  - unit equations
 preferred-citation:
   type: unpublished
-  title: "Zero Hausdorff and packing dimension for the 3-adic exceptional set of powers of two"
+  title: "Zero dimension for the real exceptional set and vanishing 3-adic nesting constants"
   authors:
     - family-names: Iuzhakov
       given-names: Timofei
   year: 2026
-  version: 1.0.0
-  url: "https://github.com/ppadfoot/lagarias-zero-dimension"
-  notes: "Manuscript with finite verification code; cite version 1.0.0 and the repository commit used."
+  version: 2.0.0
+  url: "https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v2.0.0"
+  notes: "Research preprint, version 2.0.0; internal reviews, not external peer review."
