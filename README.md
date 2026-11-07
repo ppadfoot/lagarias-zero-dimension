@@ -12,15 +12,15 @@
 
 | New result | Mathematical advance |
 | --- | --- |
-| **Generic absence of three visits — Theorem 13.1** | For Haar-almost every unit base, **simultaneously every nonzero starting point** has at most two Cantor visits: $E_b^{(3)}=\{0\}$. |
+| **Generic absence of three visits — Theorem 13.1** | For Haar-almost every unit base, **simultaneously every nonzero starting point** has at most two Cantor visits: $`E_b^{(3)}=\{0\}`$. |
 | **Exact digital rigidity — Theorem 13.2** | Complete classification of unit-coefficient ternary equations with maximal branching, with every permitted target at every finite depth. |
-| **Linear multiplier count — Theorem 14.1** | $M_H(X)\asymp X$. This determines the order of growth in Lagarias's Problem 2 (journal Problem 1.11). |
-| **A linear gap between two representation notions — Theorem 14.1** | $\#((\mathcal M_H\setminus\mathcal M_C)\cap[1,X])\gg X$: finite integer witnesses omit linearly many positive-dimensional intersections. |
+| **Linear multiplier count — Theorem 14.1** | $`M_H(X)\asymp X`$. This determines the order of growth in Lagarias's Problem 2 (journal Problem 1.11). |
+| **A linear gap between two representation notions — Theorem 14.1** | $`\#((\mathcal M_H\setminus\mathcal M_C)\cap[1,X])\gg X`$: finite integer witnesses omit linearly many positive-dimensional intersections. |
 | **Summable Cantor denominators — Theorem 14.2** | A convergent reciprocal sum with a quantitative tail bound supplies the infinite divisibility sieve. |
 
 These are complete qualitative results for infinite families. The first argument uses digital rigidity and exact nonlinear prefix blocks. The second independently connects carry graphs, rational Cantor points, multiplicative orders and a divisibility sieve. Neither uses the earlier dimension theorem as an unproved shortcut.
 
-**Scope:** the almost-everywhere theorem does not select $b=2$. Neither $1\notin E_2$ nor $M_H(X)\sim X/2$ is proved. Positive lower density does not assert existence of a natural-density limit. The varying-base theorem is not a numbered conjecture from Lagarias's original paper.
+**Scope:** the almost-everywhere theorem does not select $`b=2`$. Neither $`1\notin E_2`$ nor $`M_H(X)\sim X/2`$ is proved. Positive lower density does not assert existence of a natural-density limit. The varying-base theorem is not a numbered conjecture from Lagarias's original paper.
 
 [Complete inventory and selection](INVENTORY.md) · [Question attribution](audit/v3/source_question_map.txt) · [Fresh reviews](audit/v3/README.md) · [Checklist](PUBLICATION_CHECKLIST.json)
 
@@ -30,27 +30,27 @@ Repeatedly double a number and look at its base-3 digits. Which starting values 
 
 | Result | What the paper proves | First appeared |
 | --- | --- | --- |
-| **3-adic exceptional set** | $\dim_H E_2=\dim_P E_2=0$. Establishes the Hausdorff assertion of **Lagarias's Conjecture 1.7**, with the additional packing conclusion. | **v1.0.0**, 5 November 2026 |
-| **Uniform finite-visit theorem** | $\Gamma_H=\Gamma_P=0$. For every positive dimension threshold, a sufficiently large **finite** number of visits already forces dimension below that threshold. | **v2.0.0**, 6 November 2026 |
-| **Real exceptional set** | $\dim_H E_{\mathbb R}=\dim_P E_{\mathbb R}=0$. Establishes the Hausdorff assertion of **Lagarias's Conjecture 1.4**, again with the additional packing conclusion. | **v2.0.0**, 6 November 2026 |
+| **3-adic exceptional set** | $`\dim_H E_2=\dim_P E_2=0`$. Establishes the Hausdorff assertion of **Lagarias's Conjecture 1.7**, with the additional packing conclusion. | **v1.0.0**, 5 November 2026 |
+| **Uniform finite-visit theorem** | $`\Gamma_H=\Gamma_P=0`$. For every positive dimension threshold, a sufficiently large **finite** number of visits already forces dimension below that threshold. | **v2.0.0**, 6 November 2026 |
+| **Real exceptional set** | $`\dim_H E_{\mathbb R}=\dim_P E_{\mathbb R}=0`$. Establishes the Hausdorff assertion of **Lagarias's Conjecture 1.4**, again with the additional packing conclusion. | **v2.0.0**, 6 November 2026 |
 
 Conjecture numbers refer to Lagarias's [2009 journal paper](https://doi.org/10.1112/jlms/jdn080). In its [arXiv version](https://arxiv.org/abs/math/0512006), the real and 3-adic assertions are called **Conjectures A and B**, respectively.
 
 ## Version 1: the 3-adic dimension conjecture
 
-Let $\Sigma\subset\mathbb Z_3$ be the 3-adic Cantor set: its digits are all **0 or 1**. Define
+Let $`\Sigma\subset\mathbb Z_3`$ be the 3-adic Cantor set: its digits are all **0 or 1**. Define
 
-$$
+```math
 E_2=\{x\in\mathbb Z_3:2^n x\in\Sigma\text{ for infinitely many }n\ge0\}.
-$$
+```
 
 Version 1 proves
 
-$$
+```math
 \boxed{\dim_H E_2=\dim_P E_2=0.}
-$$
+```
 
-**Why this matters.** A published bound of Abram, Bolshakov and Lagarias was $\dim_H E_2\le\log_3\varphi\approx0.438018$, where $\varphi$ is the golden ratio. The v1 theorem reaches **zero**, the value conjectured by Lagarias, and controls packing dimension as well. See their [paper on multiplicative translates of 3-adic Cantor sets](https://arxiv.org/abs/1508.05967) for that earlier bound.
+**Why this matters.** A published bound of Abram, Bolshakov and Lagarias was $`\dim_H E_2\le\log_3\varphi\approx0.438018`$, where $`\varphi`$ is the golden ratio. The v1 theorem reaches **zero**, the value conjectured by Lagarias, and controls packing dimension as well. See their [paper on multiplicative translates of 3-adic Cantor sets](https://arxiv.org/abs/1508.05967) for that earlier bound.
 
 Version 1 also supplies the shared combinatorial ingredient: a **finite causal-container theorem**, with a complete proof. It turns digit constraints that depend on the already-read prefix into compatible products of conditional alphabets, with controlled information cost.
 
@@ -60,14 +60,14 @@ Version 1 also supplies the shared combinatorial ingredient: a **finite causal-c
 
 ### 1. A finite number of visits already controls dimension
 
-Let $F_k$ contain the 3-adic starting values whose doubling orbit visits $\Sigma$ at least $k$ times, at distinct nonnegative times. Version 2 proves
+Let $`F_k`$ contain the 3-adic starting values whose doubling orbit visits $`\Sigma`$ at least $`k`$ times, at distinct nonnegative times. Version 2 proves
 
-$$
+```math
 \boxed{\Gamma_H:=\lim_{k\to\infty}\dim_H F_k=0,
 \qquad\Gamma_P:=\lim_{k\to\infty}\dim_P F_k=0.}
-$$
+```
 
-The stronger covering statement is explicit: for every $\delta>0$, there is a finite $J$ such that $F_J$ has a countable cover by compact sets, each of upper box dimension at most $\delta$. **The number $J$ is chosen before the visit times are given.**
+The stronger covering statement is explicit: for every $`\delta>0`$, there is a finite $`J`$ such that $`F_J`$ has a countable cover by compact sets, each of upper box dimension at most $`\delta`$. **The number $`J`$ is chosen before the visit times are given.**
 
 This strengthens v1: zero dimension for the infinite-visit set alone does not imply that the dimensions of the finite-visit sets tend to zero. The new proof provides that uniform control. Its arithmetic core is a uniform finite extraction theorem, proved using unit equations, finite Ramsey theory and valuation-minimal determinants.
 
@@ -75,21 +75,21 @@ This strengthens v1: zero dimension for the infinite-visit set alone does not im
 
 ### 2. The real dimension conjecture, including packing dimension
 
-Let $E_{\mathbb R}$ consist of positive real numbers $\lambda$ for which the **full ternary expansion** of $2^n\lambda$ uses only 0 and 1 for infinitely many $n$. The condition includes every digit after the ternary point. Version 2 proves
+Let $`E_{\mathbb R}`$ consist of positive real numbers $`\lambda`$ for which the **full ternary expansion** of $`2^n\lambda`$ uses only 0 and 1 for infinitely many $`n`$. The condition includes every digit after the ternary point. Version 2 proves
 
-$$
+```math
 \boxed{\dim_H E_{\mathbb R}=\dim_P E_{\mathbb R}=0.}
-$$
+```
 
 **Why this matters.** This is the real exceptional set in Lagarias's Conjecture 1.4. The paper proves its conjectured Hausdorff dimension and the stronger packing conclusion. The proof includes a separate transfer from real digit prefixes to finite affine 3-adic constraints, uniform over the finitely many possible shifts.
 
-The full-digit condition is essential: Lagarias's different problem using only the integer parts $\lfloor2^n\lambda\rfloor$ has exceptional-set Hausdorff dimension $\log_3 2$.
+The full-digit condition is essential: Lagarias's different problem using only the integer parts $`\lfloor2^n\lambda\rfloor`$ has exceptional-set Hausdorff dimension $`\log_3 2`$.
 
 **Where to read it:** v2 **Theorem 7.1**, with the complete proof in **Sections 8–11**. The causal-container proof from v1 is reproduced unchanged in **Appendix A**; the required two-translate capacity estimate is proved in **Lemma 9.1**.
 
 ## What this means for Erdős Problem 406
 
-These results determine the dimensions of the exceptional sets and strengthen the 3-adic result to a uniform finite-visit statement. Erdős's original question asks whether the particular starting value **1** is exceptional. **The assertion $1\notin E_2$ remains open here:** a zero-dimensional set can still contain that point. Countability and emptiness are also not established by these dimension theorems.
+These results determine the dimensions of the exceptional sets and strengthen the 3-adic result to a uniform finite-visit statement. Erdős's original question asks whether the particular starting value **1** is exceptional. **The assertion $`1\notin E_2`$ remains open here:** a zero-dimensional set can still contain that point. Countability and emptiness are also not established by these dimension theorems.
 
 ## Papers, proofs and verification
 
