@@ -1,0 +1,79 @@
+PUBLICATION AUDIT: DIGITAL RIGIDITY AND GENERIC TRIPLE EMPTINESS
+Author: Timofei Iuzhakov
+Date: 7 November 2026
+
+Deliverable: metric_digital_rigidity.tex, an article section for integration
+into the existing manuscript. It introduces no new citation identity.
+The parent editor preserves the previous versions and existing citation key.
+
+Chosen mathematical core:
+* Complete finite classification of unit-coefficient balanced digital
+  planes attaining 3^m solutions, including the full target sets.
+* Exact counts 24m-20 coefficient pairs and 28*2^m-48 full triples.
+* Effective nonfullness at 3^m>4H^2 for a rational coefficient pair of
+  height at most H which is not full at all depths.
+* For Haar-almost every unit base b, E_b^(3)={0}, with one exceptional
+  null set simultaneous in the initial point and all three visit times.
+
+Proof dependencies are internal to the section. The finite classification
+is proved by first unequal coefficient digits, injectivity of full target
+lifts, coefficient coincidence, one-switch periodicity, and two-child
+comparison. The metric proof supplies the complete 2^s prefix-cube
+identity for every valuation gap s, the exact normalization of Haar
+averages, the two-point residual parameter set, and the countable-ratio
+and parity reductions. No projection theorem, energy estimate, zero-one
+law, numerical recurrence, or prior generic countability claim is used.
+The standard logarithm/exponential and integral-binomial facts on
+principal 3-adic units are explained where used.
+
+Frozen proofs reread in full for this publication pass:
+  outputs/erdos406_two_goal_attack_2026-11-07/root/metric_emptiness_theorem.txt
+  outputs/erdos406_two_goal_attack_2026-11-07/root/full_game_inverse.txt
+  outputs/erdos406_two_goal_attack_2026-11-07/critic/twin_cube_reduction.txt
+  outputs/erdos406_effective_windows_2026-11-07/dynamics/finite_game_classification.txt
+The substantial mathematical arguments of all four are reproduced,
+rather than left as unpublished black boxes. Exact hashes are in the
+adjacent publication_audit.json. The alternative inverse proof, curvature
+refinement, and actual-base-4 effective windows were not needed for this
+article section and were not reaudited in this publication pass.
+
+Literature and attribution:
+  Jeffrey C. Lagarias, Ternary expansions of powers of 2,
+  J. London Math. Soc. 79 (2009), 562--588,
+  https://doi.org/10.1112/jlms/jdn080
+  https://arxiv.org/abs/math/0512006
+  https://arxiv.org/html/math/0512006v4
+The original treats the fixed multiplication map by 2, its finite-visit
+sets, and multiplier-counting problems. It does not state the present
+Haar-varying-base conjecture. No such conjecture, nor the internal window
+question W from our working notes, is attributed to Lagarias here.
+The positive-dimensional fixed-base-2 triple set is cited as Theorem
+1.6(iii) in the journal version, Theorem 1.5(3) in arXiv version 4.
+The journal numbering was checked against primary journal indexed text
+from the University of Michigan institutional copy and by the independent
+reviewer. The arXiv full text and bibliographic metadata were opened and
+read directly. The institutional PDF fetch itself returned HTTP 403.
+
+Scope: the theorem is about almost every base, not a prescribed base.
+Complete-cube averaging is not a contraction on a fixed ratio fiber.
+Neither the metric theorem nor rational-height finite-window bound proves
+finiteness of the exceptional visits at the point 1 under base 2.
+No publication-priority claim is made on the basis of this local audit.
+
+Reproducible check:
+  python3 check_metric_digital_rigidity.py
+Optional --proof and --output arguments permit a sections/checks layout.
+The checker uses only the Python standard library and its local section
+for a hash, with no archived mathematical input or network dependency.
+It directly exhausts all 3,280 unit pairs and 245,280 intercepts for
+m=1,...,4 and compares the entire full-target sets. It also checks 891
+complete cubes in 27 parameter cases, including negative and rational N
+and m<s, with 3,580 exact shift identities and 145,216 descendant tests.
+At most 64 cubes are selected per parameter case; selection is explicit.
+These finite checks are regression tests, not premises of the proof.
+
+The critic and arithmetic reviewers have independently read the full
+section. The critic also reran the portable checker with a byte-identical
+PASS result. Their final hash-bound reviews are stored in their respective
+publication-refresh directories. The parent editor handles integrated
+LaTeX compilation and page rendering; no PDF layout claim is made here.

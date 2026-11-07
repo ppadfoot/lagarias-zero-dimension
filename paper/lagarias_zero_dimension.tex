@@ -1,7 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage[a4paper,margin=28mm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype,mathrsfs}
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \setlist{nosep}
@@ -33,46 +33,79 @@
 \title{Zero dimension for the real exceptional set\protect\\
 and vanishing $3$-adic nesting constants}
 \author{Timofei Iuzhakov}
-\date{6 November 2026\\Version 2.0.0}
+\date{7 November 2026\\Version 3.0.0}
+\allowdisplaybreaks
+\emergencystretch=2em
 \begin{document}
 \maketitle
 \begin{abstract}
-Let $\Sigma\subset\Z_3$ be the set of $3$-adic integers with digits in
-$\{0,1\}$, and let $F_k$ consist of the points $x\in\Z_3$ for which
-$2^n x\in\Sigma$ at least $k$ times. We prove
-$\lim_{k\to\infty}\dimH F_k=\lim_{k\to\infty}\dimP F_k=0$.
-For each $\delta>0$, some finite $k$ admits a countable compact cover
-of $F_k$ whose members have upper box dimension at most $\delta$.
-The arithmetic input is a uniform finite extraction theorem: sufficiently
-many distinct powers of two yield templates of any fixed arity, with
-common rational $3$-adic unit coefficients and disjoint positive
-distance sets. Its proof uses a uniform unit-equation bound, finite
-Ramsey theory, valuation-minimal minors, and a two-dimensional
-residue-field obstruction.
+Let $\Sigma\subset\Z_3$ be the ternary Cantor set with digits $0,1$.
+We retain the zero Hausdorff and packing dimension theorems for the
+$3$-adic and full real exceptional sets of powers of two, and the
+vanishing $3$-adic finite-visit nesting constants proved in versions
+1 and 2. All their proofs, including the finite causal-container
+appendix, are included.
 
-We also prove that the positive real numbers $\lambda$ for which
-$2^n\lambda$ has a full ternary expansion omitting $2$ for infinitely
-many $n$ form a set of Hausdorff and packing dimension zero, again with
-countable compact covers of arbitrarily small upper box dimension.
-This is the untruncated real exceptional set of Lagarias's
-Conjecture~1.4. Its proof retains a separate infinite-set extraction
-and a finite-word transfer: real truncations satisfy affine $3$-adic
-constraints with shifts in fixed finite sets. Both arguments use the
-finite causal-container theorem of version~1.0.0, whose complete frozen
-proof is reproduced unchanged. The required two-translate sumset
-capacity estimate is also proved here. Neither conclusion excludes the
-point $1$ or proves countability or emptiness of an exceptional set.
+Version 3 adds two independent results. For Haar-almost every
+$b\in\Z_3^\times$, simultaneously for every nonzero $\lambda\in\Z_3$,
+at most two distinct nonnegative iterates $b^n\lambda$ belong to
+$\Sigma$. We prove an exact finite classification of linear ternary
+equations with maximal digital branching and use complete collections
+of nonlinear descendants to obtain this metric conclusion.
+Independently, if $M_H(X)$ counts positive integers $M\le X$ for which
+$\Sigma\cap M^{-1}\Sigma$ has positive Hausdorff dimension, then
+$M_H(X)\asymp X$. Linearly many such multipliers have no positive
+finite Cantor integer witness. The proof connects terminal carry cycles
+to rational points of the real middle-thirds set, proves summability
+of their reduced denominators prime to $3$, and applies a divisibility
+sieve. This determines the order of growth in Lagarias's second
+multiplier-counting problem. Neither new result settles $1\notin E_2$,
+the exact asymptotic $M_H(X)\sim X/2$, or the sharp order of the
+finite-quotient count.
 \end{abstract}
 
-\paragraph{Relation to version 1.0.0.}
-The previous version~\cite{Core} proved zero Hausdorff and packing
-dimension for the $3$-adic infinite-visit set $E_2$. The present version
-strengthens that conclusion to uniform finite-visit compact covers and
-vanishing nesting constants, and adds the real exceptional-set theorem.
-The earlier $E_2$ conclusion is recovered as a corollary. The two new
-arguments are given in full and share the unchanged finite
-causal-container appendix. No implication from a bare $3$-adic
-dimension formula to the real theorem is assumed.
+\paragraph{Version history and stable citation.}
+This is version 3.0.0 of the same manuscript, with the same author,
+title and citation key \texttt{iuzhakov2026lagarias}.
+Version 1.0.0 proved zero Hausdorff and packing dimension for the
+$3$-adic infinite-visit set $E_2$. Version 2.0.0 added uniform
+finite-visit compact covers, vanishing nesting constants and the
+full real exceptional-set theorem. Their complete proof sections
+are retained below, followed by the new Sections~\ref{metric:section}
+and~\ref{sec:positive-density}. Earlier versioned releases remain
+unchanged; a citation should identify the version and theorem used.
+
+\paragraph{What is new in version 3.}
+Theorem~\ref{metric:main} proves $E_b^{(3)}=\{0\}$ for Haar-almost
+every unit base, with one exceptional null set for all nonzero
+starting points and all triples of visit times.
+Theorem~\ref{metric:classification} classifies every maximal-branching
+finite digital plane, including all allowed targets.
+Theorems~\ref{thm:pd-main} and~\ref{thm:pd-denominators} prove
+$M_H(X)\asymp X$, a linear-size difference
+$\mathcal M_H\setminus\mathcal M_C$, and a summable tail of reduced
+Cantor denominators. The two new proof branches are independent of
+each other and of the earlier dimension and container theorems.
+Their connections with earlier work and the exact definitions of the
+counting functions are stated in their respective sections.
+
+\paragraph{Which questions are answered.}
+The earlier dimension assertions concern Lagarias's Conjectures A and B
+in the arXiv version of \cite{LagariasArxiv}, numbered 1.4 and 1.7 in
+the journal version \cite{Lagarias}. The new linear-order theorem answers
+the order-of-growth part of Problem 2 (journal Problem 1.11). It does
+not determine a leading density constant. The varying-base theorem is
+not identified with a numbered conjecture in Lagarias's original paper.
+The separate quotient manuscript \cite{Quotients} retains its own
+version and citation; the new counting theorem is first included here.
+No priority over the entire external literature is inferred from
+internal review or from publication of this version.
+
+\paragraph{The prescribed point remains unresolved.}
+For $b=2$, the point $\lambda=1$ already has the visits $1,4,256$
+at times $0,2,8$. Thus $b=2$ is exceptional for the new three-visit
+theorem. We do not prove finiteness of its visits, and a zero-dimensional
+fixed-base exceptional set can still contain that point.
 
 \section{The $3$-adic finite-visit problem}
 
@@ -1348,8 +1381,25 @@ external peer review or proof-assistant verification. Authorship of this
 manuscript is attributed solely to Timofei Iuzhakov.
 
 
+\input{metric_digital_rigidity.tex}
+\input{positive_density_section.tex}
+
+\section*{New verification in version 3}
+The new standard-library Python checks verify finite digital fibers,
+all coefficient and target cases in the stated test ranges, complete
+prefix-cube identities, and finite carry, rational-denominator and sieve
+identities. These computations supplement the proofs for arbitrary
+depths and parameters; they do not prove an asymptotic by extrapolation.
+The exact new source files received fresh independent internal
+AI-assisted reviews. The earlier proof sections and causal-container
+appendix are retained from the released version 2 sources; this update
+does not describe their preservation as a fresh line-by-line audit.
+The metric branch uses no external unproved hypothesis. The counting
+branch explicitly states its external analytic input,
+Kurlberg--Pomerance Lemma 10~\cite{KP2005}; no GRH assumption is used.
+
 \section*{Dependency and verification record}
-The only imported nonstandard finite result is
+For the dimension proofs retained from version 2, the imported nonstandard finite result is
 Theorem~\ref{thm:container}, from Appendix A of the exact release
 v1.0.0 of \cite{Core}, commit
 \begin{center}\small\ttfamily
@@ -1383,7 +1433,7 @@ and implementing checks. This is not external peer review or
 proof-assistant verification. Authorship is attributed solely to
 Timofei Iuzhakov.
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 \bibitem{Lagarias}
 J. C. Lagarias,
 \emph{Ternary expansions of powers of 2},
@@ -1420,6 +1470,22 @@ J. C. Lagarias,
 M. DeVos,
 \emph{A short proof of Kneser's addition theorem for abelian groups}.
 \url{https://www.sfu.ca/~mdevos/papers/kneser.pdf}.
+
+\bibitem{AL2014}
+W. C. Abram and J. C. Lagarias,
+\emph{Intersections of multiplicative translates of $3$-adic Cantor sets},
+J. Fractal Geom. \textbf{1} (2014), 349--390.
+\href{https://arxiv.org/abs/1308.3133}{arXiv:1308.3133}.
+\bibitem{KP2005}
+P. Kurlberg and C. Pomerance,
+\emph{On the period of the linear congruential and power generators},
+Acta Arith. \textbf{119} (2005), 149--169.
+\href{https://arxiv.org/abs/math/0405120}{arXiv:math/0405120v2}.
+\bibitem{Quotients}
+T. Iuzhakov, \emph{Integer quotients of ternary Cantor numbers:
+a power lower bound and an infinite exceptional family}, research
+preprint, version 1.0.0, 6 November 2026.
+\href{https://github.com/ppadfoot/ternary-cantor-quotients/releases/tag/v1.0.0}{Versioned release}.
 \end{thebibliography}
 \appendix
 \section{The finite causal-container theorem and its proof}

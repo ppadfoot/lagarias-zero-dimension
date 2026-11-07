@@ -1,0 +1,112 @@
+[
+  {
+    "path": "outputs/erdos406_program_map_2026-11-07/ATLAS_NODES.txt",
+    "bytes": 36091,
+    "sha256": "813c5281be37ae535169bcbec32718515acfc9a95441b5a62b55466d9dcbc6c1"
+  },
+  {
+    "path": "outputs/erdos406_program_map_2026-11-07/LEGACY_217.json",
+    "bytes": 503664,
+    "sha256": "a41e17d647e2afee714c58d27b60237640b26a78d2844c86b121f7324bc790f4"
+  },
+  {
+    "path": "outputs/erdos406_program_map_2026-11-07/COVERAGE.json",
+    "bytes": 1859,
+    "sha256": "eb0c01927e63ba6d8e12ac167e98db65dc2f85cba8fd2de4d3fc9cf097d919e0"
+  },
+  {
+    "path": "outputs/erdos406_effective_windows_2026-11-07/REPORT_RU.txt",
+    "bytes": 14361,
+    "sha256": "20c7996d98e417888170193ad3b5958cc857c27034227cd886aa0aad1f52b4c7"
+  },
+  {
+    "path": "outputs/erdos406_point_one_bridge_2026-11-07/REPORT_RU.txt",
+    "bytes": 15052,
+    "sha256": "7d44a5f2bcea84521a25f302b8963aa3a44b878fa924876a34552a5b3db10dc5"
+  },
+  {
+    "path": "outputs/erdos406_unbounded_weight_2026-11-07/REPORT_RU.txt",
+    "bytes": 13319,
+    "sha256": "7ebe5fe55fa10a0300a02a19030b6c9cf57e80120ee61c22e3f8d34c0fa58c02"
+  },
+  {
+    "path": "outputs/erdos406_isolated_affine_2026-11-07/REPORT_RU.txt",
+    "bytes": 25985,
+    "sha256": "beaa4298b94784d9a283517d500292516c859c0459cdd709d8a1035b47b7f5f8"
+  },
+  {
+    "path": "outputs/erdos406_r7_and_multiblock_2026-11-07/REPORT_RU.txt",
+    "bytes": 14183,
+    "sha256": "7679226065c9b91b9ed6d16af3e04c459bd128aed98e3c961a1eebe73cd1d780"
+  },
+  {
+    "path": "outputs/erdos406_r5_and_irregular_2026-11-07/REPORT_RU.txt",
+    "bytes": 15336,
+    "sha256": "b5fd7cc52d71eb07c75814c091e86a96e9af6926da53cbf65c2a1137c0a2b520"
+  },
+  {
+    "path": "outputs/erdos406_r6_and_blocks_2026-11-07/REPORT_RU.txt",
+    "bytes": 14714,
+    "sha256": "89bea3dfcc6c3ea61e8ce14a6e1d5e6c2cc359e79968a80efe9154510f10c7a9"
+  },
+  {
+    "path": "outputs/erdos406_joint_and_sparse_2026-11-07/REPORT_RU.txt",
+    "bytes": 11311,
+    "sha256": "cbf7003d25e7293f56d1a133ac7d9418dd6790fb142914609d05c377bcfcdb60"
+  },
+  {
+    "path": "outputs/erdos406_e1_bridge_attack_2026-11-07/REPORT_RU.txt",
+    "bytes": 19554,
+    "sha256": "86552ac5407cb9130d1b97aeffc39f2d62b39f37ea0f628c74218185fb365ca7"
+  },
+  {
+    "path": "outputs/erdos406_program_map_2026-11-07/REPORT_RU.txt",
+    "bytes": 27682,
+    "sha256": "6443a63b390ff6504167f4dd8d776d0b0cab8d9b7ff4a17226019580a7417dc3"
+  },
+  {
+    "path": "outputs/erdos406_two_goal_attack_2026-11-07/REPORT_RU.txt",
+    "bytes": 11337,
+    "sha256": "92eada78152f20f6471d01080859ce984686b13b314e7fdb31203f93618e3330"
+  },
+  {
+    "path": "work/point_one_joint_attack_2026-11-07/REPORT_RU.txt",
+    "bytes": 11311,
+    "sha256": "cbf7003d25e7293f56d1a133ac7d9418dd6790fb142914609d05c377bcfcdb60"
+  },
+  {
+    "path": "work/point_one_r6_blocks_2026-11-07/REPORT_RU.txt",
+    "bytes": 14714,
+    "sha256": "89bea3dfcc6c3ea61e8ce14a6e1d5e6c2cc359e79968a80efe9154510f10c7a9"
+  },
+  {
+    "path": "work/point_one_r7_multiblock_2026-11-07/REPORT_RU.txt",
+    "bytes": 14183,
+    "sha256": "7679226065c9b91b9ed6d16af3e04c459bd128aed98e3c961a1eebe73cd1d780"
+  },
+  {
+    "path": "work/point_one_window_bridge_2026-11-07/REPORT_RU.txt",
+    "bytes": 15052,
+    "sha256": "7d44a5f2bcea84521a25f302b8963aa3a44b878fa924876a34552a5b3db10dc5"
+  },
+  {
+    "path": "work/point_one_zero_endpoint_2026-11-07/REPORT_RU.txt",
+    "bytes": 10917,
+    "sha256": "4521c8407fe6bc56d794619653eba2e70b79e9f40967ad03da463a7220159934"
+  },
+  {
+    "path": "work/point_one_unbounded_weight_2026-11-07/REPORT_RU.txt",
+    "bytes": 13319,
+    "sha256": "7ebe5fe55fa10a0300a02a19030b6c9cf57e80120ee61c22e3f8d34c0fa58c02"
+  },
+  {
+    "path": "work/point_one_r5_irregular_2026-11-07/REPORT_RU.txt",
+    "bytes": 15336,
+    "sha256": "b5fd7cc52d71eb07c75814c091e86a96e9af6926da53cbf65c2a1137c0a2b520"
+  },
+  {
+    "path": "work/point_one_height_strip_2026-11-07/REPORT_RU.txt",
+    "bytes": 11435,
+    "sha256": "e190add6b602a94333f7bfe1fbafbc2f3de33a92723413d3674eb61d494e9eba"
+  }
+]

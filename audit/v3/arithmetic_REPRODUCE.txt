@@ -1,0 +1,39 @@
+POSITIVE-DENSITY SECTION: REPRODUCTION
+Author: Timofei Iuzhakov.
+
+Requirements: Python3.9 or later, standard library only.
+
+Default invocation from any working directory:
+  python3 /path/to/check_positive_density.py
+
+Keep positive_density_section.tex next to the script. The result is
+positive_density_checks.json next to the script. No archived source,
+internet access, numerical library, or compiled program is required.
+
+Integrated repository layout:
+  python3 code/check_positive_density.py \
+    --proof paper/positive_density_section.tex \
+    --output verification/positive_density_checks.json
+
+The requested output directory must already exist. The proof argument
+is used only for the recorded provenance hash. Mathematical checks are
+independent of the proof text and of its file location.
+
+Expected finite counts:
+  rational membership checks:82039
+  carry graphs:199
+  finite Cantor-witness block checks:261
+  order-product inequalities:3333
+  dependent finite-sieve inequalities:6
+All calculations use exact integers or fractions.
+
+These are finite consistency checks. In particular no finite list of
+denominators certifies the infinite reciprocal sum, and no finite count
+certifies a positive asymptotic density. Both are proved analytically
+in positive_density_section.tex, with KP2005 Lemma10 explicitly stated
+as the one non-elementary external input.
+
+The new section and both portability invocations passed independent
+review. See critic/new_sections_review.txt and its counting_cli_rebind.txt
+addendum for the final checker/result hashes. The source proof has not
+changed after the mathematical reviews.

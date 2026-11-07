@@ -1,0 +1,31 @@
+{
+  "verdict": "accepted",
+  "scope": "Final citation/version/link/scope audit; PDF theorem numbers confirmed by root",
+  "files": [
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/README.md",
+      "sha256": "35d867ceaf6e7882716e9e848a77e7eee48073c8d04f25244ddb0b8815ebdf67"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/CHANGELOG.md",
+      "sha256": "3653c04e53f08a6fac085251bf1b0f26f231c20ec59ef97dfaea7cebe5fd94bd"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/CITATION.bib",
+      "sha256": "56fb8792f0998727d3de77a9aaf94e40cca35a642162f6f2dcd9d5b23c46d6c2"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/CITATION.cff",
+      "sha256": "3fbe45f8e8b7d5078ca70e4eee01eca5647aaaec7868f8670618b66566352303"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/INVENTORY.md",
+      "sha256": "2472652e44bdfb6e6bb540fc897d803b49aaeb84421fea1d76a1e775a0514e29"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/audit/v3/README.md",
+      "sha256": "e980d62c2a3e0bcb3af9563ac089a26cf04d568f6132460e5cdd6db38f0a2f7e"
+    }
+  ],
+  "missing_relative_links": []
+}

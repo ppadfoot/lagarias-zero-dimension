@@ -1,32 +1,92 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.0",
   "sole_author": "Timofei Iuzhakov",
-  "scope": "Pre-publication package checks; remote publication verified separately",
-  "mathematical_reviews": [
+  "same_manuscript_title": true,
+  "bibtex_key": "iuzhakov2026lagarias",
+  "citation_key_preserved": true,
+  "all_old_mathematical_proof_body_preserved": true,
+  "container_appendix_preserved": true,
+  "new_sections_freshly_reviewed": true,
+  "new_metric_theorem": {
+    "statement": "E_b^(3)={0} for Haar-almost every unit b, simultaneously for every nonzero starting point",
+    "theorem": "13.1"
+  },
+  "new_linear_counting": {
+    "statement": "M_H(X) is of linear order and M_H minus M_C has linear count",
+    "theorem": "14.1",
+    "lagarias_question": "Problem 2 / journal1.11; order of growth only"
+  },
+  "all_six_verification_programs": "PASS",
+  "pdf_pages": 39,
+  "pdf_layout_review": "All39 rendered pages inspected in contact sheets; new theorem page also inspected separately. No clipping or overflow. One inherited underfull-box warning at source digest line; no unresolved references.",
+  "research_coverage": {
+    "inherited_formal_records": 217,
+    "grouped_results": 51,
+    "recovered_archives": 20,
+    "later_packet_statuses": 11,
+    "all_inherited_proofs_freshly_recertified": false
+  },
+  "unfinished_research_excluded": true,
+  "E1_proved": false,
+  "exact_half_density_proved": false,
+  "worldwide_novelty_certified": false,
+  "external_peer_review": false,
+  "review_record": [
     {
-      "path": "audit/final_dimension_integration_review.txt",
-      "sha256": "80f68ceedac3b958dc8612d6deae1c3d560a576f88ee322705e8f33912f5b23e"
+      "path": "audit/v3/analytic_arithmetic_cross_review.txt",
+      "sha256": "c8b3042e84dcab1cd9afc0b1d416866e9d6ac3554be18e1aa01bf3f2baa0fc63"
     },
     {
-      "path": "audit/final_dimension_pointwise_review.txt",
-      "sha256": "826b9c8ca333c5f3c11eb27c8762bc20ce8ded0dcfda4ac720ec431690758a73"
+      "path": "audit/v3/analytic_metric_publication_audit.txt",
+      "sha256": "fa92f8fdaf4bc0d6c6f0b1c67c4563d6ab2b5b5e8ac045946bb494e0201abfb5"
+    },
+    {
+      "path": "audit/v3/arithmetic_REPRODUCE.txt",
+      "sha256": "0f8d87bc10a2984f4df139e65c49958583c2352aaa4f35585f4dc2f537d7d02f"
+    },
+    {
+      "path": "audit/v3/arithmetic_metric_cross_review.txt",
+      "sha256": "b1f0d76a9cac872db9e0c8fb7780b978895373ef0fada79051745bddd60d5dfe"
+    },
+    {
+      "path": "audit/v3/arithmetic_source_proof_audit.txt",
+      "sha256": "5ae9ca8949d566470f66d9c15c75fb6c693b12fd8de1add7ed1fe752e17d9f60"
+    },
+    {
+      "path": "audit/v3/critic_counting_cli_rebind.txt",
+      "sha256": "06f16a465213ed490566afb80eb62450138f588218a5ec31c8465666bfc7e3c8"
+    },
+    {
+      "path": "audit/v3/critic_new_sections_review.txt",
+      "sha256": "04f2dc216533b83b2c870531901718d33cd4d8a77fe4d1eca0f8f9b97dd4fb3c"
+    },
+    {
+      "path": "audit/v3/critic_publication_gate.txt",
+      "sha256": "9fc28a84772096ec0058b617b944ec0f077eebfad95a1f83dbf20bd70554757a"
+    },
+    {
+      "path": "audit/v3/critic_source_question_map.txt",
+      "sha256": "5aba2e9f4ecc8e3ade5129ca50d375237707ba3f67ea9e7b9969039b650f229e"
+    },
+    {
+      "path": "audit/v3/critic_v3_integration_review.txt",
+      "sha256": "7c9126cdd68a881f7044c63ba6f8f505cffd508209044733b20c93eb681653c5"
+    },
+    {
+      "path": "audit/v3/final_metadata_review.txt",
+      "sha256": "228a59e114e0defed250ed974f7bf747bb9e01084f87d5b324438db93420cfe1"
+    },
+    {
+      "path": "audit/v3/source_question_map.txt",
+      "sha256": "5aba2e9f4ecc8e3ade5129ca50d375237707ba3f67ea9e7b9969039b650f229e"
     }
   ],
-  "complete_proofs_preserved": true,
-  "unfinished_research_excluded": true,
-  "all_packaged_programs": "PASS",
-  "pdf_pages": 29,
-  "pdf_visual_review": "All pages inspected; no clipping, overflow or unresolved references found",
-  "source_cross_references": "PASS",
-  "citation_and_version_consistency": "PASS",
-  "prior_v1_files_preserved": true,
   "manuscript_sha256": {
     "paper/causal_container.tex": "1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750",
-    "paper/lagarias_zero_dimension.pdf": "67a4bcd769df5700742de1dfa93cc2bdaf6202e06a7d9c525aa6704379c8acbd",
-    "paper/lagarias_zero_dimension.tex": "80393a62d9d8b8c592ab347781d5d8c1f932cd6fea7cd430f723a1db4385992b"
+    "paper/lagarias_zero_dimension.pdf": "f26f1d55454156c1f1e9fbcf3d9e6a12e7edc2d1ce974c0006e54541cb8a513e",
+    "paper/lagarias_zero_dimension.tex": "183171fe57ced860643a3b5861fcd49c364b5a917dbf16962f58d063515f9a7f",
+    "paper/metric_digital_rigidity.tex": "039db76ef3973bc3d093c7ff79780d721878d4c6b1d03f34b86fd18cc49caec5",
+    "paper/positive_density_section.tex": "85aee8b3b776821a3357a907f0db9ca376ce4b4c48356fd16b46501344c02b41"
   },
-  "metadata_review": {
-    "path": "audit/final_release_metadata_review.txt",
-    "sha256": "f681e52054c27315ca3ba7cc9cf035e78fca27bd17182e103fef869faf25a85d"
-  }
+  "scope": "Prepublication verification; remote upload and release are verified in a separate publication receipt."
 }

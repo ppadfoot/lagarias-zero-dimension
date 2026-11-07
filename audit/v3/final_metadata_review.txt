@@ -1,0 +1,16 @@
+FINAL VERSION-3 METADATA REVIEW
+Date: 2026-11-07. Sole author: Timofei Iuzhakov.
+Verdict: ACCEPT the exact metadata files below. This is a short scope/link/citation audit, not new mathematical review.
+
+The version, author, paper title and stable citation key iuzhakov2026lagarias agree across README, changelog, BibTeX and CFF. The current version is3.0.0 dated7November2026; prior releases retain their original identities and dates. The docs present an update of the same article. The abandoned separate-canonical-paper wording has been removed.
+The README and inventory distinguish the inherited dimension results, new metric/classification/counting proofs, and deferred research packets. Record counts are not presented as independent new theorems. Inherited review labels are not called fresh proof certifications. The metric comparison is expressly for varying bases; no almost-everywhere-to-base2 inference occurs. M_H has positive lower density, with neither a full natural-density limit nor X/2 asymptotic asserted. E1 and the sharp M_C count remain open.
+All relative Markdown links in these six files resolve locally. The versioned GitHub URLs consistently target the planned v3 release; this audit does not assert the release already exists remotely. The publication-checklist description now says v3.
+The compiler log independently reports39pages. Root additionally reports checking the PDF text and confirms theorem numbers13.1,13.2,14.1,14.2 and no unresolved markers; this reviewer did not repeat PDF extraction. No new test claims are inferred from metadata. The exact four-TeX acceptance remains in v3_integration_review.txt; the counting CLI update remains in counting_cli_rebind.txt.
+
+BOUND FILES
+35d867ceaf6e7882716e9e848a77e7eee48073c8d04f25244ddb0b8815ebdf67  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/README.md
+3653c04e53f08a6fac085251bf1b0f26f231c20ec59ef97dfaea7cebe5fd94bd  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/CHANGELOG.md
+56fb8792f0998727d3de77a9aaf94e40cca35a642162f6f2dcd9d5b23c46d6c2  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/CITATION.bib
+3fbe45f8e8b7d5078ca70e4eee01eca5647aaaec7868f8670618b66566352303  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/CITATION.cff
+2472652e44bdfb6e6bb540fc897d803b49aaeb84421fea1d76a1e775a0514e29  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/INVENTORY.md
+e980d62c2a3e0bcb3af9563ac089a26cf04d568f6132460e5cdd6db38f0a2f7e  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/audit/v3/README.md

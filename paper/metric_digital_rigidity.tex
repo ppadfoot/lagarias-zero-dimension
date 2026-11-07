@@ -1,0 +1,496 @@
+% Author: Timofei Iuzhakov.
+% Article section. Requires amsmath, amssymb, amsthm and the
+% theorem, lemma, proposition, corollary, remark environments.
+% Bibliography key: Lagarias. All labels in this section start with metric:.
+
+\section{Digital rigidity and generic absence of three visits}
+\label{metric:section}
+
+Write
+\[
+ \Sigma=\left\{\sum_{j\geq0}e_j3^j:e_j\in\{0,1\}\right\}
+ \subset\mathbb Z_3,\qquad G=1+3\mathbb Z_3,\qquad
+ A=\Sigma\cap\mathbb Z_3^\times=1+3\Sigma.
+\]
+For a unit $b\in\mathbb Z_3^\times$, define
+\[
+ \begin{aligned}
+ E_b^{(3)}&=\{\lambda\in\mathbb Z_3:
+       b^n\lambda\in\Sigma\text{ for at least three distinct }n\geq0\},\\
+ E_b&=\{\lambda\in\mathbb Z_3:
+       b^n\lambda\in\Sigma\text{ for infinitely many }n\geq0\}.
+ \end{aligned}
+\]
+All Haar measures on compact groups are normalized to have mass one.
+
+\begin{theorem}\label{metric:main}
+For Haar-almost every $b\in\mathbb Z_3^\times$,
+\[
+                         E_b^{(3)}=\{0\}.
+\]
+In particular, $E_b=\{0\}$ for Haar-almost every unit $b$.
+The exceptional null set is independent of both the point $\lambda$ and
+the three visit times.
+\end{theorem}
+
+This is a varying-base statement. The fixed-base exceptional sets were
+studied by Lagarias \cite{Lagarias}; in particular, his
+Theorem~1.6(iii) (Theorem~1.5(3) in the arXiv version~4) gives
+$\dim_H E_2^{(3)}\geq (\log_3 2)/6$.
+Thus the conclusion of Theorem~\ref{metric:main} cannot be imposed on the
+prescribed base $2$. We do not attribute a varying-base conjecture to
+Lagarias. Our proof uses a finite classification of extremal digital
+planes, followed by an exact averaging identity over complete collections
+of prefixes. Both ingredients are proved below.
+
+\subsection{Full digital planes}
+
+For $m\geq0$, put
+\[
+ D_m=\left\{\sum_{j<m}e_j3^j:e_j\in\{0,1\}\right\},\qquad
+ B_m=\left\{\sum_{j<m}\sigma_j3^j:\sigma_j\in\{-1,1\}\right\},
+ \qquad R_m=\frac{3^m-1}{2}.
+\]
+For unit coefficients $\alpha_1,\alpha_2,\alpha_3$ modulo $3^m$, let
+\[
+ P_m(C;\alpha)=\#\{(X_1,X_2,X_3)\in B_m^3:
+               \alpha_1X_1+\alpha_2X_2+\alpha_3X_3\equiv C\pmod{3^m}\}.
+\]
+At most three of the eight next-digit triples satisfy a prescribed
+residue modulo $3$. Consequently $P_m(C;\alpha)\leq3^m$.
+We call a plane \emph{full} if equality holds. Equivalently, every
+admissible node above the last level has three children.
+Coordinate sign changes, permutations, and simultaneous multiplication
+of the coefficients and target by a unit preserve the count.
+
+\begin{theorem}[Finite digital rigidity]\label{metric:classification}
+For $m\geq1$, a plane is full if and only if, after the operations just
+listed, its coefficients and target have one of the following forms
+modulo $3^m$:
+\begin{align*}
+ &(1,1,1),&& C\in B_m;\tag{a}\label{metric:classa}\\
+ &(1,1,1+\tau3^g),&& C\in B_g,
+       \quad 1\leq g<m,\quad\tau\in\{-1,1\}.\tag{b}\label{metric:classb}
+\end{align*}
+In (b), $B_g$ means its $2^g$ ordinary integer representatives reduced
+modulo $3^m$, not all lifts of $B_g$ from modulus $3^g$.
+\end{theorem}
+
+We first establish the coefficient coincidence that underlies the
+classification.
+
+\begin{lemma}\label{metric:coincidence}
+Normalize the coefficients by signs so that all three are $1$ modulo
+$3$. If a depth-$m$ plane is full, two of these normalized coefficients
+are equal modulo $3^m$.
+\end{lemma}
+
+\begin{proof}
+Divide by the first coefficient. Use binary coordinates through the
+bijection $X=2x-R_m$ from $D_m$ to $B_m$; modulo $3^m$ this is
+$X\equiv2x+1/2$. For fixed coefficients let $F_l$ be the full binary
+targets at depth $l$. Reduction sends $F_l$ into $F_{l-1}$, and each
+of the three admitted first-digit choices below a full target has a
+child target in $F_{l-1}$.
+
+If all coefficients equal $1$ modulo $3^m$, there is nothing to prove.
+Otherwise let $k<m$ be their first unequal depth, so that
+\[
+ \alpha_i=1+3^k a_i,\qquad a_1=0,
+ \qquad a_1,a_2,a_3\text{ are not all equal modulo }3.
+\]
+Here $k\geq1$. For three equal binary coefficients, a target has three
+first children precisely when its first digit is $1$ or $2$; all three
+children have the same residual target. Induction gives
+\[
+                         F_k=R_k+D_k.
+\]
+For the canonical representative $V_0\in F_k$, every admitted triple
+of depth-$k$ prefixes satisfies $x_1+x_2+x_3=V_0$ as an ordinary
+equality: the sum is at most $3R_k<V_0+3^k$, and a negative wraparound
+is impossible since $0\leq V_0<3^k$.
+
+Consider a lift $V_0+3^k v$. Its next required residue, for an old
+prefix $(x_1,x_2,x_3)$, is
+$v-\sum_i a_i(x_i\bmod3)$. This residue must be nonzero.
+If $V_0\equiv1\pmod3$, the three first-digit choices exclude
+$v\in\{a_1,a_2,a_3\}$; if $V_0\equiv2\pmod3$, they exclude
+$v\in\{a_1+a_2+a_3-a_j:1\leq j\leq3\}$.
+All three choices occur in the full prefix tree. Three distinct
+$a_i$ residues therefore permit no full lift. A split into two equal
+residues and one other permits exactly one lift. Since a full
+depth-$m$ target exists, the latter case applies, and $F_{k+1}$ is
+injective under reduction modulo $3^k$. Fix the equal pair $i,j$;
+then $\alpha_i\equiv\alpha_j\pmod{3^{k+1}}$.
+
+This target injectivity persists at every depth $l\geq k+1$.
+Indeed, suppose it holds at $l-1$, and take $V,V'\in F_l$ with
+the same reduction modulo $3^k$. Their reductions modulo
+$3^{l-1}$ agree. Choose the same admitted first-digit triple for
+both targets. The child targets differ by $(V-V')/3$, which is zero
+modulo $3^{l-2}$, and hence modulo $3^k$ when $l\geq k+2$.
+Injectivity in $F_{l-1}$ gives $V\equiv V'\pmod{3^l}$.
+
+If $m=k+1$, the selected coefficients already coincide modulo $3^m$.
+Otherwise, among the three first children of a full depth-$m$ target
+there are two whose targets differ by
+$\pm(\alpha_i-\alpha_j)/3$. They agree modulo $3^k$.
+Injectivity in $F_{m-1}$ forces their equality modulo $3^{m-1}$,
+and therefore $\alpha_i\equiv\alpha_j\pmod{3^m}$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{metric:classification}]
+By Lemma~\ref{metric:coincidence}, we may work with balanced
+coefficients $(1,1,t)$, where $t\equiv1\pmod3$.
+If $t\equiv1\pmod{3^m}$, every admitted child map is
+$C\mapsto(C-\sigma)/3$, where $\sigma\in\{-1,1\}$ represents
+$C\bmod3$. The plane is full exactly when $C\in B_m$.
+
+Otherwise set $g=v_3(t-1)<m$, using any unit lift of $t$ to
+$\mathbb Z_3$. The child maps of a full state are
+\begin{equation}\label{metric:children}
+ C\longmapsto\frac{C-\sigma t}{3}\quad\text{(twice)},
+ \qquad
+ C\longmapsto\frac{C-\sigma(2-t)}{3}\quad\text{(once)}.
+\end{equation}
+Put
+\[
+ \delta=\frac{2(1-t)}t,\qquad
+ d\in\{-1,1\},\quad d\equiv\delta/3^g\pmod3,
+ \qquad\epsilon=-d,\qquad D=1-\epsilon3^g.
+\]
+For any full state of depth $l$, always following the first map in
+\eqref{metric:children} shows that $z=C/t$ has balanced digits
+$\sigma_0,\ldots,\sigma_{l-1}$. Change only the branch at time $j$
+to the second map and then follow first maps again. The signs through
+time $j$ are unchanged. Telescoping the digit expansions gives
+\[
+                     z-\delta\sigma_j3^j\in B_l\pmod{3^l}.
+\]
+When $j+g<l$, the first affected digit is at $j+g$. It cannot be zero
+modulo $3$, so
+\begin{equation}\label{metric:period}
+                         \sigma_{j+g}=\epsilon\sigma_j.
+\end{equation}
+It follows, at every finite depth $l\geq g$, that
+\begin{equation}\label{metric:periodicform}
+                  z\equiv P/D\pmod{3^l}\quad\text{for some }P\in B_g.
+\end{equation}
+At $l=g$ this only records the first $g$ digits, since $D\equiv1$
+modulo $3^g$; at greater depths it is precisely
+\eqref{metric:period}. No infinite extension has been assumed.
+
+Apply \eqref{metric:periodicform} to the two different children of
+the depth-$m$ root. Their normalized targets satisfy
+\[
+ z_0\equiv P_0/D,\qquad z_1\equiv P_1/D\pmod{3^{m-1}},
+ \qquad P_0,P_1\in B_g,
+\]
+and, writing $\sigma=\sigma_0$,
+\begin{equation}\label{metric:childdiff}
+               P_1-P_0\equiv-\sigma\delta D/3\pmod{3^{m-1}}.
+\end{equation}
+This difference has valuation $g-1$. Thus the two balanced words
+have equal lower $g-1$ digits and opposite highest digits.
+The highest digit of $P_0$ is the root digit $\sigma_g$, which
+equals $\epsilon\sigma$ by \eqref{metric:period}. Therefore, as
+an ordinary integer equality,
+\[
+                    P_1-P_0=-2\epsilon\sigma3^{g-1}.
+\]
+Equation~\eqref{metric:childdiff} yields
+$\delta D\equiv2\epsilon3^g\pmod{3^m}$. The identity
+\[
+                     \delta D-2\epsilon3^g=2(D-t)/t
+\]
+then gives $t\equiv D\pmod{3^m}$, and
+\eqref{metric:periodicform} at the root gives $C\in B_g$ at the
+full modulus $3^m$. This also proves the boundary case $m=g+1$:
+the two child words have length $g$, and their differing digit is
+still at position $g-1$.
+
+Conversely, take exact representatives $t=1-\epsilon3^g$ and
+$C\in B_g$. The maps \eqref{metric:children} become
+\[
+           \frac{C-\sigma}{3}\mathbin{\pm}\epsilon\sigma3^{g-1}.
+\]
+Both remain in $B_g$: they shift its lower $g-1$ remaining digits
+and insert an allowed highest sign. Every reachable state is a unit
+and has three children. The plane is full at all depths, and reduction
+gives (b). The common-coefficient case was already proved.
+\end{proof}
+
+For later use define the two-input count
+\begin{equation}\label{metric:Q}
+ \begin{aligned}
+ Q_m(U;a,b)&=\#\{(x,y)\in D_m^2:
+                     U+ax+by\bmod3^m\in D_m\},\\
+ H_m(a,b)&=\max_{U\bmod3^m}Q_m(U;a,b),
+ \end{aligned}
+\end{equation}
+where $a,b$ are units. The balanced-coordinate conversion gives
+\begin{equation}\label{metric:conversion}
+ Q_m(U;a,b)=P_m\bigl((a+b-1)/2-2U;(a,b,-1)\bigr).
+\end{equation}
+In particular, $H_m(a,b)\leq3^m$.
+
+\begin{corollary}\label{metric:inverse}
+If $a,b\in\mathbb Z_3^\times$ and $H_m(a,b)=3^m$ for every
+$m\geq1$, then
+\[
+                   a\in\{1,-1\},\quad\text{or}\quad
+                   b\in\{1,-1\},\quad\text{or}\quad a\in\{b,-b\}.
+\]
+\end{corollary}
+\begin{proof}
+At every depth Lemma~\ref{metric:coincidence} gives one of these six
+equalities modulo $3^m$. One equality occurs at unbounded depths,
+and hence holds in $\mathbb Z_3$.
+\end{proof}
+
+\begin{corollary}[Enumeration and a rational height bound]
+\label{metric:effective}
+There are exactly $24m-20$ ordered unit pairs $(a,b)$ modulo $3^m$
+for which $H_m(a,b)=3^m$, and exactly $28\cdot2^m-48$ full triples
+$(a,b,U)$.
+Moreover, let $a=A/D$, $b=B/D$, where $A,B,D$ are ordinary integers
+prime to $3$ and $\max(|A|,|B|,|D|)\leq H$. If the pair is not full
+at every depth, then
+\[
+                   3^m>4H^2\quad\Longrightarrow\quad
+                   H_m(a,b)\leq3^m-1.
+\]
+\end{corollary}
+\begin{proof}
+Normalize $a,b$ separately by signs to be $1$ modulo $3$.
+Theorem~\ref{metric:classification} and \eqref{metric:conversion}
+give the normalized pairs
+\[
+ (1,1),\qquad (t,1),\ (1,t),\ (t^{-1},t^{-1}),
+ \qquad t=1\pm3^g,\quad1\leq g<m.
+\]
+They are distinct: each nonconstant triple has a unique coincident
+pair, and $v_3(t-1)=g$ separates the levels. There are $6m-5$
+normalized pairs and four sign choices. The common pair has $2^m$
+targets per sign choice; each nonconstant pair of level $g$ has
+$2^g$. Hence the target count is
+$4\cdot2^m+24\sum_{g=1}^{m-1}2^g=28\cdot2^m-48$.
+
+Suppose now $3^m>4H^2$ and the rational pair is full at depth $m$.
+Finite coefficient coincidence makes one of $A\pm B$, $A\pm D$,
+$B\pm D$ divisible by $3^m$. Its absolute value is at most $2H$,
+so it is zero. After normalization the triple is $(1,1,T/S)$
+with $|S|,|T|\leq H$. If $T=S$, the game is full at all depths.
+Otherwise put $g=v_3(T-S)$; then $3^g\leq2H<3^m$.
+Classification gives $T-S(1\pm3^g)\equiv0\pmod{3^m}$, while
+\[
+                 |T-S(1\pm3^g)|\leq2H+2H^2\leq4H^2<3^m.
+\]
+This is again an exact equality, placing the coefficients in an
+all-depth full family. The assumed nonfullness proves the implication.
+\end{proof}
+
+\subsection{Complete prefix cubes and Haar measure}
+
+We use the elementary power operation $\rho^N$, for $\rho\in G$ and
+$N\in\mathbb Z_3$. It is defined by the convergent binomial series,
+or equivalently by $\exp(N\log\rho)$. The series for logarithm and
+exponential give inverse group isomorphisms between $G$ and
+$3\mathbb Z_3$. In particular a unit power is an automorphism of $G$.
+The coefficients $\binom Nk$ are integral: approximate $N$ by
+nonnegative integers in $\mathbb Z_3$ and use continuity of each
+binomial polynomial. These series also show that
+$\rho\mapsto\rho^N$ is $1$-Lipschitz. We will use these facts only
+on principal units.
+
+For fixed $N\in\mathbb Z_3\setminus\{0,1\}$ define
+\[
+ \mathcal B_N=\{\rho\in G:\text{some }\mu\in A\text{ satisfies }
+                           \rho\mu,\rho^N\mu\in A\}.
+\]
+This set is compact, being the projection of a closed subset of
+$G\times A$.
+
+\begin{proposition}\label{metric:fixedratio}
+For every fixed $N\in\mathbb Z_3\setminus\{0,1\}$, the set
+$\mathcal B_N$ has Haar measure zero in $G$.
+\end{proposition}
+
+\begin{proof}
+If $N\equiv2\pmod3$, then $\mathcal B_N\subseteq\{1\}$.
+Indeed, write $\rho=1+3^g t\ne1$ with $g\geq1$ and $t$ a unit.
+The three numbers $\mu,\rho\mu,\rho^N\mu$ have equal digits below
+$g$, whereas their digits at $g$ differ by $0,t,2t$ modulo $3$
+because $\mu\equiv1\pmod3$. One of these three digits is $2$.
+
+Next suppose $N=3^s r$ with $s\geq1$ and $r$ a unit. Set
+\begin{equation}\label{metric:coefficients}
+ a(\rho)=(1-N)\rho^N,\qquad b(\rho)=r\rho^{N-1},\qquad
+ \Phi(\mu,\nu)=\mu^{1-N}\nu^N.
+\end{equation}
+Both coefficients are units. A level-$q$ node is a pair
+$(\mu,\nu)\in A_q^2$, where $A_q=1+3D_{q-1}$, for which
+$\Phi(\mu,\nu)\bmod3^q\in A_q$. Representatives in $A_q$ are
+ordinary nonnegative integers. Its ratio is $\rho=\nu/\mu\in G$.
+
+Fix $m\geq1$ and $q\geq m+s+1$. Group pairs by fixing $\mu$ and
+the digits of $\nu$ below position $q-s$. Write the resulting pairs as
+\[
+            (\mu,\nu_e),\qquad
+            \nu_e=\nu_0+3^{q-s}e,\qquad e\in D_s.
+\]
+Every group containing a node contains all its $2^s$ possible nodes.
+More precisely, with $\rho_0=\nu_0/\mu$,
+\begin{equation}\label{metric:cubeshift}
+ \Phi(\mu,\nu_e)\equiv\Phi(\mu,\nu_0)
+               +3^q b(\rho_0)e\pmod{3^{q+m+1}}.
+\end{equation}
+To prove this, expand in $3^{q-s}e/\nu_0$. From
+$\binom Nk=(N/k)\binom{N-1}{k-1}$ we obtain
+$v_3\binom Nk\geq s-v_3(k)$. For $k\geq2$ the valuation of the
+$k$th term is at least
+\[
+ k(q-s)+s-v_3(k)\geq2q-s\geq q+m+1;
+\]
+the first inequality follows from $v_3(k)\leq k-2$ and $q-s\geq1$.
+This proves \eqref{metric:cubeshift}. In addition, all ratios in the
+group agree modulo $3^{m+1}$.
+
+Let $U$ be the block of $m$ digits of $\Phi(\mu,\nu_0)$ beginning
+at position $q$. The descendants of a group have the form
+\[
+                     (\mu+3^q x,\nu_e+3^q y),\qquad x,y\in D_m.
+\]
+Integral binomial coefficients and $2q\geq q+m+1$ give their exact
+new-block condition
+\begin{equation}\label{metric:cubelinear}
+              U+be+ax+3^sby\bmod3^m\in D_m,
+\end{equation}
+where $a,b$ are evaluated at $\rho_0$. They can be used throughout
+the group by the Lipschitz property and the common ratio residue.
+The lower $q$ digits remain admissible.
+
+As $e\in D_s$ and $y\in D_m$ vary, $z=e+3^s y$ runs bijectively
+over $D_{m+s}$. Each residue in $D_m$ has exactly $2^s$ such lifts
+modulo $3^m$, also when $m<s$. Summing \eqref{metric:cubelinear}
+therefore gives the exact descendant count
+\begin{equation}\label{metric:cubecount}
+                \#\{\text{descendants of the group}\}
+                         =2^s Q_m(U;a,b).
+\end{equation}
+
+Fix a ratio class $\mathcal C\subset G$ modulo $3^{m+1}$.
+The coefficients are constant modulo $3^m$ on this class. Write
+$H_{\mathcal C}=H_m(a,b)$, and let $T_q(\mathcal C)$ count its
+level-$q$ nodes. All the preceding groups stay in $\mathcal C$,
+as do their descendants. Since each group has $2^s$ original nodes,
+\eqref{metric:cubecount} implies
+\begin{equation}\label{metric:contraction}
+             T_{q+m}(\mathcal C)\leq H_{\mathcal C}T_q(\mathcal C),
+             \qquad q\geq m+s+1.
+\end{equation}
+If $H_{\mathcal C}<3^m$, iterate with $q_j=q_0+jm$ to obtain
+$T_{q_j}(\mathcal C)\leq T_{q_0}(\mathcal C)H_{\mathcal C}^j$.
+
+For a ratio $\rho$ modulo $3^q$, let $n_q(\rho)$ count the
+$\mu\in A_q$ for which $\rho\mu$ and $\rho^N\mu$ lie in $A_q$
+modulo $3^q$. The substitution $\nu\equiv\rho\mu\pmod{3^q}$
+is a bijection, and $G$ has $3^{q-1}$ residue classes modulo $3^q$.
+Consequently
+\[
+ \int_{\mathcal C}n_q(\rho)\,d\rho
+                     =\frac{T_q(\mathcal C)}{3^{q-1}}.
+\]
+Every $\rho\in\mathcal B_N$ has $n_q(\rho)\geq1$ at each depth.
+It follows that
+\[
+ \operatorname{Haar}(\mathcal B_N\cap\mathcal C)
+ \leq\frac{T_{q_j}(\mathcal C)}{3^{q_j-1}}\longrightarrow0
+ \qquad(H_{\mathcal C}<3^m).
+\]
+Taking the countable union over finite windows and ratio classes
+reduces the proof to the residual set
+\[
+ \mathcal F_N=\{\rho\in G:H_m(a(\rho),b(\rho))=3^m
+                                      \text{ for every }m\geq1\}.
+\]
+
+In fact $\mathcal F_N$ contains at most two points. Let
+$\sigma\in\{-1,1\}$ represent $r\bmod3$. Since
+$\rho^N\equiv1\pmod{3^{s+1}}$,
+\[
+                    a(\rho)-1\equiv-N\pmod{3^{s+1}},
+                    \qquad v_3(a(\rho)-1)=s.
+\]
+Thus $a\ne1$, and $a\equiv1\pmod3$ also excludes $a=-1$.
+Corollary~\ref{metric:inverse} leaves only $b=\sigma$ or
+$a=\sigma b$. The first has the unique solution
+$\rho_1=(\sigma/r)^{1/(N-1)}\in G$, because $N-1$ is a unit.
+The second, using $a/b=((1-N)/r)\rho$, has the unique solution
+$\rho_2=\sigma r/(1-N)\in G$. Hence
+$\mathcal F_N\subseteq\{\rho_1,\rho_2\}$, proving nullity.
+No assertion that either candidate is full is needed.
+
+Finally, if $N\equiv1\pmod3$, exchange $\mu$ and $\nu=\rho\mu$.
+The ratio becomes $\rho^{-1}$ and the exponent becomes $1-N$,
+which is divisible by $3$ and different from $0,1$.
+Thus inversion maps $\mathcal B_N$ into $\mathcal B_{1-N}$.
+Inversion preserves Haar measure, and the preceding case applies.
+\end{proof}
+
+\subsection{One null set for all points and times}
+
+\begin{proof}[Proof of Theorem~\ref{metric:main}]
+For every nonzero integer $e$, the map $P_e:G\to G$ given by
+$P_e(\beta)=\beta^e$ has null preimages of Haar-null sets.
+Indeed, in logarithmic coordinates it is $x\mapsto ex$ on
+$3\mathbb Z_3$, an injective homomorphism onto an open subgroup.
+Its pushforward measure is normalized Haar measure on that subgroup,
+and is therefore absolutely continuous with respect to Haar measure
+on $G$.
+
+By Proposition~\ref{metric:fixedratio}, the set
+\[
+ \mathcal N=
+ \bigcup_{e\in\mathbb Z\setminus\{0\}}
+ \ \bigcup_{N\in(\mathbb Q\cap\mathbb Z_3)\setminus\{0,1\}}
+                         P_e^{-1}(\mathcal B_N)
+\]
+is Haar-null. Fix $\beta\in G\setminus\mathcal N$. If
+$\lambda\ne0$ had three distinct visit times $n_0,n_1,n_2$, put
+$v=v_3(\lambda)$. Interchange $n_1,n_2$ if necessary so that
+\[
+ v_3(e)\leq v_3(e'),\qquad e=n_1-n_0,\qquad e'=n_2-n_0.
+\]
+Then $N=e'/e\in(\mathbb Q\cap\mathbb Z_3)\setminus\{0,1\}$,
+and the quantities
+\[
+             \mu=3^{-v}\beta^{n_0}\lambda,\qquad\rho=\beta^e
+\]
+satisfy $\mu,\rho\mu,\rho^N\mu\in A$.
+The identity $\rho^N=\beta^{e'}$ follows from logarithms.
+Thus $\rho\in\mathcal B_N$, contradicting the choice of $\beta$.
+This proves the theorem on $G$ simultaneously for all nonzero
+$\lambda$ and all triples of times.
+
+For $b\equiv-1\pmod3$, the visit times of a fixed nonzero point
+have a common parity: the leading unit digit of $b^n\lambda$ must
+be $1$. Three visits therefore give three visits of $b^{r_0}\lambda$
+under the base $\beta=b^2\in G$, for some $r_0\in\{0,1\}$.
+Squaring maps the coset $-1+3\mathbb Z_3$ bijectively onto $G$
+and has null preimages of null sets; write $b=-u$ and use the unit
+power automorphism $u\mapsto u^2$. This proves the statement on
+all units. Finally, $0$ always visits $\Sigma$ and
+$E_b\subseteq E_b^{(3)}$.
+\end{proof}
+
+\begin{remark}\label{metric:scope}
+The averaging in \eqref{metric:cubecount} is over a complete group
+of prefixes. It does not give a contraction on a prescribed ratio
+fiber. Accordingly, neither Theorem~\ref{metric:main} nor the
+effective finite-window bound in Corollary~\ref{metric:effective}
+asserts finiteness of visits for a specified base and a specified
+point. The proofs above are independent of finite enumeration;
+the accompanying exact checks verify small instances of the
+classification and the complete-cube identity.
+\end{remark}

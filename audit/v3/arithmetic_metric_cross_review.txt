@@ -1,0 +1,79 @@
+INDEPENDENT CROSS-REVIEW OF THE METRIC PUBLICATION SECTION
+7 November 2026. Mathematical author: Timofei Iuzhakov.
+
+Verdict: ACCEPTED. Full source text and full standalone checker read.
+No mathematical correction requested. This review binds the final
+publication section, not merely an earlier research note.
+
+Bound files under work/publication_refresh_2026-11-07/analytic/:
+metric_digital_rigidity.tex
+  SHA256 d35245434ec65364d5d2fd960819989694b11c94e0190931ff7c00acb2f27a1e
+check_metric_digital_rigidity.py
+  SHA256 555c66ec5925ac299375777987d3e5e1d739b59a87e2782378bf7bd56c63af4f
+metric_digital_rigidity_checks.json
+  SHA256 045c15ff088f3aed4a5d0dd17bf7e937b1c86d935f7a62ac3654ca370bdf0417
+
+The checker was independently rerun with its unchanged --output option
+directed to arithmetic/metric_independent_checks.json. The output was
+byte-identical to the bound result. It exhausts 3,280 unit coefficient
+pairs and 245,280 intercept cases at m=1,...,4, and checks 891 selected
+complete cubes, 3,580 shift identities, and 145,216 descendant cases
+over 27 stated parameter choices. At most64 groups per case are checked;
+the finite cube test is not described as an exhaustive all-parameter test.
+
+Analytical checks:
+1. Normalized coefficient coincidence is proved at finite depth. The
+   first split permits exactly one lift per full target, and the target
+   injectivity propagates at subsequent levels. The selected equal pair
+   is not allowed to change invisibly during this induction.
+2. For coefficients(1,1,t), the two residual maps have the stated
+   multiplicities2 and1. Changing a single branch gives the balanced
+   sign recurrence sigma_(j+g)=epsilon sigma_j. The resulting finite
+   periodic form is valid without assuming an infinite full extension.
+3. The child-target difference has valuation g−1 and forces the exact
+   ordinary difference of the two length-g balanced words. This covers
+   m=g+1, where the children have depth exactlyg; there is no lost
+   boundary case. The identity then gives t=1±3^g modulo3^m and the
+   correct finite set of targets B_g at the full modulus.
+4. The converse really preserves B_g under both child maps. Counting
+   the three normalized nonconstant pair types at eachg gives24m−20
+   full ordered pairs and28·2^m−48 full triples. The rational-height
+   cutoff3^m>4H² converts both finite congruences to exact equalities;
+   H≥1 and coefficients/denominator prime to3 are essential and stated.
+5. For N=3^s r, the complete prefix group includes all2^s high choices
+   ofnu. The binomial valuation bound s−v3(k) pays the large valuation
+   gap and gives the required remainder at q≥m+s+1. Coefficients are
+   stable on the common ratio class modulo3^(m+1).
+6. Summing e+3^s y overD_(m+s) gives exactly2^s lifts of each residue
+   inD_m even whenm<s. The equality2^s Q_m therefore holds on the
+   complete group. No individual fixed-ratio fiber contraction is used.
+7. The occupation count has the correct Haar normalization3^(q−1),
+   not3^q with a hidden parameter-dependent factor. Every surviving
+   ratio has at least one node, so a strict finite window gives a null
+   set on that class. A countable union of classes/windows is legitimate.
+8. The all-depth residual coefficient set has at most two candidate
+   ratios. The valuation v3(a−1)=s excludes a=±1; the unit power
+   N−1 gives uniqueness for b=±1, and a=±b is linear inrho. The proof
+   does not assert that either candidate actually survives.
+9. N=2mod3 has the immediate first-different-digit obstruction;
+   N=1mod3 reduces by exchanging the two anchor points. Thus every
+   N∈Z3\{0,1}, including nonordinary N, is covered.
+10. The last countable union ranges only over rational exponent ratios
+    of actual integer time differences. After selecting the smaller
+    valuation gap, N∈Q∩Z3. The null set is independent oflambda and
+    all three times. Preimages under nonzero integer powers are null
+    because the power map has open image in logarithmic coordinates.
+11. The negative unit coset is reduced by parity and squaring; the
+    common parity of visits follows from the first nonzero digit.
+    The conclusion is therefore Haar-almost every unitbase, not merely
+    almost every principal unitbase. Zero is explicitly retained.
+12. Scope is exact. The conclusion is E_b^(3)={0} for Haar-almost every
+    baseb, not E_2^(3)={0}, and not the point1 finite-visits theorem.
+    The section states the fixed-base countervailing lower bound and
+    distinguishes journal/arXiv numbering. No unproved all-word or
+    energy assumption enters the new proof.
+
+The all-depth classification and the measure theorem stand on their
+written proofs; finite checks support the implementation and normalization
+only. This review is internal independent mathematical scrutiny, not a
+claim of external peer review, formal verification, or worldwide priority.

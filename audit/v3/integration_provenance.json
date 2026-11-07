@@ -1,0 +1,9 @@
+{
+  "version": "3.0.0",
+  "same_author_title_and_bibtex_key": true,
+  "old_main_source_sha256": "80393a62d9d8b8c592ab347781d5d8c1f932cd6fea7cd430f723a1db4385992b",
+  "old_mathematical_body_preserved_byte_for_byte": true,
+  "old_body_sha256": "5536af1627ecf24cb031ff54f55a8f4c281d185f50986d6af5f1822614189ca3",
+  "unchanged_causal_container_sha256": "1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750",
+  "new_section_changes_from_reviewed_drafts": "Bibliography key Lagarias2009 replaced by existing Lagarias only; no mathematical changes."
+}

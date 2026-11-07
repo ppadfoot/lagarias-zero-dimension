@@ -1,0 +1,263 @@
+{
+  "author": "Timofei Iuzhakov",
+  "status": "PASS",
+  "proof_sha256": "039db76ef3973bc3d093c7ff79780d721878d4c6b1d03f34b86fd18cc49caec5",
+  "checker_sha256": "555c66ec5925ac299375777987d3e5e1d739b59a87e2782378bf7bd56c63af4f",
+  "classification": [
+    {
+      "m": 1,
+      "unit_pairs": 4,
+      "intercepts": 12,
+      "full_pairs": 4,
+      "full_triples": 8
+    },
+    {
+      "m": 2,
+      "unit_pairs": 36,
+      "intercepts": 324,
+      "full_pairs": 28,
+      "full_triples": 64
+    },
+    {
+      "m": 3,
+      "unit_pairs": 324,
+      "intercepts": 8748,
+      "full_pairs": 52,
+      "full_triples": 176
+    },
+    {
+      "m": 4,
+      "unit_pairs": 2916,
+      "intercepts": 236196,
+      "full_pairs": 76,
+      "full_triples": 400
+    }
+  ],
+  "cube_counts": {
+    "parameter_cases": 27,
+    "cubes": 891,
+    "cube_members": 3580,
+    "shift_identities": 3580,
+    "descendant_checks": 145216,
+    "game_counts": 891
+  },
+  "cube_cases": [
+    {
+      "N": "3",
+      "s": 1,
+      "m": 1,
+      "q": 3,
+      "all_cubes": 6,
+      "checked_cubes": 6
+    },
+    {
+      "N": "3",
+      "s": 1,
+      "m": 2,
+      "q": 4,
+      "all_cubes": 18,
+      "checked_cubes": 18
+    },
+    {
+      "N": "3",
+      "s": 1,
+      "m": 3,
+      "q": 5,
+      "all_cubes": 53,
+      "checked_cubes": 53
+    },
+    {
+      "N": "6",
+      "s": 1,
+      "m": 1,
+      "q": 3,
+      "all_cubes": 6,
+      "checked_cubes": 6
+    },
+    {
+      "N": "6",
+      "s": 1,
+      "m": 2,
+      "q": 4,
+      "all_cubes": 17,
+      "checked_cubes": 17
+    },
+    {
+      "N": "6",
+      "s": 1,
+      "m": 3,
+      "q": 5,
+      "all_cubes": 45,
+      "checked_cubes": 45
+    },
+    {
+      "N": "9",
+      "s": 2,
+      "m": 1,
+      "q": 4,
+      "all_cubes": 12,
+      "checked_cubes": 12
+    },
+    {
+      "N": "9",
+      "s": 2,
+      "m": 2,
+      "q": 5,
+      "all_cubes": 35,
+      "checked_cubes": 35
+    },
+    {
+      "N": "9",
+      "s": 2,
+      "m": 3,
+      "q": 6,
+      "all_cubes": 99,
+      "checked_cubes": 64
+    },
+    {
+      "N": "18",
+      "s": 2,
+      "m": 1,
+      "q": 4,
+      "all_cubes": 12,
+      "checked_cubes": 12
+    },
+    {
+      "N": "18",
+      "s": 2,
+      "m": 2,
+      "q": 5,
+      "all_cubes": 34,
+      "checked_cubes": 34
+    },
+    {
+      "N": "18",
+      "s": 2,
+      "m": 3,
+      "q": 6,
+      "all_cubes": 96,
+      "checked_cubes": 64
+    },
+    {
+      "N": "27",
+      "s": 3,
+      "m": 1,
+      "q": 5,
+      "all_cubes": 24,
+      "checked_cubes": 24
+    },
+    {
+      "N": "27",
+      "s": 3,
+      "m": 2,
+      "q": 6,
+      "all_cubes": 70,
+      "checked_cubes": 64
+    },
+    {
+      "N": "27",
+      "s": 3,
+      "m": 3,
+      "q": 7,
+      "all_cubes": 200,
+      "checked_cubes": 64
+    },
+    {
+      "N": "-3",
+      "s": 1,
+      "m": 1,
+      "q": 3,
+      "all_cubes": 6,
+      "checked_cubes": 6
+    },
+    {
+      "N": "-3",
+      "s": 1,
+      "m": 2,
+      "q": 4,
+      "all_cubes": 17,
+      "checked_cubes": 17
+    },
+    {
+      "N": "-3",
+      "s": 1,
+      "m": 3,
+      "q": 5,
+      "all_cubes": 51,
+      "checked_cubes": 51
+    },
+    {
+      "N": "-9",
+      "s": 2,
+      "m": 1,
+      "q": 4,
+      "all_cubes": 12,
+      "checked_cubes": 12
+    },
+    {
+      "N": "-9",
+      "s": 2,
+      "m": 2,
+      "q": 5,
+      "all_cubes": 35,
+      "checked_cubes": 35
+    },
+    {
+      "N": "-9",
+      "s": 2,
+      "m": 3,
+      "q": 6,
+      "all_cubes": 101,
+      "checked_cubes": 64
+    },
+    {
+      "N": "3/2",
+      "s": 1,
+      "m": 1,
+      "q": 3,
+      "all_cubes": 6,
+      "checked_cubes": 6
+    },
+    {
+      "N": "3/2",
+      "s": 1,
+      "m": 2,
+      "q": 4,
+      "all_cubes": 18,
+      "checked_cubes": 18
+    },
+    {
+      "N": "3/2",
+      "s": 1,
+      "m": 3,
+      "q": 5,
+      "all_cubes": 53,
+      "checked_cubes": 53
+    },
+    {
+      "N": "9/2",
+      "s": 2,
+      "m": 1,
+      "q": 4,
+      "all_cubes": 12,
+      "checked_cubes": 12
+    },
+    {
+      "N": "9/2",
+      "s": 2,
+      "m": 2,
+      "q": 5,
+      "all_cubes": 35,
+      "checked_cubes": 35
+    },
+    {
+      "N": "9/2",
+      "s": 2,
+      "m": 3,
+      "q": 6,
+      "all_cubes": 92,
+      "checked_cubes": 64
+    }
+  ],
+  "scope": "Exhaustive classification for m=1,...,4. Exact complete-cube identities for 27 listed parameter cases, at most 64 groups per case. No all-depth or Haar-measure theorem is inferred from finite computation."
+}

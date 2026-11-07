@@ -1,0 +1,30 @@
+{
+  "verdict": "accepted",
+  "review_scope": "Full new section proofs and code; private byte-identical finite reruns; no fresh complete inherited-body audit",
+  "files": [
+    {
+      "path": "work/publication_refresh_2026-11-07/analytic/metric_digital_rigidity.tex",
+      "sha256": "d35245434ec65364d5d2fd960819989694b11c94e0190931ff7c00acb2f27a1e"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/analytic/check_metric_digital_rigidity.py",
+      "sha256": "555c66ec5925ac299375777987d3e5e1d739b59a87e2782378bf7bd56c63af4f"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/analytic/metric_digital_rigidity_checks.json",
+      "sha256": "045c15ff088f3aed4a5d0dd17bf7e937b1c86d935f7a62ac3654ca370bdf0417"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/arithmetic/positive_density_section.tex",
+      "sha256": "b2bff974f6555a0ad65de4b5f8d22246241baf2bfcd2538fc345f627f95b02e7"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/arithmetic/check_positive_density.py",
+      "sha256": "47ed0ced9b0dce798419e99f9f2f614353dcc84cb920206c8cc29350968164fe"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/arithmetic/positive_density_checks.json",
+      "sha256": "5a72c992c1e3c1d83380149601be716a56b5f3475d0259b02b433e0bb4f42b45"
+    }
+  ]
+}

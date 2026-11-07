@@ -2,6 +2,19 @@
 
 Each release fixes a manuscript, its source, verification code and review record. The main README explains the results and may be updated independently of the manuscript versions.
 
+## v3.0.0 — 7 November 2026
+
+Same article, title, sole author and citation key `iuzhakov2026lagarias`. **39 pages.** All v2 mathematical proof sections and the causal-container appendix are retained.
+
+- Theorem 13.1: generic absence of any three nonzero visits, simultaneous in all starting points and times.
+- Theorem 13.2: complete finite digital rigidity, followed by exact enumeration and a rational-height cutoff.
+- Theorem 14.1: linear order of the positive-dimensional multiplier count and a linear gap from finite-integer quotients.
+- Theorem 14.2: summability and quantitative tail of reduced Cantor denominators prime to 3.
+
+The two new arguments are independent. Added portable checks, fresh section and integration reviews, a research inventory and an explicit publication checklist. The order-of-growth part of Lagarias's Problem 2 is settled; its leading density constant, the sharp finite-quotient count and E1 remain open.
+
+[Paper](https://github.com/ppadfoot/lagarias-zero-dimension/releases/download/v3.0.0/lagarias_zero_dimension.pdf) · [Release](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0)
+
 ## v2.0.0 — 6 November 2026
 
 **Zero dimension for the real exceptional set and vanishing 3-adic nesting constants**  
@@ -43,3 +56,4 @@ The Hausdorff assertion is Lagarias's Conjecture 1.7. The manuscript also proves
 The proof combines unit-equation extraction, exact carry identities, a finite causal-container theorem proved in Appendix A, and a sumset capacity estimate. The release includes the manuscript, source, finite verification code and internal review reports.
 
 The real exceptional-set theorem and the uniform finite-visit/nesting theorem were added in v2.
+

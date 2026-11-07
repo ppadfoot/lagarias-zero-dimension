@@ -21,6 +21,16 @@
       "program": "code/check_affine_carries.py",
       "returncode": 0,
       "sha256": "14bef662e7eb9c94e214240612fd4dcb0be3f70a6674e3b82200daead263274f"
+    },
+    {
+      "program": "code/check_metric_digital_rigidity.py",
+      "returncode": 0,
+      "sha256": "555c66ec5925ac299375777987d3e5e1d739b59a87e2782378bf7bd56c63af4f"
+    },
+    {
+      "program": "code/check_positive_density.py",
+      "returncode": 0,
+      "sha256": "85bc7249aaab6c58cca1d56c420195c08cd9723d6590c19f008291335dc5d7a0"
     }
   ]
 }

@@ -8,42 +8,42 @@
       "status": "PASS",
       "returncode": 0,
       "source_sha256": "c2c635bf633206aafe5d525b6da87cf696123b5b722f8858983fffe5aa7b5cc9",
-      "elapsed_seconds": 0.594
+      "elapsed_seconds": 0.655
     },
     {
       "program": "check_local_identities.py",
       "status": "PASS",
       "returncode": 0,
       "source_sha256": "a0d6bd3cd4ea0735c78e95a647ca3c5b3d592942aefc95f1d6b90a9f95e3fe0e",
-      "elapsed_seconds": 0.29
+      "elapsed_seconds": 0.297
     },
     {
       "program": "check_entropy_transfer.py",
       "status": "PASS",
       "returncode": 0,
       "source_sha256": "3a38af1821a99e6aa77993f6488b0b9b8d9c5d2bcf5f826b7296a0ec3df59391",
-      "elapsed_seconds": 2.302
+      "elapsed_seconds": 1.834
     },
     {
       "program": "upstream_container_engine.py",
       "status": "PASS",
       "returncode": 0,
       "source_sha256": "86a98faae7bc66786577f911a2e42b2916d25902faa7cca42d10ef6bfb9f85b1",
-      "elapsed_seconds": 8.432
+      "elapsed_seconds": 5.491
     },
     {
       "program": "check_nonlocal_replay.py",
       "status": "PASS",
       "returncode": 0,
       "source_sha256": "1e1fee939bd459441e96c655dfb36db2afaacad44eb261484bde7ef0cb6ba079",
-      "elapsed_seconds": 4.439
+      "elapsed_seconds": 4.571
     },
     {
       "program": "check_nonvacuous_budget.py",
       "status": "PASS",
       "returncode": 0,
       "source_sha256": "309aef552066c2a672b1a578dc925c40a01d28d410ffbfbd3776c70abc7fc799",
-      "elapsed_seconds": 30.777
+      "elapsed_seconds": 23.213
     }
   ]
 }

@@ -1,0 +1,321 @@
+% Author: Timofei Iuzhakov
+% Integration: amsmath, amssymb, amsthm, mathrsfs; theorem, lemma, proposition,
+% remark and proof environments. Bibliography keys: Lagarias, KP2005,
+% AL2014. No other local file is a mathematical dependency.
+\section{Summable denominators and positive-density multipliers}
+\label{sec:positive-density}
+
+Write
+\[
+ \mathcal D=\left\{\sum_{j=0}^{L-1}\epsilon_j3^j:
+       L\geq1,\ \epsilon_j\in\{0,1\}\right\},\qquad
+ \Sigma=\left\{\sum_{j\geq0}\epsilon_j3^j:
+       \epsilon_j\in\{0,1\}\right\}\subset\mathbb Z_3.
+\]
+The first sum is finite and defines an ordinary nonnegative integer;
+the second converges in the $3$-adic metric. For a positive integer $M$ set
+\[
+ \begin{aligned}
+ C_M&=\{x\in\Sigma:Mx\in\Sigma\},\\
+ \mathcal M_C&=\{M\geq1:\exists a\in\mathcal D\setminus\{0\},\ Ma\in\mathcal D\},\\
+ \mathcal M_H&=\{M\geq1:\dim_H C_M>0\}.
+ \end{aligned}
+\]
+Here Hausdorff dimension is taken in the $3$-adic metric, and
+$M_C(X)=\#(\mathcal M_C\cap[1,X])$, with analogous notation for $M_H$.
+These are the two multiplier-counting questions in Problems~1 and~2 of
+the arXiv version of \cite{Lagarias} (journal Problems~1.10 and~1.11).
+The nonzero requirement in $\mathcal M_C$ is essential.
+
+\begin{theorem}\label{thm:pd-main}
+There are constants $c_1,c_2>0$ such that, for all sufficiently large $X$,
+\[
+ M_H(X)\geq c_1X,\qquad M_H(X)-M_C(X)\geq c_2X.
+\]
+In particular $M_H(X)\asymp X$. This theorem does not assert that
+$M_H(X)/X$ has a limit, nor that this limit is $1/2$.
+\end{theorem}
+
+The proof uses reduced denominators in the ordinary middle-thirds set
+\[
+ \mathcal C=\left\{\sum_{j\geq1}2\epsilon_j3^{-j}:\epsilon_j\in\{0,1\}\right\},
+ \qquad s=\frac{\log2}{\log3}.
+\]
+Define its set of internal reduced denominators prime to $3$ by
+\[
+ \mathscr D=\{d>1:3\nmid d,\ \exists a,\ 0<a<d,\ (a,d)=1,
+                                      \ a/d\in\mathcal C\}.
+\]
+Thus endpoints and unreduced representations are not counted.
+
+\begin{theorem}\label{thm:pd-denominators}
+Put $\kappa=4/3-2s>0$. As $Y\longrightarrow\infty$,
+\[
+ \sum_{\substack{d\in\mathscr D\\d>Y}}\frac1d
+       \ll (\log Y)^{-9}+Y^{-\kappa}.
+\]
+In particular $\sum_{d\in\mathscr D}1/d$ converges.
+\end{theorem}
+
+\subsection{The carry obstruction}
+
+We give the carry argument explicitly; finite carry presentations of
+these intersections also appear in \cite{AL2014}.
+Suppose $M>1$ and $M\equiv1\pmod3$. Reading input and output digits
+$a,b\in\{0,1\}$ from low to high gives the transition
+\begin{equation}\label{eq:pd-carry}
+ 3c'=c+Ma-b,
+\end{equation}
+starting at $c=0$. The allowed pairs $(a,b)$, according as
+$c\equiv0,1,2\pmod3$, are respectively
+\[
+ \{(0,0),(1,1)\},\qquad\{(0,1)\},\qquad\{(1,0)\}.
+\]
+All reachable carries are nonnegative. After $t$ steps, if $A,B$ are
+the input and output integers read so far, then $3^tc=MA-B$;
+since $A\leq(3^t-1)/2$ and $B\geq0$, every reachable carry satisfies
+$c<M/2$. The reachable graph is therefore finite and has no dead ends.
+Conversely, an infinite path gives $Mx=y$ in $\mathbb Z_3$, because its
+bounded carry error is divisible by $3^t$ at every stage.
+
+\begin{lemma}\label{lem:pd-terminal}
+If $M>1$, $M\equiv1\pmod3$, and $\dim_H C_M=0$, then there is an integer
+$c$ with $0\leq2c<M$ such that
+\[
+ \frac{2c+1}{M+1}\in\mathcal C\cap(0,1).
+\]
+\end{lemma}
+\begin{proof}
+If a reachable strongly connected component contains a vertex with two
+outgoing edges inside that component, choose closed paths $U,V$ based
+there and starting with these different edges. Their first input digits
+differ. The return words $UV,VU$ have the same length and different
+first input digits. Arbitrary concatenations of them, after a fixed
+path from the initial state, yield a binary block Cantor set of positive
+Hausdorff dimension. Thus no such component exists when $\dim_H C_M=0$.
+
+Choose a terminal strongly connected component. All its outgoing edges
+remain inside it, so its vertices cannot be $0$ modulo $3$. Each vertex
+has exactly one outgoing edge, and the component is a directed cycle.
+On this cycle $a+b=1$. Put $q=M+1$ and $r_j=(2c_j+1)/q$. Equation
+\eqref{eq:pd-carry} becomes $3r_{j+1}=r_j+2a_j$. If the cycle length is
+$L$, iteration gives
+\[
+ r_0=\frac{2\sum_{j=0}^{L-1}a_j3^j}{3^L-1}\in\mathcal C.
+\]
+The inequalities on the carries give $0<r_0<1$.
+\end{proof}
+
+Only this necessary condition for zero dimension will be used. A
+terminal cycle can coexist with a different branching component.
+
+\begin{lemma}\label{lem:pd-inclusion}
+$\mathcal M_C\subseteq\mathcal M_H$.
+\end{lemma}
+\begin{proof}
+Let $Ma=b$ with positive $a,b\in\mathcal D$, and choose $L$ at least
+the ternary lengths of both. All points
+$x=a\sum_{j\geq0}\epsilon_j3^{Lj}$, $\epsilon_j\in\{0,1\}$, lie in
+$C_M$: the input blocks are $0,a$ and the output blocks are $0,b$,
+without overlap. The set of the sums has dimension
+$\log2/(L\log3)>0$; multiplication by the nonzero integer $a$ is a
+$3$-adic similarity and preserves dimension.
+\end{proof}
+
+\subsection{A small-order estimate}
+
+For $n\geq2$ with $(n,3)=1$ let $\operatorname{ord}_n(3)$ be the multiplicative order
+of $3$ modulo $n$, and let $\lambda(n)$ be Carmichael's function.
+The only non-elementary input in this section is the following
+unconditional estimate, stated as Lemma~10 of \cite{KP2005}:
+\begin{equation}\label{eq:pd-kp}
+ \#\{n\leq X:\lambda(n)\leq n\exp(- (\log\log n)^3)\}
+       \ll\frac{X}{(\log X)^{10}}.
+\end{equation}
+Finitely many small $n$ can be omitted in this display. No hypothesis
+such as the generalized Riemann hypothesis is assumed.
+
+\begin{lemma}\label{lem:pd-small-order}
+\[
+ \#\{2\leq n\leq X:(n,3)=1,\ \operatorname{ord}_n(3)<n^{1/3}\}
+       \ll X(\log X)^{-10}.
+\]
+\end{lemma}
+\begin{proof}
+Let $\mathscr P$ be the primes $p\ne3$ for which
+$\operatorname{ord}_p(3)\leq p^{2/5}$. Every such $p\leq z$ divides
+$\prod_{1\leq j\leq z^{2/5}}(3^j-1)$. Taking logarithms gives
+$\#\{p\in\mathscr P:p\leq z\}=O(z^{4/5})$, and partial summation
+gives $\sum_{p\in\mathscr P}p^{-9/10}<\infty$.
+
+Let $n_{\mathscr P}$ be the largest divisor of $n$ supported on
+$\mathscr P$. For $f(n)=n_{\mathscr P}^{1/10}$, the multiplicative
+function $f*\mu$ is nonnegative. Hence
+\[
+ \sum_{n\leq X} f(n)
+ \leq X\sum_{d\geq1}\frac{(f*\mu)(d)}d
+ =X\prod_{p\in\mathscr P}\frac{1-p^{-1}}{1-p^{-9/10}}
+ \ll X.
+\]
+It follows that $n_{\mathscr P}>X^{1/20}$ for at most $O(X^{199/200})$
+integers $n\leq X$.
+
+Similarly put $R(n)=n/\operatorname{rad}(n)$ and $h(n)=R(n)^{1/2}$.
+Here $(h*\mu)(p)=0$, $(h*\mu)(p^e)\geq0$, and
+$\sum_{e\geq2}(h*\mu)(p^e)/p^e=O(p^{-3/2})$.
+The same argument gives $\sum_{n\leq X}h(n)\ll X$, so
+$R(n)>X^{1/20}$ for at most $O(X^{39/40})$ integers $n\leq X$.
+
+We also need the elementary inequality
+\begin{equation}\label{eq:pd-order-product}
+ \operatorname{ord}_n(3)\geq
+       \frac{\lambda(n)}n\prod_{p\mid n}\operatorname{ord}_p(3)
+       \qquad ((n,3)=1).
+\end{equation}
+Indeed, for each $p^e\Vert n$ write
+$\lambda(p^e)=a_pb_p$ with $a_p=\operatorname{ord}_p(3)$.
+The integer $\operatorname{lcm}_p(a_pb_p)$ divides
+$(\prod_p b_p)\operatorname{lcm}_p a_p$, while
+$\operatorname{lcm}_p a_p$ divides $\operatorname{ord}_n(3)$ and
+$\prod_p\lambda(p^e)\leq n$. Rearrangement proves
+\eqref{eq:pd-order-product}.
+
+Consider $X/2<n\leq X$, excluding the two moment exceptions above
+and the exceptions in \eqref{eq:pd-kp}. The product of the distinct
+prime factors of $n$ outside $\mathscr P$ is at least
+\[
+ \frac{n}{n_{\mathscr P}R(n)}\geq\frac12X^{9/10}.
+\]
+Consequently \eqref{eq:pd-order-product} gives
+\[
+ \operatorname{ord}_n(3)
+ \geq\exp(- (\log\log X)^3)
+                       \left(\tfrac12X^{9/10}\right)^{2/5}
+ >X^{1/3}
+\]
+for sufficiently large $X$. In the last step one may use
+$\exp(- (\log\log X)^3)\geq X^{-1/100}$ eventually, since
+$9/25-1/100=7/20>1/3$. This proves the required estimate on each
+dyadic interval. Sum over the intervals between $\sqrt X$ and $X$,
+where their logarithms are comparable to $\log X$, and absorb the
+at most $\sqrt X$ remaining integers.
+\end{proof}
+
+\subsection{Summability of Cantor denominators}
+
+\begin{proof}[Proof of Theorem~\ref{thm:pd-denominators}]
+Distinct reduced fractions of denominator at most $T$ are separated by
+at least $T^{-2}$. Cover $\mathcal C$ by its $2^k$ level-$k$ intervals,
+where $k=\lfloor2\log_3T\rfloor+1$. Each interval has length
+$3^{-k}<T^{-2}$ and contains at most one of these fractions. Thus the
+number of reduced rational points of $\mathcal C$ with denominator at
+most $T$ is $O(T^{2s})$.
+
+For each $d\in\mathscr D$, the orbit of one reduced $a/d\in\mathcal C$
+under $x\mapsto3x\pmod1$ stays in $\mathcal C$ and contains exactly
+$\operatorname{ord}_d(3)$ points. Orbits belonging to different
+reduced denominators are disjoint. It follows that
+\[
+ \#\{d\in\mathscr D:T/2<d\leq T,
+                       \ \operatorname{ord}_d(3)\geq d^{1/3}\}
+       \ll T^{2s-1/3}.
+\]
+Lemma~\ref{lem:pd-small-order} handles the remaining denominators,
+so
+\[
+ \#(\mathscr D\cap(T/2,T])
+       \ll T(\log T)^{-10}+T^{2s-1/3}.
+\]
+Since $s<2/3$ (equivalently $8<9$), we have
+$\kappa=1-(2s-1/3)>0$. Sum the reciprocal-denominator bound on
+the shells $(2^jY,2^{j+1}Y]$, $j\geq0$. The power part is
+$O(Y^{-\kappa})$ and the logarithmic part is
+$O(\sum_{j\geq0}(\log Y+j)^{-10})=O((\log Y)^{-9})$.
+\end{proof}
+
+\subsection{A positive-density sifted set}
+
+Let $\mathscr B$ be the odd members of $\mathscr D$ and put
+\[
+ \mathcal Q=\{q\geq1:q\equiv5\pmod6,
+                   \ d\nmid q\text{ for every }d\in\mathscr B\}.
+\]
+
+\begin{lemma}\label{lem:pd-sieve}
+The set $\mathcal Q$ has a natural density $\delta>0$, with
+\[
+ \delta\geq\frac16\prod_{d\in\mathscr B}(1-1/d)>0.
+\]
+\end{lemma}
+\begin{proof}
+For a finite subset $\mathscr B_0\subset\mathscr B$, its avoidance
+set is periodic. All its moduli are coprime to $6$. By the Chinese
+remainder theorem, conditioning on $q\equiv5\pmod6$ leaves uniform,
+independent prime-power residue coordinates modulo
+$\operatorname{lcm}(\mathscr B_0)$. The truncated prime valuations
+are therefore independent. Each event $d\nmid q$ is decreasing in
+these valuations. Such decreasing events are positively associated.
+For completeness, in one coordinate, increasing or decreasing
+functions $f,g$ in the same direction satisfy
+\[
+ 2\operatorname{Cov}(f(U),g(U))
+ =\mathbb E[(f(U)-f(U'))(g(U)-g(U'))]\geq0,
+\]
+where $U'$ is an independent copy. Conditioning on one coordinate
+and induction prove the same inequality in a product distribution.
+Applying it successively to products of decreasing indicators gives
+a density at least $\frac16\prod_{d\in\mathscr B_0}(1-1/d)$.
+This is a lower bound; divisibility by different composite moduli
+is not being treated as independent.
+
+Take $\mathscr B_0=\mathscr B\cap[1,Y]$, and denote the density of
+this finite avoidance set by $\delta_Y$. The densities decrease to
+some $\delta>0$, since Theorem~\ref{thm:pd-denominators} makes the
+displayed infinite product positive. Uniformly in $X$, the count
+removed on imposing all the conditions with $d>Y$ is at most
+\[
+ \sum_{\substack{d\in\mathscr B\\d>Y}}\lfloor X/d\rfloor
+       \leq X\sum_{\substack{d\in\mathscr B\\d>Y}}1/d.
+\]
+First let $X\to\infty$ with $Y$ fixed, then let $Y\to\infty$.
+The tail tends to zero, proving that $\mathcal Q$ itself has density
+$\delta$ and establishing the claimed lower bound.
+\end{proof}
+
+\subsection{Positive dimension and separation}
+
+\begin{proof}[Proof of Theorem~\ref{thm:pd-main}]
+If $q\in\mathcal Q$, no internal fraction $a/q$ belongs to
+$\mathcal C$: its reduced denominator would be an odd member $d>1$
+of $\mathscr D$ dividing $q$. Set $M=q-1$. Then $M>1$ and
+$M\equiv1\pmod3$, so Lemma~\ref{lem:pd-terminal}, by contraposition,
+gives $M\in\mathcal M_H$. Hence $M_H(X)\geq\delta X+o(X)$.
+
+If a positive Cantor integer has highest nonzero ternary position $j$,
+its value belongs to $[3^j,(3^{j+1}-1)/2]$. Consequently
+\[
+ \{b/a:a,b\in\mathcal D\setminus\{0\}\}
+   \subseteq\bigcup_{j\in\mathbb Z}
+       \left(\tfrac23\,3^j,\tfrac32\,3^j\right).
+\]
+In particular no integer in $[3T/2,2T]$ belongs to $\mathcal M_C$
+when $T$ is a power of $3$. Choose such a $T$ with $2T\leq X<6T$.
+By Lemma~\ref{lem:pd-sieve}, the interval
+$[3T/2+1,2T+1]$ contains $\delta T/2+o(T)$ elements of $\mathcal Q$.
+Their translates $M=q-1$ are in
+$(\mathcal M_H\setminus\mathcal M_C)\cap[1,X]$. For all sufficiently
+large $X$ there are at least $\delta T/4>\delta X/24$ of them.
+Use Lemma~\ref{lem:pd-inclusion} to identify this set difference
+with the difference of the two counting functions. The trivial upper
+bound $M_H(X)\leq\lfloor X\rfloor$ completes the assertion
+$M_H(X)\asymp X$.
+\end{proof}
+
+\begin{remark}
+The positive density proved above belongs to the explicit sifted
+subfamily $\{q-1:q\in\mathcal Q\}$, not necessarily to all of
+$\mathcal M_H$. The separation estimate is not a linear lower bound
+for $M_C(X)$. These results concern varying integer multipliers; they
+make no finiteness assertion about the visits of a fixed nonzero
+$3$-adic point under multiplication by powers of $2$.
+\end{remark}

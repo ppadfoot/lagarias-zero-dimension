@@ -1,0 +1,74 @@
+SOURCE AND PROOF AUDIT — POSITIVE-DENSITY COUNTING SECTION
+7 November 2026. Mathematical author: Timofei Iuzhakov.
+
+Selected source: PD in source_manifest.json, recovered 6 November note.
+The present section is a self-contained publication proof of that
+archived result, not a claim of a new theorem discovered during this
+publication pass. It does not rely on any unpublished local lemma.
+
+External input, used verbatim as a mathematical statement rather than
+as an additional conjecture:
+P. Kurlberg and C. Pomerance, On the periods of the linear congruential
+and power generators, Acta Arith.119(2)(2005),149–169,
+DOI10.4064/aa119-2-2, Lemma10.
+Primary manuscript https://arxiv.org/pdf/math/0405120 (v2, PDF p7).
+Primary author copy https://kurlberg.github.io/eprints/rsa.pdf.
+Publisher metadata https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/119/2.
+
+Precisely: for large X the number of n≤X with
+lambda(n)≤n exp(−(log log n)^3) is at most X/(log X)^10.
+This is unconditional. The surrounding paper contains conditional
+results too, but no such condition attaches to Lemma10. The section
+does not invoke them. Lemma5's order inequality is re-proved inside
+the section, so even that auxiliary citation is not a dependency.
+
+KP attributes Lemma10 to Friedlander–Pomerance–Shparlinski, Theorem5,
+Math.Comp.70(2001),1591–1605. We rely directly on the published KP
+lemma, not on a claimed new proof of FPS or on an unverified inference
+from its conditional statements. The older archived audit records a
+separate inspection of FPS and its corrigendum. In this publication
+pass the AMS corrigendum URL returned an access error; we do not
+claim a new complete corrigendum audit. This does not replace or
+weaken the directly checked unconditional KP statement.
+
+Problem attribution:
+J.C.Lagarias, Ternary expansions of powers of2,
+J.London Math.Soc.(2)79(3)(2009),562–588,
+DOI10.1112/jlms/jdn080, arXiv:math/0512006v4.
+ArXiv Problems1,2 correspond to journal Problems1.10,1.11 and count
+M_C,M_H respectively. Positive finite witnesses are stated explicitly.
+No varying-base conjecture is attributed to those counting problems.
+
+Prior carry-graph context:
+W.C.Abram and J.C.Lagarias, J.FractalGeom.1(4)(2014),349–390,
+DOI10.4171/JFG/11, arXiv:1308.3133. It is cited for provenance only:
+the finite graph, branch-to-dimension implication, terminal cycle
+identity, and finite-witness inclusion are all proved in the section.
+
+Independent proof checks during this pass:
+1. Full recovered PD counting proof re-read; earlier review read.
+2. Complete new LaTeX proof read by root, critic, and analytic agent;
+   all accepted the mathematics. Final bound reviews are separate files.
+3. Denominator definition excludes endpoints and unreduced duplicates.
+4. Large-order rational orbit count pays ord_d(3), not just one point.
+5. Bad-prime exponent .8 and the .9 moment weight give a convergent
+   Euler product; square-part moments are also summable. Both exceptional
+   power bounds are o(X/log^10X). The final good-order exponent .35
+   is strictly greater than1/3.
+6. The reciprocal tail logarithmic exponent is9, after dyadic summation.
+7. Finite sieve uses positive association; composite divisibility
+   events are not falsely independent. The summable tail is uniform inX.
+8. Moving interval [1.5T,2T] has asymptotic δT/2 selected parameters;
+   no uniform error in independently moving endpoints is assumed.
+9. MC⊂MH is actually proved. The prior source only promised that proof
+   by a cross-reference, so it has been supplied rather than inherited.
+10. No assertion about all MH density or the fixed-point Erdős target.
+
+Finite verifier: entirely independent of archived data files; standard
+library only, exact integers/rationals, deterministic output. Its ranges
+are diagnostics, not the hypotheses or proof of any asymptotic theorem.
+The section itself does not require the verifier to establish any claim.
+
+Production: parent compiles the integrated manuscript; pdflatex was not
+on this agent's PATH. Display layout was adjusted after parent's build.
+Source hashes and finite-check result are recorded alongside this audit.

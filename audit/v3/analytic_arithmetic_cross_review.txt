@@ -1,0 +1,66 @@
+INDEPENDENT PUBLICATION REVIEW: POSITIVE-DENSITY SECTION
+Author: Timofei Iuzhakov
+Date: 7 November 2026
+
+Reviewed file:
+  ../arithmetic/positive_density_section.tex
+SHA256:
+  b2bff974f6555a0ad65de4b5f8d22246241baf2bfcd2538fc345f627f95b02e7
+
+Verdict: accepted on complete mathematical reading. No unresolved proof
+defect was found. This review includes the final display, order-domain,
+and arXiv/journal numbering corrections.
+
+1. Carry graph and dimension. The complete reachable state set lies in
+0<=2c<M; every state has at least one outgoing edge. A branching strongly
+connected component gives two equal-length return words with different
+first input digits, hence positive dimension. Under zero dimension a
+terminal component is a deterministic cycle with a+b=1. Its rational
+cycle identity gives the internal real-Cantor witness (2c+1)/(M+1).
+Only necessity is used: coexistence of a terminal cycle with another
+branching component is not confused with zero dimension.
+
+2. Small orders. The exceptional-prime product, its convergent 9/10
+moment, and the squarefull-part 1/2 moment are sufficient as stated.
+The product/lcm lower bound for ord_n(3) is valid, including powers of 2.
+Outside the three exceptional sets, the remaining radical is at least
+X^(9/10)/2 and the resulting exponent 7/20 exceeds 1/3. Dyadic summation
+retains O(X/(log X)^10). No GRH assumption enters this argument.
+
+3. External input independently verified. Primary author-hosted PDF:
+  https://kurlberg.github.io/eprints/rsa.pdf
+Kurlberg--Pomerance, On the periods of the linear congruential and power
+generators, Lemma 10, PDF page 7, states exactly the used exceptional-set
+bound for Carmichael's function. The following page attributes it to
+Theorem 5 of the cited earlier work. I checked the stated lemma in the
+primary PDF; I did not reprove that earlier external theorem.
+
+4. Cantor denominators. The rational spacing bound uses level intervals
+strictly shorter than T^(-2). Each orbit has exactly ord_d(3) distinct
+points and retains its reduced denominator. Thus the orbit count and
+the reciprocal tail with kappa=4/3-2 log_3(2)>0 follow. Neither unreduced
+representations nor endpoints are included as new denominators.
+
+5. Sieve. Conditional prime-power valuation coordinates are independent
+modulo the finite least common multiple, but composite divisibility
+events are not. The text correctly applies positive association for
+decreasing events. Summability yields both a positive product lower
+bound and a uniform tail estimate; these prove a natural density for
+the sifted subfamily, not automatically for all positive-dimensional
+multipliers.
+
+6. Separation. The finite-witness inclusion M_C subset M_H is proved by
+disjoint blocks. The strict quotient intervals leave [3T/2,2T] empty
+of M_C for T a power of 3. The density estimate for the translated
+sifted set supplies a linear number in this interval for every large X,
+not merely a subsequence. The stated lower bound for M_H-M_C follows.
+No asymptotic density 1/2, linear lower bound for M_C, or fixed-orbit
+finiteness is inferred.
+
+Reproducibility: read the entire standard-library checker, copied it
+unchanged with its exact final section into analytic/verification_counting,
+and ran that private copy. PASS: 82,039 rational-membership checks,
+199 complete carry graphs, 261 finite-witness block checks, and 3,333
+order-product checks. The finite results supplement the analytic proof;
+they do not prove any density or summable-tail assertion. Exact result
+comparison and final file hashes are recorded in publication_audit.json.

@@ -1,0 +1,27 @@
+{
+  "old_body_equal_except_boundary_blank_lines": true,
+  "new_sections_only_citation_key_substitution": {
+    "metric_digital_rigidity.tex": true,
+    "positive_density_section.tex": true
+  },
+  "duplicate_labels": [],
+  "unresolved_ref_labels": [],
+  "files": [
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/paper/lagarias_zero_dimension.tex",
+      "sha256": "183171fe57ced860643a3b5861fcd49c364b5a917dbf16962f58d063515f9a7f"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/paper/metric_digital_rigidity.tex",
+      "sha256": "039db76ef3973bc3d093c7ff79780d721878d4c6b1d03f34b86fd18cc49caec5"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/paper/positive_density_section.tex",
+      "sha256": "85aee8b3b776821a3357a907f0db9ca376ce4b4c48356fd16b46501344c02b41"
+    },
+    {
+      "path": "work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/paper/causal_container.tex",
+      "sha256": "1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750"
+    }
+  ]
+}

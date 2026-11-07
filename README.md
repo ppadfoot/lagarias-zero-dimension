@@ -1,12 +1,30 @@
 # Powers of two in ternary: zero-dimensional exceptional sets
 
-**Timofei Iuzhakov** · Research preprint · **Version 2.0.0 — 6 November 2026**
+**Timofei Iuzhakov** · Research preprint · **Version 3.0.0 — 7 November 2026**
 
-**The paper proves the dimension assertions in two conjectures of Lagarias: the 3-adic conjecture and the real conjecture. In both settings, it also proves the stronger conclusion of packing dimension zero. Version 2 adds a uniform finite-visit theorem and vanishing nesting constants.**
+**The paper proves the dimension assertions in two conjectures of Lagarias: the 3-adic conjecture and the real conjecture. In both settings, it also proves the stronger conclusion of packing dimension zero. Version 2 added uniform finite-visit control. Version 3 adds generic absence of three visits, digital rigidity and linear-order multiplier counting.**
 
-[**Read the current paper · 29 pages**](https://github.com/ppadfoot/lagarias-zero-dimension/releases/download/v2.0.0/lagarias_zero_dimension.pdf) · [v2 release](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v2.0.0) · [Original v1](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v1.0.0) · [How to cite](#citation)
+[**Read the current paper · 39 pages**](https://github.com/ppadfoot/lagarias-zero-dimension/releases/download/v3.0.0/lagarias_zero_dimension.pdf) · [v3 release](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0) · [v2](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v2.0.0) · [Original v1](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v1.0.0) · [How to cite](#citation)
 
-## Three results at a glance
+## Version 3: two further qualitative advances
+
+**This is the updated version of the same article. The title, author and citation key `iuzhakov2026lagarias` are unchanged; all earlier proofs are retained.**
+
+| New result | Mathematical advance |
+| --- | --- |
+| **Generic absence of three visits — Theorem 13.1** | For Haar-almost every unit base, **simultaneously every nonzero starting point** has at most two Cantor visits: $E_b^{(3)}=\{0\}$. |
+| **Exact digital rigidity — Theorem 13.2** | Complete classification of unit-coefficient ternary equations with maximal branching, with every permitted target at every finite depth. |
+| **Linear multiplier count — Theorem 14.1** | $M_H(X)\asymp X$. This determines the order of growth in Lagarias's Problem 2 (journal Problem 1.11). |
+| **A linear gap between two representation notions — Theorem 14.1** | $\#((\mathcal M_H\setminus\mathcal M_C)\cap[1,X])\gg X$: finite integer witnesses omit linearly many positive-dimensional intersections. |
+| **Summable Cantor denominators — Theorem 14.2** | A convergent reciprocal sum with a quantitative tail bound supplies the infinite divisibility sieve. |
+
+These are complete qualitative results for infinite families. The first argument uses digital rigidity and exact nonlinear prefix blocks. The second independently connects carry graphs, rational Cantor points, multiplicative orders and a divisibility sieve. Neither uses the earlier dimension theorem as an unproved shortcut.
+
+**Scope:** the almost-everywhere theorem does not select $b=2$. Neither $1\notin E_2$ nor $M_H(X)\sim X/2$ is proved. Positive lower density does not assert existence of a natural-density limit. The varying-base theorem is not a numbered conjecture from Lagarias's original paper.
+
+[Complete inventory and selection](INVENTORY.md) · [Question attribution](audit/v3/source_question_map.txt) · [Fresh reviews](audit/v3/README.md) · [Checklist](PUBLICATION_CHECKLIST.json)
+
+## Results introduced in versions 1 and 2
 
 Repeatedly double a number and look at its base-3 digits. Which starting values avoid the digit **2** infinitely often? Lagarias formulated dimension conjectures for these exceptional starting values over both the 3-adic integers and the real numbers.
 
@@ -77,11 +95,11 @@ These results determine the dimensions of the exceptional sets and strengthen th
 
 | Resource | Contents |
 | --- | --- |
-| [Current paper](paper/lagarias_zero_dimension.pdf) and [LaTeX source](paper/lagarias_zero_dimension.tex) | Complete v2 manuscript, including both new proof branches and the full shared appendix |
+| [Current paper](paper/lagarias_zero_dimension.pdf) and [LaTeX source](paper/lagarias_zero_dimension.tex) | Complete v3 manuscript: all v2 proofs, new rigidity and counting sections, and the unchanged appendix |
 | [Version history](CHANGELOG.md) | Results introduced in each manuscript version, with links to the corresponding papers |
 | [Verification code](code/) and [recorded results](verification/combined_summary.json) | Original finite-container checks, exact linear checks, 632,835 real-transfer identities and 5,400 affine-carry identities |
 | [Internal review reports](audit/README.md) | Final-source mathematical reviews, their scope and exact source hashes |
-| [Publication checklist](PUBLICATION_CHECKLIST.json) | Build, PDF inspection and package checks for the v2 release |
+| [Publication checklist](PUBLICATION_CHECKLIST.json) | Build, PDF inspection and package checks for the v3 release |
 | [Companion paper: integer quotients of ternary Cantor numbers](https://github.com/ppadfoot/ternary-cantor-quotients) | A separate paper on a power lower bound and an infinite exceptional family |
 
 Run all checks with **Python 3.10 or newer**, standard library only, with assertions enabled:
@@ -101,7 +119,7 @@ The finite programs supplement the general proofs. The manuscript and code recei
 
 ## Citation
 
-**Cite the version containing the result you use:** v1 for the original 3-adic exceptional-set theorem; v2 for the finite-visit/nesting theorem or the real theorem. The v1 and v2 releases retain their own papers, source archives and dates. The repository's current README may receive explanatory updates between manuscript releases; use a versioned release for a fixed reference.
+**Keep the same citation key and identify the version:** v1 for the original 3-adic theorem; v2 for finite visits or the real theorem; v3 for rigidity, generic-base and linear-counting results. The v1, v2 and v3 releases retain their own papers, source archives and dates. The repository's current README may receive explanatory updates between manuscript releases; use a versioned release for a fixed reference.
 
 [CITATION.cff](CITATION.cff) and [CITATION.bib](CITATION.bib) describe the current manuscript:
 
@@ -110,9 +128,10 @@ The finite programs supplement the general proofs. The manuscript and code recei
   author = {Timofei Iuzhakov},
   title = {Zero dimension for the real exceptional set and vanishing 3-adic nesting constants},
   year = {2026},
-  note = {Version 2.0.0; research preprint},
-  url = {https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v2.0.0}
+  note = {Version 3.0.0; research preprint},
+  url = {https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0}
 }
 ```
 
 For computational reproduction, also identify the code commit. No DOI or arXiv identifier has been assigned to this preprint.
+

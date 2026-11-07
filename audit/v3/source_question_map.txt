@@ -1,0 +1,42 @@
+SOURCE QUESTION MAP — NOT AN EXHAUSTIVE WORLDWIDE PRIORITY SURVEY
+Date: 2026-11-07. Mathematical author: Timofei Iuzhakov.
+Status terminology: placed = a versioned public research preprint/repository release; externally published = bibliographically identified journal source. Internal accepted proof is not journal refereeing.
+
+EXACT EXTERNAL QUESTIONS AND PRESENT STATUS
+Question/source | Earlier placed work | Version-3 additions / remaining scope
+
+1. Lagarias arXiv Conjecture A (journal1.4): dim_H of the FULL untruncated real infinite-visit set is0. | Dimension v2.0.0 proves Hausdorff and packing zero, using a separate real transfer argument. | Inherited background, not new here. Truncated floor dynamics is a different set.
+2. Lagarias Conjecture B (journal1.7), also Abram–Bolshakov–Lagarias Conjecture1.2: dim_H E_2=0 in Z_3. | Dimension v1/v2 proves Hausdorff and packing zero. | Inherited; neither the dimension theorem nor the version-3 additions exclude point1.
+3. Lagarias nesting question Γ=lim_k dim_H E_2^(k)=0, explicitly recalled in ABL II §1.1 after Definition1.3. | Dimension v2 proves Hausdorff and packing nesting constants zero for arbitrary visit times. | Inherited. Do not call this ABL Conjecture1.4: ABL Definition1.4 defines the n-digit constant α_n.
+4. Weak Erdős question: finitely many n with 2^n binary ternary, equivalently1∉E_2. | Not proved. | Not proved by either new theorem. Base2 is explicitly exceptional for three visits.
+5. Strong Erdős assertion: no further powers after the known exponents0,2,8. | Not proved globally; restricted weight/pattern classes are separate. | Not proved; stronger than the weak target.
+6. Lagarias Problem1 (journal1.10): bounds for finite Cantor integer quotient count M_C(X). | Quotient v1.0.0 supplies exponent≈0.6660585297 lower bound. | Sharp order remains open. Recovered≈0.691726 bound is an additional local result, not promoted to a main theorem in the version-3 additions and not freshly audited here.
+7. Lagarias Problem2 (journal1.11): bounds for positive-dimensional multiplier count M_H(X). | Earlier quotient lower bound applies via M_C⊂M_H. | New main theorem M_H(X)≍X determines growth order; natural density and conjectural X/2 asymptotic remain unproved.
+8. Relation of Problems1/2. | Inclusion M_C⊂M_H is standard finite-witness repetition. | New positive linear size of M_H\M_C quantitatively separates them. It does not give M_C≍X.
+9. BMRS Integers22(2022)A96 §1.4: is sporadic complement F infinite, and does621*3^(4k)-20 lie in F for every k? | Quotient v1.0.0 proves this all-k family and hence infinity. | Already placed; cite as background, not new new theorem. Full quotient classification remains open.
+10. Lagarias Conjecture E: every fixed finite ternary pattern occurs in all sufficiently large powers2^n. | Not proved. | Not implied by density, dimension, or Haar-a.e. statements.
+11. Positivity dim_H E_2^(k)>0 for every finite k, raised in Lagarias §1.3. | No all-k resolution identified in the two inspected papers. Vanishing limit alone does not answer it. | No claim in version-3 additions.
+12. Whether E_2={0}, or whether the zero-dimensional exceptional sets are countable. | No such implication from the inspected dimension theorem. | Varying-base theorem gives E_b={0} almost everywhere only; no fixed-base conclusion.
+13. Lagarias §1.6 high/low digit combination challenge: improve the exponent log_3 2 for actual-power counts. | Not a theorem of the two inspected placed manuscripts. | Later local joint-counting packets are inventory/deferred material, not re-audited or included as a solved main problem here.
+14. Generalized nesting relaxation Γ_* and n-digit limit Γ_**. | External AL/ABL work already shows Γ_*>0 and Γ_**=log_3 φ; digit-count relaxation does not force Γ=0. | Do not relabel those old results as new or revive their relaxed problem as a substitute for E1.
+15. Central binomial squarefreeness discussed in Lagarias §6. | Already settled by external work cited there (Granville–Ramaré; Velammal). | Not a result of this project.
+
+NEW STRUCTURAL QUESTIONS, NOT NAMED LAGARIAS CONJECTURES
+16. Simultaneous no-three-visits for Haar-almost every unit base. | Not in the two existing articles; no corresponding numbered conjecture found in Lagarias v4. | New version-3 main theorem, with all λ and visit triples outside one null set.
+17. Complete finite maximal-branching plane classification and effective rational height bound. | Local later packet only. | Self-contained structural theorem supporting metric proof; exact finite statements, no fixed-base finiteness.
+18. Summability of internal reduced Cantor denominators prime to3. | Recovered local proof, absent from existing two articles. | New new theorem/central lemma with KP analytic input; novelty claim limited to comparison with the inspected earlier manuscripts.
+19. Original W, fixed-base resonance exclusion, uniform77 windows, endpoint strip and first-moment interfaces. | Local/internal research targets. | Keep separate inventory, with exact proved/unproved/deferred statuses. They do not become external conjectures merely by being solved internally.
+20. Restricted weight≤7, hole and run pattern theorems. | Local later packets. | Genuine restricted arithmetic results, not full E1. No automatic inference from infinitude to bounded weight or bounded pattern complexity.
+
+PRIMARY SOURCES FOR THE QUESTION LABELS
+Lagarias arXiv v4: https://arxiv.org/html/math/0512006v4
+Journal version: https://doi.org/10.1112/jlms/jdn080
+ABL II (nesting/n-digit definitions): https://arxiv.org/html/1508.05967v2
+BMRS quotient questions: https://math.colgate.edu/~integers/w96/w96.pdf
+KP unconditional analytic input, Lemmas5/10: https://arxiv.org/pdf/math/0405120v2
+
+SOURCE-NUMBERING NOTE
+Lagarias's positive three-visit lower bound is arXiv v4 Theorem1.5(3), journal Theorem1.6(iii). The question table uses A/B/E for original arXiv conjectures and explicitly identifies journal numbering only where verified. No fresh exhaustive literature search or independent certification of every legacy claim is asserted.
+
+PUBLICATION-IDENTITY UPDATE
+The authorized integration is version3 of the existing dimension manuscript under the same citation key iuzhakov2026lagarias. Released versions1/2 remain immutable. The new metric/counting proofs remain independent of the retained dimension proof. Earlier references to a companion in working discussions do not authorize a separate canonical citation identity.

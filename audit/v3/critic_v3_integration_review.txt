@@ -1,0 +1,18 @@
+VERSION-3 INTEGRATION REVIEW
+Date: 2026-11-07. Sole mathematical author: Timofei Iuzhakov.
+Verdict: ACCEPT the four exact TeX files bound below for integration of the two independently reviewed additions. No unresolved mathematical or scope correction found in the final integration read.
+
+I read the revised abstract, all version/scope paragraphs, new verification/dependency record, bibliography, and the insertion locations in the complete main source. The author, title and citation identity are retained; version3 is not presented as an independent new paper. Earlier released versions remain separate immutable sources. The introduction accurately separates inherited A/B/vanishing-nesting results from the new metric/classification and counting/denominator results.
+
+The claimed closures are precise. M_H≍X determines growth order in Lagarias Problem2/journal1.11; it does not establish a natural density or asymptotic X/2. Linear M_H\M_C does not imply a linear M_C bound. The Haar result chooses one null set for all starting points and time triples, but base2 is explicitly exceptional. E1 and the sharp finite-quotient order remain open. No numbered varying-base conjecture or exhaustive worldwide priority is attributed to Lagarias/the literature.
+
+I independently compared the retained mathematical body from its first section through the old proof/check record with the source version2: it is equal except for boundary blank-line separators. The causal-container file has the unchanged known SHA. These are preservation checks; this integration review is not a fresh line-by-line certification of the inherited proofs.
+The two new integrated sections differ from the fully reviewed/frozen lane files only by the global bibliography-key substitution Lagarias2009→Lagarias. Their mathematical contents and every checked formula are unchanged. The separate new_sections_review.txt records their complete mathematical/code read and private byte-identical finite reruns. A combined label/reference audit found no duplicate labels or unresolved \ref/\eqref labels across the four files.
+
+The integration accurately distinguishes internal AI-assisted reviews and supplementary finite computation from external peer review or formal verification. The counting branch names its unconditional external analytic input KP Lemma10. The new branches are not said to depend on the inherited container theorem. Compilation/rendering and repository document metadata are handled separately; they are not asserted to have been checked by this mathematical binding.
+
+BOUND FINAL TEX
+183171fe57ced860643a3b5861fcd49c364b5a917dbf16962f58d063515f9a7f  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/paper/lagarias_zero_dimension.tex
+039db76ef3973bc3d093c7ff79780d721878d4c6b1d03f34b86fd18cc49caec5  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/paper/metric_digital_rigidity.tex
+85aee8b3b776821a3357a907f0db9ca376ce4b4c48356fd16b46501344c02b41  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/paper/positive_density_section.tex
+1ae15961cd3bc705e7313c9e56de34e51277cffaa7cc3a58c6e4c9cb6e672750  work/publication_refresh_2026-11-07/v3/lagarias-zero-dimension/paper/causal_container.tex

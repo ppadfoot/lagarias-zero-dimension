@@ -1,0 +1,24 @@
+FINAL MATHEMATICAL AND CODE REVIEW OF THE TWO NEW SECTIONS
+Date: 2026-11-07. Sole mathematical author: Timofei Iuzhakov.
+Independent internal AI-assisted review; no external refereeing or formal verification claimed.
+
+Verdict: ACCEPT both bound section texts and their supplementary checkers, with no remaining mathematical corrections. This acceptance concerns the exact hashes below. Final manuscript integration and references will receive a separate binding. It does not freshly recertify the inherited version-2 body or assert worldwide priority.
+
+METRIC SECTION
+Read every proof in the new TeX and reconstructed the finite coincidence/one-switch argument and the Haar transfer independently against the frozen source notes. In the finite classification, the target injectivity induction starts at k+1; the pair coincidence at m=k+1 is already immediate. The one-switch relation is finite-depth, and its use at m=g+1 is legitimate: both child words have length g and their differing digit remains at g-1. The ordinary representative restriction C∈B_g at the full modulus is essential and is stated. The sign/projective count and rational cutoff 3^m>4H^2 check.
+The binomial valuation inequality handles arbitrary N∈Z_3 with v_3(N)=s, including negative or nonordinary N. q≥m+s+1 pays both the cube shifts and the nonlinear descendant terms. e+3^s y ranges over D_(m+s) with exactly2^s lifts of every D_m residue even for m<s. The integral uses normalized Haar factor3^{-(q-1)}; strict windows shrink the measure, not an individual ratio fiber. The residual set has at most two points, not necessarily two actual full points. N≡1 is reduced by inversion and N≡2 by the first differing digit. The countable union over rational time ratios eliminates all points simultaneously; parity and the square map cover the negative unit coset. No a.e.-to-base2 step occurs.
+The source numbering/citation-key corrections were applied: journal Theorem1.6(iii), arXivv4 Theorem1.5(3), bibliography Lagarias2009. The text expressly declines to attribute a varying-base conjecture to Lagarias.
+Read the full checker. Its classification is exhaustive at m=1,2,3,4; its nonlinear cases are explicitly sampled complete groups, not a claim of exhaustive all-parameter verification. Private copied-source rerun returned byte-identical JSON:3280 coefficient pairs,245280 intercepts;27 parameter cases,891 groups,3580 shift identities,145216 descendants. All-depth proofs are written arguments, not the finite output.
+
+COUNTING SECTION
+Read every proof in the new TeX and recovered original. Verified the exact KP Lemma10 statement in the primary source https://arxiv.org/pdf/math/0405120v2 (unconditional O(X/log^10 X) exceptions). The needed order-product inequality is reproved. The bad-prime and powerful-part moment exponents, dyadic reduction, disjoint rational orbits, and reciprocal-shell summation all give the stated logarithmic tail plus power tail.
+The graph implication is necessary only and uses reachable terminal SCCs. Dimension positivity from two equal-length distinct return words is constructive. M_C⊂M_H is explicitly established by nonoverlapping independent copies of a positive finite witness. Sieve positivity is proved by association of decreasing functions of independent prime valuations, not independent composite divisibility. The infinite sieve has a uniform summable tail; X→∞ is taken before Y→∞. This gives a genuine density for Q and only lower density for the full multiplier family. The leading-digit interval separation yields c2X for every sufficiently large X. It gives no linear lower bound for M_C and no asymptotic X/2 for M_H.
+The arXiv/journal Problem numbering and n≥2 order domain have been made explicit. Read the full checker and reran private copied files: byte-identical PASS with82039 rational checks,199 graphs,261 finite witness checks,3333 order-product checks and exact finite association tests. These checks do not certify an infinite reciprocal tail or density by experimentation.
+
+BOUND FILES
+d35245434ec65364d5d2fd960819989694b11c94e0190931ff7c00acb2f27a1e  work/publication_refresh_2026-11-07/analytic/metric_digital_rigidity.tex
+555c66ec5925ac299375777987d3e5e1d739b59a87e2782378bf7bd56c63af4f  work/publication_refresh_2026-11-07/analytic/check_metric_digital_rigidity.py
+045c15ff088f3aed4a5d0dd17bf7e937b1c86d935f7a62ac3654ca370bdf0417  work/publication_refresh_2026-11-07/analytic/metric_digital_rigidity_checks.json
+b2bff974f6555a0ad65de4b5f8d22246241baf2bfcd2538fc345f627f95b02e7  work/publication_refresh_2026-11-07/arithmetic/positive_density_section.tex
+47ed0ced9b0dce798419e99f9f2f614353dcc84cb920206c8cc29350968164fe  work/publication_refresh_2026-11-07/arithmetic/check_positive_density.py
+5a72c992c1e3c1d83380149601be716a56b5f3475d0259b02b433e0bb4f42b45  work/publication_refresh_2026-11-07/arithmetic/positive_density_checks.json

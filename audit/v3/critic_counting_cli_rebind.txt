@@ -1,0 +1,5 @@
+COUNTING CHECKER CLI REBIND — 2026-11-07
+Accepted the portability-only change to the already reviewed checker. Full diff read: argparse --proof/--output options replace fixed output/source paths; the mathematical checking loops are unchanged. Private copied-source execution with explicit options returned byte-identical PASS JSON. The TeX proof is unchanged. This addendum supersedes only the counting checker/result hashes in new_sections_review.txt and new_sections_bindings.json; their mathematical acceptance remains unchanged.
+b2bff974f6555a0ad65de4b5f8d22246241baf2bfcd2538fc345f627f95b02e7  work/publication_refresh_2026-11-07/arithmetic/positive_density_section.tex
+85bc7249aaab6c58cca1d56c420195c08cd9723d6590c19f008291335dc5d7a0  work/publication_refresh_2026-11-07/arithmetic/check_positive_density.py
+ed9cf6c9e9def264740ec3ef6d32badf1875dc64e1f9af029133902e85c05de0  work/publication_refresh_2026-11-07/arithmetic/positive_density_checks.json

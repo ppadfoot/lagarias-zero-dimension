@@ -1,0 +1,29 @@
+{
+  "scope": "Exact local sources for selection and critical source/proof audit; final draft binding follows separately.",
+  "files": [
+    {
+      "path": "outputs/erdos406_program_map_2026-11-07/sources/lagarias_zero_dimension_current.tex",
+      "sha256": "80393a62d9d8b8c592ab347781d5d8c1f932cd6fea7cd430f723a1db4385992b"
+    },
+    {
+      "path": "outputs/erdos406_program_map_2026-11-07/sources/ternary_cantor_quotients_current.tex",
+      "sha256": "a316227f095f520b04d9c8dd8ea95f85de6c5cb6f648aba4ed845e17c72bdb0e"
+    },
+    {
+      "path": "outputs/erdos406_two_goal_attack_2026-11-07/root/full_game_inverse.txt",
+      "sha256": "df73ec079fd2995372ad8d26438c86779a89608737dea815df00f4d3d56a8189"
+    },
+    {
+      "path": "outputs/erdos406_two_goal_attack_2026-11-07/root/metric_emptiness_theorem.txt",
+      "sha256": "d07cc2e8b0744528a646df1ad4b7d03dc48668855f4034253d93982c0160745f"
+    },
+    {
+      "path": "outputs/erdos406_effective_windows_2026-11-07/dynamics/finite_game_classification.txt",
+      "sha256": "59caf41e0567919a7b42f3b3654d57e24a179e04706f61c4df5a251dd9869172"
+    },
+    {
+      "path": "outputs/erdos406_program_map_2026-11-07/evidence/recovered_corpus/packages/LE406_positive_density_2026_11_06/LE406_positive_density_2026_11_06/PROOF_RU.md",
+      "sha256": "ec7ec2a86d342f215e68fc6e83a2c7de66e73b316df7978ba907e87815651ce2"
+    }
+  ]
+}
