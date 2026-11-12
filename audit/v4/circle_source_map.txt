@@ -1,0 +1,72 @@
+CIRCLE AND FIXED MOVING TARGETS: SOURCE AND INTEGRATION MAP
+Prepared 12 November 2026 for manuscript version4.0.0.
+Sole manuscript author: Timofei Iuzhakov.
+
+Final section source: paper/circle_targets.tex.
+Section label: circle:section.
+Main theorem: circle:main (real and3-adic fixed moving targets).
+Circle result: circle:cor:dimension.
+Transfer lemma: circle:lem:transfer.
+Finite alternatives: circle:cor:finite-targets.
+New equation labels: circle:eq:input, circle:eq:error,
+circle:eq:congruence, circle:eq:cover-count.
+No new macros, packages or bibliography keys are required.
+
+Development provenance (identifiers, not public proof or build dependencies):
+circle proof packet, 11 November 2026, Sections 1--5 and 6.1--6.2,
+read in full during preparation.
+The standard0,2 target in Section6.2 is explicitly included by a
+parity/scaling argument in circle:cor:dimension. The normalized0,1
+target and the standard middle-thirds target are named separately.
+The unused extension to every possible missing digit is omitted.
+The dimension-selection audit of 12 November 2026, Section 3, informed
+preparation. The separate final English-source review is completed and
+recorded in final_circle_integration_review.txt, with its exact SHA256
+and scope.
+
+Published dependencies checked directly against the v3 TeX:
+ - real:lem:extraction: arbitrary infinite true visit times, actual anchor,
+   positive rational3-adic unit slopes possibly<1, finite integer data.
+ - real:prop:finite, real:eq:finite-simple: all admissible finite words,
+   uniform in every affine3-adic shift, constant independent of depth.
+ - real:eq:theta / real:eq:s: exact threshold scheme allows every
+   epsilon>0 before the visit set is chosen. This selection is restated.
+The full older container proof is not replaced or claimed freshly
+recertified by this section author; the above proved inputs are explicit.
+
+New argument checked while translating:
+delta_i=V_i-c_iT-D_i is in q_i^-1 Z and(-1,c_i+1), with exactly
+p_i+2q_i-1 possible errors. Irrationald_i and depth-dependentD_i are
+allowed because finite-word bound is uniform over beta. Negative real
+points and terminating expansions work with canonical floors.
+Countable covers are indexed only by finite integer data; tau/xi
+are fixed beforehand. No uncountable union is charged as countable.
+Box dimension is controlled per compact component, not globally.
+
+Question attribution: Lagarias, Ternary expansions of powers of2,
+arXiv:math/0512006v4, Section5 (p.26 in that version). The manuscript
+uses existing bibliography key LagariasArxiv. The source question uses
+the normalized digits-0,1 target; the digits-0,2 target is an additional
+standard middle-thirds variant, not the source question's target.
+L18 is an internal audit
+identifier, not a source conjecture number. The packing result and
+fixed moving targets are strengthened statements of the same application.
+
+Scope retained explicitly: no claim1 notinE2; circle class1=0 is included;
+dense dyadic rationals give box dimensions1. No finite-visit Assouad
+circle theorem, no countability conclusion, no uniform union over all
+target sequences, and no unbounded target multiplicity statement.
+
+Public verification code: code/v4/circle/check.py, with recorded output
+in code/v4/circle/CHECKS.json. It checks finite arithmetic identities and
+negative controls, not the all-depth dimension theorem.
+
+The complete new transfer proof is included in paper/circle_targets.tex.
+Its earlier finite-word dependencies are explicit results in the same
+public manuscript. No unpublished development note or private chat is
+needed to follow those dependencies or build the article. The development
+identifiers above are provenance only. The final circle integration review,
+root integration review and publication checklist record their separate
+mathematical, assembly and PDF-check scopes; earlier selection reviews are
+not substituted for those final records. See source_question_map.txt and
+README.md here for the public attribution and review overview.

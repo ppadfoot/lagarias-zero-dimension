@@ -4,8 +4,8 @@ title: "Zero dimension for the real exceptional set and vanishing 3-adic nesting
 authors:
   - family-names: Iuzhakov
     given-names: Timofei
-version: 3.0.0
-date-released: 2026-11-07
+version: 4.0.0
+date-released: 2026-11-12
 repository-code: "https://github.com/ppadfoot/lagarias-zero-dimension"
 preferred-citation:
   type: unpublished
@@ -14,6 +14,6 @@ preferred-citation:
     - family-names: Iuzhakov
       given-names: Timofei
   year: 2026
-  version: 3.0.0
-  url: "https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0"
-  notes: "Research preprint, version 3.0.0; internal reviews, not external peer review."
+  version: 4.0.0
+  url: "https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v4.0.0"
+  notes: "Research preprint, version 4.0.0; internal reviews, not external peer review."

@@ -1,6 +1,31 @@
 # Publication inventory and selection
 
-Timofei Iuzhakov · 7 November 2026
+Timofei Iuzhakov · 12 November 2026
+
+## Results selected for version 4
+
+Version 4 extends the existing article with three complete proof sections. The selection below records what this version adds; the version-3 inventory is preserved afterwards as a dated historical snapshot. The article keeps the citation key `iuzhakov2026lagarias` and the sole author Timofei Iuzhakov.
+
+| Selected result | What version 4 establishes | Source question and scope |
+| --- | --- | --- |
+| **Exact generalized exceptional dimension** | Hausdorff and packing dimensions of $`E_*`$, its generalized Hausdorff nesting constant $`\Gamma_*`$, and its packing nesting limit all equal $`\tfrac12\log_3 2`$. The section also gives a quantitative upper convergence rate and a sharp Assouad bound for each fixed infinite family of distinct unit multipliers. | Abram–Lagarias (2014), Problem 1.6 and (1.14). The positive lower bound and Bolshakov construction were already known; the matching upper bound is the new part included here. This is the internal A02 group. |
+| **Exact typical intersection dimensions** | For Haar-almost every $`\lambda\in1+3\mathbb Z_3`$, the Hausdorff, packing, lower box and upper box dimensions of $`\Sigma\cap\lambda^{-1}\Sigma`$ are all $`\log_3(4/3)`$. A full-support fair measure, a sharp golden-ratio bound for nonidentity unit multipliers and the punctured dimension limits at the identity complete the section. | Addresses the measure-theoretic part of the parameter programme in Abram–Lagarias §2.4. A03 is an internal label, not a numbered source conjecture. The full exceptional spectrum and category questions remain outside the result. |
+| **Fractional-part and fixed moving-target exceptional sets** | The real circle exceptional set has Hausdorff and packing dimension zero. The theorem permits any fixed sequence of real target translations, with a parallel 3-adic statement and any fixed finite number of alternatives per time. | Answers Lagarias's §5 fractional-part question for the digits-0,1 target $`K_{01}`$. The standard digits-0,2 target $`K_{02}=2K_{01}`$ is an additional proved variant. Each target sequence is fixed before the starting point is chosen. |
+
+The complete proofs are in [generalized exceptional sets](paper/generalized_exceptional.tex), [typical intersections](paper/typical_intersections.tex), and [circle targets](paper/circle_targets.tex). The [v4 review record](audit/v4/README.md) identifies the exact reviewed sources, while the [source-question map](audit/v4/source_question_map.txt) distinguishes external questions, known inputs and extensions. Finite verification scripts in [code/v4](code/v4) check arithmetic and combinatorial identities; they supplement the proofs.
+
+The supporting lemmas, convergence rate, measure construction and coding consequences are organized within these three arguments. They are not counted as additional independently resolved source conjectures. The prior dimension, metric and counting sections remain part of the same article and retain their original version attribution.
+
+## Selection boundaries for version 4
+
+- **Still unresolved here:** $`1\notin E_2`$, the exact list of good powers, a subpolynomial count of actual good powers, the full exceptional parameter spectrum and category questions, and the sharp quotient-counting asymptotics. No reduction, restricted pattern family or finite computation is promoted to a solution of these targets.
+- **Separate companion article:** [ternary-cantor-quotients](https://github.com/ppadfoot/ternary-cantor-quotients) keeps its own article and citation identity. New quotient-specific material is reserved for its own reviewed update; it is not absorbed into this v4 or silently assigned a new status here.
+- **Review scope:** the v4 reports apply to the named final source hashes. Historical ledgers and earlier reviews retain their original scope. This update does not freshly certify every archived research claim or claim worldwide priority.
+- **Public package:** the selected proofs, verification code and scoped review reports are included. Raw private chat exports are not publication dependencies and are not included.
+
+## Historical version-3 snapshot — 7 November 2026
+
+The remaining text preserves the earlier inventory. Its references to “this update,” deferred results and then-current companion versions describe **version 3**, not the current v4 selection above. Where later results supersede those decisions, the v4 selection takes precedence; the earlier record remains available for version history.
 
 This inventory separates the new version-3 sections from earlier publications and from the remaining research programme. Its baseline covers **217 formal historical records, 51 grouped results and 20 recovered archives**; later packets extend and supersede that baseline. These counts describe records and sources, **not 217 independent new theorems**. The complete available mathematical ledger is retained in [research_inventory.json](inventory/research_inventory.json), with source hashes in [source_manifest.json](inventory/source_manifest.json).
 

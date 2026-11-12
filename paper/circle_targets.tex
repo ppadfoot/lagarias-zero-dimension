@@ -1,0 +1,269 @@
+\section{Fractional parts and fixed moving Cantor targets}
+\label{circle:section}
+
+The full real expansion condition in Theorem~\ref{real:thm:main}
+restricts digits on both sides of the ternary point. A different question,
+posed by Lagarias in \cite[Section~5]{LagariasArxiv}, restricts only the
+fractional part. Put
+\[
+ K_{01}=\left\{\sum_{j\ge1}\varepsilon_j3^{-j}:
+                    \varepsilon_j\in\{0,1\}\right\}\subset[0,1/2],
+ \qquad \mathcal C_{\mathrm{per}}=\Z+K_{01}.
+\]
+The set $\mathcal C_{\mathrm{per}}$ is closed, since this union of
+integer translates is locally finite. On $\mathbb T=\R/\Z$, define
+\[
+ E_{\mathbb T}=\{x\in\mathbb T:
+                   \{2^nx\}\in K_{01}\text{ for infinitely many }n\ge0\}.
+\]
+Here $\{y\}=y-\lfloor y\rfloor$; the condition is independent of the
+representative of $x$. For the standard middle-thirds set
+$K_{02}=2K_{01}$, also put
+\[
+ E_{\mathrm{circ}}=\{x\in\mathbb T:
+                 \{2^nx\}\in K_{02}\text{ for infinitely many }n\ge0\}.
+\]
+The set $E_{\mathbb T}$ is the fractional-part exceptional set in
+Lagarias's question; $E_{\mathrm{circ}}$ is its additional standard
+middle-thirds variant. We answer both dimension questions and prove
+the following stability under translations.
+The empty set is assigned
+Hausdorff and packing dimension zero.
+
+\begin{theorem}[Fixed moving targets]\label{circle:main}
+For every fixed sequence $\boldsymbol\tau=(\tau_n)_{n\ge0}$ of real
+numbers, the set
+\[
+ E_{\mathbb T}(\boldsymbol\tau)=
+ \{x\in[0,1]:2^nx+\tau_n\in\mathcal C_{\mathrm{per}}
+                        \text{ for infinitely many }n\ge0\}
+\]
+has Hausdorff and packing dimension zero. The shifts may be irrational
+and unbounded. Similarly, for every fixed sequence
+$\boldsymbol\xi=(\xi_n)_{n\ge0}$ in $\Z_3$, the set
+\[
+ E_3(\boldsymbol\xi)=
+ \{x\in\Z_3:2^nx+\xi_n\in\Sigma
+                        \text{ for infinitely many }n\ge0\}
+\]
+has Hausdorff and packing dimension zero.
+\end{theorem}
+
+\begin{corollary}[The circle question]\label{circle:cor:dimension}
+The two fractional-part exceptional sets satisfy
+\[
+ \dimH E_{\mathbb T}=\dimP E_{\mathbb T}
+ =\dimH E_{\mathrm{circ}}=\dimP E_{\mathrm{circ}}=0.
+\]
+\end{corollary}
+
+The sequence of targets is fixed before the point is chosen. There is
+no simultaneous assertion for the union over all target sequences:
+choosing $\tau_n=-2^nx$ would include any prescribed real point.
+The new ingredient below is the transfer from a uniform affine
+finite-word estimate to a periodic real target. Its two arithmetic
+inputs, Lemma~\ref{real:lem:extraction} and
+Proposition~\ref{real:prop:finite}, were proved earlier in this manuscript.
+
+\subsection{The precise finite input}
+
+For every $\varepsilon>0$, those inputs provide fixed finite extraction
+parameters with the following property. From any infinite
+$S\subseteq\Z_{\ge0}$ one can choose distinct true indices
+$n_0,n_1,\ldots,n_m\in S$ and separated template data such that, for
+$c_i=2^{n_i-n_0}$,
+\begin{equation}\label{circle:eq:input}
+ \left|W_L(\boldsymbol\beta)\right|\le C_{\mathcal D}3^{\varepsilon L}
+ \qquad(L\ge q,\ \boldsymbol\beta\in\Z_3^m),
+\end{equation}
+where
+\[
+ W_L(\boldsymbol\beta)=
+ \{U\in\Sigma_L:[c_iU+\beta_i]_L\in\Sigma_L\ (1\le i\le m)\}.
+\]
+The constant depends on the chosen finite template data $\mathcal D$,
+but not on $L$ or the shifts. All admissible finite words are counted;
+infinite extendibility is not required.
+
+For clarity, the parameters can be fixed before $S$ is specified.
+In \eqref{real:eq:s}, choose $k$ and then $r$ so that
+$1/k+2^{k+1}\log2/(rk\log3)<\varepsilon$, with a positive margin.
+Choose $b$ with $3^b>r-1$ and put $q=b+k$. Using the thresholds
+\[
+ T_j=u^{2^{j-1}-1}\ (2\le j\le r-1),\qquad
+ T_{\rm s}=u^{2^{r-1}-1},\qquad m=u^{2^r},
+\]
+and then fixing a sufficiently large integer $u$, makes
+$\theta,\epsilon_F,\eta$ in
+\eqref{real:eq:theta}--\eqref{real:eq:s} small enough that
+$\theta\le1/2$ and $s\le\varepsilon$. Apply
+Lemma~\ref{real:lem:extraction} with $K=m$ and then
+Proposition~\ref{real:prop:finite}; its constant is
+$C_{\mathcal D}=3^{R+b+k-1}$. Some slopes $c_i$ may be smaller than one.
+They are always positive rational $3$-adic units.
+
+\subsection{An affine transfer to the periodic target}
+
+\begin{lemma}[Periodic-target transfer]\label{circle:lem:transfer}
+Let $c_i=p_i/q_i>0$ be reduced rationals with $3\nmid p_iq_i$.
+Suppose \eqref{circle:eq:input} holds for these slopes, uniformly in
+all shifts. For arbitrary fixed $d_1,\ldots,d_m\in\R$ and a bounded
+closed interval $I$, the compact set
+\[
+ F=\{Y\in I:Y\in\mathcal C_{\mathrm{per}},\quad
+             c_iY+d_i\in\mathcal C_{\mathrm{per}}\ (1\le i\le m)\}
+\]
+has upper box dimension at most $\varepsilon$.
+\end{lemma}
+
+\begin{proof}
+Compactness follows from closedness of the targets. Fix $L\ge q$ and
+$Y\in F$, and write
+\begin{align*}
+ T&=\lfloor3^LY\rfloor,&
+ V_i&=\lfloor3^L(c_iY+d_i)\rfloor,&D_i&=\lfloor3^Ld_i\rfloor,\\
+ t&=\{3^LY\},&t_i&=\{3^L(c_iY+d_i)\},&\theta_i&=\{3^Ld_i\}.
+\end{align*}
+Let $U$ be the representative of $T$ modulo $3^L$ in $[0,3^L)$.
+The target conditions imply
+$U\in\Sigma_L$ and $V_i\bmod 3^L\in\Sigma_L$.
+Indeed, for $z\in K_{01}$ the remainder after its first $L$ ternary
+digits is between zero and $3^{-L}/2$, so the floor reads exactly
+that prefix, including terminating expansions. Negative $Y$ causes
+no change, since
+$T=3^L\lfloor Y\rfloor+\lfloor3^L\{Y\}\rfloor$.
+
+The exact rounding error is
+\begin{equation}\label{circle:eq:error}
+ \delta_i=V_i-c_iT-D_i=c_it+\theta_i-t_i.
+\end{equation}
+Its first expression gives $\delta_i\in q_i^{-1}\Z$ and its second
+gives $-1<\delta_i<c_i+1$. Thus
+\[
+ \delta_i\in\mathscr D_i=q_i^{-1}\Z\cap(-1,c_i+1),
+ \qquad |\mathscr D_i|=p_i+2q_i-1.
+\]
+Every element of $\mathscr D_i$ is $3$-adically integral. Set
+$\beta_i=D_i+\delta_i\in\Z_3$. Since $3^L\mid T-U$ in $\Z_3$,
+\begin{equation}\label{circle:eq:congruence}
+              c_iU+\beta_i=V_i-c_i(T-U)\equiv V_i\pmod{3^L}.
+\end{equation}
+Consequently $U\in W_L(\boldsymbol\beta)$.
+
+At each fixed depth $L$, all $D_i$ are fixed, while the vector of
+rounding errors has at most $\prod_i(p_i+2q_i-1)$ possibilities.
+If $I=[a,b]$, the integer part of $Y$ has at most
+$J_I=\lfloor b\rfloor-\lfloor a\rfloor+1$ possibilities.
+Each integer part and each $U$ specify one interval of length $3^{-L}$
+containing the corresponding points. Replacing these intervals by
+their closures gives a cover of $F$ by at most
+\begin{equation}\label{circle:eq:cover-count}
+        J_I\prod_{i=1}^m(p_i+2q_i-1)\,C_{\mathcal D}3^{\varepsilon L}
+\end{equation}
+such intervals. The shifts $\beta_i$ may vary with $L$, and the $d_i$
+may be irrational: this is precisely why the uniformity in
+\eqref{circle:eq:input} is needed. No common shift vector across depths
+has been assumed. All factors before $3^{\varepsilon L}$ in
+\eqref{circle:eq:cover-count} are independent of $L$.
+The consecutive scales $3^{-L}$ have bounded ratio, proving the claim.
+\end{proof}
+
+\subsection{Countable compact covers}
+
+\begin{proof}[Proof of Theorem~\ref{circle:main}]
+Fix $\varepsilon>0$ and the parameters of
+\eqref{circle:eq:input}. If $x\in E_{\mathbb T}(\boldsymbol\tau)$,
+its set of true visit times is infinite. Choose the extracted times
+from this set and put
+\[
+ Y=2^{n_0}x+\tau_{n_0},\qquad
+ c_i=2^{n_i-n_0},\qquad d_i=\tau_{n_i}-c_i\tau_{n_0}.
+\]
+Then $Y$ and all $c_iY+d_i$ belong to $\mathcal C_{\mathrm{per}}$,
+and $Y\in I=[\tau_{n_0},\tau_{n_0}+2^{n_0}]$.
+Lemma~\ref{circle:lem:transfer} gives a compact set $F$ containing
+$Y$ with $\dimB F\le\varepsilon$. Its image under the inverse affine map
+$Y\mapsto2^{-n_0}(Y-\tau_{n_0})$ is compact with the same bound.
+
+There are countably many finite choices of visit indices, integer
+template coefficients and integer exponents. The sequence
+$\boldsymbol\tau$ is fixed, so $I$ and the real shifts $d_i$ are
+determined by these indices. The unit remainders in the templates
+are likewise determined by the slopes, integer coefficients and
+exponents. Hence these affine images form a countable compact cover
+of $E_{\mathbb T}(\boldsymbol\tau)$, each member having upper box
+dimension at most $\varepsilon$. Countable stability of packing
+dimension yields
+\[
+ \dimH E_{\mathbb T}(\boldsymbol\tau)
+ \le\dimP E_{\mathbb T}(\boldsymbol\tau)\le\varepsilon.
+\]
+
+For the $3$-adic statement, extract the same type of finite data from
+the true visit set of $x\in E_3(\boldsymbol\xi)$. This time set
+\[
+ Y=2^{n_0}x+\xi_{n_0},\qquad
+ \beta_i=\xi_{n_i}-c_i\xi_{n_0}\in\Z_3.
+\]
+The compact set
+\[
+ G=\{Y\in\Sigma:c_iY+\beta_i\in\Sigma\ (1\le i\le m)\}
+\]
+has at most $|W_L(\boldsymbol\beta)|$ prefix cylinders at depth $L$;
+therefore $\dimB G\le\varepsilon$. The map
+$x\mapsto2^{n_0}x+\xi_{n_0}$ is an isometry of $\Z_3$.
+Countably many inverse images, indexed by the finite integer data,
+cover $E_3(\boldsymbol\xi)$. Its Hausdorff and packing dimensions
+are at most $\varepsilon$ as well. Letting $\varepsilon\downarrow0$
+proves both assertions.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{circle:cor:dimension}]
+Take $\tau_n=0$ for all $n$ and project $[0,1]$ onto $\mathbb T$.
+This Lipschitz projection maps the exceptional set onto
+$E_{\mathbb T}$, so both dimensions are zero.
+
+For the standard target, choose $x\in[0,1)$ representing a point of
+$E_{\mathrm{circ}}$, and put $y=x/2$. At a visiting time write
+$2^nx=a+2z$, with $a\in\Z$ and $z\in K_{01}$. Then
+$2^ny=a/2+z$ belongs either to $\Z+K_{01}$ or to
+$\Z+1/2+K_{01}$ according to the parity of $a$. One of these two
+alternatives occurs infinitely often. Theorem~\ref{circle:main},
+with the fixed shifts $0$ and $-1/2$, places $y$ in a union of two
+zero-dimensional exceptional sets. The similarity $y\mapsto2y$ and
+the circle projection give the result for $E_{\mathrm{circ}}$.
+The endpoint $1\in K_{02}$ is identified with $0$ on the circle;
+this makes no difference to the conclusion.
+\end{proof}
+
+\begin{corollary}[Finitely many fixed targets per time]
+\label{circle:cor:finite-targets}
+For a fixed positive integer $a$, allow at time $n$ any of the
+fixed shifts $\tau_{n,1},\ldots,\tau_{n,a}$, or, in the $3$-adic
+case, $\xi_{n,1},\ldots,\xi_{n,a}$. The set of points visiting
+one of the corresponding targets infinitely often still has zero
+Hausdorff and packing dimension.
+\end{corollary}
+\begin{proof}
+For each point with infinitely many visits, at least one of the
+$a$ target indices occurs infinitely often. The exceptional set is
+therefore the union of the $a$ exceptional sets in
+Theorem~\ref{circle:main}.
+\end{proof}
+
+\begin{remark}[Scope and the distinction between dimensions]
+Every dyadic rational point of $\mathbb T$ belongs to both
+$E_{\mathbb T}$ and $E_{\mathrm{circ}}$,
+because its orbit is eventually zero. Consequently $E_{\mathbb T}$
+and $E_{\mathrm{circ}}$ are dense and have both lower and upper box
+dimension one, even though their packing dimensions are zero.
+The proof above uses a countable
+compact cover; it does not assert a global subpower covering count.
+In particular, the class of $1$ equals $0$ on the circle and belongs
+to both exceptional sets. This circle statement does not exclude the
+ordinary starting value $1$ from the $3$-adic set $E_2$.
+Neither countability of the exceptional sets nor a finite-visit
+Assouad theorem on the circle is established here. The moving-target
+quantifiers do not include a union over all sequences or an unbounded
+number of alternatives at each time.
+\end{remark}

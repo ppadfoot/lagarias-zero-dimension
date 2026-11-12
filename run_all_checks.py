@@ -5,7 +5,7 @@ if sys.version_info<(3,10) or not __debug__:raise SystemExit('Requires Python>=3
 root=Path(__file__).resolve().parent
 out=root/'verification';out.mkdir(exist_ok=True)
 results=[]
-programs=['run_checks.py', 'code/root_exact_linear_checks.py', 'code/check_real_transfer.py', 'code/check_affine_carries.py', 'code/check_metric_digital_rigidity.py', 'code/check_positive_density.py']
+programs=['run_checks.py', 'code/root_exact_linear_checks.py', 'code/check_real_transfer.py', 'code/check_affine_carries.py', 'code/check_metric_digital_rigidity.py', 'code/check_positive_density.py', 'run_v4_checks.py']
 for rel in programs:
  p=root/rel
  args=[sys.executable,str(p)]

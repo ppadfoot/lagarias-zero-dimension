@@ -1,0 +1,178 @@
+INDEPENDENT AGENT REVIEW OF THE FINAL GENERALIZED-EXCEPTIONAL SECTION
+Date: 2026-11-12
+Reviewer: /root/v4_a03_author (not the author of this section)
+
+Reviewed file: paper/generalized_exceptional.tex
+SHA256: a961913e5c03148b91ba809a41cd5e95860fa0482791d4becc24a7dbff3c2689
+
+VERDICT
+
+Pass at the reviewed revision. I read the complete English section and
+independently reconstructed its finite combinatorial, arithmetic, entropy,
+and dimension arguments. I found no unresolved mathematical defect in the
+claims listed below. This is an internal independent-agent review, not
+external peer review, formal verification, or a determination of worldwide
+priority. The verdict concerns this section, not every theorem in the full
+paper or every item in the research archive.
+
+ACCEPTED CLAIMS
+
+With d = (log 2)/(2 log 3), the proof establishes
+
+  dim_H E_* = dim_P E_* = Gamma_* = lim_J dim_P V_J = d,
+
+and the upper convergence estimate
+
+  limsup_J (dim_P V_J - d) log log J <= (log 2)^2/log 3.
+
+For each fixed infinite family Lambda of distinct 3-adic units, it also
+establishes
+
+  dim_A (intersection_{lambda in Lambda} lambda^{-1} Sigma) <= d,
+
+with equality for the stated family of all odd shifts. The accompanying
+distinction between that fixed-family assertion and the variable-family
+set E_* is correct: E_* has upper box and Assouad dimension log_3 2.
+
+POINT-BY-POINT RECONSTRUCTION
+
+1. Single and adjacent translate capacities.
+   For one translate, two two-element residue projections cannot both
+   occur modulo 3. There are at most two nonempty section pairs, and
+   induction in the cyclic group gives |A||B| <= 2^q. For actual binary
+   palettes A,B subset Sigma_q, multiplication by a unit and translation
+   preserve the bound of two least-digit residues for the first palette.
+   The union Sigma_q union (1+Sigma_q) has precisely all three least
+   digits followed by Sigma_{q-1}. Thus there are at most four section
+   pairs, giving 2^(q+1). The supplied equality example is valid, including
+   q=1. No claim for arbitrary nonadjacent translates is substituted.
+
+2. Pair-palette algorithm and causal replay.
+   A heavy recorded source deletes at least T distinct pairs consisting
+   of a future position and a letter. Simplicity of the directed graph
+   ensures distinct targets for the witnessing edges. Actual future
+   letters are never deleted. There are at most QN possible deletions,
+   so the fingerprint size is at most floor(QN/T). A heavy source has no
+   bad outgoing edges after deletion. At a light source the union over
+   at most Q letters has fewer than QT potentially bad outgoing edges.
+   Later shrinking preserves these assertions.
+
+   Replay uses the entire fingerprint and the known input prefix. Earlier
+   relations are therefore available. Membership of a source position in
+   the fingerprint determines its branch of the algorithm. In the light
+   branch the actual unrecorded letter is not needed. This gives precisely
+   the stipulated conditional palette support, even when letters encode
+   overlapping windows or depend on digits after their source position.
+   The fingerprint counting and its binomial entropy estimate are valid
+   for theta <= 1/2 and require no probability independence assumption.
+
+3. Exact affine carry and overlap.
+   With v=j+E_i and P=[X]_j, the residual coefficient
+   D=(beta_i+3^{E_i}u_iP-[beta_i+3^{E_i}u_iP]_v)/3^v
+   depends only on the prefix before j and the fixed parameters. Expanding
+   modulo 3^(v+q) gives the displayed two-window formula. Its two lower
+   summands are canonical representatives below 3^v; their ordinary carry
+   is exactly either 0 or 1. This remains true for arbitrary 3-adic units
+   u_i and arbitrary affine shifts beta_i. No assumption E_i >= q is
+   needed: overlapping source and target windows are explicitly allowed.
+   The resulting two translates are adjacent, as needed by the capacity
+   lemma, and the relation has the required prefix dependence.
+
+4. Entropy accounting.
+   On good edges the sum of the two logarithmic palette sizes is at most
+   (q+1)log 2. The crude bad-edge bound 2q log 2 and at most 2KR missing
+   graph incidences give the stated weight estimate. They remain upper
+   bounds when a shift exceeds the available window range. Conditional
+   chain rule identifies the entropy of a window with the sum of the
+   digit entropies conditioned on the full preceding input and F. The
+   total deficit in q-fold coverage is exactly q(q-1), including L=q.
+   Dividing the weight estimate by q and adding H(F) reproduces every
+   term of sigma and the boundary term (R+q-1)log 2. The finite count is
+   uniform in the affine shifts; it harmlessly counts prefixes without
+   infinite admissible continuations as well.
+
+5. Finite extraction and order of quantifiers.
+   More than 2*3^(K-1) units leave more than 3^(K-1) in one nonzero
+   residue class. A finite separating residue tree exists for any finite
+   set of distinct 3-adic units. After suppressing unary vertices, at most
+   K-1 branching vertices on every root-to-leaf path would imply at most
+   3^(K-1) leaves. Choosing an anchor and leaves from side branches yields
+   K distinct positive valuations. The normalization by the anchor is an
+   isometry. Crucially, this argument works for every sufficiently large
+   finite family, not merely some subsequence of an infinite family.
+   The exponent and sufficient cardinality depend only on epsilon;
+   the finite covering constant may depend on the extracted depths.
+
+6. Localization and Assouad dimension.
+   Inside a cylinder meeting the normalized intersection, the lower input
+   and output digits are admissible. The remaining conditions are exactly
+   the affine tail conditions in the finite lemma. That lemma supplies
+   one constant independent of the cylinder's center and initial depth.
+   The elementary estimate at L<q covers all remaining scales. Rounding
+   arbitrary radii to adjacent powers of 3 only changes the constant.
+   Thus the conclusion is genuinely an Assouad bound, not merely a global
+   upper box bound. For an infinite fixed Lambda, one finite subfamily for
+   each epsilon suffices; no uniform constant over all subfamilies and no
+   countability assumption on Lambda are needed.
+
+7. The transition to exact Gamma_* and packing limits.
+   V_J is a countable union of compact intersections indexed by integer
+   tuples. Packing dimension is countably stable, so family-dependent
+   finite constants disappear before taking this union. There is no use
+   of countable stability of box or Assouad dimension. E_* is contained
+   in every V_J, including at zero. Every nonzero admissible multiplier
+   is 1 modulo 3, and 1 itself is admissible since x belongs to Sigma.
+   The known even-position Cantor set U lies in E_* and every V_J. Its
+   cylinder count and fair measure give dimension d. These statements
+   prove the exact values without commuting a limit with a supremum.
+
+8. Quantitative rate.
+   The selected K satisfies 2*3^(K-1) <= J-1 < J, so it is valid for
+   every J-tuple. With q=floor((log K-5 log log K)/log 4) and T=2^q q^3,
+   theta=q^(-3), the entropy term is O(q^(-3)log q), theta*q=q^(-2),
+   and QT/K <= q^3/(log K)^5=O(q^(-2)). Therefore sigma=d+d/q+O(q^(-2)).
+   The identities q~log K/log 4, log K~log log J, and
+   d log 4=(log 2)^2/log 3 yield exactly the claimed limsup constant.
+   Neither an asymptotic equality nor an optimal rate is asserted.
+
+9. Sharpness and scope.
+   For Lambda={1} union {1+3^(2k+1):k>=0}, sums of two binary digit
+   strings produce no carries. Avoiding digit 2 for every odd shift is
+   equivalent to all nonzero digit positions having the same parity.
+   Hence the intersection is U union 3U, with Assouad dimension d.
+   Finite Cantor integers belong to E_* and are dense in Sigma, giving
+   its larger box and Assouad dimensions. The final remark correctly
+   states that none of these assertions proves 1 notin E_2; indeed
+   1 belongs to the generalized set E_*.
+
+SOURCE AND ATTRIBUTION CHECKS
+
+The complete English text was compared with the following research-source
+files in the working archive:
+
+  lagarias_exact_generalized_2026-11-12/PROOF_RU.txt
+  lagarias_review_2026-11-12/QUANTITATIVE_A02_PROOF_RU.txt
+  lagarias_review_2026-11-12/ASSOUAD_INFINITE_INTERSECTIONS.txt
+
+The earlier dimension audit was read after reconstructing the arguments,
+as an additional consistency check rather than a substitute for this review.
+
+The journal version of Abram--Lagarias (2014) was checked directly at
+https://ems.press/content/serial-article-files/37215 . Definition 1.5,
+Problem 1.6 and equation (1.14) match the section's objects. The original
+finite-visit indexing differs by an immaterial shift; its displayed union
+also has an indexing inconsistency. The explicit V_J convention in this
+section removes that ambiguity and leaves the limiting constant unchanged.
+The positive lower bound is correctly attributed to Abram--Lagarias using
+Bolshakov's construction. The new claim is the matching upper bound and
+the stated consequences, not the previously known positivity.
+
+EDITORIAL AND VERIFICATION LIMITS
+
+The reviewed hash includes the repaired closing display delimiter after
+the definition of W_L(beta). No mathematical alteration was needed during
+this independent reading. Compilation, PDF visual inspection, executable
+verification code, release metadata, and preservation of earlier article
+versions are separate checks and are not certified by this file. Any later
+change to the reviewed section requires a corresponding diff review and
+an updated hash before this verdict is treated as applying to that text.

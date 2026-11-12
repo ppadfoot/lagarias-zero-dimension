@@ -1,0 +1,490 @@
+\section{The exact generalized exceptional dimension}
+\label{gen:section}
+
+The generalized exceptional set allows arbitrary positive integer
+multipliers in place of powers of two.  Following
+\cite[Definition~1.5]{AL2014}, put
+\[
+ E_* = \{x\in\Sigma: Mx\in\Sigma\text{ for infinitely many }
+                         M\in\mathbb Z_{>0},\ 3\nmid M\}.
+\]
+For a nonzero $x\in\Sigma$, every such multiplier is congruent to $1$
+modulo $3$, as is seen from the first nonzero digit of $x$.
+To specify the finite-visit convention, let
+\[
+ V_J=\{x\in\Sigma:\text{there are }1=M_1<\cdots<M_J,
+       \ M_i\equiv1\pmod3,\ M_ix\in\Sigma\text{ for every }i\}.
+\]
+Write
+\[
+ d_*:=\frac{\log2}{2\log3},\qquad
+ \Gamma_*:=\lim_{J\to\infty}\dimH V_J.
+\]
+The limit exists by monotonicity.  This is the generalized nesting
+constant of \cite[(1.14)]{AL2014}; a shift in the indexing convention
+for finite intersections does not change its limit.  It is distinct
+from the dyadic constants $\Gamma_{\mathrm H},\Gamma_{\mathrm P}$.
+
+\begin{theorem}[Exact generalized dimension]\label{gen:main}
+One has
+\[
+ \boxed{\dimH E_* =\dimP E_* =\Gamma_*
+       =\lim_{J\to\infty}\dimP V_J=d_*.}
+\]
+Moreover,
+\begin{equation}\label{gen:rate-statement}
+ \limsup_{J\to\infty}
+       (\dimP V_J-d_*)\log\log J
+       \le \frac{(\log2)^2}{\log3}.
+\end{equation}
+\end{theorem}
+
+The lower bound $d_*$ was proved in
+\cite[Theorems~2.4 and~6.3]{AL2014}, using a construction of
+A.~Bolshakov.  We reproduce that construction below and do not claim
+its novelty.  Our contribution here is the matching upper bound,
+the equality with the generalized nesting constant, the packing
+conclusions, and the quantitative estimate
+\eqref{gen:rate-statement}.  The optimal rate of convergence is not
+asserted.  Thus the result determines the dimension asked about in
+\cite[Problem~1.6]{AL2014}, beyond the positive lower bound already
+established there.
+
+The proof uses a causal palette lemma specifically for pairs.  We
+prove this finite lemma in full: no substitution of $r=2$ into a
+container theorem requiring $r\ge3$ is made.  Throughout this section
+all logarithms are natural.  Let $\Sigma_q$ be the image of $\Sigma$
+in $\mathbb Z/3^q\mathbb Z$, represented in $[0,3^q)$, and write
+$[z]_q$ for the canonical representative of $z\bmod3^q$.
+
+\subsection{Capacity of adjacent translates}
+
+\begin{lemma}[One-translate capacity]\label{gen:one-capacity}
+For $A,B\subset\mathbb Z/3^q\mathbb Z$, if
+$A+B\subset z+\Sigma_q$, then $|A||B|\le2^q$.
+\end{lemma}
+\begin{proof}
+Empty sets cause no difficulty.  Translate $A$ to remove $z$ and
+argue by induction on $q$, starting with the trivial case $q=0$.
+The images of $A,B$ modulo $3$ have their sum in $\{0,1\}$.
+Neither image can contain all three residues; if both contain two,
+their sum is all of $\mathbb Z/3\mathbb Z$, since two subsets of
+size two intersect after any translation.  Hence one image is a
+singleton and the other has at most two elements.  There are at most
+two nonempty pairs of least-digit sections.
+
+For a pair of residues $a,b\in\{0,1,2\}$, write the corresponding
+sections as $a+3A_a$ and $b+3B_b$.  Removing the least digit of their
+sum leaves $A_a+B_b$ in a single translate of $\Sigma_{q-1}$;
+the carry $\lfloor(a+b)/3\rfloor$ is fixed.  Thus induction bounds
+$|A_a||B_b|$ by $2^{q-1}$.  Summing over the at most two pairs
+proves the assertion.  All these operations are in the indicated
+cyclic groups, so wraparound introduces no extra case.
+\end{proof}
+
+\begin{lemma}[Sharp capacity for two adjacent translates]
+\label{gen:adjacent-capacity}
+Let $q\ge1$, $A,B\subset\Sigma_q$ and $u\in\mathbb Z_3^\times$.
+If
+\[
+ uA+B\subset (z+\Sigma_q)\cup(z+1+\Sigma_q)
+                 \quad\text{in }\mathbb Z/3^q\mathbb Z,
+\]
+then $|A||B|\le2^{q+1}$.  This bound is sharp.
+\end{lemma}
+\begin{proof}
+Replace $uA$ by $uA-z$.  Each of $uA-z$ and $B$ has at most two
+residues modulo $3$.  The exact identity
+\[
+ \Sigma_q\cup(1+\Sigma_q)=\{0,1,2\}+3\Sigma_{q-1}
+\]
+shows that, for each of the at most four pairs of least-digit
+sections, the sum of the upper sections lies in a single translate
+of $\Sigma_{q-1}$.  Lemma~\ref{gen:one-capacity} bounds each product
+of section sizes by $2^{q-1}$.  Multiplication by $u$ and translation
+preserve cardinalities, so their sum gives $2^{q+1}$.
+Equality is attained by $u=1$, $z=0$, $A=\{0,1\}$ and $B=\Sigma_q$.
+Adjacency of the two translates is essential to this argument.
+\end{proof}
+
+\subsection{A causal palette lemma for pairs}
+
+The following statement permits overlapping windows.  In particular,
+it does not assume that the letters associated with different
+positions are independent.
+
+\begin{lemma}[Causal pair palettes]\label{gen:palettes}
+Let $W$ be a nonempty finite set of input words of length $L$.
+For $0\le j<N\le L$, assign to each $x\in W$ a letter
+$Z_j(x)\in\Omega$, where $|\Omega|=Q$.  Let a fixed simple directed
+graph have edges $(j,k)$ with $j<k$.  For each edge let
+$\mathcal R_{jk}(x_{<j})\subset\Omega^2$ depend only on the input
+prefix preceding position $j$, and suppose that
+\[
+ (Z_j(x),Z_k(x))\in\mathcal R_{jk}(x_{<j})
+             \qquad(x\in W).
+\]
+For an integer $T\ge2Q$, put $\theta=Q/T$.  Each $x\in W$ admits
+a deterministic fingerprint $F(x)$, consisting of at most
+$\lfloor\theta N\rfloor$ pairs $(j,Z_j(x))$, and nonempty palettes
+$A_j(x)\subset\Omega$ with the following properties:
+\begin{enumerate}[label=(\roman*)]
+\item $Z_j(x)\in A_j(x)$, and $A_j(x)$ is determined by
+      $(x_{<j},F(x))$;
+\item $A_j(x)\times A_k(x)\subset\mathcal R_{jk}(x_{<j})$
+      except on at most $QTN$ edges;
+\item for any probability distribution on $W$,
+\[
+ H(F)\le N\{h(\theta)+\theta\log Q\},\qquad
+ h(t)=-t\log t-(1-t)\log(1-t).
+\]
+\end{enumerate}
+Here $H$ denotes Shannon entropy with natural logarithms.
+No locality assumption on the maps $Z_j$ is required.
+\end{lemma}
+\begin{proof}
+Initially give each position the mutable palette $S_j=\Omega$.
+Process source positions in increasing order.  At source $j$, call
+$a\in S_j$ heavy if at least $T$ outgoing edges $(j,k)$ admit some
+$b\in S_k$ with $(a,b)\notin\mathcal R_{jk}(x_{<j})$.
+
+If the actual letter $z_j=Z_j(x)$ is heavy, record $(j,z_j)$ in
+$F$, set $A_j=\{z_j\}$, and remove from every future $S_k$ all
+letters forbidden with source $z_j$ on the edge $(j,k)$, if that edge
+exists.  These removals never delete the actual future letters.
+At least $T$ distinct future letters are removed: the witnessing
+edges have distinct targets because the graph is simple.
+If $z_j$ is light, let $A_j$ be the set of all light letters in
+the current $S_j$, and make no removals.  Once assigned, $A_j$ is
+fixed; only palettes at unprocessed positions can shrink.
+
+There are at most $QN$ possible removals in total, so
+$|F|T\le QN$.  On every edge from a heavy source, the full product
+of the final palettes is allowed.  At a light source, each of its
+at most $Q$ assigned letters has fewer than $T$ problematic edges.
+Subsequent shrinking cannot create new forbidden pairs.  This gives
+at most $QT$ bad edges per light source and at most $QTN$ overall.
+
+For replay at position $j$, use the known prefix $x_{<j}$ and the
+whole fingerprint $F$.  At every earlier source $i\le j$, all
+required relations are known from the corresponding prefix.  Source
+$i$ is recorded exactly when its actual letter was heavy, in which
+case $F$ supplies that letter.  If it is not recorded, the algorithm
+needs only the computable set of light letters, not the unknown
+actual letter.  Thus replay recovers $A_j$ from the stipulated data.
+
+Finally the number of possible fingerprints is at most
+\[
+ \sum_{m\le\lfloor\theta N\rfloor}\binom Nm Q^m
+ \le\exp\bigl(Nh(\theta)+\theta N\log Q\bigr).
+\]
+For completeness, when $m\le\theta N$ and $\theta\le1/2$,
+$\theta^m(1-\theta)^{N-m}\ge e^{-Nh(\theta)}$.
+Summing the corresponding terms in the binomial identity proves
+$\sum_{m\le\theta N}\binom Nm\le e^{Nh(\theta)}$.
+The logarithm of the number of fingerprints bounds their entropy.
+\end{proof}
+
+\subsection{Uniform affine counting from two windows}
+
+Fix distinct positive integers $E_1,\ldots,E_K$ and units
+$u_i\in\mathbb Z_3^\times$, and put
+\[
+ c_i=1+3^{E_i}u_i,\qquad R=\max_i E_i.
+\]
+The shifts in the next lemma are arbitrary $3$-adic integers.  Their
+uniform treatment will also permit localization to every cylinder.
+
+\begin{lemma}[Finite affine bound]\label{gen:affine-count}
+Let $q\ge1$, $Q=2^q$, $T\ge2Q$ an integer, and $\theta=Q/T$.
+Define
+\begin{equation}\label{gen:sigma}
+ \sigma=d_*+\frac{d_*}{q}
+       +\frac{h(\theta)}{\log3}
+       +\theta q\frac{\log2}{\log3}
+       +\frac{QT}{K}\frac{\log2}{\log3}.
+\end{equation}
+For $\beta_1,\ldots,\beta_K\in\mathbb Z_3$, let
+\[
+ W_L(\beta)=\{X\in\Sigma_L:
+                   [c_iX+\beta_i]_L\in\Sigma_L\ (1\le i\le K)\}.
+\]
+For every $L\ge q$, with $N=L-q+1$, a nonempty $W_L(\beta)$ satisfies
+\begin{equation}\label{gen:finite-log}
+ \log |W_L(\beta)|
+       \le N\sigma\log3+(R+q-1)\log2.
+\end{equation}
+In particular, whether or not it is empty,
+\begin{equation}\label{gen:finite-count}
+ |W_L(\beta)|\le2^{R+q-1}3^{\sigma L}.
+\end{equation}
+These bounds are uniform in all the shifts $\beta_i$.
+\end{lemma}
+\begin{proof}
+Assume $W_L(\beta)$ is nonempty.  For $0\le j<N$, use the window
+letter
+\[
+ Z_j(X)=B_{j,q}(X):=\left\lfloor X/3^j\right\rfloor\bmod3^q
+                    \in\Sigma_q.
+\]
+For each $i$ include the edge $(j,v)=(j,j+E_i)$ whenever $v<N$.
+The distinctness of the $E_i$ makes this a simple graph.  For this
+edge set
+\[
+ P=[X]_j,\quad A=\beta_i+3^{E_i}u_iP,\quad
+ a_v=[A]_v,\quad D=\frac{A-a_v}{3^v}\in\mathbb Z_3.
+\]
+Here $D$ depends only on the fixed data and the prefix before $j$.
+An exact decomposition modulo $3^{v+q}$ gives
+\[
+ c_iX+\beta_i\equiv [X]_v+a_v+
+          3^v\bigl(B_{v,q}(X)+u_iB_{j,q}(X)+D\bigr).
+\]
+Both $[X]_v$ and $a_v$ are ordinary integers in $[0,3^v)$.
+Their carry is therefore $e\in\{0,1\}$, and admissibility implies
+\begin{equation}\label{gen:two-window-relation}
+ u_iB_{j,q}(X)+B_{v,q}(X)+D+e\in\Sigma_q\pmod{3^q}
+                 \quad\text{for some }e\in\{0,1\}.
+\end{equation}
+This argument is valid for arbitrary $3$-adic $u_i$ and $\beta_i$:
+only their canonical lower residues enter the ordinary carry.
+
+Apply Lemma~\ref{gen:palettes} with $\Omega=\Sigma_q$ and relations
+\eqref{gen:two-window-relation}.  On a good edge the full product
+of palettes lies in this relation.  Its image under $(a,b)\mapsto
+u_i a+b$ lies in two adjacent translates of $\Sigma_q$, so
+Lemma~\ref{gen:adjacent-capacity} gives
+\[
+ w_j+w_v\le(q+1)\log2,
+       \qquad w_j:=\log|A_j|\le q\log2.
+\]
+On a bad edge use $w_j+w_v\le2q\log2$.  The graph has at most
+$KN$ edges, at most $QTN$ of them bad.  Compared with two incidences
+at each position for each shift, shift $E_i$ loses at most
+$2\min(E_i,N)\le2R$ incidences.  Consequently, for each input word,
+\begin{align}
+ 2K\sum_{j=0}^{N-1}w_j
+ &\le KN(q+1)\log2+2q\log2\,QTN+2KRq\log2,\notag\\
+ \sum_{j=0}^{N-1}w_j
+ &\le \frac{N(q+1)}2\log2
+             +q\log2\left(\frac{QTN}{K}+R\right).
+ \label{gen:weights}
+\end{align}
+Using $KN$ in the first term only enlarges the bound, including
+when some shifts exceed the window range.
+
+Now choose $X$ uniformly in $W_L(\beta)$ and write
+$h_t=H(X_t\mid X_{<t},F)$.  Replay in
+Lemma~\ref{gen:palettes} ensures that, conditional on $(X_{<j},F)$,
+the support of $B_{j,q}(X)$ lies in the corresponding palette.
+The entropy chain rule therefore gives
+\[
+ \sum_{t=j}^{j+q-1}h_t
+ =H(B_{j,q}(X)\mid X_{<j},F)\le\mathbb E w_j.
+\]
+This identity, rather than independence of overlapping windows, is
+the reason their simultaneous use is legitimate.  Each digit is
+covered at most $q$ times; the total deficit from coverage $q$ at
+every digit is $q(q-1)$.  Since $h_t\le\log2$,
+\[
+ qH(X\mid F)\le\sum_j\mathbb E w_j+q(q-1)\log2.
+\]
+The fingerprint is a deterministic function of $X$, whence
+$H(X)=H(F)+H(X\mid F)$.  Substituting
+\eqref{gen:weights} and the fingerprint entropy bound gives
+\eqref{gen:finite-log}, with precisely \eqref{gen:sigma}.
+Finally $N\le L$ and $\sigma\ge0$ give
+\eqref{gen:finite-count}; the empty case is immediate.
+\end{proof}
+
+\subsection{Finite extraction and uniform local bounds}
+
+\begin{lemma}[Distinct depths from a finite unit set]
+\label{gen:unit-tree}
+A set of more than $2\cdot3^{K-1}$ distinct elements of
+$\mathbb Z_3^\times$ contains an anchor $\lambda_0$ and
+$\lambda_1,\ldots,\lambda_K$ such that
+$v_3(\lambda_i-\lambda_0)$ are distinct positive integers.
+\end{lemma}
+\begin{proof}
+One nonzero residue class modulo $3$ contains more than $3^{K-1}$
+elements.  Form their tree of successive residues, stopping at a
+finite depth at which all elements are separated; such a depth
+exists because the set is finite and its elements are distinct.
+Suppress vertices with a single child, retaining the original
+depth at every branching vertex.  The resulting tree has at most
+three children per vertex.  If every root-to-leaf path had at most
+$K-1$ branchings, induction would give at most $3^{K-1}$ leaves.
+Choose a path with at least $K$ branchings and let its terminal
+leaf be $\lambda_0$.  At each of $K$ branchings choose a leaf in
+a different child subtree.  The first differing positions of these
+leaves from $\lambda_0$ are exactly the distinct branching depths.
+They are positive because all leaves agree modulo $3$.
+\end{proof}
+
+We use the usual Assouad dimension $\dim_{\mathrm A}$: an exponent
+$a$ is admissible if every intersection of a set with a ball of
+radius $\rho$ can be covered by at most $C(\rho/r)^a$ balls of
+radius $r$, with one $C$ for all centers and $0<r<\rho\le1$.
+
+\begin{theorem}[Uniform finite intersections]\label{gen:finite-uniform}
+For every $\varepsilon>0$ there is an integer $J(\varepsilon)$ such
+that, for any $J\ge J(\varepsilon)$ distinct units
+$\lambda_1,\ldots,\lambda_J\in\mathbb Z_3^\times$,
+\[
+ \dim_{\mathrm A}\bigcap_{i=1}^J\lambda_i^{-1}\Sigma
+                \le d_*+\varepsilon.
+\]
+In particular the same bound holds for upper box, packing and
+Hausdorff dimensions.  The covering constant may depend on the
+chosen multipliers; the exponent and sufficient cardinality do not.
+\end{theorem}
+\begin{proof}
+Choose $q$, then $T$, then $K$ so that the three nonconstant terms
+after $d_*$ in \eqref{gen:sigma} total less than $\varepsilon$:
+first $d_*/q<\varepsilon/3$, next
+\[
+ \frac{h(Q/T)}{\log3}+\frac QT q\frac{\log2}{\log3}
+              <\frac\varepsilon3,
+\]
+and finally $(QT/K)(\log2/\log3)<\varepsilon/3$.
+Take $J(\varepsilon)>2\cdot3^{K-1}$.  By
+Lemma~\ref{gen:unit-tree}, choose an anchor and $K$ companions.
+Multiplication by the anchor is an isometry; the image of the full
+intersection is contained in
+\[
+ G=\{y\in\Sigma:c_i y\in\Sigma\ (1\le i\le K)\},
+       \qquad c_i=1+3^{E_i}u_i,
+\]
+with the distinct positive depths required in
+Lemma~\ref{gen:affine-count}.
+
+Consider any cylinder $P+3^t\mathbb Z_3$ meeting $G$, with
+$0\le P<3^t$.  Its lower input and output digits are already
+admissible.  Writing $y=P+3^tz$ yields the exact tail conditions
+\[
+ z\in\Sigma,\qquad c_i z+\beta_i\in\Sigma,
+       \quad\beta_i=\frac{c_iP-[c_iP]_t}{3^t}\in\mathbb Z_3.
+\]
+Thus the number of depth-$t+L$ cylinders meeting $G$ inside it is
+at most $2^{R+q-1}3^{\sigma L}$ for $L\ge q$, uniformly in $P,t$.
+For $0\le L<q$ the elementary bound $2^L\le2^{R+q-1}$ suffices.
+This proves the local covering estimate on every pair of discrete
+$3$-adic scales, with one constant.  Rounding arbitrary radii to
+neighboring powers of $3$ changes the constant only by a factor
+depending on $\sigma$.  Hence $\dim_{\mathrm A}G\le\sigma<d_*+
+\varepsilon$.  Monotonicity and the anchor isometry finish the proof.
+\end{proof}
+
+\subsection{The exact value and its convergence rate}
+
+\begin{proof}[Proof of Theorem~\ref{gen:main}]
+For a sufficiently large fixed $J$, the set $V_J$ is a countable
+union, over integer multiplier tuples, of the compact intersections
+in Theorem~\ref{gen:finite-uniform}.  Therefore
+$\dimP V_J\le d_*+\varepsilon$ by countable stability of packing
+dimension.  No countable stability of upper box or Assouad dimension
+is used.  Since $E_*\subset V_J$ for every $J$, this proves
+\[
+ \dimP E_*\le d_*,\qquad
+ \Gamma_*\le d_*,\qquad
+ \lim_{J\to\infty}\dimP V_J\le d_*.
+\]
+The inclusion also covers zero; at a nonzero point the permissible
+unit multipliers are $1\pmod3$, and the multiplier $1$ is available
+because the point lies in $\Sigma$.
+
+For the known lower bound, consider
+\[
+ U=\left\{\sum_{j\ge0}\epsilon_j3^{2j}:\epsilon_j\in\{0,1\}\right\}.
+\]
+For every $k\ge0$, the supports of $x\in U$ and $3^{2k+1}x$
+have opposite parities, so $(1+3^{2k+1})x\in\Sigma$ without carry.
+Thus $U\subset E_*\cap V_J$ for every $J$.  This is the
+Bolshakov construction used in \cite[Theorem~6.3]{AL2014}.
+There are $2^{\lceil L/2\rceil}$ depth-$L$ cylinders of $U$.
+The fair Bernoulli measure on the even digits assigns each such
+cylinder mass $2^{-\lceil L/2\rceil}\le3^{-d_*L}$.
+The cylinder cover and the mass distribution principle give
+$\dimH U=\dimP U=d_*$.  This proves the asserted exact values.
+
+For the rate, take, for all sufficiently large $J$,
+\[
+ K=\left\lfloor\log_3\frac{J-1}{2}\right\rfloor+1,
+ \qquad
+ q=\left\lfloor\frac{\log K-5\log\log K}{\log4}\right\rfloor,
+ \qquad Q=2^q,\quad T=Qq^3.
+\]
+Then $q\ge2$, $\theta=q^{-3}\le1/2$, and
+$2\cdot3^{K-1}\le J-1<J$, so finite extraction is available for
+every tuple in the definition of $V_J$.  Moreover,
+\[
+ h(\theta)=O(q^{-3}\log q),\qquad
+ \theta q=q^{-2},\qquad
+ \frac{QT}{K}=\frac{4^q q^3}{K}
+       \le\frac{q^3}{(\log K)^5}=O(q^{-2}).
+\]
+Consequently \eqref{gen:sigma} gives
+$\sigma=d_*+d_*/q+O(q^{-2})$.  The same countable-union argument
+using \eqref{gen:finite-count} implies $\dimP V_J\le\sigma$.
+Finally $q\sim\log K/\log4$, $\log K\sim\log\log J$, and
+$d_*\log4=(\log2)^2/\log3$.  This proves
+\eqref{gen:rate-statement}.  The constants involving $R$ disappear
+in the dimension estimate for each fixed tuple before the countable
+union is taken.
+\end{proof}
+
+\subsection{A sharp local bound for fixed infinite families}
+
+\begin{theorem}[Fixed infinite intersections]\label{gen:assouad}
+For every infinite set of distinct units
+$\Lambda\subset\mathbb Z_3^\times$,
+\[
+ F_\Lambda:=\bigcap_{\lambda\in\Lambda}\lambda^{-1}\Sigma
+       \quad\text{satisfies}\quad
+ \dim_{\mathrm A}F_\Lambda\le d_*.
+\]
+The bound is sharp.  For
+$\Lambda_{\rm odd}=\{1\}\cup\{1+3^{2k+1}:k\ge0\}$,
+\[
+ F_{\Lambda_{\rm odd}}=U\cup3U,
+       \qquad\dim_{\mathrm A}F_{\Lambda_{\rm odd}}=d_*.
+\]
+\end{theorem}
+\begin{proof}
+For each $\varepsilon>0$, choose any $J(\varepsilon)$ distinct
+members of $\Lambda$.  The full intersection is contained in
+this finite intersection, so Theorem~\ref{gen:finite-uniform} and
+monotonicity give $\dim_{\mathrm A}F_\Lambda\le d_*+\varepsilon$.
+One fixed subfamily for each exponent suffices; no uniform covering
+constant over all finite subfamilies, nor countability of $\Lambda$,
+is required.
+
+In the displayed example, adding $x$ and $3^h x$ never creates a
+carry, since each sum of digits is at most two.  Their sum omits
+the digit two exactly when no two nonzero digits of $x$ are distance
+$h$ apart.  Requiring this for every positive odd $h$ forces all
+nonzero digits to have the same parity.  This is precisely
+$x\in U\cup3U$.  In each cylinder of $U$, the number of descendants
+$L$ levels below is at most $2^{\lceil L/2\rceil}$; hence
+$\dim_{\mathrm A}U\le d_*$.  The reverse inequality follows
+from its Hausdorff dimension, and the stated sharpness follows.
+\end{proof}
+
+\begin{remark}[The family must be fixed]\label{gen:scope}
+Theorem~\ref{gen:assouad} does not imply
+$\dim_{\mathrm A}E_*\le d_*$.  Every finite $0,1$-digit integer
+$x$ belongs to $E_*$: for arbitrarily large $h$, the finite supports
+of $x$ and $3^hx$ are disjoint, so $(1+3^h)x\in\Sigma$.
+These integers are dense in $\Sigma$.  Thus the upper box dimension
+of $E_*$ is $\log_3 2$, and monotonicity together with
+$\overline{\dim}_{\mathrm B}E_*\le\dim_{\mathrm A}E_*$ gives
+\[
+ \overline{\dim}_{\mathrm B}E_*
+      =\dim_{\mathrm A}E_*=\log_3 2.
+\]
+For $E_*$ the multiplier family can depend on the point; for
+$F_\Lambda$ the same family works for every point.  In particular
+$1\in E_*$, and none of these generalized results excludes
+$1$ from the dyadic exceptional set $E_2$.
+\end{remark}

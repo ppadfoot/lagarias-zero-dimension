@@ -1,0 +1,145 @@
+VERSION 4: SELECTED RESULTS AND SOURCE QUESTIONS
+Date: 12 November 2026. Mathematical author: Timofei Iuzhakov.
+
+This map identifies the questions and scope of the three selected additions.
+A02, A03 and L18 are internal research identifiers, not conjecture numbers
+assigned by Lagarias or Abram--Lagarias. The main text gives full proofs.
+This is an attribution map, not an exhaustive worldwide priority survey.
+
+1. GENERALIZED EXCEPTIONAL SET AND NESTING CONSTANT (A02)
+
+Primary source:
+W. C. Abram and J. C. Lagarias, Intersections of multiplicative translates
+of 3-adic Cantor sets, J. Fractal Geom. 1 (2014), 349--390.
+Definition 1.5; Problem 1.6; equation (1.14); Theorems 2.4 and 6.3.
+https://ems.press/content/serial-article-files/37215
+
+Question: determine the dimension of E_*, where arbitrary positive integer
+unit multipliers, including 1, replace the powers of two. Gamma_* is the
+associated generalized finite-visit nesting limit.
+
+Known input: the lower bound (log_3 2)/2 and positivity of E_* were already
+proved in the cited work using Bolshakov's even-position construction.
+
+Included in v4:
+  dim_H E_* = dim_P E_* = Gamma_* = lim_J dim_P V_J = (log_3 2)/2.
+The proof supplies the matching upper bound. It also proves a limsup upper
+convergence rate with constant (log 2)^2/log 3 after multiplication by
+log log J, and a sharp Assouad bound (log_3 2)/2 for every fixed infinite
+family of distinct 3-adic unit multipliers.
+
+Scope: the rate is not asserted optimal. The fixed-family Assouad result
+does not apply to E_* itself: E_* has box and Assouad dimension log_3 2.
+The generalized constant Gamma_* is distinct from the dyadic nesting
+constants of the earlier article. In particular, 1 belongs to E_*.
+
+Public proof: paper/generalized_exceptional.tex, gen:main and gen:assouad.
+Review: audit/v4/final_generalized_review.txt.
+
+2. TYPICAL MULTIPLICATIVE INTERSECTIONS (MEASURE-THEORETIC PART OF A03)
+
+Primary context: Abram--Lagarias (2014), Section 2.4, the programme for
+general 3-adic multipliers. This is a programme of parameter questions;
+there is no source conjecture numbered A03 or quoted there with the
+specific value log_3(4/3).
+
+Included in v4: for Haar-almost every lambda in H=1+3 Z_3, the set
+C_lambda=Sigma intersection lambda^{-1}Sigma and its unit part have
+Hausdorff, packing, lower box and upper box dimensions log_3(4/3).
+For the other unit residue class, C_lambda={0}.
+
+Supporting results: an exact averaged collision formula, L2 density,
+positivity, entropy saturation and the joint fresh-block/Fubini argument
+provide a complete proof for the homogeneous target. The canonical
+fair-child measure has full support and exact dimension (log_3 2)/3;
+this is a measure statement, distinct from the larger support dimension.
+
+Scope: Haar-almost every is not every parameter, every rational parameter,
+or a Baire-category conclusion. The theorem does not determine the entire
+exceptional spectrum and does not assert a typical Assouad dimension.
+
+Public proof: paper/typical_intersections.tex, typical:main,
+typical:block-measure and typical:canonical-measure.
+Review: audit/v4/final_typical_review.txt.
+
+3. UNIFORM PARAMETER GEOMETRY (SUPPORTING PART OF THE SAME A03 SECTION)
+
+Prior results: Abram--Lagarias (2014), Theorems 2.3 and 5.5, supply the
+exact dimensions for the positive comparison family 1+3^k. The integer
+golden-ratio coding precedent is Abram--Bolshakov--Lagarias, Intersections
+of multiplicative translates of 3-adic Cantor sets II: Two infinite
+families, Theorem 6.2, with the identity multiplier excluded.
+https://arxiv.org/html/1508.05967v2
+
+Included extension: a causal isometric embedding for arbitrary nonidentity
+3-adic units gives the sharp Assouad bound log_3(phi), where
+phi=(1+sqrt(5))/2. The families 1+3^k and 1-3^k give the exact punctured
+upper and lower dimension limits at the identity. These consequences
+complete the parameter section; they are not counted as additional
+independently resolved numbered questions.
+
+Public proof: paper/typical_intersections.tex, typical:golden-gap and
+typical:oscillation. Prior integer bounds and the positive comparison
+family are attributed explicitly; the identity lambda=1 is not put under
+the smaller golden-ratio bound.
+
+4. FRACTIONAL-PART CIRCLE QUESTION AND FIXED MOVING TARGETS (L18)
+
+Primary source: J. C. Lagarias, Ternary expansions of powers of 2,
+arXiv:math/0512006v4, Section 5 (p. 26 in that version).
+https://arxiv.org/html/math/0512006v4
+
+The source asks about fractional ternary expansions omitting digit 2.
+The target is the normalized digits-0,1 Cantor set
+  K_01={sum_{j>=1} epsilon_j 3^(-j): epsilon_j in {0,1}}.
+This differs from the standard middle-thirds digits-0,2 set K_02=2 K_01.
+
+Included in v4: the set of x on R/Z with {2^n x} in K_01 infinitely
+often has Hausdorff and packing dimension zero. A separate scaling/parity
+argument proves the same assertion for K_02 as an additional variant.
+The K_02 result is not presented as the original question's target.
+
+The same section proves zero Hausdorff and packing dimension for every
+fixed real shift sequence in the target Z+K_01, and for every fixed
+3-adic shift sequence in the target Sigma. Each sequence is chosen before
+the starting point. Any fixed finite number of alternatives at each time
+is allowed. No union over all sequences or unbounded number of choices
+per time is asserted.
+
+Dependency: the transfer uses the earlier uniform affine finite-word
+bound and extraction theorem already contained in the same manuscript.
+The new real periodic-target transfer, target conventions, countable
+cover and moving-target quantifiers are proved in the new section.
+
+Scope: dense dyadic rationals give the circle sets box dimension one.
+Packing dimension zero therefore does not mean a global subpower box
+count. The circle class of 1 is 0 and belongs to both exceptional sets;
+this does not exclude the ordinary starting point 1 from E_2.
+
+Public proof: paper/circle_targets.tex, circle:main,
+circle:cor:dimension and circle:cor:finite-targets.
+Review: audit/v4/final_circle_integration_review.txt.
+
+5. VERSION AND COMPANION BOUNDARIES
+
+Earlier real and 3-adic zero-dimension statements, dyadic nesting limits,
+generic-base metric results and multiplier-counting results retain their
+earlier version attribution. They are not announced again as v4 results.
+Earlier reports are preserved with their original reviewed file hashes
+and are not represented as a new certification of the whole archive.
+
+The companion ternary-cantor-quotients article remains separately versioned.
+New quotient-specific candidates are reserved for its own reviewed update.
+This release neither absorbs that article nor certifies its future changes.
+
+Open here: 1 notin E_2; the exact good-power list; a subpolynomial count of
+actual good powers; the full exceptional parameter spectrum and category
+questions; the sharp quotient counts and stronger counting asymptotics.
+No finite computation, restricted arithmetic class or reformulation is
+presented as a proof of these statements.
+
+This is version 4 of the existing manuscript, with the same citation key
+iuzhakov2026lagarias and sole author Timofei Iuzhakov. Versioned sources
+and review hashes identify the released mathematical text. No claim of
+external journal acceptance, formal verification or worldwide priority
+is made by this map.

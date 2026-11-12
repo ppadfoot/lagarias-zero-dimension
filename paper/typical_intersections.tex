@@ -1,0 +1,477 @@
+\section{Exact dimensions for Haar-typical multipliers}
+\label{typical:section}
+
+For a unit $\lambda\in\Z_3^\times$ put
+\[
+ C_\lambda=\Sigma\cap\lambda^{-1}\Sigma,
+ \qquad H=1+3\Z_3,
+ \qquad S_\lambda=C_\lambda\cap H,
+ \qquad b=\log_3(4/3).
+\]
+Write $m$ for normalized additive Haar measure on $\Z_3$ and $m_H$
+for its normalized restriction to $H$. Abram and Lagarias
+\cite[Section~2.4]{AL2014} propose studying the dimension function
+$\lambda\mapsto\dimH C_\lambda$ for general $3$-adic parameters,
+including its typical behavior. The next theorem determines its
+Haar-typical value on each of the two residue classes of units.
+It does not determine all exceptional parameters or the Baire-typical
+value.
+
+\begin{theorem}[Exact Haar-typical dimension]\label{typical:main}
+For $m_H$-almost every $\lambda$, simultaneously for
+$K=C_\lambda$ and $K=S_\lambda$,
+\begin{equation}\label{typical:four-dimensions}
+ \dimH K=\dimP K=\underline{\dim}_{\mathrm B}K
+       =\overline{\dim}_{\mathrm B}K=\log_3(4/3).
+\end{equation}
+For every $\lambda\in2+3\Z_3$ one has $C_\lambda=\{0\}$.
+\end{theorem}
+
+The proof computes an averaged second moment exactly, proves positivity
+of the resulting affine density, and transfers affine block entropy
+to the homogeneous intersection. The last transfer is separate from
+the almost-everywhere assertion about the affine translation: one
+cannot obtain it by setting that translation equal to zero.
+Throughout this section logarithms without a subscript are natural.
+For $z\in\Z_3$, let $[z]_n\in\{0,\ldots,3^n-1\}$ be its canonical
+residue modulo $3^n$, and let $\Sigma_n$ be the $2^n$ canonical
+residues with digits $0,1$.
+
+\subsection{Affine fibers and their exact second moment}
+
+For $\lambda\in H$ define
+\begin{equation}\label{typical:affine-count}
+ \begin{split}
+ R_n(\lambda,\beta)
+   &=\#\{x\in\Sigma_n:[\lambda x+\beta]_n\in\Sigma_n\},\\
+ H_n(\lambda)&=3^{-n}\sum_{\beta\bmod3^n}\log R_n(\lambda,\beta).
+ \end{split}
+\end{equation}
+For every $\beta\in\Z_3$,
+\begin{equation}\label{typical:count-range}
+ 1\le R_n(\lambda,\beta)\le2^n,
+ \qquad
+ 3^{-n}\sum_{\beta\bmod3^n}R_n(\lambda,\beta)=(4/3)^n.
+\end{equation}
+Indeed, after an admissible input prefix the next output digit is
+$c+a$ modulo $3$, where $a\in\{0,1\}$. At least one of $c,c+1$
+belongs to $\{0,1\}$ modulo $3$. This proves both nonemptiness and
+extension of every admissible finite prefix to an infinite point.
+For the average, each of the $4^n$ ordered pairs of input and output
+words determines a unique translation modulo $3^n$.
+
+Let $\mu$ be the probability measure on $\Sigma$ with independent
+fair digits, and let $\nu_\lambda$ be the law of $Y-\lambda X$ for
+independent $X,Y$ with law $\mu$. Its cylinder density is
+\begin{equation}\label{typical:cylinder-density}
+ D_{\lambda,n}(\beta)
+ =3^n\nu_\lambda(\beta+3^n\Z_3)
+ =(3/4)^nR_n(\lambda,\beta).
+\end{equation}
+
+\begin{lemma}[Exact averaged second moment]\label{typical:l2}
+For every $n\ge1$,
+\begin{equation}\label{typical:l2-identity}
+ \int_H\|D_{\lambda,n}\|_{L^2(m)}^2\,dm_H(\lambda)
+       =\frac32-\frac12\left(\frac34\right)^n.
+\end{equation}
+Consequently $\nu_\lambda$ has an $L^2(m)$ density for
+$m_H$-almost every $\lambda$.
+\end{lemma}
+
+\begin{proof}
+Take independent $X,X',Y,Y'$ with law $\mu$, and set
+$A=X-X'$, $B=Y-Y'$. Counting coincident residue classes gives
+\[
+ \|D_{\lambda,n}\|_2^2
+       =3^n\mathbb P(B\equiv\lambda A\pmod{3^n}).
+\]
+The first differing digit of $X,X'$ gives
+\[
+ \mathbb P(v_3(A)\ge n)=2^{-n},\qquad
+ \mathbb P(v_3(A)=k)=2^{-k-1}\quad(k\ge0).
+\]
+Conditioned on $v_3(A)=k$, the first unit digit of $A/3^k$
+is $+1$ or $-1$ with equal probabilities; the analogous digit of
+$B/3^k$ is independent. If both valuations are at least $n$, the
+congruence holds. If both equal $k<n$, their leading signs agree
+with probability $1/2$. On this event the required residue of
+$\lambda\in H$ modulo $3^{n-k}$ has measure $3^{-(n-k-1)}$.
+Unequal valuations below $n$ cannot contribute. Hence the average is
+\begin{align*}
+ 3^n\left[4^{-n}+
+   \sum_{k=0}^{n-1}4^{-k-1}\frac12\,3^{-(n-k-1)}\right]
+ &=\left(\frac34\right)^n+
+   \frac38\sum_{k=0}^{n-1}\left(\frac34\right)^k\\
+ &=\frac32-\frac12\left(\frac34\right)^n.
+\end{align*}
+For fixed $\lambda$, the functions $D_{\lambda,n}$ are a
+nonnegative martingale for the increasing cylinder sigma-fields of
+$\beta$ under $m$. Their squared $L^2$ norms increase. Monotone
+convergence and \eqref{typical:l2-identity} yield
+\[
+ \int_H\sup_n\|D_{\lambda,n}\|_2^2\,dm_H(\lambda)=\frac32.
+\]
+For almost every $\lambda$ the martingale is therefore bounded in
+$L^2$ and converges in $L^2$ and almost everywhere to some $D_\lambda$.
+Its integrals on every cylinder agree with $\nu_\lambda$; since
+cylinders generate the Borel sigma-field, $\nu_\lambda=D_\lambda m$.
+In particular $\int D_\lambda\,dm=1$.
+\end{proof}
+
+\begin{lemma}[Positivity of an affine density]\label{typical:positive}
+Fix $\lambda\in H$. If $\nu_\lambda\ll m$, its density is positive
+$m$-almost everywhere.
+\end{lemma}
+
+\begin{proof}
+Decomposing the first input and output digits gives
+\[
+ \nu_\lambda=\frac14
+  \sum_{d\in(0,1,-\lambda,1-\lambda)}(z\mapsto d+3z)_*\nu_\lambda,
+\]
+where the four terms retain their multiplicities. A nonnegative
+version $D$ of the density consequently satisfies, almost everywhere,
+\begin{equation}\label{typical:density-relation}
+ D(z)=\frac34\sum_{\substack{d\in(0,1,-\lambda,1-\lambda)\\
+                            d\equiv z\ (3)}}D((z-d)/3).
+\end{equation}
+The three representatives $d_0=0,d_1=1,d_2=-\lambda$ lie in
+different residue classes. Define $T(z)=(z-d_r)/3$ when
+$z\equiv r\pmod3$. Each inverse branch scales Haar measure by $1/3$,
+so $T$ preserves $m$. It is also ergodic. In fact,
+\[
+ (r_0,r_1,\ldots)\longmapsto\sum_{j\ge0}3^j d_{r_j}
+\]
+is an isometric bijection from the full ternary sequence space onto
+$\Z_3$. Distinct representatives modulo $3$ preserve the first
+differing position, and repeated application of $T$ gives the inverse
+coding. The remainder $3^nT^n(z)$ tends to zero. Each sequence
+cylinder maps onto a residue class of the same measure, so this
+coding sends uniform Bernoulli measure to $m$ and conjugates $T$
+to the ergodic one-sided shift.
+
+For $Z=\{D=0\}$, nonnegativity in
+\eqref{typical:density-relation} implies $Z\subseteq T^{-1}Z$
+modulo null sets. The two sets have the same measure, hence agree
+modulo null sets. Ergodicity gives $m(Z)\in\{0,1\}$, and
+$\int D\,dm=1$ excludes $m(Z)=1$. All uses of almost-everywhere
+identities are legitimate because the inverse branches identify Haar
+measure with its normalized restrictions to residue classes.
+\end{proof}
+
+\begin{corollary}[Saturation of affine block entropy]
+\label{typical:entropy-limit}
+For $m_H$-almost every $\lambda$,
+\begin{equation}\label{typical:entropy-limit-eq}
+ \lim_{n\to\infty}\frac{H_n(\lambda)}n=\log(4/3).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+For almost every $\lambda$, Lemmas~\ref{typical:l2} and
+\ref{typical:positive} give $0<D_\lambda(\beta)<\infty$ for
+almost every $\beta$, with $D_{\lambda,n}(\beta)\to D_\lambda(\beta)$.
+Thus $n^{-1}\log D_{\lambda,n}(\beta)\to0$. By
+\eqref{typical:count-range} and \eqref{typical:cylinder-density},
+\[
+ -\log(4/3)\le\frac1n\log D_{\lambda,n}(\beta)
+              \le\log(3/2).
+\]
+Bounded convergence now gives
+\[
+ \frac{H_n(\lambda)}n
+ =\log(4/3)+\int\frac1n\log D_{\lambda,n}\,dm
+ \longrightarrow\log(4/3).
+\]
+No integrability assumption on $\log D_\lambda$ is needed.
+\end{proof}
+
+\subsection{Transfer to the homogeneous fiber}
+
+\begin{lemma}[Block measures on a prescribed homogeneous fiber]
+\label{typical:block-measure}
+For each fixed integer $q\ge1$ and $m_H$-almost every $\lambda$,
+there is an exact-dimensional probability measure on $S_\lambda$
+of dimension $H_q(\lambda)/(q\log3)$. In particular,
+\begin{equation}\label{typical:block-lower}
+ \dimH S_\lambda\ge \frac{H_q(\lambda)}{q\log3}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Partition $H$ into its finitely many residue classes modulo $3^q$.
+In one such class fix $\ell=[\lambda]_q$. This also fixes
+$H_q(\lambda)=H_q(\ell)$. Choose an admissible unit prefix
+$P_q\in\Sigma_q$ deterministically from $\ell$: start with digit $1$
+and take the least admissible digit thereafter. The extension property
+proved after \eqref{typical:count-range} ensures this choice exists.
+
+Suppose an admissible unit prefix $P_j$ of length $j=tq$ has been
+chosen. An input block $z\in\Sigma_q$ produces the output block
+\begin{equation}\label{typical:block-equation}
+ [\ell z+\beta_j]_q,
+ \qquad
+ \beta_j=\left[\frac{\lambda P_j-[\lambda P_j]_j}{3^j}\right]_q.
+\end{equation}
+There are exactly $R_q(\ell,\beta_j)$ admissible blocks. Give them
+equal probabilities and set $P_{j+q}=P_j+3^jz$. For each fixed
+$\lambda$ these consistent cylinder probabilities define a
+probability measure $\eta_{\lambda,q}$ supported on $S_\lambda$.
+They depend on finitely many parameter digits at each finite stage,
+so $\lambda\mapsto\eta_{\lambda,q}$ is a measurable probability kernel.
+
+To analyze the measure, first choose $\lambda$ with conditional Haar
+law in the class $\ell$, then implement the block choices using
+independent uniform random variables $V_1,V_2,\ldots$. Before the
+choice at $j=tq$, the past sigma-field is
+\[
+ \mathcal F_t=\sigma([\lambda]_{tq},V_1,\ldots,V_{t-1}).
+\]
+The prefix $P_j$ is measurable with respect to this past. The fresh
+parameter block $L_j=[(\lambda-[\lambda]_j)/3^j]_q$ is uniform modulo
+$3^q$ and independent of $\mathcal F_t$. Equation
+\eqref{typical:block-equation} gives
+\begin{equation}\label{typical:fresh-shift}
+ \beta_j\equiv c_j+L_jP_j\pmod{3^q},
+\end{equation}
+where $c_j$ is determined by the past. Since $P_j\equiv1\pmod3$,
+multiplication by $P_j$ permutes all residues modulo $3^q$.
+Thus $\beta_j$ has the uniform conditional law for every past.
+After using $V_t$, the next prefix is measurable with respect to
+$\mathcal F_{t+1}$, which proves the induction.
+
+Consequently $Y_t=\log R_q(\ell,\beta_{tq})$ are independent and
+identically distributed in this joint experiment, with
+$0\le Y_t\le q\log2$ and expectation $H_q(\ell)$. At the block
+boundary $n=q(T+1)$ the mass of the actual cylinder is exactly
+\[
+ \eta_{\lambda,q}(x+3^n\Z_3)
+       =\prod_{t=1}^T R_q(\ell,\beta_{tq})^{-1}.
+\]
+The strong law gives local dimension $H_q(\ell)/(q\log3)$ along
+these boundaries, jointly almost surely. Conditional on the full
+parameter $\lambda$, the $V_t$ still implement exactly
+$\eta_{\lambda,q}$. Fubini's theorem therefore gives the same
+almost-sure local dimension for almost every fixed $\lambda$.
+The parameter marginal remains Haar throughout; no independence
+of the shifts for a fixed $\lambda$ is asserted.
+
+Between consecutive block boundaries a cylinder mass is bounded
+by the two boundary masses. Their ratio is at most $2^q$, and the
+depths differ by $q$. Dividing logarithms by $n\log3$ shows that
+the local dimension exists on all scales. Exact dimensionality
+implies \eqref{typical:block-lower}: for any smaller exponent,
+restrict the measure to a positive-measure set on which the
+corresponding cylinder upper bound holds beyond one common depth,
+and apply the mass distribution principle. Taking the union of the
+finitely many residue classes completes the proof.
+\end{proof}
+
+Intersect the full-measure parameter sets from
+Lemma~\ref{typical:block-measure} for every $q\ge1$, and also the
+full-measure set of Corollary~\ref{typical:entropy-limit}. On their
+intersection,
+\begin{equation}\label{typical:hausdorff-lower}
+ \dimH S_\lambda\ge
+ \sup_{q\ge1}\frac{H_q(\lambda)}{q\log3}\ge b.
+\end{equation}
+This is the required passage to translation zero. It uses fresh
+parameter blocks rather than a substitution into an almost-everywhere
+statement in the translation variable.
+
+\subsection{The upper bound and the initial zero digits}
+
+Let $Q_n(\lambda)$ be the number of admissible unit prefixes of
+length $n$. Every such prefix extends, so this is the exact number
+of depth-$n$ cylinders meeting $S_\lambda$. For each of the
+$2^{n-1}$ possible unit input words $P$, the residue $\lambda P$
+is uniform among the $3^{n-1}$ residues congruent to $1$ modulo $3$
+when $\lambda$ has law $m_H$. Exactly $2^{n-1}$ of those residues
+have digits $0,1$. Hence
+\begin{equation}\label{typical:unit-first-moment}
+ \mathbb E_H Q_n=(4/3)^{n-1}.
+\end{equation}
+For every $\varepsilon>0$, Markov's inequality gives
+\[
+ m_H\{Q_n>3^{n(b+\varepsilon)}\}
+     \le\tfrac34\,3^{-n\varepsilon}.
+\]
+This is summable. Borel--Cantelli, followed by a countable
+intersection over positive rational $\varepsilon$, shows that
+almost surely $\overline{\dim}_{\mathrm B}S_\lambda\le b$.
+
+To handle $C_\lambda$, count the possible position of the first digit
+$1$. With $N_n(C_\lambda)$ denoting its number of depth-$n$ cylinders,
+\begin{equation}\label{typical:full-prefix-count}
+ N_n(C_\lambda)=1+\sum_{j=1}^n Q_j(\lambda).
+\end{equation}
+The first term is the all-zero prefix. A prefix with $v<n$ initial
+zeros corresponds to a unit prefix of length $n-v$. For almost every
+$\lambda$ and every $\varepsilon>0$, the finitely many exceptions
+can be absorbed into a finite constant:
+$Q_j(\lambda)\le K_{\lambda,\varepsilon}3^{j(b+\varepsilon)}$
+for all $j$. A geometric sum in \eqref{typical:full-prefix-count}
+therefore gives $\overline{\dim}_{\mathrm B}C_\lambda\le b$.
+This argument does not use countable stability of box dimension.
+Together with \eqref{typical:hausdorff-lower}, the inclusion
+$S_\lambda\subseteq C_\lambda$, and the inequalities
+\[
+ \dimH\le\dimP\le\overline{\dim}_{\mathrm B},
+ \qquad
+ \dimH\le\underline{\dim}_{\mathrm B}
+                \le\overline{\dim}_{\mathrm B},
+\]
+it proves \eqref{typical:four-dimensions}. Finally, if
+$\lambda\equiv2\pmod3$ and $x\in\Sigma\setminus\{0\}$,
+write $x=3^v u$ with $u\equiv1\pmod3$. The first nonzero digit
+of $\lambda x$ is $2$, proving the remaining assertion of
+Theorem~\ref{typical:main}.
+
+\begin{corollary}[The canonical measure has smaller dimension]
+\label{typical:canonical-measure}
+On $S_\lambda$, start with digit $1$, choose each of the two
+admissible digits with probability $1/2$ at every free step, and
+take the forced digit at every other step. For almost every
+$\lambda\in H$ this probability measure has full support $S_\lambda$
+and is exact-dimensional of dimension $(\log_3 2)/3$, strictly
+less than $\dimH S_\lambda=\log_3(4/3)$.
+\end{corollary}
+
+\begin{proof}
+This is the measure in Lemma~\ref{typical:block-measure} with $q=1$.
+The initial prefix is $1$, and every subsequent admissible cylinder
+has positive mass, so the support is all of $S_\lambda$.
+For the three translations modulo $3$, the counts $R_1$ are
+$2,1,1$. Thus $H_1=(\log2)/3$, giving the stated dimension.
+The strict inequality follows from $(4/3)^3>2$.
+\end{proof}
+
+\subsection{All unit parameters: a sharp gap and oscillation}
+
+The almost-everywhere theorem leaves individual parameters
+unclassified. A complementary uniform bound follows by extending
+the digit coding of Abram, Bolshakov and Lagarias
+\cite[Theorem~6.2]{ABL} from integer multipliers to arbitrary
+$3$-adic units. The extension below is isometric and controls
+cylinder counts uniformly, giving an Assouad bound.
+
+\begin{theorem}[Isometric coding and sharp dimension gap]
+\label{typical:golden-gap}
+Put $\varphi=(1+\sqrt5)/2$ and $g=\log_3\varphi$.
+If $\lambda\in H\setminus\{1\}$ and $k=v_3(\lambda-1)$, then
+$C_\lambda$ admits an isometric embedding into
+\[
+ \mathcal H_k=\left\{\sum_{j\ge0}b_j3^j:
+       b_j\in\{0,1\},\ b_jb_{j+k}=0\text{ for every }j\ge0\right\}.
+\]
+Consequently $\dim_{\mathrm A}C_\lambda\le g$. The bound is sharp:
+$C_{1+3^k}=\mathcal H_k$ has Hausdorff, packing, lower and upper
+box, and Assouad dimensions $g$ for every $k\ge1$.
+For $\lambda=1-3^k$, all these dimensions are zero.
+\end{theorem}
+
+\begin{proof}
+Write $\lambda=1+3^ku$ with $u\in\Z_3^\times$.
+For an admissible input prefix $P_j=\sum_{i<j}a_i3^i$ set
+\[
+ r_j=\frac{\lambda P_j-[\lambda P_j]_j}{3^j},
+ \qquad d_j=[r_j]_1.
+\]
+If $d_j=0$ both input digits are allowed; if $d_j=1$ only $0$
+is allowed; if $d_j=2$ only $1$ is allowed. Define, for $r\in\Z_3$,
+\[
+ F(r)=\frac{r-[r]_1}{3}+\boldsymbol1_{\{[r]_1=2\}}.
+\]
+Every admissible step satisfies
+\begin{equation}\label{typical:carry-recursion}
+ r_{j+1}=F(r_j)+3^{k-1}ua_j,
+ \qquad
+ F(r+3^vt)=F(r)+3^{v-1}t\quad(v\ge1).
+\end{equation}
+At a free position $j$ and for either alternative $a\in\{0,1\}$,
+put
+\[
+ \rho_j(a)=\big[F^{k-1}(F(r_j)+3^{k-1}ua)\big]_1.
+\]
+This is the residue of $r_{j+k}$ for every admissible choice of the
+intervening digits. Indeed, a digit inserted strictly after $j$
+contributes $3^{k-1}u$ times that digit and undergoes fewer than
+$k-1$ further applications of $F$ before that residue is read.
+By \eqref{typical:carry-recursion} its contribution is still a
+multiple of $3$. Comparing the trajectories one insertion at a time
+proves the assertion, including $k=1$ where there are no intervening
+digits. The two choices at $j$ instead give
+\[
+ \rho_j(1)-\rho_j(0)\equiv u\not\equiv0\pmod3.
+\]
+Thus at most one alternative makes position $j+k$ free.
+
+Encode a forced position by $b_j=0$. At a free position, if exactly
+one alternative has $\rho_j(a)=0$, encode that alternative by $0$
+and the other by $1$; if neither has zero residue, put $b_j=a_j$.
+Whenever $b_j=1$, position $j+k$ is forced, so $b_{j+k}=0$.
+The code belongs to $\mathcal H_k$ and depends only on the input
+prefix through $j$. If two inputs first differ at $j$, their common
+past makes position $j$ free, and its two choices receive different
+code digits. Their first differing position is preserved exactly,
+which proves isometry.
+
+Within $L$ consecutive positions the constraint defining
+$\mathcal H_k$ separates into $k$ residue classes. If class $r$
+occurs $\ell_r$ times, it has $F_{\ell_r+2}$ words without adjacent
+ones, where $F_0=0,F_1=1$ are the Fibonacci numbers. The same product
+is an upper bound after any fixed prefix, since boundary constraints
+can only remove possibilities. As $F_{\ell+2}\le\varphi^{\ell+1}$,
+the number of continuations is at most $\varphi^{L+k}$. This uniform
+cylinder estimate gives $\dim_{\mathrm A}\mathcal H_k\le g$.
+There is no carry in $x+3^kx$ for $x\in\Sigma$, so the condition
+that it belong to $\Sigma$ is exactly $a_ja_{j+k}=0$.
+Hence $C_{1+3^k}=\mathcal H_k$. Its Hausdorff dimension $g$ is the
+known family computation of \cite[Theorems~2.3 and~5.5]{AL2014};
+combined with the Assouad upper bound, this gives all the stated
+dimension equalities.
+
+For $\lambda=1-3^k$, subtract $3^kx$ digit by digit from $x$.
+If a first borrow occurs, its output digit is $2$, which is
+forbidden. Thus admissibility is equivalent to
+$a_j\ge a_{j-k}$ for every $j\ge k$. Along each residue class
+modulo $k$ the sequence is $0^t1^\infty$, with $t\ge0$, or
+$0^\infty$. This gives a countable set. More strongly, after any
+fixed prefix the number of length-$L$ continuations is at most
+$(L+1)^k$, which is bounded by $C_{\varepsilon,k}3^{\varepsilon L}$
+for every $\varepsilon>0$. Its Assouad dimension, and hence all
+the listed dimensions, are zero.
+\end{proof}
+
+\begin{corollary}[Exact punctured limits at the identity]
+\label{typical:oscillation}
+For $f(\lambda)=\dimH C_\lambda$, in the $3$-adic topology,
+\[
+ \liminf_{\substack{\lambda\to1\\\lambda\ne1}}f(\lambda)=0,
+ \qquad
+ \limsup_{\substack{\lambda\to1\\\lambda\ne1}}f(\lambda)
+      =\log_3\varphi<\log_3 2=f(1).
+\]
+The same conclusions hold with packing, either box dimension,
+or Assouad dimension in place of Hausdorff dimension. No unit
+parameter has a dimension in $(\log_3\varphi,\log_3 2)$, and
+only $\lambda=1$ has dimension $\log_3 2$.
+\end{corollary}
+
+\begin{proof}
+The sequences $1-3^k$ and $1+3^k$ tend to $1$ and attain the
+two limiting values, while Theorem~\ref{typical:golden-gap}
+provides the uniform upper bound away from $1$ in $H$.
+Parameters in $2+3\Z_3$ have intersection $\{0\}$, and
+$C_1=\Sigma$ has all the stated dimensions $\log_3 2$.
+\end{proof}
+
+\begin{remark}[Scope of the parameter theorems]\label{typical:scope}
+Theorem~\ref{typical:main} concerns almost every multiplier in an
+uncountable parameter space. It gives no conclusion about a
+prescribed integer multiplier or the sequence $4^n$. Theorem
+\ref{typical:golden-gap} is uniform but is an upper bound, not a
+classification of the spectrum below $\log_3\varphi$.
+Neither statement decides $1\notin E_2$.
+\end{remark}

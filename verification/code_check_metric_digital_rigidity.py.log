@@ -1,0 +1,1 @@
+{"status": "PASS", "classification_depths": 4, "unit_pairs": 3280, "intercepts": 245280, "cube_counts": {"parameter_cases": 27, "cubes": 891, "cube_members": 3580, "shift_identities": 3580, "descendant_checks": 145216, "game_counts": 891}}

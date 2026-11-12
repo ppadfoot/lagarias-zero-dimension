@@ -1,0 +1,144 @@
+FINAL-SOURCE REVIEW: CIRCLE THEOREM AND VERSION-4 INTEGRATION
+Date: 12 November 2026
+Reviewer role: independent internal AI-assisted mathematical reviewer of the
+circle section; author of the separate generalized-dimension section.
+This is not external peer review or proof-assistant verification.
+
+VERDICT: PASS within the scope specified below. The three concrete editorial
+objections raised during review have been resolved in the exact sources below.
+No unresolved mathematical objection was found in the new circle argument.
+
+EXACT REVIEWED SOURCES
+Paths are relative to the repository root.
+
+paper/circle_targets.tex
+  SHA-256: 391f6e8a4578e9c094be2211d9047407f390571dac4207d7f359a3f0be679f6b
+
+paper/lagarias_zero_dimension.tex
+  SHA-256: 64e451df942b5c9b2d5343d93c9cc2b921f1688782a9a32cde72f8d4eec2dd77
+
+README.md
+  SHA-256: 8c1f6ef7c9953441b62adfc6b0d445e1d8663c37dc3ac09b90761e9680c711f9
+
+SCOPE
+The complete English circle_targets.tex was read and its new proof reconstructed.
+The main manuscript's version-4 abstract, history, contribution and attribution
+paragraphs, prescribed-point warning, section integration, verification and
+dependency statements were checked. The exact statements and parameter choices
+of real:lem:extraction and real:prop:finite were read to check that they actually
+supply the input invoked by the circle section. The README was read completely
+for matching mathematical scope, version distinctions, notation and citation.
+
+This review does not claim a fresh line-by-line audit of all retained v1--v3
+proofs, including the causal-container appendix. Those are explicit inputs.
+The circle conclusion remains dependent on their stated finite-word theorem
+and true-time extraction. Mathematical acceptance of the new transfer is not
+an independent reproof of those earlier results. The main-file digest identifies
+the assembled file, while the review scope is the portions just specified.
+
+CIRCLE PROOF: INDEPENDENT CHECKS
+1. Quantifiers and finite input.
+   A target sequence is fixed before choosing a point. For every epsilon the
+   finite extraction parameters are fixed before the infinite visit set. The
+   displayed threshold powers make theta, epsilon_F and eta tend to zero with
+   u, while k and r first control the remaining two exponent terms. The finite
+   bound counts every admissible word and is uniform over ALL affine shifts.
+   The selected anchor is an actual visit; some rational slopes may be <1.
+   The old input requires exactly the positive rational 3-adic units obtained.
+
+2. Periodic real transfer, circle:lem:transfer.
+   Z+K01 is closed by local finiteness, so the bounded intersection is compact.
+   A K01 tail after L digits lies in [0,3^(-L)/2]; flooring therefore reads the
+   exact allowed prefix, including terminating expansions and negative points.
+   Independently recomputing the two forms of delta gives
+     delta=V-cT-D=ct+theta-t_i in q^(-1)Z intersect (-1,c+1).
+   For c=p/q>0 the number of possible errors is p+2q-1, with open endpoints.
+   Since 3 does not divide q, D+delta is 3-adically integral. Reduction of
+     cU+(D+delta)=V-c(T-U)
+   is exact modulo 3^L. At any fixed depth D is fixed; it can change with depth
+   without cost because the finite estimate is uniform in the shifts. The
+   proof never assumes a depth-independent shift vector. Irrational d_i and
+   negative/unbounded fixed shifts cause no additional error choices.
+   The resulting cell count has a depth-independent prefactor. Consecutive
+   ternary scales suffice for upper box dimension.
+
+3. Packing dimension and countability, circle:main.
+   Finite index tuples and finite integer template data form a countable set.
+   With the target sequence fixed, their real shifts are determined, rather
+   than independent uncountable choices. The unit remainders are determined
+   by the slopes and template coefficients. The inverse affine IMAGE of F
+   contains the original point and retains its upper box bound. Packing
+   dimension is then bounded via a countable compact cover. This argument
+   does not incorrectly pass upper box dimension through a countable union.
+   In the 3-adic case the normalizing affine map is an isometry and its shift
+   vector is integral. The same finite input gives the required compact cover.
+
+4. Target normalization, circle:cor:dimension.
+   K01 uses digits 0 and 1; K02=2K01 is the standard middle-thirds target.
+   For a K02 visiting point x, put y=x/2. Writing 2^n x=a+2z shows that
+   2^n y lies in Z+K01 or Z+1/2+K01 according to a's parity. One alternative
+   occurs infinitely often. These are precisely the fixed shifts 0 and -1/2
+   in the theorem. Similarity and circle projection yield dimension zero.
+   Endpoint identification does not invalidate the inclusion. This is an
+   explicit proof of the additional target variant, not an implicit scaling
+   assertion about modulo-one dynamics.
+
+5. Finite alternatives and boundary of the conclusion.
+   A fixed finite number of target sequences permits the infinite pigeonhole
+   argument. An unbounded number of alternatives is not asserted. Nor is a
+   union over all target sequences asserted. Dense dyadic rational points
+   give both box dimensions one, consistently with packing dimension zero.
+   The class of 1 is zero on the circle. No exclusion of the ordinary 3-adic
+   starting point 1, no countability theorem and no circle finite-visit
+   Assouad theorem is claimed.
+
+PRIMARY-SOURCE ATTRIBUTION CHECK
+Lagarias, Ternary Expansions of Powers of 2, arXiv:math/0512006v4,
+Section 5, printed page 26:
+  https://arxiv.org/pdf/math/0512006v4
+The original question restricts the fractional parts in Conjecture A, hence
+omits digit 2 and concerns K01. The revised section correctly attributes
+E_T/K01 to that question and separately identifies E_circ/K02 as the standard
+middle-thirds variant. The question is not given a fabricated theorem or
+problem number. This check is an attribution check, not an exhaustive search
+establishing external priority.
+
+INTEGRATION CHECKS
+- The README and manuscript now consistently use E_T for the K01 circle set,
+  with the K02 conclusion stated separately.
+- Sections 15, 16 and 17 are the generalized, typical-intersection and circle
+  branches. Their placement preserves the old section numbering 1--14.
+- E_* and Gamma_* are distinguished from E_2 and the dyadic nesting constants.
+  The known Bolshakov/Abram--Lagarias lower bound is explicitly attributed.
+  Exact generalized dimension and the new upper bound are not presented as
+  a new lower-bound construction.
+- The Assouad strengthening is restricted to each fixed infinite family of
+  distinct unit multipliers; it is not claimed for the whole E_*.
+- Typical multiplicative-intersection assertions use Haar-almost every lambda
+  in 1+3Z3, not all units or prescribed rational multipliers. The second
+  residue class and the distinction from a full parameter-spectrum result
+  are stated explicitly.
+- The abstract and README retain the unresolved status of 1 not in E_2.
+  Circle dimension zero is not conflated with a prescribed-point theorem.
+- Version 4 is the same manuscript, sole author Timofei Iuzhakov, unchanged
+  title and citation key iuzhakov2026lagarias. The distinct v1--v4 contributions
+  are identified and versioned citation is requested.
+- Mathematical displays in the README use fenced math or GitHub inline math;
+  the cardinality macro is escaped as \# rather than a bare math-mode #.
+- Internal AI review and finite computations are not described as external
+  peer review or a proof-assistant certificate. The public claims stay within
+  the mathematical assertions stated in the corresponding sections.
+
+OBJECTIONS RAISED AND RESOLVED
+A. K01/K02 naming and source attribution: README previously called its K01 set
+   E_circ while the manuscript used that name for K02. The section also had
+   ambiguous wording linking the standard K02 target to the original question.
+   Both were corrected and the explicit K02 parity proof was checked.
+B. Image/preimage terminology: the first real covering paragraph initially
+   said inverse image under the inverse map. It now correctly says image
+   under the inverse affine map, and subsequently uses affine images.
+C. The two circle sets require plural packing dimensions in the scope remark;
+   the final source now uses the plural and includes point 1 in both sets.
+
+The review is bound to the file digests above. Later substantive source edits
+require a targeted follow-up; a successful PDF build alone is not such a review.

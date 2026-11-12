@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "exact_bridge_checks": 33120,
+  "admissible_input_and_output_checks": 4440,
+  "parity_checks": 288,
+  "input_count": 115,
+  "slopes": [
+    "1/16",
+    "1/4",
+    "1/2",
+    "1",
+    "2",
+    "4",
+    "16",
+    "5/7"
+  ],
+  "offsets": [
+    "-7/3",
+    "-1/4",
+    "0",
+    "1/3",
+    "5/9",
+    "7/8"
+  ],
+  "depths": [
+    1,
+    6
+  ],
+  "incorrect_shortcuts_rejected": [
+    "one shift vector for all depths",
+    "discard floor(3^L d)",
+    "discard fractional part of 3^L d",
+    "integer-part condition implies fractional condition"
+  ],
+  "limits": "Finite rational checks validate identities, not the infinite dimension theorem; irrational offsets are handled by the analytic proof. No new independent agent review."
+}

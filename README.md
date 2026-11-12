@@ -1,14 +1,66 @@
 # Powers of two in ternary: zero-dimensional exceptional sets
 
-**Timofei Iuzhakov** · Research preprint · **Version 3.0.0 — 7 November 2026**
+**Timofei Iuzhakov** · Research preprint · **Version 4.0.0 — 12 November 2026**
 
-**The paper proves the dimension assertions in two conjectures of Lagarias: the 3-adic conjecture and the real conjecture. In both settings, it also proves the stronger conclusion of packing dimension zero. Version 2 added uniform finite-visit control. Version 3 adds generic absence of three visits, digital rigidity and linear-order multiplier counting.**
+The paper proves the dimension assertions in two conjectures of Lagarias: the 3-adic conjecture and the real conjecture. In both settings, it also proves the stronger conclusion of packing dimension zero. Version 2 added uniform finite-visit control. Version 3 added generic absence of three visits, digital rigidity and linear-order multiplier counting. **Version 4 now determines the generalized exceptional dimension exactly, computes the typical multiplicative-intersection dimension, and resolves the circle dimension question.**
 
-[**Read the current paper · 39 pages**](https://github.com/ppadfoot/lagarias-zero-dimension/releases/download/v3.0.0/lagarias_zero_dimension.pdf) · [v3 release](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0) · [v2](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v2.0.0) · [Original v1](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v1.0.0) · [How to cite](#citation)
+[**Read the current paper — 54 pages**](https://github.com/ppadfoot/lagarias-zero-dimension/releases/download/v4.0.0/lagarias_zero_dimension.pdf) · [v4 release](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v4.0.0) · [v3](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0) · [v2](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v2.0.0) · [Original v1](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v1.0.0) · [How to cite](#citation)
+
+## Version 4: exact dimensions and the circle problem
+
+**The same article, extended with three complete proof sections. The author, title and citation key `iuzhakov2026lagarias` stay the same. All proofs from v1–v3 remain included.**
+
+The new results distinguish three different questions: infinitely many **integer multipliers**, a **typical 3-adic multiplier**, and visits **modulo one**. They give exact dimension answers in each stated setting.
+
+| New result | Mathematical advance |
+| --- | --- |
+| **Exact generalized exceptional dimension — Section 15** | $`\dim_H E_*=\dim_P E_*=\Gamma_*=\tfrac12\log_3 2`$. The new upper bound matches the known lower bound and identifies the generalized nesting constant. |
+| **Quantitative and local strengthening — Section 15** | A convergence rate for finite intersections and the sharp bound $`\dim_A\bigcap_{\lambda\in\Lambda}\lambda^{-1}\Sigma\le\tfrac12\log_3 2`$ for every **fixed infinite family** of distinct unit multipliers. |
+| **Exact typical intersection dimension — Section 16** | For Haar-almost every $`\lambda\in1+3\mathbb Z_3`$, Hausdorff, packing and both box dimensions of $`C_\lambda=\Sigma\cap\lambda^{-1}\Sigma`$ equal $`\log_3(4/3)`$. |
+| **All-unit coding and the sharp dimension gap — Section 16** | An isometric coding extends the golden-ratio bound to arbitrary nonidentity 3-adic units and gives exact punctured dimension limits near $`\lambda=1`$. |
+| **Circle exceptional-set dimension — Section 17** | Zero Hausdorff and packing dimension for infinitely many visits modulo one, with the stated extension to fixed moving targets. |
+
+### 1. The generalized dimension is exactly one half of the Cantor dimension
+
+Let $`E_*`$ consist of points of $`\Sigma`$ for which infinitely many positive integer multipliers prime to 3 send the point back into $`\Sigma`$. Then
+
+```math
+\boxed{\dim_H E_*=\dim_P E_*=\Gamma_*=\frac{\log 2}{2\log 3}.}
+```
+
+**Why this matters.** Abram–Lagarias had already proved the lower bound using a construction of Bolshakov. Version 4 proves the matching upper bound and determines the constant $`\Gamma_*`$ from their generalized exceptional-set problem. It also quantifies convergence of the finite-visit dimensions. The new two-window argument is proved in full, including its causal coding and entropy estimates. [Original question and lower bound](https://ems.press/content/serial-article-files/37215)
+
+The generalized set $`E_*`$ is different from the dyadic set $`E_2`$: its dimension is positive, while the retained v1 theorem gives dimension zero for $`E_2`$. The Assouad estimate above concerns a **fixed common family** of multipliers; it is not an Assouad bound of one half for $`E_*`$ itself.
+
+### 2. A typical intersection has an exact dimension
+
+For almost every multiplier in $`1+3\mathbb Z_3`$,
+
+```math
+\boxed{\dim_H C_\lambda=\dim_P C_\lambda
+=\underline{\dim}_B C_\lambda=\overline{\dim}_B C_\lambda
+=\log_3(4/3).}
+```
+
+**Why this matters.** This computes the Haar-typical value in the parameter programme of Abram–Lagarias, §2.4. The proof combines an exact second moment, positivity of a convolution density and a separate block-measure argument for the homogeneous intersection. For every multiplier congruent to 2 modulo 3 the intersection is just $`\{0\}`$, so the two residue classes must be distinguished.
+
+This answers the typical-value question, not the full exceptional spectrum or the Baire-category problem. It does not choose a prescribed rational multiplier such as $`4^n`$.
+
+### 3. The circle question also has dimension zero
+
+For the ternary Cantor set $`K_{01}\subset[0,1/2]`$ with digits 0 and 1 after the ternary point, let $`E_{\mathbb T}`$ contain the points of the circle for which $`2^n x\bmod1\in K_{01}`$ infinitely often. Version 4 proves
+
+```math
+\boxed{\dim_H E_{\mathbb T}=\dim_P E_{\mathbb T}=0.}
+```
+
+**Why this matters.** This answers the separate circle question in §5 of Lagarias's arXiv manuscript. The same dimension conclusion holds for the standard middle-thirds target $`K_{02}=2K_{01}`$. A uniform affine transfer also handles the precisely stated fixed moving targets. The circle set still contains the dyadic rationals; dimension zero does not mean emptiness. [Lagarias's paper](https://arxiv.org/abs/math/0512006)
+
+[Version-4 source map and reviews](audit/v4/README.md) · [Version-4 checks](verification/v4/summary.json) · [Version history](CHANGELOG.md)
 
 ## Version 3: two further qualitative advances
 
-**This is the updated version of the same article. The title, author and citation key `iuzhakov2026lagarias` are unchanged; all earlier proofs are retained.**
+**Version 3 extended the same article with the following results; they remain in version 4 with their original theorem numbering.**
 
 | New result | Mathematical advance |
 | --- | --- |
@@ -95,16 +147,18 @@ These results determine the dimensions of the exceptional sets and strengthen th
 
 | Resource | Contents |
 | --- | --- |
-| [Current paper](paper/lagarias_zero_dimension.pdf) and [LaTeX source](paper/lagarias_zero_dimension.tex) | Complete v3 manuscript: all v2 proofs, new rigidity and counting sections, and the unchanged appendix |
+| [Current paper](paper/lagarias_zero_dimension.pdf) and [LaTeX source](paper/lagarias_zero_dimension.tex) | Complete v4 manuscript: all v1–v3 proofs, three new sections, and the unchanged causal-container appendix |
 | [Version history](CHANGELOG.md) | Results introduced in each manuscript version, with links to the corresponding papers |
 | [Verification code](code/) and [recorded results](verification/combined_summary.json) | Original finite-container checks, exact linear checks, 632,835 real-transfer identities and 5,400 affine-carry identities |
+| [New v4 checks](code/v4/) and [recorded results](verification/v4/summary.json) | Five additional programs: generalized bounds, capacities and coding, generic-intersection identities, and exact circle transfer |
 | [Internal review reports](audit/README.md) | Final-source mathematical reviews, their scope and exact source hashes |
-| [Publication checklist](PUBLICATION_CHECKLIST.json) | Build, PDF inspection and package checks for the v3 release |
+| [Publication checklist](PUBLICATION_CHECKLIST.json) | Build, PDF inspection and package checks for the v4 release |
 | [Companion paper: integer quotients of ternary Cantor numbers](https://github.com/ppadfoot/ternary-cantor-quotients) | A separate paper on a power lower bound and an infinite exceptional family |
 
-Run all checks with **Python 3.10 or newer**, standard library only, with assertions enabled:
+Run all checks with **Python 3.10 or newer**, with assertions enabled. The original checks use the standard library; the new generic-dimension checks additionally use NumPy:
 
 ```bash
+python3 -m pip install -r requirements-checks.txt
 python3 run_all_checks.py
 ```
 
@@ -119,7 +173,7 @@ The finite programs supplement the general proofs. The manuscript and code recei
 
 ## Citation
 
-**Keep the same citation key and identify the version:** v1 for the original 3-adic theorem; v2 for finite visits or the real theorem; v3 for rigidity, generic-base and linear-counting results. The v1, v2 and v3 releases retain their own papers, source archives and dates. The repository's current README may receive explanatory updates between manuscript releases; use a versioned release for a fixed reference.
+**Keep the same citation key and identify the version:** v1 for the original 3-adic theorem; v2 for finite visits or the real theorem; v3 for rigidity, generic-base and linear-counting results; v4 for the exact generalized and typical dimensions or the circle theorem. The v1, v2, v3 and v4 releases retain their own papers, source archives and dates. The repository's current README may receive explanatory updates between manuscript releases; use a versioned release for a fixed reference.
 
 [CITATION.cff](CITATION.cff) and [CITATION.bib](CITATION.bib) describe the current manuscript:
 
@@ -128,8 +182,8 @@ The finite programs supplement the general proofs. The manuscript and code recei
   author = {Timofei Iuzhakov},
   title = {Zero dimension for the real exceptional set and vanishing 3-adic nesting constants},
   year = {2026},
-  note = {Version 3.0.0; research preprint},
-  url = {https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v3.0.0}
+  note = {Version 4.0.0; research preprint},
+  url = {https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v4.0.0}
 }
 ```
 

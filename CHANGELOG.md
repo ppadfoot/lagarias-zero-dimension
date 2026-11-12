@@ -2,6 +2,20 @@
 
 Each release fixes a manuscript, its source, verification code and review record. The main README explains the results and may be updated independently of the manuscript versions.
 
+## v4.0.0 — 12 November 2026
+
+Same article, title, sole author and citation key `iuzhakov2026lagarias`. **54 pages.** All mathematical proof sections from v1–v3 and the causal-container appendix are retained. Three complete sections are added:
+
+- **Section 15: exact generalized dimension.** The Hausdorff and packing dimensions of the generalized exceptional set, and the generalized nesting constant, equal one half of `log_3 2`. The matching lower bound was already known from Abram–Lagarias and Bolshakov; this version proves the upper bound, a quantitative convergence estimate, and a sharp Assouad bound for a fixed infinite common multiplier family.
+- **Section 16: exact typical intersection dimension.** For Haar-almost every multiplier in `1+3 Z_3`, the Hausdorff, packing and both box dimensions of the homogeneous intersection equal `log_3(4/3)`. An all-unit isometric coding extends the golden-ratio bound, gives sharp punctured limits near the identity, and identifies the dimension of the canonical digit-fair measure.
+- **Section 17: the circle question and fixed moving targets.** The fractional-part exceptional set for ternary digits 0 and 1 has zero Hausdorff and packing dimension, answering the question in §5 of Lagarias's arXiv manuscript. The standard middle-thirds target also has dimension zero. The section proves the stated fixed real and 3-adic moving-target extensions.
+
+Five new finite verification programs are included alongside the old suite. Three independent internal cross-reviews are bound to the final English proof sources; source attribution, integration and build checks are recorded separately. These are AI-assisted internal reviews, not external peer review.
+
+The generalized exceptional set is not the dyadic exceptional set. The typical-parameter theorem does not select a prescribed rational multiplier. Neither the pointwise assertion `1 not in E_2`, the full intersection spectrum, nor the remaining arithmetic counting problems are claimed to be solved.
+
+[Paper](https://github.com/ppadfoot/lagarias-zero-dimension/releases/download/v4.0.0/lagarias_zero_dimension.pdf) · [Release](https://github.com/ppadfoot/lagarias-zero-dimension/releases/tag/v4.0.0) · [Reviews](audit/v4/README.md)
+
 ## v3.0.0 — 7 November 2026
 
 Same article, title, sole author and citation key `iuzhakov2026lagarias`. **39 pages.** All v2 mathematical proof sections and the causal-container appendix are retained.

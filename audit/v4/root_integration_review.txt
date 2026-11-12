@@ -1,0 +1,51 @@
+ROOT INTEGRATION, BUILD AND LAYOUT REVIEW — VERSION 4.0.0
+Date: 12 November 2026
+
+PASS within the following scope. This is an internal AI-assisted integration
+review, not external peer review or formal verification of every old proof.
+
+1. The retained main proof body (Sections 1–12) is byte-for-byte present in
+   the v4 main source. Section 13, Section 14 and the causal-container
+   appendix are byte-identical to the public main-branch baseline
+   e6be94607ef521df6781abc573d7293f7ed11ad9.
+2. New Sections 15, 16 and 17 are included in full and each has a separate
+   independent final-source mathematical cross-review. Their stated
+   hypotheses and distinctions agree with the abstract and README:
+   E_* versus E_2; Gamma_* versus dyadic Gamma_H; Haar-almost everywhere
+   versus prescribed multipliers; fixed common families versus unions;
+   fixed moving targets versus targets chosen after the point.
+3. The primary source question for the circle is K01 (Lagarias arXiv §5).
+   The K02 middle-thirds variant is separately proved by parity/scaling.
+   The known generalized lower bound is expressly credited to
+   Abram–Lagarias/Bolshakov. No worldwide priority assertion is made.
+4. Old theorem numbers 13.1–14.7 remain fixed. All LaTeX labels are unique
+   and all internal references resolve. Tectonic 0.17.0 produced a 54-page
+   PDF successfully. The only engine warning is an inherited underfull
+   bibliography line; there are no undefined references or overfull boxes.
+5. All 54 rendered pages were visually inspected as nine contact sheets;
+   pages 29, 38 and 42 were additionally inspected individually. No clipping,
+   overlap, missing equations or out-of-margin text was observed.
+6. The full verification runner passed, including the five new programs.
+   Python 3.12.14 and NumPy 2.3.5 were used. Finite checks test identities
+   and finite examples; they do not certify infinite dimension theorems.
+7. Timofei Iuzhakov remains the sole author. Title and BibTeX key
+   iuzhakov2026lagarias are unchanged; version/date/links are updated.
+   v1–v3 release files and tags are not replaced. The v3 checklist is
+   preserved under audit/v3/PUBLICATION_CHECKLIST.json.
+8. The README retains the preceding style and historical sections while
+   adding a v4 result table, explanatory subsections and exact scope.
+   The new 54-page link label is an editorial update after the circle
+   review's README snapshot; it changes no mathematical assertion.
+9. Quotient-specific results are reserved for ternary-cantor-quotients.
+   No claim to exclude 1 from E_2, no full parameter spectrum and no
+   unresolved arithmetic counting result are added as proved statements.
+
+Source hashes for this integration check (SHA-256):
+paper/lagarias_zero_dimension.tex: 64e451df942b5c9b2d5343d93c9cc2b921f1688782a9a32cde72f8d4eec2dd77
+paper/lagarias_zero_dimension.pdf: 7eb9eac6562b822f040c42669d49ca9c209081a57696a5fbf92f16b4e34a5791
+paper/generalized_exceptional.tex: a961913e5c03148b91ba809a41cd5e95860fa0482791d4becc24a7dbff3c2689
+paper/typical_intersections.tex: e59fff4321cfcaa940b9d2d32dc15b5330e96eebb35e115e61558cdcbd08d836
+paper/circle_targets.tex: 391f6e8a4578e9c094be2211d9047407f390571dac4207d7f359a3f0be679f6b
+README.md: c1d881eef464f7808f6ba91765ee909c6117157371f0233a225f3e2c45ab0fde
+CITATION.bib: a9f84cde35c76baa4fe9ed136cd741e61db852505e9bdea83e3e01dd31762f7f
+CITATION.cff: d7d8dc638a9bf209d2a824259158eb185da7e21ca79222b3c3ef7349a2044392

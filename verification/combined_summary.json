@@ -31,6 +31,12 @@
       "program": "code/check_positive_density.py",
       "returncode": 0,
       "sha256": "85bc7249aaab6c58cca1d56c420195c08cd9723d6590c19f008291335dc5d7a0"
+    },
+    {
+      "program": "run_v4_checks.py",
+      "returncode": 0,
+      "sha256": "9dc4da0bffd3bbe3eea0bd5c299a7b6186a644443b3981f7052d2e66072c421f",
+      "rerun_note": "Rerun after repository-relative log-path normalization; all five programs passed."
     }
   ]
 }

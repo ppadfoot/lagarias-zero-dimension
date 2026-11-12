@@ -4,7 +4,7 @@
     {
       "name": "ordinary_carry",
       "status": "PASS",
-      "elapsed_seconds": 0.035,
+      "elapsed_seconds": 0.0397,
       "cases": 3240,
       "primes": [
         2,
@@ -17,7 +17,7 @@
     {
       "name": "two_upper_translates",
       "status": "PASS",
-      "elapsed_seconds": 0.159,
+      "elapsed_seconds": 0.1959,
       "low_residue_cases": 617,
       "cases_attaining_two_lifts": 306,
       "tests_extreme_allowed_carry_p_to_b_minus_one": true
@@ -25,7 +25,7 @@
     {
       "name": "subshift_coset_occupancy",
       "status": "PASS",
-      "elapsed_seconds": 0.0083,
+      "elapsed_seconds": 0.0103,
       "coset_class_checks": 109,
       "targets": [
         {
@@ -88,7 +88,7 @@
     {
       "name": "overlap_and_short_interval_boundary",
       "status": "PASS",
-      "elapsed_seconds": 0.0392,
+      "elapsed_seconds": 0.051,
       "block_length_cases": 3840,
       "includes_shorter_than_two_blocks": true,
       "edge_span_cases_per_block_case": 5

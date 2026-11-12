@@ -1,0 +1,3 @@
+# The v1-v3 checks use only the Python standard library.
+# NumPy is used for the finite exact-generic-dimension audits in v4.
+numpy>=1.24

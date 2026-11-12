@@ -1,0 +1,14 @@
+{
+  "all_assertions_passed": true,
+  "parameter_length_cases": 939,
+  "admissible_word_encodings": 26270,
+  "negative_multiplier_exact_count_cases": 45,
+  "checks": [
+    "predictor of delayed restriction",
+    "different free branches get different output bits",
+    "injectivity at finite prefix lengths",
+    "absence of two output ones at distance k",
+    "Fibonacci product prefix bound"
+  ],
+  "limitation": "Finite independent audits; the arbitrary Z_3 proof is analytic."
+}

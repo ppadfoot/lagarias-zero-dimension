@@ -33,79 +33,89 @@
 \title{Zero dimension for the real exceptional set\protect\\
 and vanishing $3$-adic nesting constants}
 \author{Timofei Iuzhakov}
-\date{7 November 2026\\Version 3.0.0}
+\date{12 November 2026\\Version 4.0.0}
 \allowdisplaybreaks
 \emergencystretch=2em
 \begin{document}
 \maketitle
 \begin{abstract}
 Let $\Sigma\subset\Z_3$ be the ternary Cantor set with digits $0,1$.
-We retain the zero Hausdorff and packing dimension theorems for the
-$3$-adic and full real exceptional sets of powers of two, and the
-vanishing $3$-adic finite-visit nesting constants proved in versions
-1 and 2. All their proofs, including the finite causal-container
-appendix, are included.
+We determine the generalized exceptional-set dimension and nesting
+constant exactly: $\dimH E_*=\dimP E_*=\Gamma_*=(\log_3 2)/2$.
+This matches the lower bound of Abram--Lagarias, based on Bolshakov's
+construction. The proof supplies a quantitative finite-intersection
+bound and a sharp Assouad bound for each fixed infinite family of
+multipliers. Independently, for Haar-almost every
+$\lambda\in1+3\Z_3$, the Hausdorff, packing and lower and upper box
+dimensions of $\Sigma\cap\lambda^{-1}\Sigma$ all equal
+$\log_3(4/3)$. We prove this through an exact second moment,
+positivity of a convolution density and a block-measure transfer to
+the homogeneous intersection. An isometric coding gives the sharp
+golden-ratio bound for arbitrary nonidentity $3$-adic unit multipliers.
+A further affine transfer proves zero Hausdorff and packing dimension
+for the circle exceptional set and for the stated fixed moving targets.
 
-Version 3 adds two independent results. For Haar-almost every
-$b\in\Z_3^\times$, simultaneously for every nonzero $\lambda\in\Z_3$,
-at most two distinct nonnegative iterates $b^n\lambda$ belong to
-$\Sigma$. We prove an exact finite classification of linear ternary
-equations with maximal digital branching and use complete collections
-of nonlinear descendants to obtain this metric conclusion.
-Independently, if $M_H(X)$ counts positive integers $M\le X$ for which
-$\Sigma\cap M^{-1}\Sigma$ has positive Hausdorff dimension, then
-$M_H(X)\asymp X$. Linearly many such multipliers have no positive
-finite Cantor integer witness. The proof connects terminal carry cycles
-to rational points of the real middle-thirds set, proves summability
-of their reduced denominators prime to $3$, and applies a divisibility
-sieve. This determines the order of growth in Lagarias's second
-multiplier-counting problem. Neither new result settles $1\notin E_2$,
-the exact asymptotic $M_H(X)\sim X/2$, or the sharp order of the
-finite-quotient count.
+These results are added in version 4. The manuscript retains the
+complete proofs from versions 1--3: zero Hausdorff and packing
+dimension for the $3$-adic and full real exceptional sets of powers of
+two; vanishing dyadic finite-visit nesting constants; generic absence
+of three nonzero visits; exact digital rigidity; and linear-order
+counting of positive-dimensional integer multipliers, including a
+linear gap from finite Cantor quotients. The prescribed-point assertion
+$1\notin E_2$ remains unresolved.
 \end{abstract}
 
 \paragraph{Version history and stable citation.}
-This is version 3.0.0 of the same manuscript, with the same author,
+This is version 4.0.0 of the same manuscript, with the same author,
 title and citation key \texttt{iuzhakov2026lagarias}.
-Version 1.0.0 proved zero Hausdorff and packing dimension for the
-$3$-adic infinite-visit set $E_2$. Version 2.0.0 added uniform
-finite-visit compact covers, vanishing nesting constants and the
-full real exceptional-set theorem. Their complete proof sections
-are retained below, followed by the new Sections~\ref{metric:section}
-and~\ref{sec:positive-density}. Earlier versioned releases remain
-unchanged; a citation should identify the version and theorem used.
+Version 1.0.0 proved zero Hausdorff and packing dimension for $E_2$.
+Version 2.0.0 added uniform finite-visit covers, vanishing nesting
+constants and the full real exceptional-set theorem.
+Version 3.0.0 added the metric and linear-counting results in
+Sections~\ref{metric:section} and~\ref{sec:positive-density}.
+Their proof sections and the causal-container appendix are retained.
+The new proofs occupy Sections~\ref{gen:section},
+\ref{typical:section} and~\ref{circle:section}.
+Earlier versioned releases remain unchanged; citations should identify
+the version and theorem used.
 
-\paragraph{What is new in version 3.}
-Theorem~\ref{metric:main} proves $E_b^{(3)}=\{0\}$ for Haar-almost
-every unit base, with one exceptional null set for all nonzero
-starting points and all triples of visit times.
-Theorem~\ref{metric:classification} classifies every maximal-branching
-finite digital plane, including all allowed targets.
-Theorems~\ref{thm:pd-main} and~\ref{thm:pd-denominators} prove
-$M_H(X)\asymp X$, a linear-size difference
-$\mathcal M_H\setminus\mathcal M_C$, and a summable tail of reduced
-Cantor denominators. The two new proof branches are independent of
-each other and of the earlier dimension and container theorems.
-Their connections with earlier work and the exact definitions of the
-counting functions are stated in their respective sections.
+\paragraph{What is new in version 4.}
+Section~\ref{gen:section} determines $E_*$ and $\Gamma_*$ exactly,
+with a finite-visit convergence estimate and a fixed-family Assouad
+strengthening. This is a two-window causal argument, with its complete
+palette and entropy proof given here.
+Section~\ref{typical:section} determines the Haar-typical intersection
+dimension, using an independent analytic argument. It also extends
+the integer-parameter golden-ratio coding of~\cite{ABL} to arbitrary
+$3$-adic units and describes the punctured dimension oscillation at $1$.
+Section~\ref{circle:section} transfers the previously proved uniform
+affine estimates to fixed moving targets, including the circle problem.
+These are separate proof branches, not steps of a proof for the point $1$.
 
 \paragraph{Which questions are answered.}
-The earlier dimension assertions concern Lagarias's Conjectures A and B
-in the arXiv version of \cite{LagariasArxiv}, numbered 1.4 and 1.7 in
-the journal version \cite{Lagarias}. The new linear-order theorem answers
-the order-of-growth part of Problem 2 (journal Problem 1.11). It does
-not determine a leading density constant. The varying-base theorem is
-not identified with a numbered conjecture in Lagarias's original paper.
-The separate quotient manuscript \cite{Quotients} retains its own
-version and citation; the new counting theorem is first included here.
-No priority over the entire external literature is inferred from
-internal review or from publication of this version.
+The retained zero-dimensional assertions concern Lagarias's Conjectures
+A and B in~\cite{LagariasArxiv}, numbered 1.4 and 1.7 in the journal
+version~\cite{Lagarias}. Version 3 answered the order-of-growth part of
+his Problem 2 (journal Problem 1.11), without determining a density
+constant. The new exact generalized dimension sharpens the bounds in
+Abram--Lagarias's generalized exceptional-set Problem 1.6 and identifies
+their nesting constant~\cite{AL2014}. Its positive lower bound was
+already known; the new contribution is the matching upper bound and
+strengthenings. The typical-value theorem answers the Haar-generic
+part of the parameter programme in~\cite[Section 2.4]{AL2014}, not the
+full parameter spectrum or the Baire-category problem. The circle
+corollary answers the separate question in~\cite[Section 5]{LagariasArxiv}.
+The finite-quotient results have their own manuscript~\cite{Quotients}.
+No exhaustive external-priority claim is inferred from internal review.
 
 \paragraph{The prescribed point remains unresolved.}
-For $b=2$, the point $\lambda=1$ already has the visits $1,4,256$
-at times $0,2,8$. Thus $b=2$ is exceptional for the new three-visit
-theorem. We do not prove finiteness of its visits, and a zero-dimensional
-fixed-base exceptional set can still contain that point.
+The generalized constant $\Gamma_*$ is different from the dyadic
+constant $\Gamma_{\mathrm H}=0$ retained from version 2.
+A Haar-almost-everywhere result does not decide a prescribed rational
+multiplier. In particular, for $b=2$ and starting point $1$ the known
+visits $1,4,256$ occur at times $0,2,8$; this base is exceptional for
+the generic three-visit theorem. Neither the dimension theorems nor
+the circle corollary proves that these are the only visits.
 
 \section{The $3$-adic finite-visit problem}
 
@@ -1383,8 +1393,23 @@ manuscript is attributed solely to Timofei Iuzhakov.
 
 \input{metric_digital_rigidity.tex}
 \input{positive_density_section.tex}
+\input{generalized_exceptional.tex}
+\input{typical_intersections.tex}
+\input{circle_targets.tex}
 
-\section*{New verification in version 3}
+\section*{Verification added in version 4}
+Five additional finite audit programs check the generalized pair-capacity
+and carry identities, the causal palette construction and finite tree
+extraction, the all-unit isometric coding, the exact averaged second
+moment and block-shift permutations, and the circle transfer identities.
+Their exact scopes are recorded with the reproducible outputs.
+They supplement the proofs at arbitrary depths and do not infer
+infinite dimension assertions from finite samples. The assembled new
+English sections receive separate internal mathematical and integration
+reviews; the exact source hashes are recorded in the release.
+The earlier sections are preserved, not described as freshly reproved.
+
+\section*{Verification added in version 3}
 The new standard-library Python checks verify finite digital fibers,
 all coefficient and target cases in the stated test ranges, complete
 prefix-cube identities, and finite carry, rational-denominator and sieve
@@ -1420,8 +1445,11 @@ also uses Kneser's addition theorem~\cite{DeVos}, through the full proof
 of Lemma~\ref{vone:lem:capacity} reproduced from
 \cite[Lemma~2.1]{Core}. The statements and proofs of the uniform finite
 extraction and of the real infinite-set extraction are kept separate.
-The present version does not assert a real finite-visit nesting theorem,
-a finite-visit Assouad theorem, or an arbitrary-target generalization.
+The retained version-2 argument does not itself assert a real finite-visit
+nesting theorem or a finite-visit Assouad theorem. The fixed-target
+extensions proved in Section~\ref{circle:section} have exactly the
+quantifiers stated there; no simultaneous theorem for arbitrary moving
+targets depending on the starting point is claimed.
 
 The arithmetic extraction and the entropy transfer were subjected to
 independent internal AI-assisted reviews. Exact finite checks were

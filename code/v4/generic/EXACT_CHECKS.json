@@ -1,0 +1,174 @@
+{
+  "scope": "Exact finite identities, not a proof by numerical extrapolation",
+  "levels": [
+    {
+      "n": 1,
+      "all_slopes_1_mod_3": 1,
+      "affine_pairs_counted": 4,
+      "min_R": 1,
+      "max_R": 2,
+      "mean_squared_L2": "9/8",
+      "predicted_squared_L2": "9/8",
+      "mean_unit_prefix_count": "1",
+      "martingale_consistency": true,
+      "full_prefix_identity": true
+    },
+    {
+      "n": 2,
+      "all_slopes_1_mod_3": 3,
+      "affine_pairs_counted": 48,
+      "min_R": 1,
+      "max_R": 4,
+      "mean_squared_L2": "39/32",
+      "predicted_squared_L2": "39/32",
+      "mean_unit_prefix_count": "4/3",
+      "martingale_consistency": true,
+      "full_prefix_identity": true
+    },
+    {
+      "n": 3,
+      "all_slopes_1_mod_3": 9,
+      "affine_pairs_counted": 576,
+      "min_R": 1,
+      "max_R": 8,
+      "mean_squared_L2": "165/128",
+      "predicted_squared_L2": "165/128",
+      "mean_unit_prefix_count": "16/9",
+      "martingale_consistency": true,
+      "full_prefix_identity": true
+    },
+    {
+      "n": 4,
+      "all_slopes_1_mod_3": 27,
+      "affine_pairs_counted": 6912,
+      "min_R": 1,
+      "max_R": 16,
+      "mean_squared_L2": "687/512",
+      "predicted_squared_L2": "687/512",
+      "mean_unit_prefix_count": "64/27",
+      "martingale_consistency": true,
+      "full_prefix_identity": true
+    },
+    {
+      "n": 5,
+      "all_slopes_1_mod_3": 81,
+      "affine_pairs_counted": 82944,
+      "min_R": 1,
+      "max_R": 32,
+      "mean_squared_L2": "2829/2048",
+      "predicted_squared_L2": "2829/2048",
+      "mean_unit_prefix_count": "256/81",
+      "martingale_consistency": true,
+      "full_prefix_identity": true
+    },
+    {
+      "n": 6,
+      "all_slopes_1_mod_3": 243,
+      "affine_pairs_counted": 995328,
+      "min_R": 1,
+      "max_R": 64,
+      "mean_squared_L2": "11559/8192",
+      "predicted_squared_L2": "11559/8192",
+      "mean_unit_prefix_count": "1024/243",
+      "martingale_consistency": true,
+      "full_prefix_identity": true
+    },
+    {
+      "n": 7,
+      "all_slopes_1_mod_3": 729,
+      "affine_pairs_counted": 11943936,
+      "min_R": 1,
+      "max_R": 128,
+      "mean_squared_L2": "46965/32768",
+      "predicted_squared_L2": "46965/32768",
+      "mean_unit_prefix_count": "4096/729",
+      "martingale_consistency": true,
+      "full_prefix_identity": true
+    }
+  ],
+  "block_geometry": [
+    {
+      "m": 1,
+      "j": 1,
+      "admissible_unit_prefixes": 1,
+      "tested_extensions": 6,
+      "fresh_shift_is_permutation": true,
+      "exact_block_equation": true
+    },
+    {
+      "m": 1,
+      "j": 3,
+      "admissible_unit_prefixes": 16,
+      "tested_extensions": 96,
+      "fresh_shift_is_permutation": true,
+      "exact_block_equation": true
+    },
+    {
+      "m": 2,
+      "j": 2,
+      "admissible_unit_prefixes": 4,
+      "tested_extensions": 144,
+      "fresh_shift_is_permutation": true,
+      "exact_block_equation": true
+    },
+    {
+      "m": 2,
+      "j": 3,
+      "admissible_unit_prefixes": 16,
+      "tested_extensions": 576,
+      "fresh_shift_is_permutation": true,
+      "exact_block_equation": true
+    },
+    {
+      "m": 3,
+      "j": 3,
+      "admissible_unit_prefixes": 16,
+      "tested_extensions": 3456,
+      "fresh_shift_is_permutation": true,
+      "exact_block_equation": true
+    }
+  ],
+  "positivity_coding": [
+    {
+      "lambda": 1,
+      "max_n": 6,
+      "bijection": true
+    },
+    {
+      "lambda": 4,
+      "max_n": 6,
+      "bijection": true
+    },
+    {
+      "lambda": 7,
+      "max_n": 6,
+      "bijection": true
+    },
+    {
+      "lambda": 10,
+      "max_n": 6,
+      "bijection": true
+    },
+    {
+      "lambda": 28,
+      "max_n": 6,
+      "bijection": true
+    },
+    {
+      "lambda": -2,
+      "max_n": 6,
+      "bijection": true
+    },
+    {
+      "lambda": -8,
+      "max_n": 6,
+      "bijection": true
+    },
+    {
+      "lambda": -26,
+      "max_n": 6,
+      "bijection": true
+    }
+  ],
+  "status": "all_exact_checks_passed"
+}

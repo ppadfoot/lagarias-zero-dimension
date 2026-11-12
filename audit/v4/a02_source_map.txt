@@ -1,0 +1,54 @@
+A02 V4 ENGLISH SOURCE MAP
+Author of manuscript: Timofei Iuzhakov.
+Prepared 12 November 2026.
+Final-source independent review completed: final_generalized_review.txt.
+The review states the exact reviewed SHA256 and the scope of its pass.
+
+File: paper/generalized_exceptional.tex
+Section label: gen:section.
+Main theorem: gen:main (exact E*, generalized Gamma*, packing limit and rate).
+Supporting labels: gen:one-capacity, gen:adjacent-capacity, gen:palettes,
+gen:affine-count, gen:unit-tree, gen:finite-uniform, gen:assouad, gen:scope.
+No additional preamble macros or bibliography keys are needed.
+Existing AL2014 is used for the generalized problem and known lower bound.
+
+Development provenance (identifiers, not public proof or build dependencies):
+Exact-generalized proof packet, 12 November 2026
+  definitions; capacity induction; complete pair palette/replay proof;
+  entropy chain rule; finite unit tree; countable packing union; lower bound.
+Quantitative A02 proof note, 12 November 2026
+  strengthened actual alphabet Q=2^q, sharp capacity2^(q+1), improved finite
+  exponent sigma; explicit q,T,K,J choice and limsup convergence constant.
+Fixed-infinite-intersections note, 12 November 2026
+  arbitrary affine shifts, uniform cylinder localization, finite-family
+  Assouad bound, infinite fixed-family theorem and sharp U union3U example.
+
+Editorial consolidation:
+The strengthened binary-alphabet proof is used from the start; the earlier
+weaker Q=3^q and9*2^(q-1) estimates are not duplicated. All new finite
+ingredients are proved in the section, including the pair palette algorithm.
+There is no appeal to r>=3 container machinery for the r=2 argument.
+Old v3 proof sections are not modified by this file.
+
+Attribution:
+Abram--Lagarias2014 journal Definition1.5, Problem1.6, generalized nesting
+constant, Theorems2.4/6.3; Bolshakov construction credited explicitly.
+Known positivity is not claimed as new. Exact upper bound, rate and local
+fixed-family strengthening are the newly included assertions.
+
+Important quantifiers and limits:
+Finite sufficient J depends on epsilon, not multipliers. Covering constants
+may depend on the fixed multipliers through R but not cylinder depth/position
+or arbitrary affine shifts. Countable stability is used only for packing
+dimension. Assouad bound concerns one fixed infinite family, not E*.
+The rate is a limsup upper bound, without optimality claim. E* != E2;
+no assertion excluding the prescribed point1 is made.
+
+The complete mathematical arguments identified above are included in the
+public section. No unpublished development note or private chat is invoked
+in place of a proof, and none is needed to build the article. Earlier
+dimension-selection reviews informed preparation; they are provenance,
+not substitutes for the completed final_generalized_review.txt review.
+For question attribution and release-wide scope, see source_question_map.txt
+and README.md in this directory. These are internal agent reviews, not
+external peer review or a worldwide-priority determination.

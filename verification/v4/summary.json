@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "scope": "Finite exact identities and finite combinatorial audits; not formal verification of dimension theorems.",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "results": [
+    {
+      "program": "code/v4/generalized/check.py",
+      "returncode": 0,
+      "sha256": "85e27d7cfddd0337105e7b05fb083b0848986b94903ee38d07b90f0e1da18b8c",
+      "reports": [
+        "verification/v4/generalized_CHECKS.json"
+      ]
+    },
+    {
+      "program": "code/v4/capacity/check.py",
+      "returncode": 0,
+      "sha256": "83c9b1593a905faff5171f7b597b4cd9c9f96a7b904875640a04282b96c7556a",
+      "reports": [
+        "verification/v4/capacity_REFINEMENT_CHECKS.json"
+      ]
+    },
+    {
+      "program": "code/v4/coding/check.py",
+      "returncode": 0,
+      "sha256": "3042702354293485747b74c6f794113b828fdc1c2a30b8da270aa6ed1a321ae7",
+      "reports": [
+        "verification/v4/coding_A03_CODING_CHECKS.json"
+      ]
+    },
+    {
+      "program": "code/v4/generic/check.py",
+      "returncode": 0,
+      "sha256": "105eb50268e355a94d92c2913d32aedc75ca8194c82e75371c2e28c37c9d1e1e",
+      "reports": [
+        "verification/v4/generic_EXACT_CHECKS.json"
+      ]
+    },
+    {
+      "program": "code/v4/circle/check.py",
+      "returncode": 0,
+      "sha256": "310e50f9b981835dea95574149aac92bbdc8dd3f1633692ee86e3bdce6ab31b4",
+      "reports": [
+        "verification/v4/circle_CHECKS.json"
+      ]
+    }
+  ]
+}

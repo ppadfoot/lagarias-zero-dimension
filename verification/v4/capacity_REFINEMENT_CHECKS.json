@@ -1,0 +1,11 @@
+{
+  "all_assertions_passed": true,
+  "restricted_alphabet_maximal_partner_checks": 124758,
+  "capacity_maxima": {
+    "1": 4,
+    "2": 8,
+    "3": 16
+  },
+  "affine_exact_rational_identities": 10000,
+  "limitations": "Finite tests complement the proofs; not formal verification."
+}

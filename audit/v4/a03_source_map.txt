@@ -1,0 +1,63 @@
+Version 4 source map: exact typical intersections and uniform parameter geometry
+Author of the manuscript: Timofei Iuzhakov.
+
+Public source file: paper/typical_intersections.tex.
+Main labels:
+ typical:section
+ typical:main -- four exact dimensions on H=1+3Z_3, trivial other unit class
+ typical:l2 -- exact averaged second moment and L2 density
+ typical:positive -- positivity conditional on absolute continuity
+ typical:entropy-limit -- exact affine entropy limit
+ typical:block-measure -- fresh-parameter-block transfer to homogeneous fiber
+ typical:canonical-measure -- exact dimension of the full-support fair measure
+ typical:golden-gap -- all-unit isometric embedding and sharp Assouad bound
+ typical:oscillation -- exact punctured limits at1
+
+Development provenance (identifiers, not public proof or build dependencies):
+ exact-Haar proof packet, 12 November 2026, sections 1--7;
+ A03 spectral-gap proof note, 12 November 2026;
+ generic-measure review, 12 November 2026.
+All substantive proof steps from these inputs are included in the public
+section; an unpublished note or private chat is not invoked instead of a proof.
+The canonical measure corollary uses the already-proved general block
+lemma with q=1, eliminating the need to duplicate its joint/Fubini proof.
+Earlier a_k lower estimates for the support are not restated as new results.
+
+The pre-integration dimension audit and second-round dimension review
+informed selection and preparation. The independent review of the final
+English section is now completed in final_typical_review.txt, which states
+its exact SHA256 and claim scope. These are internal AI-assisted checks,
+not external peer review. See source_question_map.txt and README.md here
+for the public source questions and release-wide scope.
+
+External attribution:
+ AL2014 = Abram--Lagarias, J.Fractal Geom.1(2014),349--390, Section2.4
+ poses the general parameter program; Theorems2.3/5.5 give the sharp
+ family C_(1+3^k) dimension. The value log_3(4/3) is not presented as
+ a separately numbered conjecture quoted from that source.
+ ABL = Abram--Bolshakov--Lagarias, Theorem6.2, supplies the integer
+ golden-bound digit-coding precedent. Our text explicitly identifies
+ the arbitrary3-adic/isometric/Assouad extension and excludes lambda=1.
+
+No additional global macros or bibliography keys are required. Existing
+macros Z, Sigma, dimH, dimP are used; lower/upper box and Assouad notation
+are spelled out locally. All labels carry the typical: prefix.
+
+Scope checks:
+ - H's normalized restricted Haar measure is distinguished from all units.
+ - No substitution beta=0 in an almost-everywhere-in-beta assertion.
+ - Joint fresh-block independence is followed by Fubini for fixed lambda.
+ - All block lengths and the entropy-limit set are intersected countably.
+ - Full-prefix identity handles initial zeros, without countable-box stability.
+ - No generic Assouad equality, rational-parameter consequence or406 claim.
+ - Golden-family lower dimension is attributed to AL2014.
+ - Final conjectural status of full spectrum/Baire parameters remains open.
+
+Author-side checks on 12 November2026:
+24 unique labels,20 resolved internal references, balanced theorem/proof
+environments and braces. The journal AL2014 PDF was opened anew;
+Section2.4 and Theorems2.3/5.5 were matched to the cited claims.
+No compile or visual-PDF claim is made by this source map. Those checks
+are recorded separately in the publication checklist. The full public
+proof and final review are sufficient to locate every assertion here;
+development identifiers are included solely as provenance.
